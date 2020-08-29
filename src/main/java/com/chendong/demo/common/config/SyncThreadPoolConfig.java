@@ -14,6 +14,8 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
+ * 异步线程的配置类
+ *
  * @author chendong
  * @date 2020/8/28 10:47 上午
  * To change this template use Appearance | Editor | File and Code
@@ -22,10 +24,10 @@ import java.util.concurrent.ThreadPoolExecutor;
 @Configuration
 @EnableAsync
 @Slf4j
-public class AppConfig implements AsyncConfigurer {
+public class SyncThreadPoolConfig implements AsyncConfigurer {
 
     private static void handleUncaughtException(Throwable a, Method b, Object... c) {
-        log.error("异步线程出错了 a->{},b->{},c->{}",
+        log.error(Thread.currentThread().getName() + "->线程出错了 a->{},b->{},c->{}",
                 a.toString(),
                 b.toString(),
                 Arrays.toString(c));
@@ -33,8 +35,7 @@ public class AppConfig implements AsyncConfigurer {
 
     @Override
     public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
-        AsyncUncaughtExceptionHandler handler = AppConfig::handleUncaughtException;
-        return handler;
+        return SyncThreadPoolConfig::handleUncaughtException;
     }
 
     @Bean("demoExecutor")
@@ -44,8 +45,7 @@ public class AppConfig implements AsyncConfigurer {
         executor.setCorePoolSize(10);
         executor.setMaxPoolSize(20);
         executor.setQueueCapacity(20);
-        executor.setThreadNamePrefix("chendong-thread-");
-
+        executor.setThreadNamePrefix("demoExecutor-thread-");
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
 
         return executor;

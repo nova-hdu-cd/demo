@@ -1,7 +1,8 @@
 package com.chendong.demo.dao;
 
 import com.chendong.demo.BaseTest;
-import com.chendong.demo.entity.XinyangUser;
+import com.chendong.demo.core.XinyangUserDao;
+import com.chendong.demo.domian.entity.XinyangUser;
 import org.junit.Test;
 import org.springframework.transaction.annotation.Transactional;
 

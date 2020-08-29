@@ -6,6 +6,9 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
+/**
+ * demo应用的启动类和入口
+ */
 @SpringBootApplication(scanBasePackages = "com.chendong.demo")
 @EnableAsync
 @EnableScheduling

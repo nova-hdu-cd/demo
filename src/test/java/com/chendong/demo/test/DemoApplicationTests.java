@@ -1,7 +1,7 @@
 package com.chendong.demo.test;
 
 import com.chendong.demo.BaseTest;
-import com.chendong.demo.common.dto.User;
+import com.chendong.demo.domian.entity.dto.User;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.junit.jupiter.api.Test;

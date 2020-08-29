@@ -14,6 +14,8 @@ import static springfox.documentation.builders.PathSelectors.regex;
 import static springfox.documentation.builders.RequestHandlerSelectors.withClassAnnotation;
 
 /**
+ * swagger的配置类
+ *
  * @author chendong
  * @date 2020/7/22 8:06 下午
  * To change this template use Appearance | Editor | File and Code

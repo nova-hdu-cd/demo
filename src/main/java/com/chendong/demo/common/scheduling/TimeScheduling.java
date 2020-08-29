@@ -1,7 +1,7 @@
 package com.chendong.demo.common.scheduling;
 
 import com.chendong.demo.common.async.AsyncTask;
-import com.chendong.demo.common.constants.DateFormatConstant;
+import com.chendong.demo.common.constants.DomeConstant;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -26,7 +26,7 @@ public class TimeScheduling {
 
     @Scheduled(initialDelay = 1000, fixedRate = 5000)
     public void reportCurTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(DateFormatConstant.HH_MM_SS);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DomeConstant.HH_MM_SS);
         String name = Thread.currentThread().getName();
         System.out.println(name + "现在的时间是：" + dateFormat.format(new Date()));
     }

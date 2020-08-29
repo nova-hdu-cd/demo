@@ -1,6 +1,6 @@
-package com.chendong.demo.dao;
+package com.chendong.demo.core;
 
-import com.chendong.demo.entity.XinyangUser;
+import com.chendong.demo.domian.entity.XinyangUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 

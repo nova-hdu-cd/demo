@@ -1,4 +1,4 @@
-package com.chendong.demo.common.domain;
+package com.chendong.demo.domian.entity;
 
 import lombok.Builder;
 import lombok.Data;

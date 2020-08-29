@@ -1,4 +1,4 @@
-package com.chendong.demo.entity;
+package com.chendong.demo.domian.entity;
 
 import java.io.Serializable;
 

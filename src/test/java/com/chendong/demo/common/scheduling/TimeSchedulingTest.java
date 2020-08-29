@@ -1,6 +1,6 @@
 package com.chendong.demo.common.scheduling;
 
-import com.chendong.demo.common.constants.DateFormatConstant;
+import com.chendong.demo.common.constants.DomeConstant;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 
 class TimeSchedulingTest {
     @Mock
-    SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(DateFormatConstant.HH_MM_SS);
+    SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(DomeConstant.HH_MM_SS);
     @InjectMocks
     TimeScheduling timeScheduling;
 

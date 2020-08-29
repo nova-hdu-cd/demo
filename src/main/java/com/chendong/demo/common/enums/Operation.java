@@ -1,4 +1,4 @@
-package com.chendong.demo.enums;
+package com.chendong.demo.common.enums;
 
 import static java.lang.System.out;
 

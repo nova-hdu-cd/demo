@@ -1,4 +1,4 @@
-package com.chendong.demo.common.dto;
+package com.chendong.demo.domian.entity.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

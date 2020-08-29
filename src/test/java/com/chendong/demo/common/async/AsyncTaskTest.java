@@ -1,7 +1,7 @@
 package com.chendong.demo.common.async;
 
-import com.chendong.demo.common.dto.Student;
 import com.chendong.demo.common.scheduling.TimeScheduling;
+import com.chendong.demo.domian.entity.dto.Student;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
