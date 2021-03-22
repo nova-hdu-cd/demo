@@ -6,6 +6,9 @@ import com.chendong.demo.common.enums.TicketStatusEnum;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.TreeSet;
+import java.util.concurrent.Executor;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * @author chendong
@@ -39,6 +42,7 @@ public class DemoHelper {
         int[] src = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
         int[] dest = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 
+        //把src数组的0-src.length复制到dest去
         System.arraycopy(src, 0, dest, 0, src.length);
 
         System.out.println(Arrays.toString(dest));
@@ -56,6 +60,13 @@ public class DemoHelper {
 
         //大顶堆
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>((o1, o2) -> o2 - o1);
+
+        ExecutorService executorService = Executors.newCachedThreadPool();
+        executorService.execute(()->{
+            System.out.println("hello world");
+        });
+        executorService.shutdown();
+
 
     }
 

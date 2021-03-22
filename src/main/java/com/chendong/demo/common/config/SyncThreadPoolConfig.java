@@ -1,6 +1,7 @@
 package com.chendong.demo.common.config;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,8 +24,9 @@ import java.util.concurrent.ThreadPoolExecutor;
  */
 @Configuration
 @EnableAsync
-@Slf4j
 public class SyncThreadPoolConfig implements AsyncConfigurer {
+
+    private static final Logger log = LoggerFactory.getLogger(SyncThreadPoolConfig.class);
 
     private static void handleUncaughtException(Throwable a, Method b, Object... c) {
         log.error(Thread.currentThread().getName() + "->线程出错了 a->{},b->{},c->{}",
@@ -41,6 +43,7 @@ public class SyncThreadPoolConfig implements AsyncConfigurer {
     @Bean("demoExecutor")
     public Executor demoExecutor() {
 
+        //线程池的具体配置
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
         executor.setCorePoolSize(10);
         executor.setMaxPoolSize(20);

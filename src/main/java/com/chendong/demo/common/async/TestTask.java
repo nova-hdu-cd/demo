@@ -1,10 +1,12 @@
 package com.chendong.demo.common.async;
 
+import com.chendong.demo.common.utils.NumberUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
 
-import java.util.Random;
 import java.util.concurrent.Future;
 
 /**
@@ -16,24 +18,33 @@ import java.util.concurrent.Future;
  * Templates.
  */
 @Component
-public class AsyncTask {
+public class TestTask {
 
-    private static final Random RANDOM_NUMBER = new Random();
+    private static NumberUtil numberUtil = null;
+
+    private static final Logger log = LoggerFactory.getLogger(TestTask.class);
+
+    static {
+        numberUtil = new NumberUtil();
+    }
 
     @Async("demoExecutor")
     public void doTaskFour() {
         //int a = 1 / 0;
-        System.out.println(Thread.currentThread().getName() + "----->" + "didi !");
+        log.info(Thread.currentThread().getName() + "----->" + "didi !");
     }
 
     @Async("demoExecutor")
     public Future<String> doTaskOne() throws InterruptedException {
         String name = Thread.currentThread().getName();
-        System.out.println(name + "--->" + "开始做任务1");
+        log.info(name + "--->" + "开始做任务1");
+
         long start = System.currentTimeMillis();
-        Thread.sleep(RANDOM_NUMBER.nextInt(1000));
+        Thread.sleep(numberUtil.getRandomNumber(1000));
         long end = System.currentTimeMillis();
-        System.out.println(name + "--->" + "完成任务1，需要的时间：" + (end - start) + "毫秒");
+
+        log.info(name + "--->" + "完成任务1，需要的时间：" + (end - start) + "毫秒");
+
         return new AsyncResult<>(name + "任务1完成");
     }
 
@@ -42,7 +53,7 @@ public class AsyncTask {
         String name = Thread.currentThread().getName();
         System.out.println(name + "--->" + "开始做任务2");
         long start = System.currentTimeMillis();
-        Thread.sleep(RANDOM_NUMBER.nextInt(1000));
+        Thread.sleep(numberUtil.getRandomNumber(1000));
         long end = System.currentTimeMillis();
         System.out.println(name + "--->" + "完成任务2，需要的时间：" + (end - start) + "毫秒");
         return new AsyncResult<>(name + "任务2完成");
@@ -53,7 +64,7 @@ public class AsyncTask {
         String name = Thread.currentThread().getName();
         System.out.println(name + "--->" + "开始做任务3");
         long start = System.currentTimeMillis();
-        Thread.sleep(RANDOM_NUMBER.nextInt(1000));
+        Thread.sleep(numberUtil.getRandomNumber(1000));
         long end = System.currentTimeMillis();
         System.out.println(name + "--->" + "完成任务3，需要的时间：" + (end - start) + "毫秒");
         return new AsyncResult<>(name + "任务3完成");

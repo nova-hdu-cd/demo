@@ -1,7 +1,9 @@
 package com.chendong.demo.common.scheduling;
 
-import com.chendong.demo.common.async.AsyncTask;
+import com.chendong.demo.common.async.TestTask;
 import com.chendong.demo.common.constants.DomeConstant;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -21,19 +23,25 @@ import java.util.concurrent.Future;
 @Component
 public class TimeScheduling {
 
-    @Resource
-    private AsyncTask asyncTask;
+    private static final Logger log = LoggerFactory.getLogger(TimeScheduling.class);
 
+    @Resource
+    private TestTask testTask;
+
+    /**
+     * 定时播报当前时间
+     */
     @Scheduled(initialDelay = 1000, fixedRate = 5000)
     public void reportCurTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(DomeConstant.HH_MM_SS);
+        String nowTime = dateFormat.format(new Date());
         String name = Thread.currentThread().getName();
-        System.out.println(name + "现在的时间是：" + dateFormat.format(new Date()));
+        log.info("线程:" + name + ",现在的时间是：" + nowTime);
     }
 
     @Scheduled(initialDelay = 2000, fixedRate = 10000)
     public void showCurrentThread() {
-        asyncTask.doTaskFour();
+        testTask.doTaskFour();
     }
 
     @Scheduled(initialDelay = 3000, fixedDelay = 10000)
@@ -41,9 +49,9 @@ public class TimeScheduling {
         long start = System.currentTimeMillis();
 
         //三个任务异步执行
-        Future<String> t1 = asyncTask.doTaskOne();
-        Future<String> t2 = asyncTask.doTaskTwo();
-        Future<String> t3 = asyncTask.doTaskThree();
+        Future<String> t1 = testTask.doTaskOne();
+        Future<String> t2 = testTask.doTaskTwo();
+        Future<String> t3 = testTask.doTaskThree();
 
         //等待执行完成后，再继续执行
         while (true) {
@@ -52,7 +60,7 @@ public class TimeScheduling {
             }
         }
         long end = System.currentTimeMillis();
-        System.out.println(Thread.currentThread().getName() + "--->" + "所有的任务完成，耗时为：" + (end - start) + "毫秒");
+        log.info(Thread.currentThread().getName() + "--->" + "所有的任务完成，耗时为：" + (end - start) + "毫秒");
     }
 
 }

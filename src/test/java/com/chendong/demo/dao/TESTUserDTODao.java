@@ -2,7 +2,7 @@ package com.chendong.demo.dao;
 
 import com.chendong.demo.BaseTest;
 import com.chendong.demo.core.XinyangUserDao;
-import com.chendong.demo.domian.entity.XinyangUser;
+import com.chendong.demo.core.entity.XinyangUser;
 import org.junit.Test;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -15,7 +15,7 @@ import javax.annotation.Resource;
  * Templates.
  */
 @Transactional
-public class TESTUserDao extends BaseTest {
+public class TESTUserDTODao extends BaseTest {
 
     @Resource
     private XinyangUserDao xinyangUserDao;

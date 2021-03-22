@@ -1,24 +1,24 @@
 package com.chendong.demo.common.async;
 
 import com.chendong.demo.common.scheduling.TimeScheduling;
-import com.chendong.demo.domian.entity.dto.Student;
+import com.chendong.demo.controller.dto.TicketDTO;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import javax.annotation.Resource;
 import java.util.concurrent.Future;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-class AsyncTaskTest {
+class TestTaskTest {
 
-    @Autowired
-    private AsyncTask task;
+    @Resource
+    private TestTask task;
 
-    @Autowired
+    @Resource
     private TimeScheduling timeScheduling;
 
     @Test
@@ -45,8 +45,8 @@ class AsyncTaskTest {
 
     @Test
     void test2() {
-        Student student = Student.builder().id("sx294").name("chendong").sex(1).build();
-        System.out.println(student);
+//        TicketDTO ticketDTO = TicketDTO.builder().id("sx294").name("chendong").sex(1).build();
+//        System.out.println(ticketDTO);
     }
 
     @Test

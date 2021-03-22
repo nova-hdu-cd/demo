@@ -1,7 +1,7 @@
 package com.chendong.demo.service;
 
-import com.chendong.demo.service.request.HelloReq;
-import com.chendong.demo.service.request.IndexReq;
+import com.chendong.demo.service.request.HelloRequest;
+import com.chendong.demo.service.request.IndexRequest;
 
 /**
  * @author chendong
@@ -14,11 +14,11 @@ public interface IHelloService {
      * @param req
      * @return
      */
-    String index(IndexReq req);
+    String returnName(IndexRequest req);
 
     /**
      * @param req
      * @return
      */
-    String hello(HelloReq req);
+    String hello(HelloRequest req);
 }

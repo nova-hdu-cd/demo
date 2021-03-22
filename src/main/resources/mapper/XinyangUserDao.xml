@@ -2,7 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chendong.demo.core.XinyangUserDao">
 
-    <resultMap type="com.chendong.demo.domian.entity.XinyangUser" id="XinyangUserMap">
+    <!--
+    Java对象和数据库表的映射关系
+    -->
+    <resultMap type="com.chendong.demo.core.entity.XinyangUser" id="XinyangUserMap">
         <result property="id" column="id" jdbcType="OTHER"/>
         <result property="uid" column="uid" jdbcType="VARCHAR"/>
         <result property="uname" column="uname" jdbcType="VARCHAR"/>
@@ -12,10 +15,42 @@
         <result property="city" column="city" jdbcType="VARCHAR"/>
     </resultMap>
 
+    <!--
+    重用sql片段
+    -->
+    <sql id="columns">
+        id
+        , uid, uname, sex, mobile, nation, city
+    </sql>
+
+    <sql id="querySet">
+        <if test="id != null">
+            and id = #{id}
+        </if>
+        <if test="uid != null and uid != ''">
+            and uid = #{uid}
+        </if>
+        <if test="uname != null and uname != ''">
+            and uname = #{uname}
+        </if>
+        <if test="sex != null">
+            and sex = #{sex}
+        </if>
+        <if test="mobile != null and mobile != ''">
+            and mobile = #{mobile}
+        </if>
+        <if test="nation != null and nation != ''">
+            and nation = #{nation}
+        </if>
+        <if test="city != null and city != ''">
+            and city = #{city}
+        </if>
+    </sql>
+
     <!--查询单个-->
     <select id="queryById" resultMap="XinyangUserMap">
         select
-          id, uid, uname, sex, mobile, nation, city
+        <include refid="columns"/>
         from xinyang.xinyang_user
         where id = #{id}
     </select>
@@ -23,7 +58,7 @@
     <!--查询指定行数据-->
     <select id="queryAllByLimit" resultMap="XinyangUserMap">
         select
-          id, uid, uname, sex, mobile, nation, city
+        <include refid="columns"/>
         from xinyang.xinyang_user
         limit #{offset}, #{limit}
     </select>
@@ -31,30 +66,11 @@
     <!--通过实体作为筛选条件查询-->
     <select id="queryAll" resultMap="XinyangUserMap">
         select
-        id, uid, uname, sex, mobile, nation, city
+        <include refid="columns"/>
         from xinyang.xinyang_user
+        <!-- where可以自动去掉条件中的第一个and-->
         <where>
-            <if test="id != null">
-                and id = #{id}
-            </if>
-            <if test="uid != null and uid != ''">
-                and uid = #{uid}
-            </if>
-            <if test="uname != null and uname != ''">
-                and uname = #{uname}
-            </if>
-            <if test="sex != null">
-                and sex = #{sex}
-            </if>
-            <if test="mobile != null and mobile != ''">
-                and mobile = #{mobile}
-            </if>
-            <if test="nation != null and nation != ''">
-                and nation = #{nation}
-            </if>
-            <if test="city != null and city != ''">
-                and city = #{city}
-            </if>
+            <include refid="querySet"/>
         </where>
     </select>
 
@@ -64,9 +80,7 @@
         values (#{uid}, #{uname}, #{sex}, #{mobile}, #{nation}, #{city})
     </insert>
 
-    <!--通过主键修改数据-->
-    <update id="update">
-        update xinyang.xinyang_user
+    <sql id="sets">
         <set>
             <if test="uid != null and uid != ''">
                 uid = #{uid},
@@ -87,6 +101,12 @@
                 city = #{city},
             </if>
         </set>
+    </sql>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update xinyang.xinyang_user
+        <include refid="sets"/>
         where id = #{id}
     </update>
 

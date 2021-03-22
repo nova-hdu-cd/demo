@@ -1,7 +1,7 @@
 package com.chendong.demo.service.impl
 
-import com.chendong.demo.service.request.HelloReq
-import com.chendong.demo.service.request.IndexReq
+import com.chendong.demo.service.request.HelloRequest
+import com.chendong.demo.service.request.IndexRequest
 import spock.lang.Specification
 
 class HelloServiceImplTest extends Specification {
@@ -9,7 +9,7 @@ class HelloServiceImplTest extends Specification {
 
     def "test index"() {
         given:
-        IndexReq req1 = new IndexReq("chendong", "male", "13526267562")
+        IndexRequest req1 = new IndexRequest("chendong", "male", "13526267562")
 
         when:
         String result = helloServiceImpl.index(req1)
@@ -20,7 +20,7 @@ class HelloServiceImplTest extends Specification {
 
     def "test hello"() {
         when:
-        String result = helloServiceImpl.hello(new HelloReq())
+        String result = helloServiceImpl.hello(new HelloRequest())
 
         then:
         result == "replaceMeWithExpectedResult"

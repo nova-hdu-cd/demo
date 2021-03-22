@@ -1,4 +1,4 @@
-package com.chendong.demo.domian.entity;
+package com.chendong.demo.core.entity;
 
 import java.io.Serializable;
 
@@ -94,4 +94,16 @@ public class XinyangUser implements Serializable {
         this.city = city;
     }
 
+    @Override
+    public String toString() {
+        return "XinyangUser{" +
+                "id=" + id +
+                ", uid='" + uid + '\'' +
+                ", uname='" + uname + '\'' +
+                ", sex=" + sex +
+                ", mobile='" + mobile + '\'' +
+                ", nation='" + nation + '\'' +
+                ", city='" + city + '\'' +
+                '}';
+    }
 }

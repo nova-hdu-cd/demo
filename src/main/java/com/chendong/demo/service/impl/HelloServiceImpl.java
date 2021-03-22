@@ -1,8 +1,8 @@
 package com.chendong.demo.service.impl;
 
 import com.chendong.demo.service.IHelloService;
-import com.chendong.demo.service.request.HelloReq;
-import com.chendong.demo.service.request.IndexReq;
+import com.chendong.demo.service.request.HelloRequest;
+import com.chendong.demo.service.request.IndexRequest;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,12 +16,12 @@ public class HelloServiceImpl implements IHelloService {
 
 
     @Override
-    public String index(IndexReq req) {
+    public String returnName(IndexRequest req) {
         return req.getName() + "\n" + " hello world !";
     }
 
     @Override
-    public String hello(HelloReq req) {
+    public String hello(HelloRequest req) {
         return null;
     }
 }

@@ -1,50 +1,74 @@
 package com.chendong.demo.common.utils;
 
-import lombok.Data;
-
 /**
+ * 构建者模式
+ *
  * @author chendong
  * @date 2020/8/21 2:56 下午
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
-@Data
 public class DemoUtils {
 
     private String version;
     private String name;
     private String type;
 
-
     private DemoUtils() {
     }
 
-    public boolean checkNumber() {
-        return false;
+    @Override
+    public String toString() {
+        return "DemoUtils{" +
+                "version='" + version + '\'' +
+                ", name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                '}';
     }
 
-    public static final class DemoUtilsBuilder {
+    /**
+     * 静态内部类Builder的属性与外部类一样,并提供一个build方法,对外
+     * 提供构造外部对象
+     */
+    public static class Builder {
 
-        private static DemoUtils demoUtils = new DemoUtils();
+        private String version;
+        private String name;
+        private String type;
 
-        public DemoUtilsBuilder withVersion(String version) {
-            demoUtils.setVersion(version);
+        public Builder() {}
+
+        public Builder withVersion(String version) {
+            this.version = version;
             return this;
         }
 
-        public DemoUtilsBuilder withName(String name) {
-            demoUtils.setVersion(name);
+        public Builder withName(String name) {
+            this.name = name;
             return this;
         }
 
-        public DemoUtilsBuilder withType(String type) {
-            demoUtils.setVersion(type);
+        public Builder withType(String type) {
+            this.type = type;
             return this;
         }
-        
+
+        public DemoUtils build() {
+            DemoUtils utils = new DemoUtils();
+            utils.name = name;
+            utils.type = type;
+            utils.version = version;
+            return utils;
+        }
+
     }
 
     public static void main(String[] args) {
+        Builder builder = new Builder();
+        DemoUtils demoUtils = builder.withName("tool").withType("game").withVersion("1.00").build();
+        System.out.println(demoUtils);
+
     }
 
 }
+
