@@ -12,10 +12,10 @@ import java.util.concurrent.Future;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
-class TestTaskTest {
+class TestTaskTestAsync {
 
     @Resource
-    private TestTask task;
+    private TestAsyncTask task;
 
     @Resource
     private TimeScheduling timeScheduling;

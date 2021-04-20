@@ -1,6 +1,6 @@
 package com.chendong.demo.common.scheduling;
 
-import com.chendong.demo.common.async.TestTask;
+import com.chendong.demo.common.async.TestAsyncTask;
 import com.chendong.demo.common.constants.DomeConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +26,7 @@ public class TimeScheduling {
     private static final Logger log = LoggerFactory.getLogger(TimeScheduling.class);
 
     @Resource
-    private TestTask testTask;
+    private TestAsyncTask testAsyncTask;
 
     /**
      * 定时播报当前时间
@@ -44,7 +44,7 @@ public class TimeScheduling {
      */
     @Scheduled(initialDelay = 2000, fixedRate = 10000)
     public void showCurrentThread() {
-        testTask.doTaskFour();
+        testAsyncTask.doTaskFour();
     }
 
     /**
@@ -55,9 +55,9 @@ public class TimeScheduling {
         long start = System.currentTimeMillis();
 
         //三个任务异步执行
-        Future<String> t1 = testTask.doTaskOne();
-        Future<String> t2 = testTask.doTaskTwo();
-        Future<String> t3 = testTask.doTaskThree();
+        Future<String> t1 = testAsyncTask.doTaskOne();
+        Future<String> t2 = testAsyncTask.doTaskTwo();
+        Future<String> t3 = testAsyncTask.doTaskThree();
 
         //等待执行完成后，再继续执行
         while (true) {

@@ -18,11 +18,11 @@ import java.util.concurrent.Future;
  * Templates.
  */
 @Component
-public class TestTask {
+public class TestAsyncTask {
 
     private static final NumberUtil numberUtil = new NumberUtil();
 
-    private static final Logger log = LoggerFactory.getLogger(TestTask.class);
+    private static final Logger log = LoggerFactory.getLogger(TestAsyncTask.class);
 
     @Async("demoExecutor")
     public void doTaskFour() {
