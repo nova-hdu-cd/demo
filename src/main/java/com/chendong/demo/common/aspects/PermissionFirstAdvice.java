@@ -1,4 +1,4 @@
-package com.chendong.demo.aspects;
+package com.chendong.demo.common.aspects;
 
 import com.alibaba.fastjson.JSONObject;
 import org.aspectj.lang.ProceedingJoinPoint;

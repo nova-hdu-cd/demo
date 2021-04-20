@@ -51,22 +51,26 @@ public class TestTask {
     @Async("demoExecutor")
     public Future<String> doTaskTwo() throws InterruptedException {
         String name = Thread.currentThread().getName();
-        System.out.println(name + "--->" + "开始做任务2");
+        log.info(name + "--->" + "开始做任务2");
+
         long start = System.currentTimeMillis();
         Thread.sleep(numberUtil.getRandomNumber(1000));
         long end = System.currentTimeMillis();
-        System.out.println(name + "--->" + "完成任务2，需要的时间：" + (end - start) + "毫秒");
+
+        log.info(name + "--->" + "完成任务2，需要的时间：" + (end - start) + "毫秒");
         return new AsyncResult<>(name + "任务2完成");
     }
 
     @Async("demoExecutor")
     public Future<String> doTaskThree() throws InterruptedException {
         String name = Thread.currentThread().getName();
-        System.out.println(name + "--->" + "开始做任务3");
+        log.info(name + "--->" + "开始做任务3");
+
         long start = System.currentTimeMillis();
         Thread.sleep(numberUtil.getRandomNumber(1000));
         long end = System.currentTimeMillis();
-        System.out.println(name + "--->" + "完成任务3，需要的时间：" + (end - start) + "毫秒");
+
+        log.info(name + "--->" + "完成任务3，需要的时间：" + (end - start) + "毫秒");
         return new AsyncResult<>(name + "任务3完成");
     }
 
