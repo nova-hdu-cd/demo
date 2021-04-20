@@ -7,6 +7,7 @@ import com.chendong.demo.service.request.IndexRequest;
 import com.chendong.demo.service.responce.IndexResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -29,6 +30,8 @@ public class HelloController {
 
         //2.业务过程
         String returnName = helloService.returnName(req);
+
+        Assert.isNull(returnName, "returnName为空!!!");
 
         //3..返回参数封装
         IndexResponse response = new IndexResponse();
