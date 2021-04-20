@@ -48,7 +48,7 @@ public class SyncThreadPoolConfig implements AsyncConfigurer {
         executor.setCorePoolSize(10);
         executor.setMaxPoolSize(20);
         executor.setQueueCapacity(20);
-        executor.setThreadNamePrefix("demoExecutor-thread-");
+        executor.setThreadNamePrefix("demoExecutor-");
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
 
         return executor;

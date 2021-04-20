@@ -20,13 +20,9 @@ import java.util.concurrent.Future;
 @Component
 public class TestTask {
 
-    private static NumberUtil numberUtil = null;
+    private static final NumberUtil numberUtil = new NumberUtil();
 
     private static final Logger log = LoggerFactory.getLogger(TestTask.class);
-
-    static {
-        numberUtil = new NumberUtil();
-    }
 
     @Async("demoExecutor")
     public void doTaskFour() {
@@ -35,12 +31,13 @@ public class TestTask {
     }
 
     @Async("demoExecutor")
-    public Future<String> doTaskOne() throws InterruptedException {
+    public Future<String> doTaskOne() {
+
         String name = Thread.currentThread().getName();
         log.info(name + "--->" + "开始做任务1");
 
         long start = System.currentTimeMillis();
-        Thread.sleep(numberUtil.getRandomNumber(1000));
+
         long end = System.currentTimeMillis();
 
         log.info(name + "--->" + "完成任务1，需要的时间：" + (end - start) + "毫秒");
@@ -49,12 +46,12 @@ public class TestTask {
     }
 
     @Async("demoExecutor")
-    public Future<String> doTaskTwo() throws InterruptedException {
+    public Future<String> doTaskTwo() {
         String name = Thread.currentThread().getName();
         log.info(name + "--->" + "开始做任务2");
 
         long start = System.currentTimeMillis();
-        Thread.sleep(numberUtil.getRandomNumber(1000));
+        //Thread.sleep(numberUtil.getRandomNumber(2000));
         long end = System.currentTimeMillis();
 
         log.info(name + "--->" + "完成任务2，需要的时间：" + (end - start) + "毫秒");
@@ -62,12 +59,12 @@ public class TestTask {
     }
 
     @Async("demoExecutor")
-    public Future<String> doTaskThree() throws InterruptedException {
+    public Future<String> doTaskThree() {
         String name = Thread.currentThread().getName();
         log.info(name + "--->" + "开始做任务3");
 
         long start = System.currentTimeMillis();
-        Thread.sleep(numberUtil.getRandomNumber(1000));
+        //Thread.sleep(numberUtil.getRandomNumber(3000));
         long end = System.currentTimeMillis();
 
         log.info(name + "--->" + "完成任务3，需要的时间：" + (end - start) + "毫秒");
