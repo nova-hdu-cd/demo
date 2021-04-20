@@ -13,7 +13,7 @@ import java.util.Date;
 import java.util.concurrent.Future;
 
 /**
- * corn Spring 定时任务调度
+ * 引入corn Spring 定时任务调度
  *
  * @author chendong
  * @date 2020/6/26 10:39 上午
@@ -39,11 +39,17 @@ public class TimeScheduling {
         log.info("线程:" + name + ",现在的时间是：" + nowTime);
     }
 
+    /**
+     * 异步任务四
+     */
     @Scheduled(initialDelay = 2000, fixedRate = 10000)
     public void showCurrentThread() {
         testTask.doTaskFour();
     }
 
+    /**
+     * 等待三个异步任务执行完
+     */
     @Scheduled(initialDelay = 3000, fixedDelay = 10000)
     public void waitingForOtherTask() {
         long start = System.currentTimeMillis();
