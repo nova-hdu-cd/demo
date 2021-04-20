@@ -45,7 +45,7 @@ public class TimeScheduling {
     }
 
     @Scheduled(initialDelay = 3000, fixedDelay = 10000)
-    public void waitingForOtherTask() throws InterruptedException {
+    public void waitingForOtherTask() {
         long start = System.currentTimeMillis();
 
         //三个任务异步执行
