@@ -19,7 +19,8 @@ public class LogAdvice {
 
     @Before("logAdvicePointCut()")
     public void logAdvice() {
-        LOGGER.info("aop 切面触发了!");
+        LOGGER.info("===============aop切面,开始触发了!=====================");
+        LOGGER.info("===============aop切面,结束触发了!=====================");
     }
 
 }
