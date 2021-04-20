@@ -3,17 +3,21 @@ package com.chendong.demo.core.entity;
 import java.io.Serializable;
 
 /**
- * (XinyangUser)实体类
+ * 实体类
  *
  * @author chendong
  * @since 2020-08-20 17:16:50
  */
 public class XinyangUser implements Serializable {
+
     private static final long serialVersionUID = -33024825038346176L;
 
+    /**
+     * 主键id
+     */
     private Long id;
     /**
-     * 业务主键id
+     * 业务id
      */
     private String uid;
     /**
@@ -23,7 +27,7 @@ public class XinyangUser implements Serializable {
     /**
      * 用户性别 1:男 2:女
      */
-    private Object sex;
+    private Integer sex;
     /**
      * 用户手机号
      */
@@ -37,6 +41,18 @@ public class XinyangUser implements Serializable {
      */
     private String city;
 
+    public XinyangUser() {
+    }
+
+    public XinyangUser(Long id, String uid, String uname, Integer sex, String mobile, String nation, String city) {
+        this.id = id;
+        this.uid = uid;
+        this.uname = uname;
+        this.sex = sex;
+        this.mobile = mobile;
+        this.nation = nation;
+        this.city = city;
+    }
 
     public Long getId() {
         return id;
@@ -62,11 +78,11 @@ public class XinyangUser implements Serializable {
         this.uname = uname;
     }
 
-    public Object getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(Object sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 

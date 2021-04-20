@@ -1,7 +1,6 @@
 package com.chendong.demo.common.async;
 
 import com.chendong.demo.common.scheduling.TimeScheduling;
-import com.chendong.demo.controller.dto.TicketDTO;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

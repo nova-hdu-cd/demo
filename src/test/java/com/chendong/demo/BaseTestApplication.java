@@ -10,10 +10,12 @@ import org.springframework.context.annotation.PropertySource;
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
-@SpringBootApplication(scanBasePackages = "com.chendong.demo.dao")
+@SpringBootApplication(scanBasePackages = "com.chendong.demo")
 @PropertySource("classpath:application.properties")
 public class BaseTestApplication {
+
     public static void main(String[] args) {
         SpringApplication.run(BaseTestApplication.class, args);
     }
+
 }

@@ -1,24 +1,53 @@
 package com.chendong.demo.dao;
 
 import com.chendong.demo.BaseTest;
+import com.chendong.demo.common.pojo.Dog;
+import com.chendong.demo.common.pojo.Person;
+import com.chendong.demo.common.pojo.TestA;
 import com.chendong.demo.core.XinyangUserDao;
 import com.chendong.demo.core.entity.XinyangUser;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 
 /**
+ * Dao类测试 BaseTest BaseApplication
+ *
  * @author chendong
  * @date 2020/8/20 3:40 下午
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
 @Transactional
-public class TESTUserDTODao extends BaseTest {
+public class TestDao extends BaseTest {
+
+    private static final Logger log = LoggerFactory.getLogger(TestDao.class);
+
+    @Resource
+    private Person person;
+
+    @Resource
+    private Dog dog;
 
     @Resource
     private XinyangUserDao xinyangUserDao;
+
+    @Resource
+    private TestA testA;
+
+    @Test
+    public void test() {
+        log.info("打印出信息:{}", person);
+    }
+
+    @Test
+    public void say() {
+        String s = testA.say();
+        log.info("===============测试:====================" + s);
+    }
 
     @Test
     public void testInsert() {

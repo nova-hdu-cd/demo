@@ -1,0 +1,57 @@
+#person配置类
+person:
+  name: chendong
+  age: 27
+  lists: [ cat,dog,person ]
+  lists1:
+    - cat
+    - dog
+    - person
+  maps: { k1: v1,k2: v2 }
+  dog:
+    name: xiaohuang
+
+debug: false
+
+#默认服务端口号
+server:
+  port: 8080
+
+#日志级别
+logging:
+  level:
+    root: info
+
+#mybatis配置
+mybatis:
+  type-aliases-package: com.chendong.demo.dao
+  mapper-locations: classpath:mapper/*.xml
+
+#mysql配置
+spring:
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/xinyang?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: 123
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  #thymeleaf配置
+  thymeleaf:
+    prefix: classpath:/templates/
+
+
+
+---
+#开发环境配置
+server:
+  port: 8081
+spring:
+  profiles: dev
+
+---
+#测试环境配置
+server:
+  port: 8082
+spring:
+  profiles: test
