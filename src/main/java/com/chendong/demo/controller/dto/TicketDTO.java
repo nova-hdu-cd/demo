@@ -1,9 +1,6 @@
 package com.chendong.demo.controller.dto;
 
-import lombok.Builder;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NonNull;
+import lombok.*;
 
 /**
  * @author chendong
@@ -14,6 +11,8 @@ import lombok.NonNull;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class TicketDTO extends BaseDTO {
 
     private String name;

@@ -11,6 +11,7 @@ import java.io.Serializable;
  */
 public class Response implements Serializable {
 
+    private static final long serialVersionUID = 8814405497036160685L;
     /**
      * 返回状态码
      */
