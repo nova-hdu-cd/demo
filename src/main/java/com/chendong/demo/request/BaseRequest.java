@@ -5,10 +5,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public abstract class BaseRequest<T> {
+import java.io.Serializable;
+
+/**
+ * @author dong.chen
+ */
+public class BaseRequest implements Serializable {
 
     /**
      * 请求uuid
@@ -21,29 +23,40 @@ public abstract class BaseRequest<T> {
     private String projectId;
 
     /**
-     * 业务id
-     */
-    private String clientEntryId;
-
-    /**
-     * unisocId
-     */
-    private String unisocId;
-
-    /**
      * 请求名字
      */
     private String name;
 
-    /**
-     * 请求权限
-     */
-    private String nameSpace;
+    public String getUuid() {
+        return uuid;
+    }
 
-    /**
-     * 自定义请求参数
-     */
-    private T reqParams;
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
 
+    public String getProjectId() {
+        return projectId;
+    }
 
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseRequest{" +
+                "uuid='" + uuid + '\'' +
+                ", projectId='" + projectId + '\'' +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

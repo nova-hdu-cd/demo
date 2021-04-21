@@ -1,5 +1,6 @@
 package com.chendong.demo.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.chendong.demo.common.anotations.PermissionAnnotation;
 import com.chendong.demo.common.anotations.ResponseResult;
 import com.chendong.demo.common.pojo.Dog;
@@ -20,7 +21,6 @@ import javax.annotation.Resource;
  * @author dong.chen
  */
 @RestController
-@ResponseResult//注意返回String的大坑，返回不能是String
 @RequestMapping(value = "/api/1.0/test")
 public class HelloController {
 
@@ -29,6 +29,7 @@ public class HelloController {
     @Resource
     private IHelloService helloService;
 
+    @ResponseResult//注意返回String的大坑，返回不能是String
     @GetMapping("/index")
     public Dog index() {
         Dog dog = new Dog();
@@ -55,9 +56,9 @@ public class HelloController {
     }
 
     @PermissionAnnotation
-    @RequestMapping(value = "/hello", method = RequestMethod.POST)
-    public String hello(@RequestBody BaseRequest<String> request) {
-        log.info("请求参数->{}", request);
+    @PostMapping("/request")
+    public String hello(@RequestBody BaseRequest request) {
+        log.info("请求参数->{}", request.toString());
         return "{\"message\":\"SUCCESS\",\"code\":200}";
     }
 

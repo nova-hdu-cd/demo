@@ -8,11 +8,15 @@ package com.chendong.demo.common.constants;
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
-public class DomeConstant {
+public class DemoConstant {
 
     /**
      * 时、分、秒 - 时间格式
      */
     public static final String HH_MM_SS = "HH-mm-ss";
 
+    /**
+     * 空字符
+     */
+    public static final String BLANK_STRING = " ";
 }

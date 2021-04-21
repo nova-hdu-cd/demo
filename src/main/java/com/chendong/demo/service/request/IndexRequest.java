@@ -8,7 +8,7 @@ import com.chendong.demo.request.BaseRequest;
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
-public class IndexRequest extends BaseRequest<String> {
+public class IndexRequest extends BaseRequest {
 
     private String uname;
 

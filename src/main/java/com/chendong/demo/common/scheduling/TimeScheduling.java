@@ -1,7 +1,7 @@
 package com.chendong.demo.common.scheduling;
 
 import com.chendong.demo.common.async.TestAsyncTask;
-import com.chendong.demo.common.constants.DomeConstant;
+import com.chendong.demo.common.constants.DemoConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -33,7 +33,7 @@ public class TimeScheduling {
      */
     @Scheduled(initialDelay = 1000, fixedRate = 5000)
     public void reportCurTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(DomeConstant.HH_MM_SS);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DemoConstant.HH_MM_SS);
         String nowTime = dateFormat.format(new Date());
         String name = Thread.currentThread().getName();
         log.info("线程:" + name + ",现在的时间是：" + nowTime);

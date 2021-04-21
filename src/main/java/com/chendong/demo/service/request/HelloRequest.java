@@ -8,7 +8,7 @@ import com.chendong.demo.request.BaseRequest;
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
-public class HelloRequest extends BaseRequest<String> {
+public class HelloRequest extends BaseRequest {
 
     private String name;
 
