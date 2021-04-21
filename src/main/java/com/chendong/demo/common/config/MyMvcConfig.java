@@ -1,5 +1,6 @@
 package com.chendong.demo.common.config;
 
+import com.chendong.demo.common.intercepter.ResponseResultIntercepter;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -28,6 +29,11 @@ public class MyMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+
+        //注册ResponseResultIntercepter拦截器
+        registry.addInterceptor(new ResponseResultIntercepter())
+                .addPathPatterns("/**")//拦截所有url
+                .excludePathPatterns("/", "/error", "/static/**");//排除部分url
 
     }
 

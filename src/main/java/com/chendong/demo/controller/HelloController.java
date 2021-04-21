@@ -1,6 +1,8 @@
 package com.chendong.demo.controller;
 
 import com.chendong.demo.common.anotations.PermissionAnnotation;
+import com.chendong.demo.common.anotations.ResponseResult;
+import com.chendong.demo.common.pojo.Dog;
 import com.chendong.demo.request.BaseRequest;
 import com.chendong.demo.response.Response;
 import com.chendong.demo.service.IHelloService;
@@ -12,7 +14,13 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
+/**
+ * 基本的controller
+ *
+ * @author dong.chen
+ */
 @RestController
+@ResponseResult//注意返回String的大坑，返回不能是String
 @RequestMapping(value = "/api/1.0/test")
 public class HelloController {
 
@@ -20,6 +28,13 @@ public class HelloController {
 
     @Resource
     private IHelloService helloService;
+
+    @GetMapping("/index")
+    public Dog index() {
+        Dog dog = new Dog();
+        dog.setName("xiaohuang");
+        return dog;
+    }
 
     @RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
     public Response returnName(@PathVariable String name) {

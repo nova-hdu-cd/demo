@@ -1,10 +1,6 @@
 package com.chendong.demo.response;
 
 import com.chendong.demo.common.enums.ResultCode;
-import com.fasterxml.jackson.databind.ser.Serializers;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
@@ -88,7 +84,7 @@ public class Response implements Serializable {
     /**
      * 成功返回
      *
-     * @param data
+     * @param data 数据
      * @return
      */
     public static Response success(Object data) {
@@ -107,7 +103,7 @@ public class Response implements Serializable {
     /**
      * 失败返回
      *
-     * @param data
+     * @param data 数据
      * @return
      */
     public static Response fail(Object data) {
