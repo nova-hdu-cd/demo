@@ -26,7 +26,7 @@ public class HelloController {
 
         //1.请求参数包装
         IndexRequest req = new IndexRequest();
-        req.setName(name);
+        req.setUname(name);
 
         //2.业务过程
         String returnName = helloService.returnName(req);

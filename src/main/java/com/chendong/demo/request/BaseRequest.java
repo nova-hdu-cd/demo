@@ -2,15 +2,24 @@ package com.chendong.demo.request;
 
 public class BaseRequest<T> {
 
-    //请求id
+    /**
+     * 请求id
+     */
     private String id;
 
-    //请求名字
+    /**
+     * 请求名字
+     */
     private String name;
 
-    //请求权限
+    /**
+     * 请求权限
+     */
     private String nameSpace;
 
+    /**
+     * 自定义请求参数
+     */
     private T requestValue;
 
     public T getRequestValue() {
@@ -41,8 +50,8 @@ public class BaseRequest<T> {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setName(String uname) {
+        this.name = uname;
     }
 
     @Override

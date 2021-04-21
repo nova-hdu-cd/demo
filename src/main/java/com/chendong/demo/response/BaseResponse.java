@@ -2,10 +2,14 @@ package com.chendong.demo.response;
 
 public class BaseResponse<T> {
 
-    //返回内容
+    /**
+     * 返回内容
+     */
     private T resp;
 
-    //返回条数
+    /**
+     * 返回条数
+     */
     private int totalNum;
 
     public int getTotalNum() {

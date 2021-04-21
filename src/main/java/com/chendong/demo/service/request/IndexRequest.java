@@ -10,18 +10,18 @@ import com.chendong.demo.request.BaseRequest;
  */
 public class IndexRequest extends BaseRequest<String> {
 
-    private String name;
+    private String uname;
 
     private String sex;
 
     private String phone;
 
-    public String getName() {
-        return name;
+    public String getUname() {
+        return uname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUname(String uname) {
+        this.uname = uname;
     }
 
     public String getSex() {
@@ -42,8 +42,8 @@ public class IndexRequest extends BaseRequest<String> {
 
     @Override
     public String toString() {
-        return "IndexReq{" +
-                "name='" + name + '\'' +
+        return "IndexRequest{" +
+                "uName='" + uname + '\'' +
                 ", sex='" + sex + '\'' +
                 ", phone='" + phone + '\'' +
                 '}';

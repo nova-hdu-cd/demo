@@ -12,12 +12,12 @@ public class HelloRequest extends BaseRequest<String> {
 
     private String name;
 
-    public String getName() {
+    public String getUname() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUname(String uname) {
+        this.name = uname;
     }
 
     @Override

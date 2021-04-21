@@ -26,6 +26,9 @@ logging:
 mybatis:
   type-aliases-package: com.chendong.demo.dao
   mapper-locations: classpath:mapper/*.xml
+  #驼峰映射
+  configuration:
+    map-underscore-to-camel-case: true
 
 #mysql配置
 spring:

@@ -17,7 +17,7 @@ public class HelloServiceImpl implements IHelloService {
 
     @Override
     public String returnName(IndexRequest req) {
-        return req.getName() + "\n" + " hello world !";
+        return req.getUname() + "\n" + " hello world !";
     }
 
     @Override
