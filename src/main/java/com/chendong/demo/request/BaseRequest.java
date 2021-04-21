@@ -1,11 +1,34 @@
 package com.chendong.demo.request;
 
-public class BaseRequest<T> {
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public abstract class BaseRequest<T> {
 
     /**
-     * 请求id
+     * 请求uuid
      */
-    private String id;
+    private String uuid;
+
+    /**
+     * projectId
+     */
+    private String projectId;
+
+    /**
+     * 业务id
+     */
+    private String clientEntryId;
+
+    /**
+     * unisocId
+     */
+    private String unisocId;
 
     /**
      * 请求名字
@@ -20,47 +43,7 @@ public class BaseRequest<T> {
     /**
      * 自定义请求参数
      */
-    private T requestValue;
+    private T reqParams;
 
-    public T getRequestValue() {
-        return requestValue;
-    }
 
-    public void setRequestValue(T requestValue) {
-        this.requestValue = requestValue;
-    }
-
-    public String getNameSpace() {
-        return nameSpace;
-    }
-
-    public void setNameSpace(String nameSpace) {
-        this.nameSpace = nameSpace;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String uname) {
-        this.name = uname;
-    }
-
-    @Override
-    public String toString() {
-        return "BaseRequest{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", nameSpace='" + nameSpace + '\'' +
-                ", requestValue=" + requestValue +
-                '}';
-    }
 }
