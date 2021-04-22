@@ -52,10 +52,10 @@ public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
                                   Class<? extends HttpMessageConverter<?>> aClass,
                                   ServerHttpRequest serverHttpRequest,
                                   ServerHttpResponse serverHttpResponse) {
-        LOGGER.info("进入返回体 重写格式 处理中。。。。。。");
+        LOGGER.info("进入返回体，正常包装处理中。。。。。。");
 
         if (body instanceof ResponseError) {
-            LOGGER.info("返回值 异常 作包装 处理中。。。。。。");
+            LOGGER.info("进入返回体，异常包装处理中。。。。。。");
             return Response.fail(body);
         }
         return Response.success(body);

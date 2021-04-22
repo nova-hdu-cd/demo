@@ -1,6 +1,8 @@
 package com.chendong.demo.controller.dto;
 
 /**
+ * 用户DTO
+ *
  * @author chendong
  * @date 2020/6/5 9:47 上午
  * To change this template use Appearance | Editor | File and Code

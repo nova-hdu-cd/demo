@@ -3,6 +3,8 @@ package com.chendong.demo.controller.dto;
 import lombok.*;
 
 /**
+ * 工单DTO
+ *
  * @author chendong
  * @date 2020/7/21 10:15 上午
  * To change this template use Appearance | Editor | File and Code

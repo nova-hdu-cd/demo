@@ -4,8 +4,8 @@ import com.chendong.demo.BaseTest;
 import com.chendong.demo.common.pojo.Dog;
 import com.chendong.demo.common.pojo.Person;
 import com.chendong.demo.common.pojo.TestA;
-import com.chendong.demo.core.XinyangUserDao;
-import com.chendong.demo.core.entity.XinyangUser;
+import com.chendong.demo.core.XingUserDao;
+import com.chendong.demo.core.entity.XingUserDO;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,7 +33,7 @@ public class TestDao extends BaseTest {
     private Dog dog;
 
     @Resource
-    private XinyangUserDao xinyangUserDao;
+    private XingUserDao xingUserDao;
 
     @Resource
     private TestA testA;
@@ -52,7 +52,7 @@ public class TestDao extends BaseTest {
     @Test
     public void testInsert() {
 
-        XinyangUser userDO = new XinyangUser();
+        XingUserDO userDO = new XingUserDO();
         userDO.setUid("1");
         userDO.setUname("jjj");
         userDO.setMobile("12345678901");
@@ -60,20 +60,20 @@ public class TestDao extends BaseTest {
         userDO.setCity("hangzhou");
         userDO.setSex(1);
 
-        int insert = xinyangUserDao.insert(userDO);
+        int insert = xingUserDao.insert(userDO);
         assert insert > 0;
     }
 
     @Test
     public void testDelete() {
 
-        int insert = xinyangUserDao.deleteById(6);
+        int insert = xingUserDao.deleteById(6);
         assert insert > 0;
     }
 
     @Test
     public void testUpdate() {
-        XinyangUser userDO = new XinyangUser();
+        XingUserDO userDO = new XingUserDO();
         userDO.setId(8l);
         userDO.setUid("1");
         userDO.setUname("lll");
@@ -81,7 +81,7 @@ public class TestDao extends BaseTest {
         userDO.setNation("china");
         userDO.setCity("hangzhou");
         userDO.setSex(1);
-        int update = xinyangUserDao.update(userDO);
+        int update = xingUserDao.update(userDO);
         assert update > 0;
     }
 

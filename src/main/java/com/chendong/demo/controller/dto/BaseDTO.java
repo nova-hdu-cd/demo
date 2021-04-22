@@ -1,8 +1,15 @@
 package com.chendong.demo.controller.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+/**
+ * 基本DTO
+ */
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class BaseDTO {
 
     /**

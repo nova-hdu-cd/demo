@@ -2,8 +2,8 @@ package com.chendong.demo.test;
 
 import com.chendong.demo.BaseTest;
 import com.chendong.demo.controller.dto.UserDTO;
-import com.chendong.demo.core.XinyangUserDao;
-import com.chendong.demo.core.entity.XinyangUser;
+import com.chendong.demo.core.XingUserDao;
+import com.chendong.demo.core.entity.XingUserDO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class DemoApplicationTests extends BaseTest {
     private static final Logger log = LoggerFactory.getLogger(DemoApplicationTests.class);
 
     @Resource
-    private XinyangUserDao xinyangUserDao;
+    private XingUserDao xingUserDao;
 
     @Test
     public void contextLoads() {
@@ -60,22 +60,22 @@ public class DemoApplicationTests extends BaseTest {
 
     @Test
     public void testXinyangUserDemo() {
-        XinyangUser xinyangUser = new XinyangUser();
-        xinyangUser.setUid("181040070");
-        xinyangUser.setUname("lihong");
-        xinyangUser.setSex(0);
-        xinyangUser.setMobile("15151515151");
-        xinyangUser.setNation("henna");
-        xinyangUser.setCity("shanghai");
+        XingUserDO xingUserDO = new XingUserDO();
+        xingUserDO.setUid("181040070");
+        xingUserDO.setUname("lihong");
+        xingUserDO.setSex(0);
+        xingUserDO.setMobile("15151515151");
+        xingUserDO.setNation("henna");
+        xingUserDO.setCity("shanghai");
 
-        int num = xinyangUserDao.insert(xinyangUser);
+        int num = xingUserDao.insert(xingUserDO);
         assert num > 0;
     }
 
     @Test
     public void selectAll() {
-        XinyangUser xinyangUser = xinyangUserDao.queryById(2);
-        log.info("=====================\n" + xinyangUser + "\n-=================");
+        XingUserDO xingUserDO = xingUserDao.queryById(2);
+        log.info("=====================\n" + xingUserDO + "\n-=================");
     }
 
 }

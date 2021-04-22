@@ -1,8 +1,5 @@
 package com.chendong.demo.common.enums;
 
-/**
- *
- */
 public enum KunlunTicketStatus {
     /**
      * 未处理

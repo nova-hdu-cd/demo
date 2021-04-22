@@ -1,6 +1,9 @@
 package com.chendong.demo.core.entity;
 
-import com.chendong.demo.core.entity.BaseDO;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 /**
  * 用户信息DO
@@ -10,6 +13,10 @@ import com.chendong.demo.core.entity.BaseDO;
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
+@EqualsAndHashCode(callSuper = true)
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserDO extends BaseDO {
 
     /**
@@ -32,45 +39,4 @@ public class UserDO extends BaseDO {
      */
     private String no;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getNo() {
-        return no;
-    }
-
-    public void setNo(String no) {
-        this.no = no;
-    }
-
-    @Override
-    public String toString() {
-        return "UserDO{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", sex='" + sex + '\'' +
-                ", no='" + no + '\'' +
-                '}';
-    }
 }

@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author chendong
  * @since 2020-08-20 17:16:50
  */
-public class XinyangUser implements Serializable {
+public class XingUserDO extends BaseDO implements Serializable {
 
     private static final long serialVersionUID = -33024825038346176L;
 
@@ -41,17 +41,8 @@ public class XinyangUser implements Serializable {
      */
     private String city;
 
-    public XinyangUser() {
-    }
-
-    public XinyangUser(Long id, String uid, String uname, Integer sex, String mobile, String nation, String city) {
-        this.id = id;
-        this.uid = uid;
-        this.uname = uname;
-        this.sex = sex;
-        this.mobile = mobile;
-        this.nation = nation;
-        this.city = city;
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
     public Long getId() {
@@ -108,18 +99,5 @@ public class XinyangUser implements Serializable {
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    @Override
-    public String toString() {
-        return "XinyangUser{" +
-                "id=" + id +
-                ", uid='" + uid + '\'' +
-                ", uname='" + uname + '\'' +
-                ", sex=" + sex +
-                ", mobile='" + mobile + '\'' +
-                ", nation='" + nation + '\'' +
-                ", city='" + city + '\'' +
-                '}';
     }
 }

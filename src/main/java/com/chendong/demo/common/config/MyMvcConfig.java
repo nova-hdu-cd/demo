@@ -9,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 自定义mvc配置类接管springMVC
+ * @author dong.chen
  */
 @Configuration
 //@EnableWebMvc //这个注解会使得springmvc的自动配置失效,注意配置的favicon失效了

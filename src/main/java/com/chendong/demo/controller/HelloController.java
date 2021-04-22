@@ -5,7 +5,7 @@ import com.chendong.demo.common.anotations.PermissionAnnotation;
 import com.chendong.demo.common.anotations.ResponseResult;
 import com.chendong.demo.common.exception.ResponseError;
 import com.chendong.demo.common.pojo.Dog;
-import com.chendong.demo.request.BaseRequest;
+import com.chendong.demo.request.Request;
 import com.chendong.demo.response.Response;
 import com.chendong.demo.service.IHelloService;
 import com.chendong.demo.service.request.IndexRequest;
@@ -77,7 +77,7 @@ public class HelloController {
 
     @PermissionAnnotation
     @PostMapping("/request")
-    public String hello(@RequestBody BaseRequest request) {
+    public String hello(@RequestBody Request request) {
         log.info("HelloController.hello的request请求参数->{}", JSON.toJSON(request));
         return "{\"message\":\"SUCCESS\",\"code\":200}";
     }

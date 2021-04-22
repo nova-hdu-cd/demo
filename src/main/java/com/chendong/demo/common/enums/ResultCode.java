@@ -1,5 +1,7 @@
 package com.chendong.demo.common.enums;
 
+
+
 public enum ResultCode {
 
     /**

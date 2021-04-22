@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.chendong.demo.core.XinyangUserDao">
+<mapper namespace="com.chendong.demo.core.XingUserDao">
 
     <!--
     Java对象和数据库表的映射关系
     -->
-    <resultMap type="com.chendong.demo.core.entity.XinyangUser" id="XinyangUserMap">
+    <resultMap type="com.chendong.demo.core.entity.XingUserDO" id="XinyangUserMap">
         <result property="id" column="id" jdbcType="OTHER"/>
         <result property="uid" column="uid" jdbcType="VARCHAR"/>
         <result property="uname" column="uname" jdbcType="VARCHAR"/>
