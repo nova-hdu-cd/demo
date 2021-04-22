@@ -1,4 +1,4 @@
-package com.chendong.demo.common.enums;
+package com.chendong.demo.common.enums.global;
 
 
 

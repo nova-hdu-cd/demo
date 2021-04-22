@@ -1,6 +1,7 @@
 package com.chendong.demo.common.exception;
 
-import com.chendong.demo.common.enums.ResponseEnum;
+import com.chendong.demo.common.enums.global.ArgumentEnum;
+import com.chendong.demo.common.enums.global.ResponseEnum;
 import org.junit.Test;
 
 /**
@@ -14,20 +15,20 @@ import org.junit.Test;
  */
 public class TestException {
 
-
-
     @Test
-    public void test() {
-        String str = "ok";
-        ResponseEnum.BUSINESS_EXCEPTION.assertNotEmpty(str);
-    }
-
-    @Test
-    public void test1(){
-        Good good = new Good("huahua","111");
+    public void test1() {
+        Good good = new Good("huahua", "111");
         good = null;
 
         ResponseEnum.BUSINESS_USER_EXCEPTION.assertNotNull(good);
+    }
+
+    @Test
+    public void test2() {
+        String str1 = "{code:1,msg:2}";
+        String str2 = "{code:1,msg:2}";
+
+        ArgumentEnum.PARAMETER_FAILURE.assertEquals(str1, str2);
     }
 
 

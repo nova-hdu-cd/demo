@@ -1,6 +1,6 @@
 package com.chendong.demo.response;
 
-import com.chendong.demo.common.enums.ResultCode;
+import com.chendong.demo.common.enums.global.ResultCode;
 
 import java.io.Serializable;
 

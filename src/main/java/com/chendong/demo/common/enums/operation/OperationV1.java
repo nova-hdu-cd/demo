@@ -1,4 +1,4 @@
-package com.chendong.demo.common.enums;
+package com.chendong.demo.common.enums.operation;
 
 /**
  * @author chendong
@@ -6,7 +6,7 @@ package com.chendong.demo.common.enums;
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
-public enum OpeationV1 {
+public enum OperationV1 {
     /**
      * 加减乘除
      */
@@ -34,7 +34,7 @@ public enum OpeationV1 {
 
     private final String symbol;
 
-    OpeationV1(String symbol) {
+    OperationV1(String symbol) {
         this.symbol = symbol;
     }
 
@@ -53,8 +53,8 @@ public enum OpeationV1 {
         double res2 = TIMES.apply(1.0, 2.0);
         double res3 = DIVIDE.apply(1.0, 2.0);
         System.out.println(res0 + " " + res1 + " " + res2 + " " + res3);
-        System.out.println(OpeationV1.PLUS);
-        System.out.println(OpeationV1.PLUS.symbol);
+        System.out.println(OperationV1.PLUS);
+        System.out.println(OperationV1.PLUS.symbol);
     }
 
 }

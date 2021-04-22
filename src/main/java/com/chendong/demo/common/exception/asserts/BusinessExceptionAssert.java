@@ -1,6 +1,6 @@
 package com.chendong.demo.common.exception.asserts;
 
-import com.chendong.demo.common.enums.IResponseEnum;
+import com.chendong.demo.common.enums.global.IResponseEnum;
 import com.chendong.demo.common.exception.BaseException;
 import com.chendong.demo.common.exception.BusinessException;
 

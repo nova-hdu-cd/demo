@@ -1,7 +1,7 @@
 package com.chendong.demo.common.intercepter;
 
 import com.chendong.demo.common.anotations.ResponseResult;
-import com.chendong.demo.common.exception.ResponseError;
+import com.chendong.demo.response.ResponseError;
 import com.chendong.demo.response.Response;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

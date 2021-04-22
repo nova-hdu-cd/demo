@@ -1,12 +1,11 @@
 package com.chendong.demo.helper;
 
-import com.chendong.demo.common.enums.KunlunTicketStatus;
-import com.chendong.demo.common.enums.TicketStatusEnum;
+import com.chendong.demo.common.enums.ticket.KunlunTicketStatus;
+import com.chendong.demo.common.enums.ticket.TicketStatusEnum;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.TreeSet;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 

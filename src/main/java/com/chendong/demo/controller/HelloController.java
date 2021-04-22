@@ -3,7 +3,7 @@ package com.chendong.demo.controller;
 import com.alibaba.fastjson.JSON;
 import com.chendong.demo.common.anotations.PermissionAnnotation;
 import com.chendong.demo.common.anotations.ResponseResult;
-import com.chendong.demo.common.exception.ResponseError;
+import com.chendong.demo.response.ResponseError;
 import com.chendong.demo.common.pojo.Dog;
 import com.chendong.demo.request.Request;
 import com.chendong.demo.response.Response;

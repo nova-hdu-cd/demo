@@ -1,4 +1,4 @@
-package com.chendong.demo.common.exception;
+package com.chendong.demo.response;
 
 /**
  * 统一返回异常

@@ -1,6 +1,6 @@
 package com.chendong.demo.common.exception;
 
-import com.chendong.demo.common.enums.IResponseEnum;
+import com.chendong.demo.common.enums.global.IResponseEnum;
 
 /**
  * 基础异常类，所有自定义异常类都需要继承本类

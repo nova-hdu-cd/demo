@@ -1,4 +1,4 @@
-package com.chendong.demo.common.enums;
+package com.chendong.demo.common.enums.global;
 
 import com.chendong.demo.common.exception.asserts.BusinessExceptionAssert;
 
@@ -13,8 +13,10 @@ public enum ResponseEnum implements BusinessExceptionAssert {
     BUSINESS_EXCEPTION(10001, "系统异常"),
     BUSINESS_USER_EXCEPTION(10002, "用户异常"),
     BUSINESS_ROLE_EXCEPTION(10003, "角色异常"),
-    BUSINESS_DEPARTMENT_EXCEPTION(10004, "部门异常");
+    BUSINESS_DEPARTMENT_EXCEPTION(10004, "部门异常"),
 
+
+    ;
 
     /**
      * 异常码

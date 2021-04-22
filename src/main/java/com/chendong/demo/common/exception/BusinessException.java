@@ -1,9 +1,9 @@
 package com.chendong.demo.common.exception;
 
-import com.chendong.demo.common.enums.IResponseEnum;
+import com.chendong.demo.common.enums.global.IResponseEnum;
 
 /**
- * 自定义业务异常
+ * 业务异常
  *
  * @ClassName BusinessException
  * @Description: TODO
