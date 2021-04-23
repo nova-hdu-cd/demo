@@ -53,24 +53,7 @@
 
     <sql id="sets">
         <set>
-            <if test="uid != null and uid != ''">
-                uid = #{uid},
-            </if>
-            <if test="uname != null and uname != ''">
-                uname = #{uname},
-            </if>
-            <if test="sex != null">
-                sex = #{sex},
-            </if>
-            <if test="mobile != null and mobile != ''">
-                mobile = #{mobile},
-            </if>
-            <if test="nation != null and nation != ''">
-                nation = #{nation},
-            </if>
-            <if test="city != null and city != ''">
-                city = #{city},
-            </if>
+            <include refid="querySet"></include>
         </set>
     </sql>
 
