@@ -24,6 +24,13 @@ public class Dog {
         this.name = name;
     }
 
+    public Dog() {
+    }
+
+    public Dog(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "Dog{" +
