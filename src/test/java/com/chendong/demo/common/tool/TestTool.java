@@ -1,5 +1,6 @@
 package com.chendong.demo.common.tool;
 
+import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.crypto.SecureUtil;
 import cn.hutool.json.JSONConfig;
@@ -83,6 +84,12 @@ public class TestTool {
         Object wrap = JSONUtil.wrap(dog, new JSONConfig());
         LOGGER.info("wrap -> {}", wrap);
 
+        //对map进行排序
+        Map<String, String> map = new HashMap<>();
+        map.put("a", "chendong");
+        map.put("b", "zhangming");
+        TreeMap<String, String> sortedMap = MapUtil.sort(map);
+        LOGGER.info(" sortedMap -> {}", sortedMap);
 
     }
 
