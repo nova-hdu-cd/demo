@@ -37,7 +37,10 @@ public class HelloController {
      */
     @ResponseResult//注意返回String的大坑，返回不能是String
     @GetMapping("/index")
-    public Dog index() {
+    public Dog index(@RequestAttribute("demo-index") String value) {
+
+        log.info("request.value: -> {}", JSON.toJSONString(value));
+
         Dog dog = new Dog();
         dog.setName("xiaohuang");
         log.info("index.dog -> {}", JSON.toJSONString(dog));

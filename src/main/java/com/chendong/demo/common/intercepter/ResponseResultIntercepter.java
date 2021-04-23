@@ -29,6 +29,10 @@ public class ResponseResultIntercepter implements HandlerInterceptor {
             final HandlerMethod handlerMethod = (HandlerMethod) handler;
             final Class<?> type = handlerMethod.getBeanType();
             final Method method = handlerMethod.getMethod();
+
+            //向request中写入标识
+            request.setAttribute("demo-index", "sky-demo-sky-demo");
+
             //标识类和方法
             if (type.isAnnotationPresent(ResponseResult.class)) {
                 //在请求体中写入标识
