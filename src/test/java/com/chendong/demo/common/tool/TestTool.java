@@ -20,6 +20,7 @@ import java.util.*;
  * @Date 2021/4/23 11:18
  * @Version 1.0
  */
+@SuppressWarnings("all")
 public class TestTool {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TestTool.class);

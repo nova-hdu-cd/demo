@@ -2,27 +2,24 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chendong.demo.core.XingUserDao">
 
-    <!--
-    Java对象和数据库表的映射关系
-    -->
+    <!--Java对象和数据库表的映射关系-->
     <resultMap type="com.chendong.demo.core.entity.XingUserDO" id="XinyangUserMap">
-        <result property="id" column="id" jdbcType="OTHER"/>
-        <result property="uid" column="uid" jdbcType="VARCHAR"/>
-        <result property="uname" column="uname" jdbcType="VARCHAR"/>
-        <result property="sex" column="sex" jdbcType="OTHER"/>
-        <result property="mobile" column="mobile" jdbcType="VARCHAR"/>
-        <result property="nation" column="nation" jdbcType="VARCHAR"/>
-        <result property="city" column="city" jdbcType="VARCHAR"/>
+        <result property="id" column="id" javaType="long" jdbcType="BIGINT"/>
+        <result property="uid" column="uid" javaType="String" jdbcType="VARCHAR"/>
+        <result property="uname" column="uname" javaType="String" jdbcType="VARCHAR"/>
+        <result property="sex" column="sex" javaType="int" jdbcType="OTHER"/>
+        <result property="mobile" column="mobile" javaType="String" jdbcType="VARCHAR"/>
+        <result property="nation" column="nation" javaType="String" jdbcType="VARCHAR"/>
+        <result property="city" column="city" javaType="String" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <!--
-    重用sql片段
-    -->
+    <!--字段集合-->
     <sql id="columns">
         id
         , uid, uname, sex, mobile, nation, city
     </sql>
 
+    <!--查询字段集合 -->
     <sql id="querySet">
         <if test="id != null">
             and id = #{id}
@@ -47,38 +44,12 @@
         </if>
     </sql>
 
-    <!--查询单个-->
-    <select id="queryById" resultMap="XinyangUserMap">
-        select
-        <include refid="columns"/>
-        from xinyang.xinyang_user
-        where id = #{id}
-    </select>
-
-    <!--查询指定行数据-->
-    <select id="queryAllByLimit" resultMap="XinyangUserMap">
-        select
-        <include refid="columns"/>
-        from xinyang.xinyang_user
-        limit #{offset}, #{limit}
-    </select>
-
-    <!--通过实体作为筛选条件查询-->
-    <select id="queryAll" resultMap="XinyangUserMap">
-        select
-        <include refid="columns"/>
-        from xinyang.xinyang_user
-        <!-- where可以自动去掉条件中的第一个and-->
+    <!-- 条件集合-->
+    <sql id="conditions">
         <where>
-            <include refid="querySet"/>
+            <include refid="querySet"></include>
         </where>
-    </select>
-
-    <!--新增所有列-->
-    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into xinyang.xinyang_user(uid, uname, sex, mobile, nation, city)
-        values (#{uid}, #{uname}, #{sex}, #{mobile}, #{nation}, #{city})
-    </insert>
+    </sql>
 
     <sql id="sets">
         <set>
@@ -103,6 +74,39 @@
         </set>
     </sql>
 
+    <!--查询单个-->
+    <select id="queryById" resultMap="XinyangUserMap">
+        select
+        <include refid="columns"/>
+        from xinyang.xinyang_user
+        where id = #{id}
+    </select>
+
+    <!--分页查询数据-->
+    <select id="queryAllByLimit" resultMap="XinyangUserMap">
+        select
+        <include refid="columns"/>
+        from xinyang.xinyang_user
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="XinyangUserMap">
+        select
+        <include refid="columns"/>
+        from xinyang.xinyang_user
+        <!-- where可以自动去掉条件中的第一个and-->
+        <where>
+            <include refid="querySet"/>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into xinyang.xinyang_user(uid, uname, sex, mobile, nation, city)
+        values (#{uid}, #{uname}, #{sex}, #{mobile}, #{nation}, #{city})
+    </insert>
+
     <!--通过主键修改数据-->
     <update id="update">
         update xinyang.xinyang_user
@@ -112,7 +116,9 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from xinyang.xinyang_user where id = #{id}
+        delete
+        from xinyang.xinyang_user
+        where id = #{id}
     </delete>
 
 </mapper>

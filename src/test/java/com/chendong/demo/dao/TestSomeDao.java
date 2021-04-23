@@ -21,10 +21,10 @@ import javax.annotation.Resource;
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
-@Transactional
-public class TestDao extends BaseTest {
+@Transactional//使用事务，防止测试代码污染数据库
+public class TestSomeDao extends BaseTest {
 
-    private static final Logger log = LoggerFactory.getLogger(TestDao.class);
+    private static final Logger log = LoggerFactory.getLogger(TestSomeDao.class);
 
     @Resource
     private Person person;

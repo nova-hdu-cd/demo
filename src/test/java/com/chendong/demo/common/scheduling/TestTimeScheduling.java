@@ -9,7 +9,7 @@ import org.mockito.MockitoAnnotations;
 
 import java.text.SimpleDateFormat;
 
-class TimeSchedulingTest {
+class TestTimeScheduling {
     @Mock
     SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(DemoConstant.HH_MM_SS);
     @InjectMocks
