@@ -21,6 +21,11 @@ class TestTaskTestAsync {
     private TimeScheduling timeScheduling;
 
     @Test
+    void test4() throws InterruptedException{
+        task.taskForThreadLocal();
+    }
+
+    @Test
     void test() throws InterruptedException {
         long start = System.currentTimeMillis();
         Future<String> t1 = task.doTaskOne();

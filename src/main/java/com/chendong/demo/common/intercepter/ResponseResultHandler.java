@@ -1,8 +1,9 @@
 package com.chendong.demo.common.intercepter;
 
+import com.alibaba.fastjson.JSON;
 import com.chendong.demo.common.anotations.ResponseResult;
-import com.chendong.demo.response.ResponseError;
-import com.chendong.demo.response.Response;
+import com.chendong.demo.response.Resp;
+import com.chendong.demo.response.RespError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -50,14 +51,15 @@ public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
     @Override
     public Object beforeBodyWrite(Object body, MethodParameter methodParameter, MediaType mediaType,
                                   Class<? extends HttpMessageConverter<?>> aClass,
-                                  ServerHttpRequest serverHttpRequest,
-                                  ServerHttpResponse serverHttpResponse) {
-        LOGGER.info("进入返回体，正常包装处理中。。。。。。");
-
-        if (body instanceof ResponseError) {
-            LOGGER.info("进入返回体，异常包装处理中。。。。。。");
-            return Response.fail(body);
+                                  ServerHttpRequest req,
+                                  ServerHttpResponse resp) {
+        LOGGER.info("进入返回体，beforeBodyWrite正常包装处理中。。。。。。");
+        if (body instanceof RespError) {
+            LOGGER.info("进入返回体，beforeBodyWrite异常包装处理中。。。。。。");
+            LOGGER.info("beforeBodyWrite返回的方法体 body -> {}", JSON.toJSONString(body));
+            return Resp.fail(body);
         }
-        return Response.success(body);
+        LOGGER.info("beforeBodyWrite返回的方法体 body -> {}", JSON.toJSONString(body));
+        return Resp.success(body);
     }
 }

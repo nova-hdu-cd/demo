@@ -3,12 +3,12 @@ package com.chendong.demo.controller;
 import com.alibaba.fastjson.JSON;
 import com.chendong.demo.common.anotations.PermissionAnnotation;
 import com.chendong.demo.common.anotations.ResponseResult;
-import com.chendong.demo.response.ResponseError;
 import com.chendong.demo.common.pojo.Dog;
-import com.chendong.demo.request.Request;
-import com.chendong.demo.response.Response;
+import com.chendong.demo.request.Req;
+import com.chendong.demo.response.Resp;
+import com.chendong.demo.response.RespError;
 import com.chendong.demo.service.IHelloService;
-import com.chendong.demo.service.request.IndexRequest;
+import com.chendong.demo.service.request.IndexReq;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
@@ -40,6 +40,7 @@ public class HelloController {
     public Dog index() {
         Dog dog = new Dog();
         dog.setName("xiaohuang");
+        log.info("index.dog -> {}", JSON.toJSONString(dog));
         return dog;
     }
 
@@ -50,18 +51,18 @@ public class HelloController {
      */
     @ResponseResult
     @GetMapping("/err")
-    public ResponseError err() {
-        ResponseError responseError = new ResponseError();
-        responseError.setCode(-1);
-        responseError.setMessage("失败了");
-        return responseError;
+    public RespError err() {
+        RespError respError = new RespError();
+        respError.setCode(-1);
+        respError.setMessage("失败了");
+        return respError;
     }
 
     @RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
-    public Response returnName(@PathVariable String name) {
+    public Resp returnName(@PathVariable String name) {
 
         //1.请求参数包装
-        IndexRequest req = new IndexRequest();
+        IndexReq req = new IndexReq();
         req.setUname(name);
 
         //2.业务过程
@@ -70,15 +71,15 @@ public class HelloController {
         Assert.isNull(returnName, "returnName为空!!!");
 
         //3..返回参数封装
-        Response response = new Response();
+        Resp response = new Resp();
         response.setData(returnName);
         return response;
     }
 
     @PermissionAnnotation
     @PostMapping("/request")
-    public String hello(@RequestBody Request request) {
-        log.info("HelloController.hello的request请求参数->{}", JSON.toJSON(request));
+    public String hello(@RequestBody Req req) {
+        log.info("HelloController.hello的request请求参数->{}", JSON.toJSON(req));
         return "{\"message\":\"SUCCESS\",\"code\":200}";
     }
 

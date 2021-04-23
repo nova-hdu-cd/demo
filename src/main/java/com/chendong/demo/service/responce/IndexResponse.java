@@ -1,20 +1,44 @@
 package com.chendong.demo.service.responce;
 
 
-import com.chendong.demo.response.Response;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import com.chendong.demo.common.enums.global.ResultCode;
+import com.chendong.demo.response.Resp;
 
 /**
  * @author dong.chen
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class IndexResponse extends Response {
+public class IndexResponse extends Resp {
 
     private String id;
     private String uuid;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getUuid() {
+        return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
+    public IndexResponse(String id, String uuid) {
+        this.id = id;
+        this.uuid = uuid;
+    }
+
+    public IndexResponse() {
+    }
+
+    public IndexResponse(ResultCode resultCode, Object data, String id, String uuid) {
+        super(resultCode, data);
+        this.id = id;
+        this.uuid = uuid;
+    }
 }

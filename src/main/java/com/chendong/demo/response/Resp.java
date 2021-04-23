@@ -9,7 +9,7 @@ import java.io.Serializable;
  *
  * @author dong.chen
  */
-public class Response implements Serializable {
+public class Resp implements Serializable {
 
     private static final long serialVersionUID = 8814405497036160685L;
 
@@ -27,11 +27,6 @@ public class Response implements Serializable {
      * 返回内容
      */
     private Object data;
-
-    /**
-     * 返回条数
-     */
-    private int totalNum;
 
     public int getCode() {
         return code;
@@ -57,22 +52,14 @@ public class Response implements Serializable {
         this.data = data;
     }
 
-    public int getTotalNum() {
-        return totalNum;
-    }
-
-    public void setTotalNum(int totalNum) {
-        this.totalNum = totalNum;
-    }
-
-    public Response() {
+    public Resp() {
     }
 
     /**
      * @param resultCode 结果返回码
      * @param data       数据
      */
-    public Response(ResultCode resultCode, Object data) {
+    public Resp(ResultCode resultCode, Object data) {
         this.code = resultCode.code();
         this.message = resultCode.message();
         this.data = data;
@@ -89,15 +76,15 @@ public class Response implements Serializable {
      * @param data 数据
      * @return
      */
-    public static Response success(Object data) {
-        Response response = new Response();
+    public static Resp success(Object data) {
+        Resp response = new Resp();
         response.setCodeAndMessage(ResultCode.SUCCESS.code(), ResultCode.SUCCESS.message());
         response.setData(data);
         return response;
     }
 
-    public static Response success() {
-        Response response = new Response();
+    public static Resp success() {
+        Resp response = new Resp();
         response.setCodeAndMessage(ResultCode.SUCCESS.code(), ResultCode.SUCCESS.message());
         return response;
     }
@@ -108,15 +95,15 @@ public class Response implements Serializable {
      * @param data 数据
      * @return
      */
-    public static Response fail(Object data) {
-        Response response = new Response();
+    public static Resp fail(Object data) {
+        Resp response = new Resp();
         response.setCodeAndMessage(ResultCode.FAIL.code(), ResultCode.FAIL.message());
         response.setData(data);
         return response;
     }
 
-    public static Response fail() {
-        Response response = new Response();
+    public static Resp fail() {
+        Resp response = new Resp();
         response.setCodeAndMessage(ResultCode.FAIL.code(), ResultCode.FAIL.message());
         return response;
     }

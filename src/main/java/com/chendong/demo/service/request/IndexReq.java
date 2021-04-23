@@ -1,6 +1,6 @@
 package com.chendong.demo.service.request;
 
-import com.chendong.demo.request.Request;
+import com.chendong.demo.request.Req;
 
 /**
  * @author chendong
@@ -8,7 +8,7 @@ import com.chendong.demo.request.Request;
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
-public class IndexRequest extends Request {
+public class IndexReq extends Req {
 
     private String uname;
 

@@ -5,7 +5,7 @@ package com.chendong.demo.response;
  *
  * @author dong.chen
  */
-public class ResponseError {
+public class RespError {
 
     private int code;
     private String message;
@@ -35,12 +35,21 @@ public class ResponseError {
         this.data = data;
     }
 
-    public ResponseError() {
+    public RespError() {
     }
 
-    public ResponseError(int code, String message, Object data) {
+    public RespError(int code, String message, Object data) {
         this.code = code;
         this.message = message;
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return "RError{" +
+                "code=" + code +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                '}';
     }
 }
