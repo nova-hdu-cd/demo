@@ -24,8 +24,6 @@ public class IndexController {
         vo.setName("chendong");
         vo.setAge(26);
 
-        R<EmpVO> re = new R<>();
-        re.setData(vo);
-        return re;
+        return R.success(vo);
     }
 }

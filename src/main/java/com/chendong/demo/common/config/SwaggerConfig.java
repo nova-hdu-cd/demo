@@ -17,7 +17,7 @@ import static com.google.common.base.Predicates.not;
 import static springfox.documentation.builders.RequestHandlerSelectors.withClassAnnotation;
 
 /**
- * swagger的配置类
+ * swagger接口文档的配置类
  *
  * @author chendong
  * @date 2020/7/22 8:06 下午
@@ -56,7 +56,7 @@ public class SwaggerConfig {
 
     private ApiInfo testApiInfo() {
         return new ApiInfoBuilder().title("Demo项目接口文档")
-                .contact(new Contact("chendong", "www.unisoc.com", "chendong_hdu@163.com"))
+                .contact(new Contact("chendong", "hello world！", "chendong_hdu@163.com"))
                 .description("swagger动态生成的接口文档")
                 .termsOfServiceUrl("no terms of service")
                 .license("unisoc license")

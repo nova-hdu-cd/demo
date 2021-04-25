@@ -24,27 +24,27 @@ public class R<T> extends CommonResponse<T> {
     }
 
     public static <T> R success(T data) {
-        R r = new R();
+        R<T> r = new R<>();
         r.setCodeAndMessage(ResultCode.SUCCESS.code(), ResultCode.SUCCESS.message());
         r.setData(data);
         return r;
     }
 
-    public static R success() {
-        R response = new R();
+    public static <T> R success() {
+        R<T> response = new R<>();
         response.setCodeAndMessage(ResultCode.SUCCESS.code(), ResultCode.SUCCESS.message());
         return response;
     }
 
     public static <T> R fail(T data) {
-        R response = new R();
+        R<T> response = new R<>();
         response.setCodeAndMessage(ResultCode.FAIL.code(), ResultCode.FAIL.message());
         response.setData(data);
         return response;
     }
 
-    public static R fail() {
-        R response = new R();
+    public static <T> R fail() {
+        R<T> response = new R<>();
         response.setCodeAndMessage(ResultCode.FAIL.code(), ResultCode.FAIL.message());
         return response;
     }
