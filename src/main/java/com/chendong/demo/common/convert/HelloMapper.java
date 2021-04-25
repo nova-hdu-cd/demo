@@ -1,4 +1,4 @@
-package com.chendong.demo.convert;
+package com.chendong.demo.common.convert;
 
 import com.chendong.demo.controller.dto.TicketDTO;
 import com.chendong.demo.controller.dto.UserDTO;

@@ -4,11 +4,11 @@ import com.alibaba.fastjson.JSON;
 import com.chendong.demo.common.anotations.PermissionAnnotation;
 import com.chendong.demo.common.anotations.ResponseResult;
 import com.chendong.demo.common.pojo.Dog;
-import com.chendong.demo.request.Req;
-import com.chendong.demo.response.Resp;
-import com.chendong.demo.response.RespError;
+import com.chendong.demo.common.request.BaseReq;
+import com.chendong.demo.common.response.ErrorResp;
+import com.chendong.demo.common.response.R;
 import com.chendong.demo.service.IHelloService;
-import com.chendong.demo.service.request.IndexReq;
+import com.chendong.demo.service.request.IndexBaseReq;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
@@ -54,18 +54,18 @@ public class HelloController {
      */
     @ResponseResult
     @GetMapping("/err")
-    public RespError err() {
-        RespError respError = new RespError();
-        respError.setCode(-1);
-        respError.setMessage("失败了");
-        return respError;
+    public ErrorResp err() {
+        ErrorResp errorResp = new ErrorResp();
+        errorResp.setCode(-1);
+        errorResp.setMessage("失败了");
+        return errorResp;
     }
 
     @RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
-    public Resp returnName(@PathVariable String name) {
+    public R returnName(@PathVariable String name) {
 
         //1.请求参数包装
-        IndexReq req = new IndexReq();
+        IndexBaseReq req = new IndexBaseReq();
         req.setUname(name);
 
         //2.业务过程
@@ -74,15 +74,15 @@ public class HelloController {
         Assert.isNull(returnName, "returnName为空!!!");
 
         //3..返回参数封装
-        Resp response = new Resp();
+        R response = new R();
         response.setData(returnName);
         return response;
     }
 
     @PermissionAnnotation
     @PostMapping("/request")
-    public String hello(@RequestBody Req req) {
-        log.info("HelloController.hello的request请求参数->{}", JSON.toJSON(req));
+    public String hello(@RequestBody BaseReq baseReq) {
+        log.info("HelloController.hello的request请求参数->{}", JSON.toJSON(baseReq));
         return "{\"message\":\"SUCCESS\",\"code\":200}";
     }
 

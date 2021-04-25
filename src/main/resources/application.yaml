@@ -11,6 +11,7 @@ person:
   dog:
     name: xiaohuang
 
+#debug模式
 debug: false
 
 #默认服务端口号
@@ -32,18 +33,20 @@ mybatis:
 
 #mysql配置
 spring:
+  #环境配置
   profiles:
     active: dev
+
+    #数据库配置
   datasource:
     url: jdbc:mysql://localhost:3306/xinyang?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
     username: root
     password: 123
     driver-class-name: com.mysql.cj.jdbc.Driver
+
   #thymeleaf配置
   thymeleaf:
     prefix: classpath:/templates/
-
-
 
 ---
 #开发环境配置

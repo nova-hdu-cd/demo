@@ -1,11 +1,13 @@
-package com.chendong.demo.request;
+package com.chendong.demo.common.request;
 
 import java.io.Serializable;
 
 /**
+ * 统一请求基类
+ *
  * @author dong.chen
  */
-public class Req implements Serializable {
+public abstract class BaseReq implements Serializable {
 
     private static final long serialVersionUID = -981083822382133284L;
 
@@ -48,10 +50,10 @@ public class Req implements Serializable {
         this.name = name;
     }
 
-    public Req() {
+    public BaseReq() {
     }
 
-    public Req(String uuid, String projectId, String name) {
+    public BaseReq(String uuid, String projectId, String name) {
         this.uuid = uuid;
         this.projectId = projectId;
         this.name = name;

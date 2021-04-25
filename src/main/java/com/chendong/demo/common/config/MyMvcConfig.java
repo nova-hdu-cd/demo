@@ -9,6 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 自定义mvc配置类接管springMVC
+ *
  * @author dong.chen
  */
 @Configuration
@@ -31,10 +32,10 @@ public class MyMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 
-        //注册ResponseResultIntercepter拦截器
+        //注册统一返回拦截器
         registry.addInterceptor(new ResponseResultIntercepter())
                 .addPathPatterns("/**")//拦截所有url
-                .excludePathPatterns("/", "/error", "/static/**");//排除部分url
+                .excludePathPatterns("/", "/static/**");//排除部分url
 
     }
 

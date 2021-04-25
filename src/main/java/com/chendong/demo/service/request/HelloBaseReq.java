@@ -1,6 +1,6 @@
 package com.chendong.demo.service.request;
 
-import com.chendong.demo.request.Req;
+import com.chendong.demo.common.request.BaseReq;
 
 /**
  * @author chendong
@@ -8,7 +8,7 @@ import com.chendong.demo.request.Req;
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
-public class HelloReq extends Req {
+public class HelloBaseReq extends BaseReq {
 
     private String name;
 
