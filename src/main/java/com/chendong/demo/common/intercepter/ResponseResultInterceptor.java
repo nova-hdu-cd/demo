@@ -17,9 +17,9 @@ import java.lang.reflect.Method;
  * @author dong.chen
  */
 @Component
-public class ResponseResultIntercepter implements HandlerInterceptor {
+public class ResponseResultInterceptor implements HandlerInterceptor {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ResponseResultIntercepter.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ResponseResultInterceptor.class);
 
     private static final String RESPONSE_UNION_CODE = "RESPONSE_UNION_CODE";
 
@@ -29,10 +29,8 @@ public class ResponseResultIntercepter implements HandlerInterceptor {
             final HandlerMethod handlerMethod = (HandlerMethod) handler;
             final Class<?> type = handlerMethod.getBeanType();
             final Method method = handlerMethod.getMethod();
-
             //向request中写入标识
             request.setAttribute("demo-index", "sky-demo-sky-demo");
-
             //标识类和方法
             if (type.isAnnotationPresent(ResponseResult.class)) {
                 //在请求体中写入标识
