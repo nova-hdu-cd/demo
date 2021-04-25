@@ -1,9 +1,5 @@
 package com.chendong.demo.controller.vo;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 /**
  * 基本VO
  *
@@ -13,9 +9,6 @@ import lombok.NoArgsConstructor;
  * @Date 2021/4/22 9:56
  * @Version 1.0
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 public class BaseVO {
 
     /**
@@ -38,4 +31,55 @@ public class BaseVO {
      */
     private String unisocId;
 
+    public String getProjectId() {
+        return projectId;
+    }
+
+    public void setProjectId(String projectId) {
+        this.projectId = projectId;
+    }
+
+    public String getNamespace() {
+        return namespace;
+    }
+
+    public void setNamespace(String namespace) {
+        this.namespace = namespace;
+    }
+
+    public String getClientEntryId() {
+        return clientEntryId;
+    }
+
+    public void setClientEntryId(String clientEntryId) {
+        this.clientEntryId = clientEntryId;
+    }
+
+    public String getUnisocId() {
+        return unisocId;
+    }
+
+    public void setUnisocId(String unisocId) {
+        this.unisocId = unisocId;
+    }
+
+    public BaseVO() {
+    }
+
+    public BaseVO(String projectId, String namespace, String clientEntryId, String unisocId) {
+        this.projectId = projectId;
+        this.namespace = namespace;
+        this.clientEntryId = clientEntryId;
+        this.unisocId = unisocId;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseVO{" +
+                "projectId='" + projectId + '\'' +
+                ", namespace='" + namespace + '\'' +
+                ", clientEntryId='" + clientEntryId + '\'' +
+                ", unisocId='" + unisocId + '\'' +
+                '}';
+    }
 }
