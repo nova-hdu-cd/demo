@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 
 class TestTimeScheduling {
     @Mock
-    SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(DemoConstant.HH_MM_SS);
+    SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(DemoConstant.NOW_TIME_STR);
     @InjectMocks
     TimeScheduling timeScheduling;
 

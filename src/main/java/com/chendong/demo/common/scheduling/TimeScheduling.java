@@ -4,6 +4,7 @@ import com.chendong.demo.common.async.TestAsyncTask;
 import com.chendong.demo.common.constants.DemoConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -28,14 +29,20 @@ public class TimeScheduling {
     private TestAsyncTask testAsyncTask;
 
     /**
-     * 定时播报当前时间
+     * 定时播报当前服务器的时间
      */
-    //@Scheduled(initialDelay = 1000, fixedRate = 5000)
+    @Scheduled(cron = "${time.cron}")
     public void reportCurTime() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat(DemoConstant.HH_MM_SS);
+        SimpleDateFormat dateFormat = new SimpleDateFormat(DemoConstant.NOW_TIME_STR);
         String nowTime = dateFormat.format(new Date());
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            throw new RuntimeException("错误了");
+        }
         String name = Thread.currentThread().getName();
-        log.info("线程:" + name + ",现在的时间是：" + nowTime);
+        log.info("当前的线程为:" + name + ",现在的时间是：" + nowTime);
     }
 
     /**

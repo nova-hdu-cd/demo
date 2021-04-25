@@ -11,9 +11,9 @@ package com.chendong.demo.common.constants;
 public class DemoConstant {
 
     /**
-     * 时、分、秒 - 时间格式
+     * 年、月、日时、分、秒 - 时间格式
      */
-    public static final String HH_MM_SS = "HH-mm-ss";
+    public static final String NOW_TIME_STR = "yyyy-MM-dd HH:mm:ss";
 
     /**
      * 空字符
