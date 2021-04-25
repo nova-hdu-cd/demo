@@ -10,7 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
+//@SwaggerIgnore TODO 为啥失效了？
 public class IndexController {
+
 
     @GetMapping("/index")
     public String index() {
