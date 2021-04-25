@@ -1,18 +1,17 @@
 package com.chendong.demo.common.enums.global;
 
 
-
 public enum ResultCode {
 
     /**
      * 成功状态码
      */
-    SUCCESS(1, "请求成功"),
+    SUCCESS(200, "请求成功"),
 
     /***
      * 失败状态码
      */
-    FAIL(-1, "请求失败"),
+    FAIL(400, "请求失败"),
 
     /**
      * 参数错误：1001-1999

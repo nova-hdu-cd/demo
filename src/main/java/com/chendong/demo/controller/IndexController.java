@@ -1,5 +1,6 @@
 package com.chendong.demo.controller;
 
+import com.chendong.demo.common.anotations.ResponseResult;
 import com.chendong.demo.common.response.R;
 import com.chendong.demo.controller.vo.EmpVO;
 import org.springframework.stereotype.Controller;
@@ -16,14 +17,41 @@ public class IndexController {
         return "index";
     }
 
+    /**
+     * 第一种
+     *
+     * @param empVO
+     * @return
+     */
     @ResponseBody
     @PostMapping("/addEmp")
     public R<EmpVO> addEmp(@RequestBody EmpVO empVO) {
-        EmpVO vo = new EmpVO();
 
+        //模拟业务过程
+        EmpVO vo = new EmpVO();
         vo.setName("chendong");
         vo.setAge(26);
 
         return R.success(vo);
     }
+
+    /**
+     * 第二种返回
+     *
+     * @param empVO
+     * @return
+     */
+    @ResponseResult
+    @ResponseBody
+    @PostMapping("/getEmp")
+    public EmpVO getEmp(@RequestBody EmpVO empVO) {
+
+        EmpVO vo = new EmpVO();
+        vo.setName("chendong");
+        vo.setAge(26);
+        vo.setUnisocId("12125");
+
+        return vo;
+    }
+
 }

@@ -1,5 +1,8 @@
 package com.chendong.demo.controller.vo;
 
+import org.hibernate.validator.constraints.NotBlank;
+import org.hibernate.validator.constraints.NotEmpty;
+
 /**
  * @ClassName EmpVO
  * @Description: TODO
@@ -9,7 +12,10 @@ package com.chendong.demo.controller.vo;
  */
 public class EmpVO extends BaseVO {
 
+    @NotEmpty
     private String name;
+
+    @NotBlank
     private Integer age;
 
     public String getName() {
