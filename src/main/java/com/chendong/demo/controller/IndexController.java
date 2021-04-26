@@ -3,11 +3,9 @@ package com.chendong.demo.controller;
 import com.chendong.demo.common.anotations.ResponseResult;
 import com.chendong.demo.common.response.R;
 import com.chendong.demo.controller.vo.EmpVO;
+import io.swagger.annotations.*;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,12 +14,39 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Controller
-//@SwaggerIgnore TODO 为啥失效了？
+@Api(value = "IndexController", tags = {"首页操作接口", "测试接口", "学习swagger注解的接口"})
 public class IndexController {
 
     @GetMapping("/index")
     public String index() {
         return "index";
+    }
+
+
+    @ResponseBody
+    @GetMapping("/addEmpV4")
+    @ApiOperation(value = "添加员工V4", tags = {"添加员工V4"}, notes = "开发中")
+    @ApiImplicitParams({
+            @ApiImplicitParam(value = "id", name = "用户id", required = true),
+            @ApiImplicitParam(value = "username", name = "用户名称", required = true)
+    })
+    public R<EmpVO> addEmpV4(@PathVariable("id") Long id, @PathVariable("username") String username) {
+        return new R<>();
+    }
+
+    /**
+     * @param id
+     * @param username
+     * @return
+     */
+    @ResponseBody
+    @GetMapping("/addEmpV3")
+    @ApiOperation(value = "添加员工V3", tags = {"添加员工V3"}, notes = "开发中")
+    public R<EmpVO> addEmpV3(@ApiParam(name = "id", value = "用户id", example = "1111", required = true)
+                             @PathVariable("id") Long id,
+                             @ApiParam(name = "姓名", value = "姓名", example = "xioahua", required = true)
+                             @PathVariable("username") String username) {
+        return new R<>();
     }
 
     /**
@@ -32,7 +57,8 @@ public class IndexController {
      */
     @ResponseBody
     @PostMapping("/addEmp")
-    public R<EmpVO> addEmp(@RequestBody EmpVO empVO) {
+    @ApiOperation(value = "添加员工", tags = {"添加员工"}, notes = "开发中", consumes = "application/json")
+    public R<EmpVO> addEmp(@RequestBody @ApiParam(name = "员工vo", value = "员工vo", example = "empvo", required = true) EmpVO empVO) {
 
         //模拟业务过程
         EmpVO vo = new EmpVO();

@@ -1,20 +1,18 @@
 package com.chendong.demo.common.config;
 
-import com.chendong.demo.common.anotations.SwaggerIgnore;
 import com.google.common.base.Predicates;
+import io.swagger.annotations.Api;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
+import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
-
-import static com.google.common.base.Predicates.not;
-import static springfox.documentation.builders.RequestHandlerSelectors.withClassAnnotation;
 
 /**
  * swagger接口文档的配置类
@@ -35,7 +33,7 @@ public class SwaggerConfig {
     public Docket merchantStoreApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 //.host("localhost:8080")
-                .apiInfo(testApiInfo())
+                .apiInfo(apiInfo())
                 //.groupName("internal-api")
                 //.genericModelSubstitutes(DeferredResult.class)
                 //.useDefaultResponseMessages(false)
@@ -44,8 +42,8 @@ public class SwaggerConfig {
                 .pathMapping("/")
                 //选择那些路径和api会生成文档
                 .select()
-                //SwaggerIngore的注解的controller将会被忽略
-                .apis(not(withClassAnnotation(SwaggerIgnore.class)))
+                //只对api注解的controller进行展示
+                .apis(RequestHandlerSelectors.withClassAnnotation(Api.class))
                 //.paths(or(regex("/api/.*")))
                 //错误路径不监控
                 .paths(Predicates.not(PathSelectors.regex("/erro.*")))
@@ -54,7 +52,7 @@ public class SwaggerConfig {
                 .build();
     }
 
-    private ApiInfo testApiInfo() {
+    private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("Demo项目接口文档")
                 .contact(new Contact("chendong", "hello world！", "chendong_hdu@163.com"))
                 .description("swagger动态生成的接口文档")

@@ -1,5 +1,7 @@
 package com.chendong.demo.controller.vo;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -10,11 +12,14 @@ import org.hibernate.validator.constraints.NotEmpty;
  * @Date 2021/4/25 15:50
  * @Version 1.0
  */
+@ApiModel(value = "雇员视图类", description = "雇员对象")
 public class EmpVO extends BaseVO {
 
+    @ApiModelProperty(value = "姓名", name = "name", example = "xiaohua", required = true)
     @NotEmpty
     private String name;
 
+    @ApiModelProperty(value = "年龄", name = "age", example = "12", required = true)
     @NotBlank
     private Integer age;
 

@@ -63,6 +63,6 @@ public interface XingUserDao {
      * @param id 主键
      * @return 影响行数
      */
-    int deleteById(Object id);
+    int deleteById(int id);
 
 }

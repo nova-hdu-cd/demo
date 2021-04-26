@@ -1,5 +1,8 @@
 package com.chendong.demo.common.response;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 /**
  * 通用返回，建议使用new R<>();
  *
@@ -9,8 +12,10 @@ package com.chendong.demo.common.response;
  * @Date 2021/4/25 9:11
  * @Version 1.0
  */
+@ApiModel(value = "返回包装类", description = "返回包装类")
 public class CommonResponse<T> extends BaseResponse {
 
+    @ApiModelProperty(value = "返回体", name = "data", example = "object", required = false)
     protected T data;
 
     public T getData() {

@@ -4,7 +4,6 @@ import com.chendong.demo.common.async.TestAsyncTask;
 import com.chendong.demo.common.constants.DemoConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -31,7 +30,7 @@ public class TimeScheduling {
     /**
      * 定时播报当前服务器的时间
      */
-    @Scheduled(cron = "${time.cron}")
+    //@Scheduled(cron = "${time.cron}")
     public void reportCurTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(DemoConstant.NOW_TIME_STR);
         String nowTime = dateFormat.format(new Date());

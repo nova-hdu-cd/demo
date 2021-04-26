@@ -2,7 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chendong.demo.core.XingUserDao">
 
-    <!--Java对象和数据库表的映射关系-->
+    <!-- 测试xml结果映射正确的方法就是：建立dao层的单元测试-->
+
+    <!--描述如何从数据库结果集中加载对象，是最复杂也是最强大的元素。Java对象和数据库表的映射关系-->
     <resultMap type="com.chendong.demo.core.entity.XingUserDO" id="XinyangUserMap">
         <result property="id" column="id" javaType="long" jdbcType="BIGINT"/>
         <result property="uid" column="uid" javaType="String" jdbcType="VARCHAR"/>
@@ -57,8 +59,18 @@
         </set>
     </sql>
 
-    <!--查询单个-->
-    <select id="queryById" resultMap="XinyangUserMap">
+    <!--
+    parameterType: 将会传入这条语句的参数的类全限定名或别名。这个属性是可选的，
+    因为 MyBatis 可以通过类型处理器（TypeHandler）推断出具体传入语句的参数，默认值为未设置（unset）。
+
+    resultType：期望从这条语句中返回结果的类全限定名或别名。 注意，如果返回的是集合，那应该设置为集合包含的类型，
+    而不是集合本身的类型。 resultType 和 resultMap 之间只能同时使用一个。
+
+
+    resultMap: 对外部 resultMap 的命名引用。结果映射是 MyBatis 最强大的特性，如果你对其理解透彻，许多复杂的映射
+    问题都能迎刃而解.resultType 和 resultMap 之间只能同时使用一个。
+    -->
+    <select id="queryById" parameterType="int" resultMap="XinyangUserMap">
         select
         <include refid="columns"/>
         from xinyang.xinyang_user
@@ -66,7 +78,7 @@
     </select>
 
     <!--分页查询数据-->
-    <select id="queryAllByLimit" resultMap="XinyangUserMap">
+    <select id="queryAllByLimit" parameterType="int" resultMap="XinyangUserMap">
         select
         <include refid="columns"/>
         from xinyang.xinyang_user
@@ -85,7 +97,8 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+    <insert id="insert" parameterType="com.chendong.demo.core.entity.XingUserDO" keyProperty="id"
+            useGeneratedKeys="true">
         insert into xinyang.xinyang_user(uid, uname, sex, mobile, nation, city)
         values (#{uid}, #{uname}, #{sex}, #{mobile}, #{nation}, #{city})
     </insert>
