@@ -7,11 +7,14 @@ import cn.hutool.json.JSONConfig;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.chendong.demo.common.pojo.Dog;
+import com.chendong.demo.controller.vo.EmpVO;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
  * @ClassName TestTool
@@ -91,6 +94,70 @@ public class TestTool {
         map.put("b", "zhangming");
         TreeMap<String, String> sortedMap = MapUtil.sort(map);
         LOGGER.info(" sortedMap -> {}", sortedMap);
+
+    }
+
+    @Test
+    void testStreamApi() {
+        Stream<String> stringStream = Stream.of("1", "2", "2", null, "3", "4").filter(item -> item != null);
+
+        //supplier：一个能创造目标类型实例的方法。
+        //accumulator：一个将当元素添加到目标中的方法。
+        //combiner：一个将中间状态的多个结果整合到一起的方法（并发的时候会用到）
+        //ArrayList<Object> collect1 = stringStream.collect(() -> new ArrayList<>(), (list, item) -> list.add(item), (one, two) -> one.addAll(two));
+        //ArrayList<Object> collect = stringStream.collect(ArrayList::new, List::add, List::addAll);
+        List<String> collect = stringStream.collect(Collectors.toList());
+
+        //collect.forEach(System.out::print);
+        //System.out.print(collect);
+
+        EmpVO vo = new EmpVO();
+        vo.setName("chendong");
+        vo.setAge(26);
+        vo.setUnisocId("12125");
+        EmpVO vo1 = new EmpVO();
+        vo1.setName("xiaoming");
+        vo1.setAge(27);
+        vo1.setUnisocId("12124");
+        EmpVO vo2 = new EmpVO();
+        vo2.setName("xiaoming");
+        vo2.setAge(25);
+        vo2.setUnisocId("12124");
+        EmpVO vo3 = new EmpVO();
+        vo3.setName("xiaohong");
+        vo3.setAge(25);
+        vo3.setUnisocId("12123");
+        List<EmpVO> results = new ArrayList<>();
+        results.add(vo);
+        results.add(vo2);
+        results.add(vo1);
+        results.add(vo3);
+
+        //将list<EmpVO>转换成name:age的Map形式
+        final HashMap<Object, Object> maps
+                = results.stream().collect(HashMap::new, (map, p) -> map.put(p.getName(), p.getAge()), Map::putAll);
+        maps.forEach((k, v) -> System.out.println(k + ":" + v));
+
+        final Map<String, Integer> collect1
+                = results.stream().collect(Collectors.toMap(emp -> emp.getName(), emp -> emp.getAge(), (oldItem, newItem) -> newItem));
+        collect1.forEach((k, v) -> System.out.println(k + ":" + v));
+
+        //将List<EmpVO> -> Map<Age,List<EmpVO>>
+        Map<Integer, List<EmpVO>> groupMap
+                = results.stream().collect(Collectors.groupingBy(s -> s.getAge(), Collectors.toList()));
+        System.out.println(groupMap);
+
+        //将List<EmpVO> -> Map<Age,List<Name>>
+        Map<Integer, List<String>> nameToAgeGroup
+                = results.stream().collect(Collectors.groupingBy(s -> s.getAge(), Collectors.mapping(p -> p.getName(), Collectors.toList())));
+        System.out.println(nameToAgeGroup);
+
+        //统计
+        Map<String, Integer> collect3 = results.stream().collect(Collectors.groupingBy(s -> s.getName(), Collectors.reducing(0, s -> s.getAge(), Integer::sum)));
+        Map<String, Integer> collect2 = results.stream().collect(Collectors.groupingBy(s -> s.getName(), Collectors.summingInt(s -> s.getAge())));
+        System.out.println(collect2);
+        System.out.println(collect3);
+
 
     }
 
