@@ -46,27 +46,88 @@
         </if>
     </sql>
 
+    <!-- 只会有一个条件生效-->
+    <sql id="querySelect">
+        <choose>
+            <when test="id != null">
+                AND id = #{id}
+            </when>
+            <when test="name != null and name != ''">
+                AND name = #{name}
+            </when>
+            <!-- 如果上面的when标签中的内容都不生效，就会选择otherwise -->
+            <otherwise>
+                AND id = 1
+            </otherwise>
+        </choose>
+    </sql>
+
     <!-- 条件集合-->
     <sql id="conditions">
+        <!--where元素只会在子元素返回任何内容的情况下才插入“where子句”。
+        而且，若子句的开头为“and”或“or”，where元素也会将它们去除。-->
         <where>
             <include refid="querySet"></include>
         </where>
     </sql>
 
+    <!--
+    prefixOverrides 属性会忽略通过管道符分隔的文本序列（注意此例中的空格是必要的）
+    移除所有 prefixOverrides 属性中指定的内容，并且插入 prefix 属性中指定的内容。
+    -->
+    <sql id="trimexcample">
+        <trim prefix="WHERE" prefixOverrides="AND |OR">
+        </trim>
+    </sql>
+
+    <!--set元素会动态的在行首插入set关键字，并会删除额外的逗号-->
     <sql id="sets">
         <set>
-            <include refid="querySet"></include>
+            <if test="id != null">
+                id = #{id}
+            </if>
+            <if test="uid != null and uid != ''">
+                uid = #{uid}
+            </if>
+            <if test="uname != null and uname != ''">
+                uname = #{uname}
+            </if>
+            <if test="sex != null">
+                sex = #{sex}
+            </if>
+            <if test="mobile != null and mobile != ''">
+                mobile = #{mobile}
+            </if>
+            <if test="nation != null and nation != ''">
+                nation = #{nation}
+            </if>
+            <if test="city != null and city != ''">
+                city = #{city}
+            </if>
         </set>
+    </sql>
+
+    <!--
+    foreach 元素的功能非常强大，它允许你指定一个集合，
+    声明可以在元素体内使用的集合项（item）和索引（index）变量。
+    它也允许你指定开头与结尾的字符串以及集合项迭代之间的分隔符。
+    这个元素也不会错误地添加多余的分隔符
+
+    任何可迭代对象（如 List、Set 等）、Map 对象或者数组对象作为集合参数传递给 foreach。
+    当使用可迭代对象或者数组时，index 是当前迭代的序号，item 的值是本次迭代获取到的元素。
+    当使用 Map 对象（或者 Map.Entry 对象的集合）时，index 是键，item 是值
+    -->
+    <sql id="foreachexcample">
+        <foreach collection="list" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
     </sql>
 
     <!--
     parameterType: 将会传入这条语句的参数的类全限定名或别名。这个属性是可选的，
     因为 MyBatis 可以通过类型处理器（TypeHandler）推断出具体传入语句的参数，默认值为未设置（unset）。
-
     resultType：期望从这条语句中返回结果的类全限定名或别名。 注意，如果返回的是集合，那应该设置为集合包含的类型，
     而不是集合本身的类型。 resultType 和 resultMap 之间只能同时使用一个。
-
-
     resultMap: 对外部 resultMap 的命名引用。结果映射是 MyBatis 最强大的特性，如果你对其理解透彻，许多复杂的映射
     问题都能迎刃而解.resultType 和 resultMap 之间只能同时使用一个。
     -->
