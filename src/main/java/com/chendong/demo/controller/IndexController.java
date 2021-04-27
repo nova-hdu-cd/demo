@@ -14,6 +14,11 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+/**
+ * IndexController
+ *
+ * @author dong.chen
+ */
 @Controller
 @Api(value = "IndexController", tags = {"学习swagger注解的接口"})
 public class IndexController {
@@ -35,13 +40,6 @@ public class IndexController {
         return new Result<>();
     }
 
-    /**
-     * 添加员工v3
-     *
-     * @param id
-     * @param username
-     * @return
-     */
     @ResponseBody
     @GetMapping("/addEmpV3/{id}/{username}")
     @ApiOperation(value = "添加员工V3", tags = {"添加员工V3"}, notes = "开发中")
@@ -53,12 +51,6 @@ public class IndexController {
         return Result.success("hello world!");
     }
 
-    /**
-     * 第一种
-     *
-     * @param empVO
-     * @return
-     */
     @ResponseBody
     @PostMapping("/addEmp")
     @ApiOperation(value = "添加员工", tags = {"添加员工"}, notes = "开发中", consumes = "application/json")
@@ -71,12 +63,6 @@ public class IndexController {
         return Result.success(vo);
     }
 
-    /**
-     * 第二种返回
-     *
-     * @param empVO
-     * @return
-     */
     @ResponseResult
     @ResponseBody
     @PostMapping("/getEmp")

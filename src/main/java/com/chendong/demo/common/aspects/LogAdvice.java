@@ -25,6 +25,9 @@ public class LogAdvice {
     @Before("logAdvicePointCut()")
     public void logAdvice() {
         LOGGER.info("===============aop切面,开始触发了!=====================");
+
+        LOGGER.info("一些适合在切面的业务已经在执行了！！");
+
         LOGGER.info("===============aop切面,结束触发了!=====================");
     }
 

@@ -36,14 +36,14 @@ public class Result<T> extends CommonResponse<T> {
         return response;
     }
 
-    public static <T> Result fail(T data) {
+    public static <T> Result<T> fail(T data) {
         Result<T> response = new Result<>();
         response.setCodeAndMessage(ResultCode.FAIL.code(), ResultCode.FAIL.message());
         response.setData(data);
         return response;
     }
 
-    public static <T> Result fail() {
+    public static <T> Result<T> fail() {
         Result<T> response = new Result<>();
         response.setCodeAndMessage(ResultCode.FAIL.code(), ResultCode.FAIL.message());
         return response;
