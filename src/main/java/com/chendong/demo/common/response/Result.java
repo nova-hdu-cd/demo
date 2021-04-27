@@ -7,12 +7,12 @@ import com.chendong.demo.common.enums.global.ResultCode;
  *
  * @author dong.chen
  */
-public class R<T> extends CommonResponse<T> {
+public class Result<T> extends CommonResponse<T> {
 
-    public R() {
+    public Result() {
     }
 
-    public R(ResultCode resultCode, T data) {
+    public Result(ResultCode resultCode, T data) {
         this.code = resultCode.code();
         this.message = resultCode.message();
         this.data = data;
@@ -23,28 +23,28 @@ public class R<T> extends CommonResponse<T> {
         this.message = message;
     }
 
-    public static <T> R success(T data) {
-        R<T> r = new R<>();
-        r.setCodeAndMessage(ResultCode.SUCCESS.code(), ResultCode.SUCCESS.message());
-        r.setData(data);
-        return r;
+    public static <T> Result<T> success(T data) {
+        Result<T> result = new Result<>();
+        result.setCodeAndMessage(ResultCode.SUCCESS.code(), ResultCode.SUCCESS.message());
+        result.setData(data);
+        return result;
     }
 
-    public static <T> R success() {
-        R<T> response = new R<>();
+    public static <T> Result<T> success() {
+        Result<T> response = new Result<>();
         response.setCodeAndMessage(ResultCode.SUCCESS.code(), ResultCode.SUCCESS.message());
         return response;
     }
 
-    public static <T> R fail(T data) {
-        R<T> response = new R<>();
+    public static <T> Result fail(T data) {
+        Result<T> response = new Result<>();
         response.setCodeAndMessage(ResultCode.FAIL.code(), ResultCode.FAIL.message());
         response.setData(data);
         return response;
     }
 
-    public static <T> R fail() {
-        R<T> response = new R<>();
+    public static <T> Result fail() {
+        Result<T> response = new Result<>();
         response.setCodeAndMessage(ResultCode.FAIL.code(), ResultCode.FAIL.message());
         return response;
     }

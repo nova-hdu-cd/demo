@@ -6,7 +6,7 @@ import com.chendong.demo.common.anotations.ResponseResult;
 import com.chendong.demo.common.pojo.Dog;
 import com.chendong.demo.common.request.BaseReq;
 import com.chendong.demo.common.response.ErrorResp;
-import com.chendong.demo.common.response.R;
+import com.chendong.demo.common.response.Result;
 import com.chendong.demo.service.IHelloService;
 import com.chendong.demo.service.request.IndexBaseReq;
 import org.slf4j.Logger;
@@ -62,7 +62,7 @@ public class HelloController {
     }
 
     @RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
-    public R returnName(@PathVariable String name) {
+    public Result returnName(@PathVariable String name) {
 
         //1.请求参数包装
         IndexBaseReq req = new IndexBaseReq();
@@ -74,7 +74,7 @@ public class HelloController {
         Assert.isNull(returnName, "returnName为空!!!");
 
         //3..返回参数封装
-        R response = new R();
+        Result response = new Result();
         response.setData(returnName);
         return response;
     }

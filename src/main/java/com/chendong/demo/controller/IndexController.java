@@ -1,7 +1,8 @@
 package com.chendong.demo.controller;
 
 import com.chendong.demo.common.anotations.ResponseResult;
-import com.chendong.demo.common.response.R;
+import com.chendong.demo.common.response.Result;
+import com.chendong.demo.controller.dto.InfoDTO;
 import com.chendong.demo.controller.vo.EmpVO;
 import io.swagger.annotations.*;
 import org.springframework.stereotype.Controller;
@@ -14,7 +15,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Controller
-@Api(value = "IndexController", tags = {"首页操作接口", "测试接口", "学习swagger注解的接口"})
+@Api(value = "IndexController", tags = {"学习swagger注解的接口"})
 public class IndexController {
 
     @GetMapping("/index")
@@ -22,31 +23,34 @@ public class IndexController {
         return "index";
     }
 
-
     @ResponseBody
-    @GetMapping("/addEmpV4")
+    @GetMapping("/addEmpV4/{id}/{username}")
     @ApiOperation(value = "添加员工V4", tags = {"添加员工V4"}, notes = "开发中")
     @ApiImplicitParams({
             @ApiImplicitParam(value = "id", name = "用户id", required = true),
             @ApiImplicitParam(value = "username", name = "用户名称", required = true)
     })
-    public R<EmpVO> addEmpV4(@PathVariable("id") Long id, @PathVariable("username") String username) {
-        return new R<>();
+    public Result<EmpVO> addEmpV4(@PathVariable("id") Long id,
+                                  @PathVariable("username") String username) {
+        return new Result<>();
     }
 
     /**
+     * 添加员工v3
+     *
      * @param id
      * @param username
      * @return
      */
     @ResponseBody
-    @GetMapping("/addEmpV3")
+    @GetMapping("/addEmpV3/{id}/{username}")
     @ApiOperation(value = "添加员工V3", tags = {"添加员工V3"}, notes = "开发中")
-    public R<EmpVO> addEmpV3(@ApiParam(name = "id", value = "用户id", example = "1111", required = true)
-                             @PathVariable("id") Long id,
-                             @ApiParam(name = "姓名", value = "姓名", example = "xioahua", required = true)
-                             @PathVariable("username") String username) {
-        return new R<>();
+    public Result<String> addEmpV3(@ApiParam(name = "id", value = "用户id", example = "1111", required = true)
+                                   @PathVariable("id") Long id,
+                                   @ApiParam(name = "username", value = "姓名", example = "xiaohua", required = true)
+                                   @PathVariable("username") String username) {
+
+        return Result.success("hello world!");
     }
 
     /**
@@ -58,14 +62,13 @@ public class IndexController {
     @ResponseBody
     @PostMapping("/addEmp")
     @ApiOperation(value = "添加员工", tags = {"添加员工"}, notes = "开发中", consumes = "application/json")
-    public R<EmpVO> addEmp(@RequestBody @ApiParam(name = "员工vo", value = "员工vo", example = "empvo", required = true) EmpVO empVO) {
+    public Result<EmpVO> addEmp(@RequestBody @ApiParam(name = "员工vo", value = "员工vo", example = "empvo", required = true) EmpVO empVO) {
 
         //模拟业务过程
         EmpVO vo = new EmpVO();
         vo.setName("chendong");
         vo.setAge(26);
-
-        return R.success(vo);
+        return Result.success(vo);
     }
 
     /**
@@ -82,12 +85,10 @@ public class IndexController {
         EmpVO vo = new EmpVO();
         vo.setName("chendong");
         vo.setAge(26);
-        vo.setUnisocId("8888888888888888");
+        vo.setUnisocId("1176213349");
         //vo = null;
 
         return Optional.ofNullable(vo).orElse(new EmpVO());
-
-
     }
 
     @ResponseResult
@@ -108,16 +109,25 @@ public class IndexController {
         List<EmpVO> emps = new ArrayList<>(10);
         emps.add(vo);
         emps.add(vo2);
-
         Map<String, Integer> collect = emps.stream().collect(Collectors.toMap(s -> s.getName(), s -> s.getAge()));
-
         String name = Optional.ofNullable(vo).map(s -> s.getName()).map(s -> s.trim().toUpperCase()).orElse("");
-
         EmpVO value = new EmpVO();
         value.setName(name);
         return collect;
+    }
 
+    @ResponseBody
+    @GetMapping("/showInfo/{infoId}")
+    @ApiOperation(value = "展示信息", tags = {"展示信息"}, notes = "开发中")
+    public Result<InfoDTO> showInfo(
+            @ApiParam(name = "infoId", value = "员工id", example = "12120", required = true)
+            @PathVariable("infoId") String infoId) {
 
+        //模拟业务过程
+        InfoDTO infoDTO = new InfoDTO();
+        infoDTO.setName("hello world!");
+
+        return Result.success(infoDTO);
     }
 
 }

@@ -2,12 +2,12 @@ package com.chendong.demo.service.responce;
 
 
 import com.chendong.demo.common.enums.global.ResultCode;
-import com.chendong.demo.common.response.R;
+import com.chendong.demo.common.response.Result;
 
 /**
  * @author dong.chen
  */
-public class IndexResponse extends R {
+public class IndexResponse extends Result {
 
     private String id;
     private String uuid;

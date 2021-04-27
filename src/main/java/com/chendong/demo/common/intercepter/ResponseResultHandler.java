@@ -3,7 +3,7 @@ package com.chendong.demo.common.intercepter;
 import com.alibaba.fastjson.JSON;
 import com.chendong.demo.common.anotations.ResponseResult;
 import com.chendong.demo.common.response.ErrorResp;
-import com.chendong.demo.common.response.R;
+import com.chendong.demo.common.response.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;
@@ -57,9 +57,9 @@ public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
         if (body instanceof ErrorResp) {
             LOGGER.info("进入返回体，beforeBodyWrite异常包装处理中。。。。。。");
             LOGGER.info("beforeBodyWrite返回的方法体 body -> {}", JSON.toJSONString(body));
-            return R.fail(body);
+            return Result.fail(body);
         }
         LOGGER.info("beforeBodyWrite返回的方法体 body -> {}", JSON.toJSONString(body));
-        return R.success(body);
+        return Result.success(body);
     }
 }
