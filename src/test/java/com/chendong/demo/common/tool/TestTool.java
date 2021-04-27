@@ -1,5 +1,7 @@
 package com.chendong.demo.common.tool;
 
+import cn.hutool.core.lang.tree.Tree;
+import cn.hutool.core.lang.tree.TreeNode;
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.crypto.SecureUtil;
@@ -7,7 +9,9 @@ import cn.hutool.json.JSONConfig;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.chendong.demo.common.pojo.Dog;
+import com.chendong.demo.common.utils.TreeUtil;
 import com.chendong.demo.controller.vo.EmpVO;
+import com.chendong.demo.controller.vo.PermissionVO;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -159,6 +163,85 @@ public class TestTool {
         System.out.println(collect3);
 
 
+    }
+
+    /**
+     * 构造简单的树形结构数据
+     *
+     * @return
+     */
+    private List<PermissionVO> getAllTreeNodes() {
+        PermissionVO parent = new PermissionVO();
+        parent.setId(100);
+        parent.setMenu("yes");
+        parent.setUrl("/menu");
+        parent.setParentId("");//注意父节点的父节点id为“”
+
+        PermissionVO children1 = new PermissionVO();
+        children1.setId(101);
+        children1.setMenu("yes");
+        children1.setUrl("/menu1");
+        children1.setParentId("100");
+
+        PermissionVO children2 = new PermissionVO();
+        children2.setId(102);
+        children2.setMenu("yes");
+        children2.setUrl("/menu2");
+        children2.setParentId("100");
+
+        List<PermissionVO> childrens = new ArrayList<>();
+        childrens.add(children1);
+        childrens.add(children2);
+        parent.setList(childrens);
+
+        List<PermissionVO> allNodes = new ArrayList<>();
+        allNodes.add(parent);
+        allNodes.add(children1);
+        allNodes.add(children2);
+
+        return allNodes;
+    }
+
+    @Test
+    void testTreeUtil() {
+        //所有的节点数据，包括父节点和子节点，注意父节点和子节点的关系
+        List<PermissionVO> treeNodes = getAllTreeNodes();
+        System.out.println(JSONUtil.toJsonStr(treeNodes));
+        TreeUtil treeUtil = new TreeUtil();
+
+
+        //构造树形结构的数据
+        List<Object> treeData = treeUtil.treeMenu(treeNodes);
+        System.out.println(JSONUtil.toJsonStr(treeData));
+
+    }
+
+    @Test
+    void testHutoolTreeUtil() {
+        List<PermissionVO> allTreeNodes = getAllTreeNodes();
+
+        System.out.println(allTreeNodes);
+
+        //todo 树形结构数据处理
+        List<TreeNode<Integer>> list = allTreeNodes.stream().map(permissionVO -> {
+            TreeNode<Integer> treeNode = new TreeNode<>();
+            treeNode.setId(permissionVO.getId());
+            treeNode.setName(permissionVO.getName());
+            //父节点特殊处理
+            if (permissionVO.getParentId().equals("")) {
+                treeNode.setParentId(0);
+            } else {
+                treeNode.setParentId(Integer.parseInt(permissionVO.getParentId()));
+            }
+            Map<String, Object> extra = new HashMap<>();
+            extra.put("url", "/menu");
+            extra.put("icon", "yes");
+            extra.put("isMenu", "yes");
+            treeNode.setExtra(extra);
+            return treeNode;
+        }).collect(Collectors.toList());
+        List<Tree<Integer>> trees = cn.hutool.core.lang.tree.TreeUtil.build(list);
+        System.out.println(JSONUtil.toJsonStr(trees));
     }
 
 }
