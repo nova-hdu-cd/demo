@@ -1,7 +1,7 @@
 package com.chendong.demo.common.convert;
 
-import com.chendong.demo.controller.dto.TicketDTO;
-import com.chendong.demo.controller.dto.UserDTO;
+import com.chendong.demo.common.pojo.dto.TicketDTO;
+import com.chendong.demo.common.pojo.dto.UserDTO;
 import org.mapstruct.Mapper;
 import org.mapstruct.factory.Mappers;
 

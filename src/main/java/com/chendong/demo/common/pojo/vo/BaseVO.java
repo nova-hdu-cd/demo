@@ -1,4 +1,4 @@
-package com.chendong.demo.controller.vo;
+package com.chendong.demo.common.pojo.vo;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

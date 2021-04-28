@@ -1,7 +1,7 @@
 package com.chendong.demo.test;
 
 import com.chendong.demo.BaseTest;
-import com.chendong.demo.controller.dto.UserDTO;
+import com.chendong.demo.common.pojo.dto.UserDTO;
 import com.chendong.demo.core.XingUserDao;
 import com.chendong.demo.core.entity.XingUserDO;
 import com.google.gson.Gson;

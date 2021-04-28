@@ -1,4 +1,4 @@
-package com.chendong.demo.controller.vo;
+package com.chendong.demo.common.pojo.vo;
 
 import com.alibaba.fastjson.annotation.JSONField;
 

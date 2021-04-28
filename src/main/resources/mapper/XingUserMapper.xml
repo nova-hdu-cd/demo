@@ -6,10 +6,10 @@
 
     <!--描述如何从数据库结果集中加载对象，是最复杂也是最强大的元素。Java对象和数据库表的映射关系-->
     <resultMap type="com.chendong.demo.core.entity.XingUserDO" id="XinyangUserMap">
-        <result property="id" column="id" javaType="long" jdbcType="BIGINT"/>
+        <id property="id" column="id" javaType="long" jdbcType="BIGINT"/>
         <result property="uid" column="uid" javaType="String" jdbcType="VARCHAR"/>
         <result property="uname" column="uname" javaType="String" jdbcType="VARCHAR"/>
-        <result property="sex" column="sex" javaType="int" jdbcType="OTHER"/>
+        <result property="sex" column="sex" javaType="int" jdbcType="TINYINT"/>
         <result property="mobile" column="mobile" javaType="String" jdbcType="VARCHAR"/>
         <result property="nation" column="nation" javaType="String" jdbcType="VARCHAR"/>
         <result property="city" column="city" javaType="String" jdbcType="VARCHAR"/>

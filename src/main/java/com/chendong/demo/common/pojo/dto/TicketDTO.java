@@ -1,4 +1,4 @@
-package com.chendong.demo.controller.dto;
+package com.chendong.demo.common.pojo.dto;
 
 import lombok.*;
 

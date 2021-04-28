@@ -1,21 +1,25 @@
 package com.chendong.demo.common.utils;
 
-import com.chendong.demo.controller.vo.PermissionVO;
+import com.chendong.demo.common.pojo.vo.PermissionVO;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * TreeUtil工具类，将List的树形节点数据
+ * 封装成树形结构的形式返回给前端
+ */
 public class TreeUtil {
 
     /*
-     * 存放所有树状数据
+     * 存放所有的树状节点数据
      */
     private List<PermissionVO> menuList;
 
-    /*
-     * 存放返回树状数据
+    /**
+     * 存放返回树状数据，已经按照树形处理过
      */
     public List<Object> list = new ArrayList<>();
 
@@ -31,6 +35,7 @@ public class TreeUtil {
             Map<String, Object> mapArray = new LinkedHashMap<>();
             //根节点默认是"",根据业务改变
             if (null == treeNode.getParentId() || "".equals(treeNode.getParentId())) {
+                //构建树型结构
                 setTreeMap(mapArray, treeNode);
                 list.add(mapArray);
             }
@@ -53,24 +58,29 @@ public class TreeUtil {
         mapArray.put("icon", treeNode.getIcon());
         mapArray.put("isMenu", treeNode.getMenu());
         mapArray.put("sort", treeNode.getSort());
-        //获取子节点
+        //获取其子节点列表，设置给children属性
         mapArray.put("children", menuChild(treeNode.getId().toString()));
     }
 
     /**
-     * 根据父节点id获取子节点
+     * 根据父节点id获取子节点列表集合
      *
      * @param parentId 父节点id
      * @return 子节点集合
      */
     private List<?> menuChild(String parentId) {
+        //父节点为parentId的子节点集合
         List<Object> lists = new ArrayList<>();
         menuList.forEach(treeNode -> {
+            //通用节点对象
             Map<String, Object> childArray = new LinkedHashMap<>();
             if (null != treeNode.getParentId() && !"".equals(treeNode.getParentId())) {
                 //这里根据业务替换下父id
+                //非父节点处理
                 if (treeNode.getParentId().equals(parentId)) {
+                    //当前节点的父节点为parentId，则继续构建树
                     setTreeMap(childArray, treeNode);
+                    //添加到子节点集合
                     lists.add(childArray);
                 }
             }

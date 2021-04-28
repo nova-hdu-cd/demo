@@ -1,9 +1,9 @@
 package com.chendong.demo.controller;
 
 import com.chendong.demo.common.anotations.ResponseResult;
+import com.chendong.demo.common.pojo.dto.InfoDTO;
+import com.chendong.demo.common.pojo.vo.EmpVO;
 import com.chendong.demo.common.response.Result;
-import com.chendong.demo.controller.dto.InfoDTO;
-import com.chendong.demo.controller.vo.EmpVO;
 import io.swagger.annotations.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;

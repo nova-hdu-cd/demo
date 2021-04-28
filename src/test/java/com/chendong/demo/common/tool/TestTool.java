@@ -9,9 +9,9 @@ import cn.hutool.json.JSONConfig;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import com.chendong.demo.common.pojo.Dog;
+import com.chendong.demo.common.pojo.vo.EmpVO;
+import com.chendong.demo.common.pojo.vo.PermissionVO;
 import com.chendong.demo.common.utils.TreeUtil;
-import com.chendong.demo.controller.vo.EmpVO;
-import com.chendong.demo.controller.vo.PermissionVO;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -161,8 +161,6 @@ public class TestTool {
         Map<String, Integer> collect2 = results.stream().collect(Collectors.groupingBy(s -> s.getName(), Collectors.summingInt(s -> s.getAge())));
         System.out.println(collect2);
         System.out.println(collect3);
-
-
     }
 
     /**
@@ -206,13 +204,12 @@ public class TestTool {
     void testTreeUtil() {
         //所有的节点数据，包括父节点和子节点，注意父节点和子节点的关系
         List<PermissionVO> treeNodes = getAllTreeNodes();
-        System.out.println(JSONUtil.toJsonStr(treeNodes));
+        LOGGER.info("treeNodes -> {}", JSONUtil.toJsonStr(treeNodes));
+
         TreeUtil treeUtil = new TreeUtil();
-
-
         //构造树形结构的数据
         List<Object> treeData = treeUtil.treeMenu(treeNodes);
-        System.out.println(JSONUtil.toJsonStr(treeData));
+        LOGGER.info("treeData -> {}", JSONUtil.toJsonStr(treeData));
 
     }
 
