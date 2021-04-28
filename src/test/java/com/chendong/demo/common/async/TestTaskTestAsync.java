@@ -1,9 +1,13 @@
 package com.chendong.demo.common.async;
 
+import cn.hutool.extra.spring.SpringUtil;
+import com.chendong.demo.common.pojo.Dog;
 import com.chendong.demo.common.scheduling.TimeScheduling;
+import com.chendong.demo.controller.HelloController;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -21,7 +25,7 @@ class TestTaskTestAsync {
     private TimeScheduling timeScheduling;
 
     @Test
-    void test4() throws InterruptedException{
+    void test4() throws InterruptedException {
         task.taskForThreadLocal();
     }
 
@@ -57,5 +61,21 @@ class TestTaskTestAsync {
     @Scheduled(initialDelay = 1000, fixedRate = 5000)
     void test3() {
         System.out.println();
+    }
+
+    @Test
+    void testApplicationContext() {
+        //SpringUtil工具类使用
+        SpringUtil.registerBean("bean1", "hello world1!");
+        SpringUtil.registerBean("bean2", "hello world2!");
+        ApplicationContext applicationContext = SpringUtil.getApplicationContext();
+        System.out.println(applicationContext.getBean("bean1"));
+        System.out.println(applicationContext.getBean("bean2"));
+        System.out.println(applicationContext.getApplicationName());
+
+        //获取IOC容器中的Controller
+        HelloController helloController = (HelloController) applicationContext.getBean("helloController");
+        Dog dog = helloController.index("op");
+        System.out.println(dog);
     }
 }
