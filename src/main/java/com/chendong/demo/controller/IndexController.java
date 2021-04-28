@@ -30,10 +30,10 @@ public class IndexController {
 
     @ResponseBody
     @GetMapping("/addEmpV4/{id}/{username}")
-    @ApiOperation(value = "添加员工V4", tags = {"添加员工V4"}, notes = "开发中")
+    @ApiOperation(value = "添加员工V4", notes = "开发中")
     @ApiImplicitParams({
-            @ApiImplicitParam(value = "id", name = "用户id", required = true),
-            @ApiImplicitParam(value = "username", name = "用户名称", required = true)
+            @ApiImplicitParam(name = "id", value = "用户id", required = true),
+            @ApiImplicitParam(name = "username", value = "用户名称", required = true)
     })
     public Result<EmpVO> addEmpV4(@PathVariable("id") Long id,
                                   @PathVariable("username") String username) {
@@ -42,7 +42,7 @@ public class IndexController {
 
     @ResponseBody
     @GetMapping("/addEmpV3/{id}/{username}")
-    @ApiOperation(value = "添加员工V3", tags = {"添加员工V3"}, notes = "开发中")
+    @ApiOperation(value = "添加员工V3", notes = "开发中")
     public Result<String> addEmpV3(@ApiParam(name = "id", value = "用户id", example = "1111", required = true)
                                    @PathVariable("id") Long id,
                                    @ApiParam(name = "username", value = "姓名", example = "xiaohua", required = true)
@@ -53,8 +53,8 @@ public class IndexController {
 
     @ResponseBody
     @PostMapping("/addEmp")
-    @ApiOperation(value = "添加员工", tags = {"添加员工"}, notes = "开发中", consumes = "application/json")
-    public Result<EmpVO> addEmp(@RequestBody @ApiParam(name = "员工vo", value = "员工vo", example = "empvo", required = true) EmpVO empVO) {
+    @ApiOperation(value = "添加员工", notes = "开发中", consumes = "application/json")
+    public Result<EmpVO> addEmp(@RequestBody @ApiParam(name = "EmpVO", value = "员工vo", example = "empvo", required = true) EmpVO empVO) {
 
         //模拟业务过程
         EmpVO vo = new EmpVO();
@@ -104,7 +104,7 @@ public class IndexController {
 
     @ResponseBody
     @GetMapping("/showInfo/{infoId}")
-    @ApiOperation(value = "展示信息", tags = {"展示信息"}, notes = "开发中")
+    @ApiOperation(value = "展示信息", notes = "开发中")
     public Result<InfoDTO> showInfo(
             @ApiParam(name = "infoId", value = "员工id", example = "12120", required = true)
             @PathVariable("infoId") String infoId) {
