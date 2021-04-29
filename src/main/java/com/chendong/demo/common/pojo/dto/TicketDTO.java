@@ -1,6 +1,6 @@
 package com.chendong.demo.common.pojo.dto;
 
-import lombok.*;
+import lombok.NonNull;
 
 /**
  * 工单DTO
@@ -10,11 +10,6 @@ import lombok.*;
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
-@EqualsAndHashCode(callSuper = true)
-@Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
 public class TicketDTO extends BaseDTO {
 
     private String name;
@@ -25,4 +20,53 @@ public class TicketDTO extends BaseDTO {
     @NonNull
     private Integer sex;
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Integer getSex() {
+        return sex;
+    }
+
+    public void setSex(Integer sex) {
+        this.sex = sex;
+    }
+
+    public TicketDTO() {
+        super();
+    }
+
+    public TicketDTO(String name, @NonNull String id, @NonNull Integer sex) {
+        this.name = name;
+        this.id = id;
+        this.sex = sex;
+    }
+
+    public TicketDTO(String caller, String projectId, String namespace, String clientEntryId, String name, @NonNull String id, @NonNull Integer sex) {
+        super(caller, projectId, namespace, clientEntryId);
+        this.name = name;
+        this.id = id;
+        this.sex = sex;
+    }
+
+    @Override
+    public String toString() {
+        return "TicketDTO{" +
+                "name='" + name + '\'' +
+                ", id='" + id + '\'' +
+                ", sex=" + sex +
+                '}';
+    }
 }
