@@ -477,5 +477,9 @@ public class TestTool {
 
     }
 
+    @Test
+    void testSomething() {
+    }
+
 
 }
