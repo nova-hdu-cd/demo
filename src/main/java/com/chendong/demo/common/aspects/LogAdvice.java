@@ -1,10 +1,14 @@
 package com.chendong.demo.common.aspects;
 
+import cn.hutool.core.thread.ThreadUtil;
+import cn.hutool.extra.spring.SpringUtil;
+import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 /**
@@ -24,11 +28,22 @@ public class LogAdvice {
 
     @Before("logAdvicePointCut()")
     public void logAdvice() {
-        LOGGER.info("===============aop切面,开始触发了!=====================");
+        ApplicationContext applicationContext = SpringUtil.getApplicationContext();
+        String applicationContextId = applicationContext.getId();
+        String applicationName = applicationContext.getApplicationName();
 
-        LOGGER.info("一些适合在切面的业务已经在执行了！！");
+        Thread mainThread = ThreadUtil.getMainThread();
 
-        LOGGER.info("===============aop切面,结束触发了!=====================");
+        LOGGER.info("start: 应用名称：{}，应用id： {}", applicationName, applicationContextId);
+    }
+
+    @After("logAdvicePointCut()")
+    public void logAfter() {
+        ApplicationContext applicationContext = SpringUtil.getApplicationContext();
+        String applicationContextId = applicationContext.getId();
+        String applicationName = applicationContext.getApplicationName();
+
+        LOGGER.info("end: 应用名称：{}，应用id： {}", applicationName, applicationContextId);
     }
 
 }

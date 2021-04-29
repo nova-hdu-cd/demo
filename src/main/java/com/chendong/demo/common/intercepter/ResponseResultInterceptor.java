@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 /**
- * 拦截请求，解析注解@ResponseResult，请求中添加标识；无此注解则放行
+ * 拦截请求
+ * 当类或方法上有注解@ResponseResult时，向请求域中添加标识，无此注解则放行
  *
  * @author dong.chen
  */

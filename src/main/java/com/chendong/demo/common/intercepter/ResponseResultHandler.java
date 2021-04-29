@@ -19,7 +19,8 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * 统一返回的实现：注解ResponseResult+ResponseResultHandler
+ * 统一返回体的实现：
+ * 注解ResponseResult + ResponseResultInterceptor + ResponseResultHandler
  *
  * @author dong.chen
  */
