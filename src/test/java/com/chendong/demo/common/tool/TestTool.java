@@ -479,6 +479,19 @@ public class TestTool {
 
     @Test
     void testSomething() {
+
+        String str1 = "";
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 100; i++) {
+            str1 = "<tr>"
+                    + "<td>" + String.valueOf(i) + "</td>"
+                    + "<td>" + String.valueOf(i) + "</td>"
+                    + "</tr>";
+            sb.append(str1);
+        }
+        System.out.println(sb.toString());
+
+
     }
 
 
