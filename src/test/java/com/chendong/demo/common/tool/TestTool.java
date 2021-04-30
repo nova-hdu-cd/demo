@@ -489,7 +489,8 @@ public class TestTool {
                     + "</tr>";
             sb.append(str1);
         }
-        System.out.println(sb.toString());
+        LOGGER.info("sb -> {}", sb);
+        assert sb != null;
 
 
     }

@@ -74,7 +74,7 @@ public class TestSomeDao extends BaseTest {
     @Test
     public void testUpdate() {
         XingUserDO userDO = new XingUserDO();
-        userDO.setId(8l);
+        userDO.setId(8L);
         userDO.setUid("1");
         userDO.setUname("lll");
         userDO.setMobile("12345678901");
