@@ -40,15 +40,26 @@ public class SyncThreadPoolConfig implements AsyncConfigurer {
         return SyncThreadPoolConfig::handleUncaughtException;
     }
 
+    /**
+     * 1.当任务数小于等于核心线程数+等待队列数量的总和时：只有两个核心线程在执行任务。
+     * 2.当任务数大于核心线程数+等待队列数量的总和，但是小于等于最大线程数时：启动了最大线程来执行任务。
+     * 3.当任务数大于最大线程数时：任务大于最大线程数，使用拒绝策略直接抛出异常。
+     *
+     * @return 线程池
+     */
     @Bean("demoExecutor")
     public Executor demoExecutor() {
 
         //线程池的具体配置
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        //核心线程数
         executor.setCorePoolSize(10);
+        //最大线程数
         executor.setMaxPoolSize(20);
+        //阻塞队列的容量
         executor.setQueueCapacity(20);
         executor.setThreadNamePrefix("demoExecutor-");
+        //ThreadPoolExecutor.CallerRunsPolicy：当任务添加到线程池中被拒绝时，会调用当前线程池的所在的线程去执行被拒绝的任务
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
 
         return executor;
