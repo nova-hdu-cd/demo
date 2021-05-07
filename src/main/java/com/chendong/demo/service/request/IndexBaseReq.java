@@ -40,6 +40,15 @@ public class IndexBaseReq extends BaseReq {
         this.phone = phone;
     }
 
+    public IndexBaseReq() {
+    }
+
+    public IndexBaseReq(String uname, String sex, String phone) {
+        this.uname = uname;
+        this.sex = sex;
+        this.phone = phone;
+    }
+
     @Override
     public String toString() {
         return "IndexRequest{" +

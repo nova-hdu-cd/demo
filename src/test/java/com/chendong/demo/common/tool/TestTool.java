@@ -23,6 +23,7 @@ import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.*;
 import cn.hutool.poi.excel.sax.Excel07SaxReader;
 import cn.hutool.poi.excel.sax.handler.RowHandler;
+import com.chendong.demo.common.convert.HelloMapper;
 import com.chendong.demo.common.enums.global.ArgumentEnum;
 import com.chendong.demo.common.exception.ArgumentException;
 import com.chendong.demo.common.pojo.Dog;
@@ -35,24 +36,37 @@ import org.apache.poi.ss.usermodel.IndexedColors;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.annotation.Resource;
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 /**
+ * Junit5测试
+ *
  * @ClassName TestTool
- * @Description: TODO
+ * @Description: Junit5测试
  * @Author dong.chen
  * @Date 2021/4/23 11:18
  * @Version 1.0
  */
 @SuppressWarnings("all")
+@SpringBootTest
 public class TestTool {
+
+    @Resource
+    private HelloMapper helloMapper;
 
     private static final Logger LOGGER = LoggerFactory.getLogger(TestTool.class);
 
     private static final Map<String, Object> store = new HashMap<>();
+
+    @Test
+    void testHelloMapper() {
+        System.out.println(helloMapper);
+    }
 
     //md5加密和解密测试
     @Test

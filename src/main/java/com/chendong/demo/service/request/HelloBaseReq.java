@@ -20,6 +20,18 @@ public class HelloBaseReq extends BaseReq {
         this.name = uname;
     }
 
+    public HelloBaseReq() {
+        super();
+    }
+
+    public HelloBaseReq(String uuid, String projectId, String name) {
+        super(uuid, projectId, name);
+    }
+
+    public HelloBaseReq(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString() {
         return "HelloReq{" +

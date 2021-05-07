@@ -1,9 +1,12 @@
 package com.chendong.demo.service.impl;
 
+import com.chendong.demo.core.XingUserDao;
 import com.chendong.demo.service.IHelloService;
 import com.chendong.demo.service.request.HelloBaseReq;
 import com.chendong.demo.service.request.IndexBaseReq;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 /**
  * @author chendong
@@ -14,6 +17,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class HelloServiceImpl implements IHelloService {
 
+
+    @Resource
+    XingUserDao xingUserDao;
 
     @Override
     public String returnName(IndexBaseReq req) {

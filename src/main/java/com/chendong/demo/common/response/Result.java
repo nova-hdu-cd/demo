@@ -12,6 +12,10 @@ public class Result<T> extends CommonResponse<T> {
     public Result() {
     }
 
+    public Result(Integer code, String message, T data) {
+        super(code, message, data);
+    }
+
     public Result(ResultCode resultCode, T data) {
         this.code = resultCode.code();
         this.message = resultCode.message();

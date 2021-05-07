@@ -5,16 +5,16 @@ import com.chendong.demo.common.pojo.Dog;
 import com.chendong.demo.common.scheduling.TimeScheduling;
 import com.chendong.demo.controller.HelloController;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
 import java.util.concurrent.Future;
 
-@RunWith(SpringJUnit4ClassRunner.class)
+/**
+ * junit 5
+ */
 @SpringBootTest
 class TestTaskTestAsync {
 

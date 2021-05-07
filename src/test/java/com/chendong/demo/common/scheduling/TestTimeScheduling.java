@@ -1,17 +1,16 @@
 package com.chendong.demo.common.scheduling;
 
-import com.chendong.demo.common.constants.DemoConstant;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.context.SpringBootTest;
 
-import java.text.SimpleDateFormat;
-
-class TestTimeScheduling {
-    @Mock
-    SimpleDateFormat DATE_FORMAT = new SimpleDateFormat(DemoConstant.NOW_TIME_STR);
+/**
+ * junit5测试
+ */
+@SpringBootTest
+public class TestTimeScheduling {
     @InjectMocks
     TimeScheduling timeScheduling;
 

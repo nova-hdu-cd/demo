@@ -10,4 +10,27 @@ package com.chendong.demo.common.pojo;
  * @Version 1.0
  */
 public class Phone {
+    private Dog dog;
+
+    public Dog getDog() {
+        return dog;
+    }
+
+    public void setDog(Dog dog) {
+        this.dog = dog;
+    }
+
+    public Phone() {
+    }
+
+    public Phone(Dog dog) {
+        this.dog = dog;
+    }
+
+    @Override
+    public String toString() {
+        return "Phone{" +
+                "dog=" + dog +
+                '}';
+    }
 }

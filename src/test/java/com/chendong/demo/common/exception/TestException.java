@@ -3,16 +3,21 @@ package com.chendong.demo.common.exception;
 import com.chendong.demo.common.enums.global.ArgumentEnum;
 import com.chendong.demo.common.enums.global.ResponseEnum;
 import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
 
 /**
  * BusinessExceptionEnum的测试类
  *
  * @ClassName TestException
- * @Description: 测试类
+ * @Description: juint4测试类
  * @Author dong.chen
  * @Date 2021/4/22 13:46
  * @Version 1.0
  */
+@RunWith(SpringRunner.class)
+@SpringBootTest
 public class TestException {
 
     @Test
