@@ -20,19 +20,18 @@ import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
 /**
- * @Mock注释模拟相关对象。
- * @InjectMocks注释允许将@Mock创建的不同(和相关)模拟注入到基础对象中。
+ * Mock注释模拟相关对象。
+ * InjectMocks注释允许将Mock创建的不同(和相关)模拟注入到基础对象中。
  */
 class HelloControllerTest {
     @Mock
     Logger log;
     @Mock
     IHelloService helloService;
-
-
+    @Mock
+    Dog mockDog;
     @Spy
     Dog dog;
-
     @InjectMocks
     Person person;
     @InjectMocks
@@ -43,11 +42,17 @@ class HelloControllerTest {
         MockitoAnnotations.initMocks(this);
     }
 
+    @Test
+    void testMockSpy() {
+        System.out.println(mockDog);
+        System.out.println(dog);
+    }
 
     @Test
     void testInjectMocks() {
         Dog dog = person.getDog();
         System.out.println(dog);
+        System.out.println(mockDog);
         Assertions.assertNotNull(dog);
     }
 
