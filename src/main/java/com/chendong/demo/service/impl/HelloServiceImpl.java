@@ -17,9 +17,8 @@ import javax.annotation.Resource;
 @Service
 public class HelloServiceImpl implements IHelloService {
 
-
     @Resource
-    XingUserDao xingUserDao;
+    private XingUserDao xingUserDao;
 
     @Override
     public String returnName(IndexBaseReq req) {

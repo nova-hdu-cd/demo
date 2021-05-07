@@ -25,7 +25,7 @@ logging:
 
 #mybatis配置
 mybatis:
-  type-aliases-package: com.chendong.demo.dao
+  type-aliases-package: com.chendong.demo.core
   mapper-locations: classpath:mapper/*Mapper.xml
   #驼峰映射
   configuration:
