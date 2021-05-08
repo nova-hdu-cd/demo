@@ -36,9 +36,24 @@
         <objenesis.version>2.6</objenesis.version>
         <mybatis.version>1.3.1</mybatis.version>
         <poi.version>5.0.0</poi.version>
+        <mybatis-plus.version>3.4.2</mybatis-plus.version>
     </properties>
 
     <dependencies>
+
+        <!--        引入mybatis-plus后，无需引入mybatis了-->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+
+        <!-- mybatis必须指定版本不然mvn install会找不到-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.mybatis.spring.boot</groupId>-->
+        <!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
+        <!--            <version>${mybatis.version}</version>-->
+        <!--        </dependency>-->
 
         <!--excel工具依赖-->
         <dependency>
@@ -198,13 +213,6 @@
             <artifactId>objenesis</artifactId>
             <version>${objenesis.version}</version>
             <scope>test</scope>
-        </dependency>
-
-        <!-- mybatis必须指定版本不然mvn install会找不到-->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis.version}</version>
         </dependency>
 
         <dependency>

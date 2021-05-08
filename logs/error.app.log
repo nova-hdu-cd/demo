@@ -19,3 +19,11 @@
 2021-05-08 10:23:58,101 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 5740 (started by dong.chen in D:\demo)
 2021-05-08 10:23:58,102 [main] INFO  com.chendong.demo.test.TestDemo 655 - The following profiles are active: dev
 2021-05-08 10:24:01,726 [main] INFO  com.chendong.demo.test.TestDemo 61 - Started TestDemo in 4.052 seconds (JVM running for 4.988)
+2021-05-08 13:13:37,345 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 17148 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-08 13:13:37,360 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-08 13:13:41,781 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 5.18 seconds (JVM running for 6.217)
+2021-05-08 16:55:50,991 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 16288 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-08 16:55:50,991 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-08 16:58:15,335 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 15364 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-08 16:58:15,351 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-08 16:58:20,147 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 5.325 seconds (JVM running for 6.101)
