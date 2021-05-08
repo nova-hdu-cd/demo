@@ -6,6 +6,7 @@ import com.chendong.demo.core.XingUserDao;
 import com.chendong.demo.core.entity.XingUserDO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -69,13 +70,14 @@ public class DemoApplicationTests extends BaseTest {
         xingUserDO.setCity("shanghai");
 
         int num = xingUserDao.insert(xingUserDO);
-        assert num > 0;
+        System.out.println(num);
+        Assert.assertEquals(1, num);
     }
 
     @Test
     public void selectAll() {
-        XingUserDO xingUserDO = xingUserDao.queryById(2);
-        log.info("=====================\n" + xingUserDO + "\n-=================");
+        XingUserDO xingUserDO = xingUserDao.queryById(1);
+        log.info("XingUserDO -> {}", xingUserDO);
     }
 
 }
