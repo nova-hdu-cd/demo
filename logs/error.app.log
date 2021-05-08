@@ -1,0 +1,21 @@
+2021-05-08 09:49:59,728 [main] INFO  c.chendong.demo.common.tool.TestTool 55 - Starting TestTool on SH12125PCW with PID 9816 (started by dong.chen in D:\demo)
+2021-05-08 09:49:59,728 [main] INFO  c.chendong.demo.common.tool.TestTool 655 - The following profiles are active: dev
+2021-05-08 09:50:05,477 [main] INFO  c.chendong.demo.common.tool.TestTool 61 - Started TestTool in 6.808 seconds (JVM running for 9.122)
+2021-05-08 09:50:36,836 [main] INFO  c.chendong.demo.common.tool.TestTool 55 - Starting TestTool on SH12125PCW with PID 4164 (started by dong.chen in D:\demo)
+2021-05-08 09:50:36,836 [main] INFO  c.chendong.demo.common.tool.TestTool 655 - The following profiles are active: dev
+2021-05-08 09:50:40,569 [main] INFO  c.chendong.demo.common.tool.TestTool 61 - Started TestTool in 4.189 seconds (JVM running for 5.468)
+2021-05-08 10:18:23,668 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 14824 (started by dong.chen in D:\demo)
+2021-05-08 10:18:23,668 [main] INFO  com.chendong.demo.test.TestDemo 655 - The following profiles are active: dev
+2021-05-08 10:18:27,305 [main] INFO  com.chendong.demo.test.TestDemo 61 - Started TestDemo in 4.036 seconds (JVM running for 5.199)
+2021-05-08 10:19:27,753 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 14028 (started by dong.chen in D:\demo)
+2021-05-08 10:19:27,753 [main] INFO  com.chendong.demo.test.TestDemo 655 - The following profiles are active: dev
+2021-05-08 10:19:31,330 [main] INFO  com.chendong.demo.test.TestDemo 61 - Started TestDemo in 4.065 seconds (JVM running for 4.996)
+2021-05-08 10:20:03,137 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 2264 (started by dong.chen in D:\demo)
+2021-05-08 10:20:03,137 [main] INFO  com.chendong.demo.test.TestDemo 655 - The following profiles are active: dev
+2021-05-08 10:20:06,699 [main] INFO  com.chendong.demo.test.TestDemo 61 - Started TestDemo in 4.097 seconds (JVM running for 5.023)
+2021-05-08 10:20:44,804 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 11236 (started by dong.chen in D:\demo)
+2021-05-08 10:20:44,804 [main] INFO  com.chendong.demo.test.TestDemo 655 - The following profiles are active: dev
+2021-05-08 10:20:48,414 [main] INFO  com.chendong.demo.test.TestDemo 61 - Started TestDemo in 4.003 seconds (JVM running for 5.029)
+2021-05-08 10:23:58,101 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 5740 (started by dong.chen in D:\demo)
+2021-05-08 10:23:58,102 [main] INFO  com.chendong.demo.test.TestDemo 655 - The following profiles are active: dev
+2021-05-08 10:24:01,726 [main] INFO  com.chendong.demo.test.TestDemo 61 - Started TestDemo in 4.052 seconds (JVM running for 4.988)

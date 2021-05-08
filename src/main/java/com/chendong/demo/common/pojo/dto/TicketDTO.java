@@ -10,7 +10,7 @@ import lombok.NonNull;
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
-public class TicketDTO extends BaseDTO {
+public class TicketDTO {
 
     private String name;
 
@@ -55,7 +55,6 @@ public class TicketDTO extends BaseDTO {
     }
 
     public TicketDTO(String caller, String projectId, String namespace, String clientEntryId, String name, @NonNull String id, @NonNull Integer sex) {
-        super(caller, projectId, namespace, clientEntryId);
         this.name = name;
         this.id = id;
         this.sex = sex;

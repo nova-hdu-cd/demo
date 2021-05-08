@@ -28,6 +28,8 @@ import com.chendong.demo.common.enums.global.ArgumentEnum;
 import com.chendong.demo.common.exception.ArgumentException;
 import com.chendong.demo.common.pojo.Dog;
 import com.chendong.demo.common.pojo.People;
+import com.chendong.demo.common.pojo.dto.TicketDTO;
+import com.chendong.demo.common.pojo.dto.UserDTO;
 import com.chendong.demo.common.pojo.vo.EmpVO;
 import com.chendong.demo.common.pojo.vo.PermissionVO;
 import com.chendong.demo.common.utils.TreeUtil;
@@ -65,7 +67,14 @@ public class TestTool {
 
     @Test
     void testHelloMapper() {
-        System.out.println(helloMapper);
+        UserDTO dto = new UserDTO();
+        dto.setId("10010");
+        dto.setName("name");
+        dto.setNamespace("unisoc");
+
+        TicketDTO ticketDTO = helloMapper.buildTicketDTO(dto);
+
+        System.out.println(ticketDTO);
     }
 
     //md5加密和解密测试

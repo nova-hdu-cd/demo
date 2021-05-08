@@ -11,10 +11,20 @@ import io.swagger.annotations.ApiModelProperty;
  * @Version 1.0
  */
 @ApiModel(value = "信息DTO")
-public class InfoDTO extends BaseDTO {
+public class InfoDTO {
 
     @ApiModelProperty(value = "姓名")
     private String name;
+
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -25,12 +35,11 @@ public class InfoDTO extends BaseDTO {
     }
 
     public InfoDTO() {
-        super();
     }
 
-    public InfoDTO(String caller, String projectId, String namespace, String clientEntryId, String name) {
-        super(caller, projectId, namespace, clientEntryId);
+    public InfoDTO(String name, Long id) {
         this.name = name;
+        this.id = id;
     }
 
     @Override

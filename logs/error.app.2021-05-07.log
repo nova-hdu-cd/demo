@@ -1,0 +1,68 @@
+2021-05-07 18:39:49,943 [http-nio-9081-exec-3] INFO  c.c.demo.controller.HelloController 44 - request.value: -> "sky-demo-sky-demo"
+2021-05-07 18:39:49,989 [http-nio-9081-exec-3] INFO  c.c.demo.controller.HelloController 48 - index.dog -> {"name":"xiaohuang"}
+2021-05-07 18:40:31,692 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 13924 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-07 18:40:31,692 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-07 18:40:34,316 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 2.98 seconds (JVM running for 3.832)
+2021-05-07 18:40:39,490 [http-nio-9081-exec-8] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:40:39,490 [http-nio-9081-exec-10] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:40:39,493 [http-nio-9081-exec-8] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:40:39,497 [http-nio-9081-exec-10] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:28,526 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 8288 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-07 18:51:28,526 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-07 18:51:31,087 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 2.95 seconds (JVM running for 3.783)
+2021-05-07 18:51:35,034 [http-nio-9081-exec-7] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:35,034 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:35,037 [http-nio-9081-exec-7] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:35,039 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:47,483 [http-nio-9081-exec-2] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:47,483 [http-nio-9081-exec-3] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:47,483 [http-nio-9081-exec-2] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:47,483 [http-nio-9081-exec-3] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:51,719 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:51,719 [http-nio-9081-exec-8] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:51,719 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:51,719 [http-nio-9081-exec-8] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:52,716 [http-nio-9081-exec-5] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:52,716 [http-nio-9081-exec-5] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:52,716 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:52,717 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:53,242 [http-nio-9081-exec-9] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:53,242 [http-nio-9081-exec-10] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:53,242 [http-nio-9081-exec-9] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:53,242 [http-nio-9081-exec-10] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:53,429 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:53,430 [http-nio-9081-exec-5] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:53,430 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:53,430 [http-nio-9081-exec-5] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:53,635 [http-nio-9081-exec-5] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:53,635 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:53,635 [http-nio-9081-exec-5] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:53,635 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:54,117 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:54,117 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:51:54,118 [http-nio-9081-exec-2] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:51:54,119 [http-nio-9081-exec-2] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:52:41,600 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 15176 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-07 18:52:41,600 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-07 18:52:44,255 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 3.033 seconds (JVM running for 4.114)
+2021-05-07 18:52:50,905 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:52:50,905 [http-nio-9081-exec-9] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:52:50,910 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:52:50,912 [http-nio-9081-exec-9] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:53:26,123 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 4240 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-07 18:53:26,123 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-07 18:53:28,701 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 2.958 seconds (JVM running for 3.901)
+2021-05-07 18:53:33,487 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:53:33,487 [http-nio-9081-exec-10] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:53:33,492 [http-nio-9081-exec-1] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:53:33,494 [http-nio-9081-exec-10] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:53:43,020 [http-nio-9081-exec-4] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:53:43,020 [http-nio-9081-exec-4] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 18:53:43,021 [http-nio-9081-exec-3] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-07 18:53:43,021 [http-nio-9081-exec-3] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-07 19:02:18,262 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 15120 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-07 19:02:18,262 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-07 19:02:20,855 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 2.96 seconds (JVM running for 3.803)
+2021-05-07 19:02:55,098 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 7852 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-07 19:02:55,098 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-07 19:02:57,613 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 2.891 seconds (JVM running for 3.982)
