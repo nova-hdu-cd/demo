@@ -1,9 +1,5 @@
 package com.chendong.demo.core.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.io.Serializable;
 
 /**
@@ -14,9 +10,7 @@ import java.io.Serializable;
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
+
 public abstract class BaseDO implements Serializable {
 
     private static final long serialVersionUID = -5325661895329167468L;
@@ -46,4 +40,58 @@ public abstract class BaseDO implements Serializable {
      */
     private String changer;
 
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getMainId() {
+        return mainId;
+    }
+
+    public void setMainId(String mainId) {
+        this.mainId = mainId;
+    }
+
+    public Long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
+    }
+
+    public Long getChangeTime() {
+        return changeTime;
+    }
+
+    public void setChangeTime(Long changeTime) {
+        this.changeTime = changeTime;
+    }
+
+    public String getCreator() {
+        return creator;
+    }
+
+    public void setCreator(String creator) {
+        this.creator = creator;
+    }
+
+    public String getChanger() {
+        return changer;
+    }
+
+    public void setChanger(String changer) {
+        this.changer = changer;
+    }
+
+    @Override
+    public String toString() {
+        return "BaseDO{" +
+                "mainId='" + mainId + '\'' +
+                ", createTime=" + createTime +
+                ", changeTime=" + changeTime +
+                ", creator='" + creator + '\'' +
+                ", changer='" + changer + '\'' +
+                '}';
+    }
 }

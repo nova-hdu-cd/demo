@@ -100,4 +100,17 @@ public class XingUserDO extends BaseDO implements Serializable {
     public void setCity(String city) {
         this.city = city;
     }
+
+    @Override
+    public String toString() {
+        return "XingUserDO{" +
+                "id=" + id +
+                ", uid='" + uid + '\'' +
+                ", uname='" + uname + '\'' +
+                ", sex=" + sex +
+                ", mobile='" + mobile + '\'' +
+                ", nation='" + nation + '\'' +
+                ", city='" + city + '\'' +
+                '}';
+    }
 }
