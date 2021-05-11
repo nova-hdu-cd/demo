@@ -1,0 +1,9 @@
+2021-05-10 18:45:37,904 [main] INFO  c.c.d.common.async.TestTaskTestAsync 55 - Starting TestTaskTestAsync on SH12125PCW with PID 15508 (started by dong.chen in D:\demo)
+2021-05-10 18:45:37,935 [main] INFO  c.c.d.common.async.TestTaskTestAsync 655 - The following profiles are active: dev
+2021-05-10 18:45:44,340 [main] INFO  c.c.d.common.async.TestTaskTestAsync 61 - Started TestTaskTestAsync in 7.315 seconds (JVM running for 9.621)
+2021-05-10 18:45:44,605 [demoExecutor-1] INFO  c.c.demo.common.async.TestAsyncTask 46 - demoExecutor-1--->开始做任务1
+2021-05-10 18:45:44,605 [demoExecutor-3] INFO  c.c.demo.common.async.TestAsyncTask 67 - demoExecutor-3--->开始做任务3
+2021-05-10 18:45:44,605 [demoExecutor-2] INFO  c.c.demo.common.async.TestAsyncTask 56 - demoExecutor-2--->开始做任务2
+2021-05-10 18:45:44,621 [demoExecutor-3] INFO  c.c.demo.common.async.TestAsyncTask 71 - demoExecutor-3--->完成任务3，需要的时间：0毫秒
+2021-05-10 18:45:44,621 [demoExecutor-2] INFO  c.c.demo.common.async.TestAsyncTask 60 - demoExecutor-2--->完成任务2，需要的时间：0毫秒
+2021-05-10 18:45:44,621 [demoExecutor-1] INFO  c.c.demo.common.async.TestAsyncTask 49 - demoExecutor-1--->完成任务1，需要的时间：0毫秒

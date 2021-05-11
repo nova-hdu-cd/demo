@@ -3,9 +3,13 @@ package com.chendong.demo.common.config;
 import com.chendong.demo.common.intercepter.ResponseResultInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+
+import java.util.List;
 
 /**
  * 自定义mvc配置类接管springMVC
@@ -45,5 +49,17 @@ public class MyMvcConfig implements WebMvcConfigurer {
      */
     @Override
     public void addFormatters(FormatterRegistry registry) {
+    }
+
+    /**
+     * 注册自己的消息转换
+     *
+     * @param converters
+     */
+    @Override
+    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+
+        //采用Jackson处理返回String的情况
+        converters.add(0, new MappingJackson2HttpMessageConverter());
     }
 }

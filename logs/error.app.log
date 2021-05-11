@@ -1,66 +1,68 @@
-2021-05-08 09:49:59,728 [main] INFO  c.chendong.demo.common.tool.TestTool 55 - Starting TestTool on SH12125PCW with PID 9816 (started by dong.chen in D:\demo)
-2021-05-08 09:49:59,728 [main] INFO  c.chendong.demo.common.tool.TestTool 655 - The following profiles are active: dev
-2021-05-08 09:50:05,477 [main] INFO  c.chendong.demo.common.tool.TestTool 61 - Started TestTool in 6.808 seconds (JVM running for 9.122)
-2021-05-08 09:50:36,836 [main] INFO  c.chendong.demo.common.tool.TestTool 55 - Starting TestTool on SH12125PCW with PID 4164 (started by dong.chen in D:\demo)
-2021-05-08 09:50:36,836 [main] INFO  c.chendong.demo.common.tool.TestTool 655 - The following profiles are active: dev
-2021-05-08 09:50:40,569 [main] INFO  c.chendong.demo.common.tool.TestTool 61 - Started TestTool in 4.189 seconds (JVM running for 5.468)
-2021-05-08 10:18:23,668 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 14824 (started by dong.chen in D:\demo)
-2021-05-08 10:18:23,668 [main] INFO  com.chendong.demo.test.TestDemo 655 - The following profiles are active: dev
-2021-05-08 10:18:27,305 [main] INFO  com.chendong.demo.test.TestDemo 61 - Started TestDemo in 4.036 seconds (JVM running for 5.199)
-2021-05-08 10:19:27,753 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 14028 (started by dong.chen in D:\demo)
-2021-05-08 10:19:27,753 [main] INFO  com.chendong.demo.test.TestDemo 655 - The following profiles are active: dev
-2021-05-08 10:19:31,330 [main] INFO  com.chendong.demo.test.TestDemo 61 - Started TestDemo in 4.065 seconds (JVM running for 4.996)
-2021-05-08 10:20:03,137 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 2264 (started by dong.chen in D:\demo)
-2021-05-08 10:20:03,137 [main] INFO  com.chendong.demo.test.TestDemo 655 - The following profiles are active: dev
-2021-05-08 10:20:06,699 [main] INFO  com.chendong.demo.test.TestDemo 61 - Started TestDemo in 4.097 seconds (JVM running for 5.023)
-2021-05-08 10:20:44,804 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 11236 (started by dong.chen in D:\demo)
-2021-05-08 10:20:44,804 [main] INFO  com.chendong.demo.test.TestDemo 655 - The following profiles are active: dev
-2021-05-08 10:20:48,414 [main] INFO  com.chendong.demo.test.TestDemo 61 - Started TestDemo in 4.003 seconds (JVM running for 5.029)
-2021-05-08 10:23:58,101 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 5740 (started by dong.chen in D:\demo)
-2021-05-08 10:23:58,102 [main] INFO  com.chendong.demo.test.TestDemo 655 - The following profiles are active: dev
-2021-05-08 10:24:01,726 [main] INFO  com.chendong.demo.test.TestDemo 61 - Started TestDemo in 4.052 seconds (JVM running for 4.988)
-2021-05-08 13:13:37,345 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 17148 (D:\demo\target\classes started by dong.chen in D:\demo)
-2021-05-08 13:13:37,360 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
-2021-05-08 13:13:41,781 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 5.18 seconds (JVM running for 6.217)
-2021-05-08 16:55:50,991 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 16288 (D:\demo\target\classes started by dong.chen in D:\demo)
-2021-05-08 16:55:50,991 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
-2021-05-08 16:58:15,335 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 15364 (D:\demo\target\classes started by dong.chen in D:\demo)
-2021-05-08 16:58:15,351 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
-2021-05-08 16:58:20,147 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 5.325 seconds (JVM running for 6.101)
-2021-05-08 17:31:22,931 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 14232 (D:\demo\target\classes started by dong.chen in D:\demo)
-2021-05-08 17:31:22,934 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
-2021-05-08 17:31:26,750 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 4.392 seconds (JVM running for 5.202)
-2021-05-08 17:32:19,847 [main] INFO  c.c.demo.test.DemoApplicationTests 55 - Starting DemoApplicationTests on SH12125PCW with PID 3872 (started by dong.chen in D:\demo)
-2021-05-08 17:32:19,848 [main] INFO  c.c.demo.test.DemoApplicationTests 655 - The following profiles are active: dev
-2021-05-08 17:32:26,706 [main] INFO  c.c.demo.test.DemoApplicationTests 61 - Started DemoApplicationTests in 7.294 seconds (JVM running for 8.741)
-2021-05-08 17:33:24,224 [main] INFO  c.c.demo.test.DemoApplicationTests 55 - Starting DemoApplicationTests on SH12125PCW with PID 17884 (started by dong.chen in D:\demo)
-2021-05-08 17:33:24,225 [main] INFO  c.c.demo.test.DemoApplicationTests 655 - The following profiles are active: dev
-2021-05-08 17:33:28,046 [main] INFO  c.c.demo.test.DemoApplicationTests 61 - Started DemoApplicationTests in 4.295 seconds (JVM running for 5.353)
-2021-05-08 17:33:28,944 [main] INFO  c.c.demo.test.DemoApplicationTests 78 - =====================
-com.chendong.demo.core.entity.XingUserDO@27a90ce5
--=================
-2021-05-08 17:34:29,995 [main] INFO  c.c.demo.test.DemoApplicationTests 55 - Starting DemoApplicationTests on SH12125PCW with PID 6656 (started by dong.chen in D:\demo)
-2021-05-08 17:34:29,997 [main] INFO  c.c.demo.test.DemoApplicationTests 655 - The following profiles are active: dev
-2021-05-08 17:34:33,773 [main] INFO  c.c.demo.test.DemoApplicationTests 61 - Started DemoApplicationTests in 4.271 seconds (JVM running for 5.344)
-2021-05-08 17:34:34,649 [main] INFO  c.c.demo.test.DemoApplicationTests 78 - XingUserDO -> com.chendong.demo.core.entity.XingUserDO@27a90ce5
-2021-05-08 17:42:44,378 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 14232 (D:\demo\target\classes started by dong.chen in D:\demo)
-2021-05-08 17:42:44,378 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
-2021-05-08 17:42:45,163 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 8296 (started by dong.chen in D:\demo)
-2021-05-08 17:42:45,166 [main] INFO  com.chendong.demo.test.TestDemo 655 - The following profiles are active: dev
-2021-05-08 17:42:46,572 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 2.276 seconds (JVM running for 685.025)
-2021-05-08 17:42:49,831 [main] INFO  com.chendong.demo.test.TestDemo 61 - Started TestDemo in 5.313 seconds (JVM running for 6.601)
-2021-05-08 17:43:13,356 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 11892 (started by dong.chen in D:\demo)
-2021-05-08 17:43:13,358 [main] INFO  com.chendong.demo.test.TestDemo 655 - The following profiles are active: dev
-2021-05-08 17:43:17,172 [main] INFO  com.chendong.demo.test.TestDemo 61 - Started TestDemo in 4.224 seconds (JVM running for 5.184)
-2021-05-08 17:44:15,122 [main] INFO  c.c.demo.test.DemoApplicationTests 55 - Starting DemoApplicationTests on SH12125PCW with PID 7524 (started by dong.chen in D:\demo)
-2021-05-08 17:44:15,123 [main] INFO  c.c.demo.test.DemoApplicationTests 655 - The following profiles are active: dev
-2021-05-08 17:44:18,893 [main] INFO  c.c.demo.test.DemoApplicationTests 61 - Started DemoApplicationTests in 4.187 seconds (JVM running for 5.295)
-2021-05-08 17:44:39,740 [main] INFO  c.c.demo.test.DemoApplicationTests 55 - Starting DemoApplicationTests on SH12125PCW with PID 11880 (started by dong.chen in D:\demo)
-2021-05-08 17:44:39,741 [main] INFO  c.c.demo.test.DemoApplicationTests 655 - The following profiles are active: dev
-2021-05-08 17:44:43,841 [main] INFO  c.c.demo.test.DemoApplicationTests 61 - Started DemoApplicationTests in 4.518 seconds (JVM running for 5.564)
-2021-05-08 17:45:55,301 [main] INFO  c.c.demo.test.DemoApplicationTests 55 - Starting DemoApplicationTests on SH12125PCW with PID 16320 (started by dong.chen in D:\demo)
-2021-05-08 17:45:55,303 [main] INFO  c.c.demo.test.DemoApplicationTests 655 - The following profiles are active: dev
-2021-05-08 17:45:59,221 [main] INFO  c.c.demo.test.DemoApplicationTests 61 - Started DemoApplicationTests in 4.413 seconds (JVM running for 5.432)
-2021-05-08 18:10:09,650 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 17832 (D:\demo\target\classes started by dong.chen in D:\demo)
-2021-05-08 18:10:09,652 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
-2021-05-08 18:10:13,717 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 4.636 seconds (JVM running for 5.516)
+2021-05-11 08:57:36,609 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 18912 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-11 08:57:36,625 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-11 08:58:59,514 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 84.235 seconds (JVM running for 87.215)
+2021-05-11 08:59:08,313 [http-nio-9081-exec-5] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-11 08:59:08,313 [http-nio-9081-exec-9] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-11 08:59:08,319 [http-nio-9081-exec-9] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-11 08:59:08,324 [http-nio-9081-exec-5] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-11 08:59:58,345 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 12432 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-11 08:59:58,347 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-11 09:00:12,509 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 14.756 seconds (JVM running for 15.77)
+2021-05-11 09:00:22,780 [http-nio-9081-exec-7] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-11 09:00:22,780 [http-nio-9081-exec-4] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-11 09:00:22,791 [http-nio-9081-exec-4] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-11 09:00:22,793 [http-nio-9081-exec-7] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-11 09:00:28,628 [http-nio-9081-exec-6] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:00:28,687 [http-nio-9081-exec-6] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> "hello world!"
+2021-05-11 09:07:16,620 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 17364 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-11 09:07:16,622 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-11 09:08:31,573 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 75.455 seconds (JVM running for 76.567)
+2021-05-11 09:08:41,069 [http-nio-9081-exec-1] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:08:41,102 [http-nio-9081-exec-1] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> "hello world!"
+2021-05-11 09:08:41,908 [http-nio-9081-exec-3] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:08:41,908 [http-nio-9081-exec-3] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> "hello world!"
+2021-05-11 09:08:42,174 [http-nio-9081-exec-5] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:08:42,175 [http-nio-9081-exec-5] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> "hello world!"
+2021-05-11 09:08:42,339 [http-nio-9081-exec-7] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:08:42,339 [http-nio-9081-exec-7] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> "hello world!"
+2021-05-11 09:08:42,539 [http-nio-9081-exec-9] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:08:42,539 [http-nio-9081-exec-9] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> "hello world!"
+2021-05-11 09:08:49,780 [http-nio-9081-exec-1] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:08:49,780 [http-nio-9081-exec-1] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> "hello world!"
+2021-05-11 09:09:00,697 [http-nio-9081-exec-5] INFO  c.c.demo.controller.HelloController 44 - request.value: -> "sky-demo-sky-demo"
+2021-05-11 09:09:01,128 [http-nio-9081-exec-5] INFO  c.c.demo.controller.HelloController 48 - index.dog -> {"name":"xiaohuang"}
+2021-05-11 09:09:01,129 [http-nio-9081-exec-5] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:09:01,130 [http-nio-9081-exec-5] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> {"name":"xiaohuang"}
+2021-05-11 09:09:13,267 [http-nio-9081-exec-9] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-11 09:09:13,268 [http-nio-9081-exec-9] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-11 09:09:13,324 [http-nio-9081-exec-9] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-11 09:09:13,337 [http-nio-9081-exec-9] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-11 09:38:30,738 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 18556 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-11 09:38:30,738 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-11 09:38:33,700 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 3.353 seconds (JVM running for 4.255)
+2021-05-11 09:38:41,754 [http-nio-9081-exec-1] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:38:41,780 [http-nio-9081-exec-1] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> "hello world!null"
+2021-05-11 09:38:43,274 [http-nio-9081-exec-5] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:38:43,274 [http-nio-9081-exec-5] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> "hello world!null"
+2021-05-11 09:43:04,847 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 11608 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-11 09:43:04,847 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-11 09:43:07,697 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 3.267 seconds (JVM running for 4.107)
+2021-05-11 09:43:17,536 [http-nio-9081-exec-1] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:43:17,562 [http-nio-9081-exec-1] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> "hello world!0:0:0:0:0:0:0:1"
+2021-05-11 09:43:35,677 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 16272 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-11 09:43:35,677 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-11 09:43:39,007 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 3.823 seconds (JVM running for 5.042)
+2021-05-11 09:49:05,021 [http-nio-9081-exec-4] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:49:05,096 [http-nio-9081-exec-4] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> "hello world!0:0:0:0:0:0:0:1"
+2021-05-11 09:49:07,347 [http-nio-9081-exec-6] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-11 09:49:07,347 [http-nio-9081-exec-9] INFO  c.c.demo.common.aspects.LogAdvice 37 - start: 应用名称：，应用id： application
+2021-05-11 09:49:07,354 [http-nio-9081-exec-9] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-11 09:49:07,356 [http-nio-9081-exec-6] INFO  c.c.demo.common.aspects.LogAdvice 46 - end: 应用名称：，应用id： application
+2021-05-11 09:49:49,279 [http-nio-9081-exec-7] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:49:49,279 [http-nio-9081-exec-7] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> "hello world!127.0.0.1"
+2021-05-11 09:52:24,427 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 11768 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-11 09:52:24,427 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-11 09:52:27,342 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 3.422 seconds (JVM running for 4.367)
+2021-05-11 09:53:46,665 [http-nio-9081-exec-1] INFO  c.c.demo.controller.BaseController 40 - request -> {}
+2021-05-11 09:53:46,675 [http-nio-9081-exec-1] INFO  c.c.d.c.i.ResponseResultHandler 62 - 进入返回体，beforeBodyWrite正常包装处理中。。。。。。
+2021-05-11 09:53:46,702 [http-nio-9081-exec-1] INFO  c.c.d.c.i.ResponseResultHandler 63 - beforeBodyWrite返回的方法体 body -> "hello world!127.0.0.1"

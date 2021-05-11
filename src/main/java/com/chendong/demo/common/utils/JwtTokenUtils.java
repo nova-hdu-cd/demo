@@ -62,6 +62,7 @@ public final class JwtTokenUtils {
      */
     public static boolean verify(String token, String name) {
         try {
+            //密钥和所需要的算法、签发者
             JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET_KEY)).withIssuer(ISSUER).build();
             DecodedJWT decodedJWT = verifier.verify(token);
             String payload = decodedJWT.getPayload();

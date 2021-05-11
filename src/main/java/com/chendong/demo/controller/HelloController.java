@@ -25,7 +25,7 @@ import javax.annotation.Resource;
 @RestController
 @RequestMapping(value = "/api/1.0/test")
 @Api(value = "HelloController", tags = {"欢迎接口"})
-public class HelloController {
+public class HelloController extends BaseController {
 
     private static final Logger log = LoggerFactory.getLogger(HelloController.class);
 
@@ -37,7 +37,7 @@ public class HelloController {
      *
      * @return
      */
-    @ResponseResult//注意返回String的大坑，返回不能是String
+    @ResponseResult
     @GetMapping("/index")
     public Dog index(@RequestAttribute("demo-index") String value) {
 
@@ -47,6 +47,17 @@ public class HelloController {
         dog.setName("xiaohuang");
         log.info("index.dog -> {}", JSON.toJSONString(dog));
         return dog;
+    }
+
+    /**
+     * 返回String,通过引入jackson的消息转换器解决
+     *
+     * @return
+     */
+    @ResponseResult
+    @GetMapping("/helloWorld")
+    public String helloWorld() {
+        return "hello world!" + getIpAddress();
     }
 
     /**
