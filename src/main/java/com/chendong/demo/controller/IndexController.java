@@ -15,12 +15,11 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
- * IndexController
- *
  * @author dong.chen
  */
 @Controller
-@Api(value = "IndexController", tags = {"学习swagger注解的接口"})
+@RequestMapping("/index/")
+@Api(value = "首页接口", tags = {"Demo API List", "index"})
 public class IndexController {
 
     @GetMapping("/index")
@@ -66,6 +65,7 @@ public class IndexController {
     @ResponseResult
     @ResponseBody
     @PostMapping("/getEmp")
+    @ApiOperation(value = "获取员工", notes = "开发中", consumes = "application/json")
     public EmpVO getEmp(@RequestBody EmpVO empVO) {
 
         EmpVO vo = new EmpVO();
@@ -80,6 +80,7 @@ public class IndexController {
     @ResponseResult
     @ResponseBody
     @PostMapping("/getEmpV2")
+    @ApiOperation(value = "获取员工V2", notes = "开发中", consumes = "application/json")
     public Map<String, Integer> getEmpV2(@RequestBody EmpVO empVO) {
 
         EmpVO vo = new EmpVO();

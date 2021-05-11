@@ -11,6 +11,7 @@ person:
   dog:
     name: xiaohuang
 
+
 #debug模式
 debug: false
 
@@ -53,6 +54,12 @@ spring:
     restart:
       poll-interval: 2s
       quiet-period: 1s
+
+  #spring security 用户名和密码
+  security:
+    user:
+      password: root
+      name: root
 
 ---
 #开发环境配置

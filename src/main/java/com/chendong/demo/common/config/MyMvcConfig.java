@@ -38,8 +38,10 @@ public class MyMvcConfig implements WebMvcConfigurer {
 
         //注册统一返回拦截器
         registry.addInterceptor(new ResponseResultInterceptor())
-                .addPathPatterns("/**")//拦截所有url
-                .excludePathPatterns("/", "/static/**");//排除部分url
+                //拦截所有url
+                .addPathPatterns("/**")
+                //排除部分url
+                .excludePathPatterns("/", "/static/**");
     }
 
     /**

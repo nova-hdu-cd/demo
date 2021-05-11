@@ -18,13 +18,11 @@ import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 
 /**
- * 基本的controller
- *
  * @author dong.chen
  */
 @RestController
-@RequestMapping(value = "/api/1.0/test")
-@Api(value = "HelloController", tags = {"欢迎接口"})
+@RequestMapping(value = "/hello/")
+@Api(value = "测试接口", tags = {"Demo API List", "hello"})
 public class HelloController extends BaseController {
 
     private static final Logger log = LoggerFactory.getLogger(HelloController.class);
@@ -59,6 +57,13 @@ public class HelloController extends BaseController {
     public String helloWorld() {
         return "hello world!" + getIpAddress();
     }
+
+    @ResponseResult
+    @GetMapping("helloInt")
+    public Integer helloInt() {
+        return 40010;
+    }
+
 
     /**
      * 失败返回示例

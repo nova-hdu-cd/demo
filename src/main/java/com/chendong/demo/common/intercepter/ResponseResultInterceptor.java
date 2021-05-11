@@ -12,8 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.lang.reflect.Method;
 
 /**
- * 拦截请求
- * 当类或方法上有注解@ResponseResult时，向请求域中添加标识，无此注解则放行
+ * 自定义拦截器
+ * 当类或方法上有注解@ResponseResult时，向请求域中添加标识
  *
  * @author dong.chen
  */
@@ -30,11 +30,10 @@ public class ResponseResultInterceptor implements HandlerInterceptor {
             final HandlerMethod handlerMethod = (HandlerMethod) handler;
             final Class<?> type = handlerMethod.getBeanType();
             final Method method = handlerMethod.getMethod();
-            //向request中写入标识
+            //向request中写入标识 todo
             request.setAttribute("demo-index", "sky-demo-sky-demo");
             //标识类和方法
             if (type.isAnnotationPresent(ResponseResult.class)) {
-                //在请求体中写入标识
                 request.setAttribute(RESPONSE_UNION_CODE, type.getAnnotation(ResponseResult.class));
             } else if (method.isAnnotationPresent(ResponseResult.class)) {
                 request.setAttribute(RESPONSE_UNION_CODE, method.getAnnotation(ResponseResult.class));
