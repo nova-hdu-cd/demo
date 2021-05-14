@@ -1,8 +1,8 @@
 package com.chendong.demo.core;
 
 import com.chendong.demo.core.entity.XingUserDO;
-import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ import java.util.List;
  * @author chendong
  * @since 2020-08-20 17:16:50
  */
-@Mapper
+@Repository
 public interface XingUserDao {
 
     /**

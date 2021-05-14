@@ -1,0 +1,3 @@
+2021-05-13 14:58:40,610 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 5528 (D:\demo\target\classes started by dong.chen in D:\demo)
+2021-05-13 14:58:40,626 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
+2021-05-13 14:58:50,161 [restartedMain] INFO  c.c.demo.start.DemoApplication 61 - Started DemoApplication in 10.883 seconds (JVM running for 12.519)

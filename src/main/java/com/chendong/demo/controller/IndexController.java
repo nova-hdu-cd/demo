@@ -1,11 +1,18 @@
 package com.chendong.demo.controller;
 
+import cn.hutool.json.JSONUtil;
 import com.chendong.demo.common.anotations.ResponseResult;
 import com.chendong.demo.common.pojo.dto.InfoDTO;
 import com.chendong.demo.common.pojo.vo.EmpVO;
 import com.chendong.demo.common.response.Result;
+import com.chendong.demo.service.IUserService;
+import generate.User;
 import io.swagger.annotations.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -21,6 +28,20 @@ import java.util.stream.Collectors;
 @RequestMapping("/index/")
 @Api(value = "首页接口", tags = {"Demo API List", "index"})
 public class IndexController {
+
+    private static final Logger log = LoggerFactory.getLogger(IndexController.class);
+
+    @Autowired
+    private IUserService userService;
+
+    @GetMapping("/getUserById/{id}")
+    @ResponseBody
+    public User getUserById(@PathVariable("id") Integer id) {
+        User user = userService.selectUserById(id);
+        log.info("user - > {}", JSONUtil.toJsonStr(user));
+        Assert.notNull(user, "user不为空！");
+        return user;
+    }
 
     @GetMapping("/index")
     public String index() {
