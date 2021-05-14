@@ -58,6 +58,7 @@
     <!--将com.chendong.demo包下所有产生的业务日志放入到./logs下-->
     <logger name="com.chendong.demo" level="info" additivity="false">
         <appender-ref ref="fileErrorLog"/>
+        <appender-ref ref="consoleLog"/>
     </logger>
 
     <!--指定最基础的日志输出级别 -->
