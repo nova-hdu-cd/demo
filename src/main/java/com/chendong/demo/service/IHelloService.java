@@ -1,5 +1,6 @@
 package com.chendong.demo.service;
 
+import com.chendong.demo.core.entity.User;
 import com.chendong.demo.service.request.HelloBaseReq;
 import com.chendong.demo.service.request.IndexBaseReq;
 
@@ -21,4 +22,11 @@ public interface IHelloService {
      * @return
      */
     String hello(HelloBaseReq req);
+
+
+    /**
+     * @param id
+     * @return
+     */
+    User selectUserById(Integer id);
 }

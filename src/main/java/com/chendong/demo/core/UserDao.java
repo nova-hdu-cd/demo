@@ -1,6 +1,6 @@
 package com.chendong.demo.core;
 
-import generate.User;
+import com.chendong.demo.core.entity.User;
 import org.springframework.stereotype.Repository;
 
 @Repository

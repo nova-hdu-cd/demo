@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.chendong.demo.core.UserDao">
-    <resultMap id="BaseResultMap" type="generate.User">
+    <resultMap id="BaseResultMap" type="com.chendong.demo.core.entity.User">
         <id column="id" jdbcType="BIGINT" property="id" javaType="Integer"/>
         <result column="name" jdbcType="VARCHAR" property="name" javaType="String"/>
         <result column="age" jdbcType="INTEGER" property="age" javaType="Integer"/>
@@ -21,11 +21,13 @@
         from user
         where id = #{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="generate.User" useGeneratedKeys="true">
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.chendong.demo.core.entity.User"
+            useGeneratedKeys="true">
         insert into user (`name`, age, email)
         values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR})
     </insert>
-    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="generate.User" useGeneratedKeys="true">
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.chendong.demo.core.entity.User"
+            useGeneratedKeys="true">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="name != null">
@@ -50,7 +52,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="generate.User">
+    <update id="updateByPrimaryKeySelective" parameterType="com.chendong.demo.core.entity.User">
         update user
         <set>
             <if test="name != null">
@@ -65,7 +67,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="generate.User">
+    <update id="updateByPrimaryKey" parameterType="com.chendong.demo.core.entity.User">
         update user
         set `name` = #{name,jdbcType=VARCHAR},
             age    = #{age,jdbcType=INTEGER},

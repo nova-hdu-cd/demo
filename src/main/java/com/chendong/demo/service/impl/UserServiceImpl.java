@@ -2,8 +2,8 @@ package com.chendong.demo.service.impl;
 
 import cn.hutool.json.JSONUtil;
 import com.chendong.demo.core.UserDao;
+import com.chendong.demo.core.entity.User;
 import com.chendong.demo.service.IUserService;
-import generate.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

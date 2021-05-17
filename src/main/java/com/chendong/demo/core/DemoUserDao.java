@@ -5,5 +5,5 @@ import com.chendong.demo.core.entity.User;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface UserMapper extends BaseMapper<User> {
+public interface DemoUserDao extends BaseMapper<User> {
 }

@@ -31,7 +31,10 @@ mybatis:
   #驼峰映射
   configuration:
     map-underscore-to-camel-case: true
-    #配置mybatis打印sql日志
+
+# 方式一
+mybatis-plus:
+  configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 #mysql配置

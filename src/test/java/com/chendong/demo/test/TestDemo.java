@@ -5,7 +5,7 @@ import com.chendong.demo.common.convert.HelloMapper;
 import com.chendong.demo.common.pojo.dto.InfoDTO;
 import com.chendong.demo.common.pojo.dto.TicketDTO;
 import com.chendong.demo.common.pojo.dto.UserDTO;
-import com.chendong.demo.core.UserMapper;
+import com.chendong.demo.core.DemoUserDao;
 import com.chendong.demo.core.entity.User;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,14 +17,14 @@ import java.util.List;
 public class TestDemo extends BaseTest {
 
     @Resource
-    private UserMapper userMapper;
+    private DemoUserDao demoUserDao;
 
     @Resource
     private HelloMapper helloConvert;
 
     @Test
     public void testUserMapper() {
-        List<User> users = userMapper.selectList(null);
+        List<User> users = demoUserDao.selectList(null);
         System.out.println(users);
         Assert.assertEquals(5, users.size());
     }

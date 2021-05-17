@@ -1,6 +1,6 @@
 package com.chendong.demo.service;
 
-import generate.User;
+import com.chendong.demo.core.entity.User;
 
 /**
  * @author dong.chen
