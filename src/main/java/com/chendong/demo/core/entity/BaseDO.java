@@ -86,7 +86,7 @@ public abstract class BaseDO implements Serializable {
 
     @Override
     public String toString() {
-        return "BaseDO{" +
+        return "BaseDO   {" +
                 "mainId='" + mainId + '\'' +
                 ", createTime=" + createTime +
                 ", changeTime=" + changeTime +

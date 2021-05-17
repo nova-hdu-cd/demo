@@ -32,7 +32,7 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 
-# 方式一
+# mybatis-plus sql 执行日志
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
@@ -42,8 +42,9 @@ spring:
   #环境配置
   profiles:
     active: dev
-
-    #数据库配置
+  banner:
+    location: banner.txt
+  #数据库配置
   datasource:
     url: jdbc:mysql://localhost:3306/xinyang?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
     username: user
