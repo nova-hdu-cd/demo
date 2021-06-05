@@ -17,32 +17,87 @@
 
     <!--字段集合-->
     <sql id="columns">
-        id
-        , uid, uname, sex, mobile, nation, city
+        `id`
+        , `uid`, `uname`, `sex`, `mobile`, `nation`, `city`
+    </sql>
+
+    <sql id="set_column">
+        <if test="id != null">
+            `id` = #{id},
+        </if>
+        <if test="uid != null and uid != ''">
+            `uid` = #{uid},
+        </if>
+        <if test="uname != null and uname != ''">
+            `uname` = #{uname},
+        </if>
+        <if test="sex != null">
+            `sex` = #{sex},
+        </if>
+        <if test="mobile != null and mobile != ''">
+            `mobile` = #{mobile},
+        </if>
+        <if test="nation != null and nation != ''">
+            `nation` = #{nation},
+        </if>
+        <if test="city != null and city != ''">
+            `city` = #{city},
+        </if>
+    </sql>
+
+    <sql id="batchset_column">
+        <if test="item.id != null">
+            `id` = #{item.id},
+        </if>
+        <if test="item.uid != null and item.uid != ''">
+            `uid` = #{item.uid},
+        </if>
+        <if test="item.uname != null and item.uname != ''">
+            `uname` = #{item.uname},
+        </if>
+        <if test="item.sex != null">
+            `sex` = #{item.sex},
+        </if>
+        <if test="item.mobile != null and item.mobile != ''">
+            `mobile` = #{item.mobile},
+        </if>
+        <if test="item.nation != null and item.nation != ''">
+            `nation` = #{item.nation},
+        </if>
+        <if test="item.city != null and item.city != ''">
+            `city` = #{item.city},
+        </if>
+    </sql>
+
+    <!--set元素会动态的在行首插入set关键字，并会删除额外的逗号-->
+    <sql id="sets">
+        <set>
+            <include refid="set_column"/>
+        </set>
     </sql>
 
     <!--查询字段集合 -->
     <sql id="querySet">
         <if test="id != null">
-            and id = #{id}
+            and `id` = #{id}
         </if>
         <if test="uid != null and uid != ''">
-            and uid = #{uid}
+            and `uid` = #{uid}
         </if>
         <if test="uname != null and uname != ''">
-            and uname = #{uname}
+            and `uname` = #{uname}
         </if>
         <if test="sex != null">
-            and sex = #{sex}
+            and `sex` = #{sex}
         </if>
         <if test="mobile != null and mobile != ''">
-            and mobile = #{mobile}
+            and `mobile` = #{mobile}
         </if>
         <if test="nation != null and nation != ''">
-            and nation = #{nation}
+            and `nation` = #{nation}
         </if>
         <if test="city != null and city != ''">
-            and city = #{city}
+            and `city` = #{city}
         </if>
     </sql>
 
@@ -50,14 +105,14 @@
     <sql id="querySelect">
         <choose>
             <when test="id != null">
-                AND id = #{id}
+                AND `id` = #{id}
             </when>
             <when test="name != null and name != ''">
-                AND name = #{name}
+                AND `name` = #{name}
             </when>
             <!-- 如果上面的when标签中的内容都不生效，就会选择otherwise -->
             <otherwise>
-                AND id = 1
+                AND `id` = 1
             </otherwise>
         </choose>
     </sql>
@@ -67,7 +122,7 @@
         <!--where元素只会在子元素返回任何内容的情况下才插入“where子句”。
         而且，若子句的开头为“and”或“or”，where元素也会将它们去除。-->
         <where>
-            <include refid="querySet"></include>
+            <include refid="querySet"/>
         </where>
     </sql>
 
@@ -80,31 +135,18 @@
         </trim>
     </sql>
 
-    <!--set元素会动态的在行首插入set关键字，并会删除额外的逗号-->
-    <sql id="sets">
-        <set>
-            <if test="id != null">
-                id = #{id}
-            </if>
-            <if test="uid != null and uid != ''">
-                uid = #{uid}
-            </if>
-            <if test="uname != null and uname != ''">
-                uname = #{uname}
-            </if>
-            <if test="sex != null">
-                sex = #{sex}
-            </if>
-            <if test="mobile != null and mobile != ''">
-                mobile = #{mobile}
-            </if>
-            <if test="nation != null and nation != ''">
-                nation = #{nation}
-            </if>
-            <if test="city != null and city != ''">
-                city = #{city}
-            </if>
-        </set>
+
+    <!--    排序条件和分页查询-->
+    <sql id="orderby-page-limit">
+        <if test="orderBy != null and orderBy != ''">
+            order by ${orderBy}
+        </if>
+        <if test="limit != null and offset != null">
+            limit #{offset},#{limit}
+        </if>
+        <if test="limit != null and offset == null">
+            limit #{limit}
+        </if>
     </sql>
 
     <!--
@@ -143,7 +185,7 @@
         select
         <include refid="columns"/>
         from xinyang.xinyang_user
-        limit #{offset}, #{limit}
+        <include refid="orderby-page-limit"/>
     </select>
 
     <!--通过实体作为筛选条件查询-->
@@ -160,8 +202,8 @@
     <!--新增所有列-->
     <insert id="insert" parameterType="com.chendong.demo.core.entity.XingUserDO" keyProperty="id"
             useGeneratedKeys="true">
-        insert into xinyang.xinyang_user(uid, uname, sex, mobile, nation, city)
-        values (#{uid}, #{uname}, #{sex}, #{mobile}, #{nation}, #{city})
+        insert into xinyang.xinyang_user
+        <include refid="sets"/>
     </insert>
 
     <!--通过主键修改数据-->
@@ -177,5 +219,11 @@
         from xinyang.xinyang_user
         where id = #{id}
     </delete>
+
+    <select id="queryUserCount" resultType="Integer">
+        select count(1)
+        from xinyang.xinyang_user
+        <include refid="querySet"/>
+    </select>
 
 </mapper>

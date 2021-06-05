@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  * 线程池的配置
  *
  * @author chendong
- * @date 2020/8/28 10:47 上午
+ * @Date 2020/8/28 10:47 上午
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
