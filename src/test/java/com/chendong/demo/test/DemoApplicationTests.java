@@ -2,8 +2,8 @@ package com.chendong.demo.test;
 
 import com.chendong.demo.BaseTest;
 import com.chendong.demo.common.pojo.dto.UserDTO;
-import com.chendong.demo.core.XingUserDao;
-import com.chendong.demo.core.entity.XingUserDO;
+import com.chendong.demo.dao.XingUserDao;
+import com.chendong.demo.entity.XingUserDO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.junit.Assert;

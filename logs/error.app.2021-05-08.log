@@ -37,12 +37,12 @@
 2021-05-08 17:33:24,225 [main] INFO  c.c.demo.test.DemoApplicationTests 655 - The following profiles are active: dev
 2021-05-08 17:33:28,046 [main] INFO  c.c.demo.test.DemoApplicationTests 61 - Started DemoApplicationTests in 4.295 seconds (JVM running for 5.353)
 2021-05-08 17:33:28,944 [main] INFO  c.c.demo.test.DemoApplicationTests 78 - =====================
-com.chendong.demo.core.entity.XingUserDO@27a90ce5
+com.chendong.demo.entity.XingUserDO@27a90ce5
 -=================
 2021-05-08 17:34:29,995 [main] INFO  c.c.demo.test.DemoApplicationTests 55 - Starting DemoApplicationTests on SH12125PCW with PID 6656 (started by dong.chen in D:\demo)
 2021-05-08 17:34:29,997 [main] INFO  c.c.demo.test.DemoApplicationTests 655 - The following profiles are active: dev
 2021-05-08 17:34:33,773 [main] INFO  c.c.demo.test.DemoApplicationTests 61 - Started DemoApplicationTests in 4.271 seconds (JVM running for 5.344)
-2021-05-08 17:34:34,649 [main] INFO  c.c.demo.test.DemoApplicationTests 78 - XingUserDO -> com.chendong.demo.core.entity.XingUserDO@27a90ce5
+2021-05-08 17:34:34,649 [main] INFO  c.c.demo.test.DemoApplicationTests 78 - XingUserDO -> com.chendong.demo.entity.XingUserDO@27a90ce5
 2021-05-08 17:42:44,378 [restartedMain] INFO  c.c.demo.start.DemoApplication 55 - Starting DemoApplication on SH12125PCW with PID 14232 (D:\demo\target\classes started by dong.chen in D:\demo)
 2021-05-08 17:42:44,378 [restartedMain] INFO  c.c.demo.start.DemoApplication 655 - The following profiles are active: dev
 2021-05-08 17:42:45,163 [main] INFO  com.chendong.demo.test.TestDemo 55 - Starting TestDemo on SH12125PCW with PID 8296 (started by dong.chen in D:\demo)

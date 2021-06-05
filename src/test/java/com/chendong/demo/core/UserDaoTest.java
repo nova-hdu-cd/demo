@@ -2,7 +2,8 @@ package com.chendong.demo.core;
 
 import cn.hutool.json.JSONUtil;
 import com.chendong.demo.BaseTest;
-import com.chendong.demo.core.entity.User;
+import com.chendong.demo.dao.UserDao;
+import com.chendong.demo.entity.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;

@@ -1,4 +1,4 @@
-package com.chendong.demo.core.entity;
+package com.chendong.demo.entity;
 
 /**
  * 用户信息DO

@@ -5,7 +5,7 @@ import com.chendong.demo.common.anotations.ResponseResult;
 import com.chendong.demo.common.pojo.dto.InfoDTO;
 import com.chendong.demo.common.pojo.vo.EmpVO;
 import com.chendong.demo.common.response.Result;
-import com.chendong.demo.core.entity.User;
+import com.chendong.demo.entity.User;
 import com.chendong.demo.service.IUserService;
 import io.swagger.annotations.*;
 import org.slf4j.Logger;

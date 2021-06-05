@@ -1,6 +1,6 @@
 package com.chendong.demo.service;
 
-import com.chendong.demo.core.entity.User;
+import com.chendong.demo.entity.User;
 import com.chendong.demo.service.request.HelloBaseReq;
 import com.chendong.demo.service.request.IndexBaseReq;
 

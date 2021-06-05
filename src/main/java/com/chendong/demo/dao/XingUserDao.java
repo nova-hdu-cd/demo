@@ -1,6 +1,6 @@
-package com.chendong.demo.core;
+package com.chendong.demo.dao;
 
-import com.chendong.demo.core.entity.XingUserDO;
+import com.chendong.demo.entity.XingUserDO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 

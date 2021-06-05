@@ -1,4 +1,4 @@
-package com.chendong.demo.core.entity;
+package com.chendong.demo.entity;
 
 /**
  * @author dong.chen

@@ -5,8 +5,8 @@ import com.chendong.demo.common.convert.HelloMapper;
 import com.chendong.demo.common.pojo.dto.InfoDTO;
 import com.chendong.demo.common.pojo.dto.TicketDTO;
 import com.chendong.demo.common.pojo.dto.UserDTO;
-import com.chendong.demo.core.DemoUserDao;
-import com.chendong.demo.core.entity.User;
+import com.chendong.demo.dao.DemoUserDao;
+import com.chendong.demo.entity.User;
 import org.junit.Assert;
 import org.junit.Test;
 
