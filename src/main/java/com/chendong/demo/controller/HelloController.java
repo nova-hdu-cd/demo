@@ -44,7 +44,7 @@ public class HelloController extends BaseController {
         Dog dog = new Dog();
         dog.setName("xiaohuang");
         log.info("index.dog -> {}", JSON.toJSONString(dog));
-        System.out.println(dog+" ");
+        System.out.println("  " + dog + " ");
         return dog;
     }
 
