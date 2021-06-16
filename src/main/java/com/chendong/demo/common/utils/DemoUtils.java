@@ -36,7 +36,8 @@ public class DemoUtils {
         private String name;
         private String type;
 
-        public Builder() {}
+        public Builder() {
+        }
 
         public Builder withVersion(String version) {
             this.version = version;
@@ -55,9 +56,9 @@ public class DemoUtils {
 
         public DemoUtils build() {
             DemoUtils utils = new DemoUtils();
-            utils.name = name;
-            utils.type = type;
-            utils.version = version;
+            utils.name = this.name;
+            utils.type = this.type;
+            utils.version = this.version;
             return utils;
         }
 
