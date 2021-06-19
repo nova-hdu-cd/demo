@@ -37,7 +37,6 @@ mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
-#mysql配置
 spring:
   #环境配置
   profiles:
