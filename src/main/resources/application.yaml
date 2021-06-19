@@ -1,4 +1,4 @@
-#person配置类
+#自定义配置
 person:
   name: chendong
   age: 27
