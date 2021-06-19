@@ -120,7 +120,7 @@
     <!-- 条件集合-->
     <sql id="conditions">
         <!--where元素只会在子元素返回任何内容的情况下才插入“where子句”。
-        而且，若子句的开头为“and”或“or”，where元素也会将它们去除。-->
+        而且，若子句的开头为“and”或“or”，where元素也会将它们去除，但是where不会去除”,“，注意避开坑。-->
         <where>
             <include refid="querySet"/>
         </where>
