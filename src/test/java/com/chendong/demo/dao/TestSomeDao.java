@@ -1,17 +1,20 @@
 package com.chendong.demo.dao;
 
+import com.alibaba.fastjson.JSON;
 import com.chendong.demo.BaseTest;
 import com.chendong.demo.common.pojo.Dog;
 import com.chendong.demo.common.pojo.Person;
 import com.chendong.demo.common.pojo.TestA;
-import com.chendong.demo.core.XingUserDao;
-import com.chendong.demo.core.entity.XingUserDO;
+import com.chendong.demo.entity.User;
+import com.chendong.demo.entity.XingUserDO;
+import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Dao类测试 BaseTest BaseApplication
@@ -37,6 +40,20 @@ public class TestSomeDao extends BaseTest {
 
     @Resource
     private TestA testA;
+
+    @Resource
+    private UserDao userDao;
+
+    @Test
+    public void testUerDao() {
+        User user = new User();
+        user.setAge(11);
+        user.setName("chendong");
+
+        int insert = userDao.insert(user);
+
+        Assert.assertEquals(insert, insert > 0);
+    }
 
     @Test
     public void test() {
@@ -74,7 +91,7 @@ public class TestSomeDao extends BaseTest {
     @Test
     public void testUpdate() {
         XingUserDO userDO = new XingUserDO();
-        userDO.setId(8L);
+        userDO.setId(2L);
         userDO.setUid("1");
         userDO.setUname("lll");
         userDO.setMobile("12345678901");
@@ -83,6 +100,13 @@ public class TestSomeDao extends BaseTest {
         userDO.setSex(1);
         int update = xingUserDao.update(userDO);
         assert update > 0;
+    }
+
+    @Test
+    public void queryAllByLimit() {
+
+        List<XingUserDO> xingUserDOS = xingUserDao.queryAllByLimit(0, 10, "uid desc");
+        log.info("[分页查询结果] ->{}", JSON.toJSONString(xingUserDOS));
     }
 
 }

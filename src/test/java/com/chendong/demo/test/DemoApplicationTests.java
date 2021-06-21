@@ -2,8 +2,9 @@ package com.chendong.demo.test;
 
 import com.chendong.demo.BaseTest;
 import com.chendong.demo.common.pojo.dto.UserDTO;
-import com.chendong.demo.core.XingUserDao;
-import com.chendong.demo.core.entity.XingUserDO;
+import com.chendong.demo.common.utils.RedisUtil;
+import com.chendong.demo.dao.XingUserDao;
+import com.chendong.demo.entity.XingUserDO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.junit.Assert;
@@ -11,6 +12,7 @@ import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
+import redis.clients.jedis.Jedis;
 
 import javax.annotation.Resource;
 
@@ -21,6 +23,9 @@ public class DemoApplicationTests extends BaseTest {
 
     @Resource
     private XingUserDao xingUserDao;
+
+    @Resource
+    private RedisUtil redisUtil;
 
     @Test
     public void contextLoads() {
@@ -78,6 +83,13 @@ public class DemoApplicationTests extends BaseTest {
     public void selectAll() {
         XingUserDO xingUserDO = xingUserDao.queryById(1);
         log.info("XingUserDO -> {}", xingUserDO);
+    }
+
+    @Test
+    public void testRedis() {
+        Jedis jedis = redisUtil.getJedis();
+        String ping = jedis.ping();
+        log.info("[ping] -> {}", ping);
     }
 
 }

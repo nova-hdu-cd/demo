@@ -14,7 +14,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableAsync
 @EnableScheduling
 @EnableSwagger2
-@MapperScan(basePackages = "com.chendong.demo.core")
+@MapperScan("com.chendong.demo.dao")
 public class DemoApplication {
 
     public static void main(String[] args) {

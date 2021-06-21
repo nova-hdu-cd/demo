@@ -1,15 +1,49 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.chendong.demo.core.UserDao">
-    <resultMap id="BaseResultMap" type="com.chendong.demo.core.entity.User">
+<mapper namespace="com.chendong.demo.dao.UserDao">
+
+    <resultMap id="BaseResultMap" type="com.chendong.demo.entity.User">
         <id column="id" jdbcType="BIGINT" property="id" javaType="Integer"/>
         <result column="name" jdbcType="VARCHAR" property="name" javaType="String"/>
         <result column="age" jdbcType="INTEGER" property="age" javaType="Integer"/>
         <result column="email" jdbcType="VARCHAR" property="email" javaType="String"/>
     </resultMap>
+
     <sql id="Base_Column_List">
-        id,name,age,email
+        `id`,
+        `name`,
+        `age`,
+        `email`
     </sql>
+
+    <sql id="set">
+        <if test="id != null">
+            `id` = #{id},
+        </if>
+        <if test="name != null and name != ''">
+            `name` = #{name},
+        </if>
+        <if test="age != null">
+            `age` = #{age},
+        </if>
+        <if test="email != null and email != ''">
+            `email` = #{email},
+        </if>
+    </sql>
+
+    <sql id="orderby-page-limit">
+        <if test="orderBY != null and orderBy != ''">
+            order by ${orderBy}
+        </if>
+        <if test="limit != null and offset != null">
+            limit #{offset},#{limit}
+        </if>
+        <if test="limit != null and offset == null">
+            limit #{limit}
+        </if>
+    </sql>
+
+
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
@@ -21,12 +55,14 @@
         from user
         where id = #{id,jdbcType=BIGINT}
     </delete>
-    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.chendong.demo.core.entity.User"
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.chendong.demo.entity.User"
             useGeneratedKeys="true">
-        insert into user (`name`, age, email)
-        values (#{name,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{email,jdbcType=VARCHAR})
+        insert into user
+        <set>
+            <include refid="set"/>
+        </set>
     </insert>
-    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.chendong.demo.core.entity.User"
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.chendong.demo.entity.User"
             useGeneratedKeys="true">
         insert into user
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -52,7 +88,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.chendong.demo.core.entity.User">
+    <update id="updateByPrimaryKeySelective" parameterType="com.chendong.demo.entity.User">
         update user
         <set>
             <if test="name != null">
@@ -67,7 +103,7 @@
         </set>
         where id = #{id,jdbcType=BIGINT}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.chendong.demo.core.entity.User">
+    <update id="updateByPrimaryKey" parameterType="com.chendong.demo.entity.User">
         update user
         set `name` = #{name,jdbcType=VARCHAR},
             age    = #{age,jdbcType=INTEGER},

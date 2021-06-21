@@ -1,20 +1,22 @@
 package com.chendong.demo.service.impl;
 
 import cn.hutool.json.JSONUtil;
-import com.chendong.demo.core.UserDao;
-import com.chendong.demo.core.entity.User;
+import com.chendong.demo.dao.UserDao;
+import com.chendong.demo.entity.User;
 import com.chendong.demo.service.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 @Service
 public class UserServiceImpl implements IUserService {
 
     private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
-    @Autowired
+    @Resource
     private UserDao userDao;
 
     @Override

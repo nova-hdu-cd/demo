@@ -1,6 +1,6 @@
-package com.chendong.demo.core;
+package com.chendong.demo.dao;
 
-import com.chendong.demo.core.entity.XingUserDO;
+import com.chendong.demo.entity.XingUserDO;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -26,11 +26,14 @@ public interface XingUserDao {
     /**
      * 查询指定行数据
      *
-     * @param offset 查询起始位置
-     * @param limit  查询条数
+     * @param offset  查询起始位置
+     * @param limit   查询条数
+     * @param orderBy 排序
      * @return 对象列表
      */
-    List<XingUserDO> queryAllByLimit(@Param("offset") int offset, @Param("limit") int limit);
+    List<XingUserDO> queryAllByLimit(@Param("offset") int offset,
+                                     @Param("limit") int limit,
+                                     @Param("orderBy") String orderBy);
 
 
     /**
@@ -65,4 +68,5 @@ public interface XingUserDao {
      */
     int deleteById(int id);
 
+    Integer queryUserCount(XingUserDO xingUserDO);
 }
