@@ -45,9 +45,9 @@ spring:
     location: banner.txt
   #数据库配置
   datasource:
-    url: jdbc:mysql://localhost:3306/xinyang?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
-    username: root
-    password: 123
+    url: jdbc:mysql://localhost:3306/unisoc_elegant?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: user
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   #thymeleaf配置

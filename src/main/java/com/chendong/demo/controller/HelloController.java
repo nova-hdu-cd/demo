@@ -42,9 +42,9 @@ public class HelloController extends BaseController {
         log.info("request.value: -> {}", JSON.toJSONString(value));
 
         Dog dog = new Dog();
-        dog.setName("xiaohuang");
+        dog.setName("xiaohuang111111");
         log.info("index.dog -> {}", JSON.toJSONString(dog));
-        System.out.println(dog);
+        System.out.println("  " + dog + " ");
         return dog;
     }
 
