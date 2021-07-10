@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<h1>首页欢迎你</h1>
+<h1 style="color: brown" th:text="${msg}">首页欢迎你</h1>
+
+<a th:href="@{/view/add}">add</a>
+<a th:href="@{/view/update}">update</a>
+
+<form action="/view/add" method="post">
+    name:<br>
+    <input type="text" name="name">
+    <br>
+    password:<br>
+    <input type="password" name="password">
+    <br><br>
+    <input type="submit" value="Submit">
+</form>
 </body>
 </html>

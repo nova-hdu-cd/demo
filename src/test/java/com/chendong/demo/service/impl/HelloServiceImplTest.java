@@ -2,8 +2,8 @@ package com.chendong.demo.service.impl;
 
 import cn.hutool.json.JSONUtil;
 import com.chendong.demo.BaseTest;
-import com.chendong.demo.dao.XingUserDao;
-import com.chendong.demo.entity.User;
+import com.chendong.demo.mapper.XingUserMapper;
+import com.chendong.demo.mapper.entity.User;
 import com.chendong.demo.service.IHelloService;
 import com.chendong.demo.service.request.HelloBaseReq;
 import com.chendong.demo.service.request.IndexBaseReq;
@@ -22,7 +22,7 @@ class HelloServiceImplTest extends BaseTest {
     private static final Logger log = LoggerFactory.getLogger(HelloServiceImplTest.class);
 
     @Mock
-    XingUserDao xingUserDao;
+    XingUserMapper xingUserMapper;
 
     @InjectMocks
     HelloServiceImpl helloServiceImpl;
@@ -44,8 +44,8 @@ class HelloServiceImplTest extends BaseTest {
 
     @Test
     void testXingUserDao() {
-        int id = xingUserDao.deleteById(1);
-        System.out.println(xingUserDao);
+        int id = xingUserMapper.deleteById(1);
+        System.out.println(xingUserMapper);
         Assertions.assertNotEquals(id, 1);
     }
 

@@ -3,6 +3,7 @@ package com.chendong.demo.common.async;
 import cn.hutool.extra.spring.SpringUtil;
 import com.chendong.demo.common.pojo.Dog;
 import com.chendong.demo.common.scheduling.TimeScheduling;
+import com.chendong.demo.common.scheduling.async.TestAsyncTask;
 import com.chendong.demo.controller.HelloController;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,7 +1,7 @@
 package com.chendong.demo.helper;
 
-import com.chendong.demo.common.enums.ticket.KunlunTicketStatus;
-import com.chendong.demo.common.enums.ticket.TicketStatusEnum;
+import com.chendong.demo.common.constants.enums.ticket.KunlunTicketStatus;
+import com.chendong.demo.common.constants.enums.ticket.TicketStatusEnum;
 
 import java.util.Arrays;
 import java.util.PriorityQueue;

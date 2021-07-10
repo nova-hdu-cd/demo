@@ -1,12 +1,12 @@
 package com.chendong.demo.service.impl;
 
 import cn.hutool.json.JSONUtil;
-import com.chendong.demo.dao.UserDao;
-import com.chendong.demo.entity.User;
+import com.chendong.demo.mapper.ContenttagMapper;
+import com.chendong.demo.mapper.UserMapper;
+import com.chendong.demo.mapper.entity.User;
 import com.chendong.demo.service.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -17,11 +17,11 @@ public class UserServiceImpl implements IUserService {
     private static final Logger log = LoggerFactory.getLogger(UserServiceImpl.class);
 
     @Resource
-    private UserDao userDao;
+    private UserMapper userMapper;
 
     @Override
     public User selectUserById(Integer id) {
-        User user = userDao.selectByPrimaryKey(id);
+        User user = userMapper.selectById(id);
 
         log.info("user -> {}", JSONUtil.toJsonStr(user));
 

@@ -1,6 +1,6 @@
 package com.chendong.demo.service;
 
-import com.chendong.demo.entity.User;
+import com.chendong.demo.mapper.entity.User;
 
 /**
  * @author dong.chen

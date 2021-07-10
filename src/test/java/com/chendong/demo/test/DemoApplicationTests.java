@@ -3,8 +3,8 @@ package com.chendong.demo.test;
 import com.chendong.demo.BaseTest;
 import com.chendong.demo.common.pojo.dto.UserDTO;
 import com.chendong.demo.common.utils.RedisUtil;
-import com.chendong.demo.dao.XingUserDao;
-import com.chendong.demo.entity.XingUserDO;
+import com.chendong.demo.mapper.XingUserMapper;
+import com.chendong.demo.mapper.entity.XingUserDO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.junit.Assert;
@@ -22,7 +22,7 @@ public class DemoApplicationTests extends BaseTest {
     private static final Logger log = LoggerFactory.getLogger(DemoApplicationTests.class);
 
     @Resource
-    private XingUserDao xingUserDao;
+    private XingUserMapper xingUserMapper;
 
     @Resource
     private RedisUtil redisUtil;
@@ -74,14 +74,14 @@ public class DemoApplicationTests extends BaseTest {
         xingUserDO.setNation("henna");
         xingUserDO.setCity("shanghai");
 
-        int num = xingUserDao.insert(xingUserDO);
+        int num = xingUserMapper.insert(xingUserDO);
         System.out.println(num);
         Assert.assertEquals(1, num);
     }
 
     @Test
     public void selectAll() {
-        XingUserDO xingUserDO = xingUserDao.queryById(1);
+        XingUserDO xingUserDO = xingUserMapper.queryById(1);
         log.info("XingUserDO -> {}", xingUserDO);
     }
 

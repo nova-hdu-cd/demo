@@ -1,7 +1,7 @@
 package com.chendong.demo.common.exception;
 
-import com.chendong.demo.common.enums.global.ArgumentEnum;
-import com.chendong.demo.common.enums.global.ResponseEnum;
+import com.chendong.demo.common.constants.enums.global.ArgumentEnum;
+import com.chendong.demo.common.constants.enums.global.ResponseEnum;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

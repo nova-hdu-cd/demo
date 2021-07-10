@@ -5,8 +5,11 @@ import com.chendong.demo.BaseTest;
 import com.chendong.demo.common.pojo.Dog;
 import com.chendong.demo.common.pojo.Person;
 import com.chendong.demo.common.pojo.TestA;
-import com.chendong.demo.entity.User;
-import com.chendong.demo.entity.XingUserDO;
+import com.chendong.demo.mapper.ContenttagMapper;
+import com.chendong.demo.mapper.UserMapper;
+import com.chendong.demo.mapper.XingUserMapper;
+import com.chendong.demo.mapper.entity.User;
+import com.chendong.demo.mapper.entity.XingUserDO;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -36,13 +39,13 @@ public class TestSomeDao extends BaseTest {
     private Dog dog;
 
     @Resource
-    private XingUserDao xingUserDao;
+    private XingUserMapper xingUserMapper;
 
     @Resource
     private TestA testA;
 
     @Resource
-    private UserDao userDao;
+    private UserMapper userMapper;
 
     @Test
     public void testUerDao() {
@@ -50,7 +53,7 @@ public class TestSomeDao extends BaseTest {
         user.setAge(11);
         user.setName("chendong");
 
-        int insert = userDao.insert(user);
+        int insert = userMapper.insert(user);
 
         Assert.assertEquals(insert, insert > 0);
     }
@@ -77,14 +80,14 @@ public class TestSomeDao extends BaseTest {
         userDO.setCity("hangzhou");
         userDO.setSex(1);
 
-        int insert = xingUserDao.insert(userDO);
+        int insert = xingUserMapper.insert(userDO);
         assert insert > 0;
     }
 
     @Test
     public void testDelete() {
 
-        int insert = xingUserDao.deleteById(6);
+        int insert = xingUserMapper.deleteById(6);
         assert insert > 0;
     }
 
@@ -98,14 +101,14 @@ public class TestSomeDao extends BaseTest {
         userDO.setNation("china");
         userDO.setCity("hangzhou");
         userDO.setSex(1);
-        int update = xingUserDao.update(userDO);
+        int update = xingUserMapper.update(userDO);
         assert update > 0;
     }
 
     @Test
     public void queryAllByLimit() {
 
-        List<XingUserDO> xingUserDOS = xingUserDao.queryAllByLimit(0, 10, "uid desc");
+        List<XingUserDO> xingUserDOS = xingUserMapper.queryAllByLimit(0, 10, "uid desc");
         log.info("[分页查询结果] ->{}", JSON.toJSONString(xingUserDOS));
     }
 

@@ -22,8 +22,8 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
  * To change this template use Appearance | Editor | File and Code
  * Templates.
  */
-@Configuration
 @EnableSwagger2
+@Configuration
 public class SwaggerConfig {
 
     @Value("${swagger.port}")
@@ -53,11 +53,11 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo() {
-        return new ApiInfoBuilder().title("Demo项目接口文档")
-                .contact(new Contact("chendong", "hello world！", "chendong_hdu@163.com"))
-                .description("swagger动态生成的接口文档")
+        return new ApiInfoBuilder().title("接口文档")
+                .contact(new Contact("chendong", "localhost", "chendong_hdu@163.com"))
+                .description("这是一个接口文档")
                 .termsOfServiceUrl("no terms of service")
-                .license("unisoc license")
+                .license("The Chendong`s license")
                 .version("1.0")
                 .build();
     }

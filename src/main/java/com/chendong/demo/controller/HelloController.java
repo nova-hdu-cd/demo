@@ -10,6 +10,7 @@ import com.chendong.demo.common.response.ResultError;
 import com.chendong.demo.service.IHelloService;
 import com.chendong.demo.service.request.IndexBaseReq;
 import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.Assert;
@@ -22,7 +23,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping(value = "/hello/")
-@Api(value = "测试接口", tags = {"Demo API List", "hello"})
+@Api(value = "测试接口", tags = {"测试接口"})
 public class HelloController extends BaseController {
 
     private static final Logger log = LoggerFactory.getLogger(HelloController.class);
@@ -37,6 +38,7 @@ public class HelloController extends BaseController {
      */
     @ResponseResult
     @GetMapping("/index")
+    @ApiOperation(value = "返回dog")
     public Dog index(@RequestAttribute("demo-index") String value) {
 
         log.info("request.value: -> {}", JSON.toJSONString(value));
@@ -55,12 +57,14 @@ public class HelloController extends BaseController {
      */
     @ResponseResult
     @GetMapping("/helloWorld")
+    @ApiOperation(value = "返回helloworld")
     public String helloWorld() {
         return "hello world!" + getIpAddress();
     }
 
     @ResponseResult
     @GetMapping("helloInt")
+    @ApiOperation(value = "返回数字")
     public Integer helloInt() {
         return 40010;
     }
@@ -71,8 +75,8 @@ public class HelloController extends BaseController {
      *
      * @return
      */
-    @ResponseResult
     @GetMapping("/err")
+    @ApiOperation(value = "失败返回接口")
     public ResultError<String> err() {
         ResultError<String> resultError = new ResultError<>();
         resultError.setErrorData("失败了");
@@ -80,6 +84,7 @@ public class HelloController extends BaseController {
     }
 
     @RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
+    @ApiOperation(value = "查找姓名")
     public Result<String> returnName(@PathVariable String name) {
 
         //1.请求参数包装
@@ -99,6 +104,7 @@ public class HelloController extends BaseController {
 
     @PermissionAnnotation
     @PostMapping("/request")
+    @ApiOperation(value = "需要权限的接口")
     public String hello(@RequestBody BaseReq baseReq) {
         log.info("HelloController.hello的request请求参数->{}", JSON.toJSON(baseReq));
         return "{\"message\":\"SUCCESS\",\"code\":200}";

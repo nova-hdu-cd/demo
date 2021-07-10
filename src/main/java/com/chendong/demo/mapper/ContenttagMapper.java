@@ -1,7 +1,9 @@
 package com.chendong.demo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.chendong.demo.entity.Contenttag;
+import com.chendong.demo.mapper.entity.Contenttag;
+import com.chendong.demo.mapper.entity.User;
+import org.springframework.stereotype.Repository;
 
 /**
  * <p>
@@ -12,5 +14,4 @@ import com.chendong.demo.entity.Contenttag;
  * @since 2021-06-22
  */
 public interface ContenttagMapper extends BaseMapper<Contenttag> {
-
 }

@@ -1,7 +1,7 @@
 package com.chendong.demo.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.chendong.demo.entity.Journal;
+import com.chendong.demo.mapper.entity.Journal;
 import com.chendong.demo.mapper.JournalMapper;
 import com.chendong.demo.service.IJournalService;
 import org.springframework.stereotype.Service;

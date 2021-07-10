@@ -1,6 +1,6 @@
 package com.chendong.demo.common.response;
 
-import com.chendong.demo.common.enums.global.IResponseEnum;
+import com.chendong.demo.common.constants.enums.global.IResponseEnum;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 

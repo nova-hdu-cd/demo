@@ -1,14 +1,13 @@
 package com.chendong.demo.service.impl;
 
 import cn.hutool.json.JSONUtil;
-import com.chendong.demo.dao.DemoUserDao;
-import com.chendong.demo.entity.User;
+import com.chendong.demo.mapper.DemoUserMapper;
+import com.chendong.demo.mapper.entity.User;
 import com.chendong.demo.service.IHelloService;
 import com.chendong.demo.service.request.HelloBaseReq;
 import com.chendong.demo.service.request.IndexBaseReq;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -25,7 +24,7 @@ public class HelloServiceImpl implements IHelloService {
     private static final Logger log = LoggerFactory.getLogger(HelloServiceImpl.class);
 
     @Resource
-    private DemoUserDao demoUserDao;
+    private DemoUserMapper demoUserMapper;
 
     @Override
     public String returnName(IndexBaseReq req) {
@@ -39,7 +38,7 @@ public class HelloServiceImpl implements IHelloService {
 
     @Override
     public User selectUserById(Integer id) {
-        User user = demoUserDao.selectById(id);
+        User user = demoUserMapper.selectById(id);
         log.info("HelloServiceImpl.selectUserById: user -> [{}]", JSONUtil.toJsonStr(user));
         return user;
 

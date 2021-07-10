@@ -1,7 +1,7 @@
 package com.chendong.demo.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.chendong.demo.entity.Content;
+import com.chendong.demo.mapper.entity.Content;
 
 /**
  * <p>

@@ -1,9 +1,10 @@
 package com.chendong.demo.common.scheduling;
 
-import com.chendong.demo.common.async.TestAsyncTask;
+import com.chendong.demo.common.scheduling.async.TestAsyncTask;
 import com.chendong.demo.common.constants.DemoConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -30,7 +31,7 @@ public class TimeScheduling {
     /**
      * 定时播报当前服务器的时间
      */
-    //@Scheduled(cron = "${time.cron}")
+    @Scheduled(cron = "${time.cron}")
     public void reportCurTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(DemoConstant.NOW_TIME_STR);
         String nowTime = dateFormat.format(new Date());
@@ -47,7 +48,7 @@ public class TimeScheduling {
     /**
      * 异步任务四
      */
-    //@Scheduled(initialDelay = 2000, fixedRate = 10000)
+    @Scheduled(initialDelay = 2000, fixedRate = 10000)
     public void showCurrentThread() {
         testAsyncTask.doTaskFour();
     }

@@ -1,6 +1,6 @@
 package com.chendong.demo.common.response;
 
-import com.chendong.demo.common.enums.global.ResultCode;
+import com.chendong.demo.common.constants.enums.global.ResultCode;
 
 /**
  * 统一正常返回包装类
