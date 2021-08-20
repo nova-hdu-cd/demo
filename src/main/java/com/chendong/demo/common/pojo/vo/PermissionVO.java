@@ -4,6 +4,11 @@ import com.alibaba.fastjson.annotation.JSONField;
 
 import java.util.List;
 
+/**
+ * 权限VO
+ *
+ * @author dong.chen
+ */
 public class PermissionVO {
     /**
      * 主键

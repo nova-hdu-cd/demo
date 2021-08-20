@@ -1,6 +1,12 @@
 package com.chendong.demo.test;
 
+import cn.hutool.http.HttpUtil;
+import cn.hutool.json.JSON;
+import cn.hutool.json.JSONArray;
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
 import com.chendong.demo.BaseTest;
+import com.chendong.demo.common.config.ApolloConfig;
 import com.chendong.demo.common.convert.HelloMapper;
 import com.chendong.demo.common.pojo.dto.InfoDTO;
 import com.chendong.demo.common.pojo.dto.TicketDTO;
@@ -11,9 +17,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 public class TestDemo extends BaseTest {
 
@@ -22,6 +26,47 @@ public class TestDemo extends BaseTest {
 
     @Resource
     private HelloMapper helloConvert;
+
+    @Resource
+    private ApolloConfig apolloConfig;
+
+
+    @Test
+    public void testApollo() {
+        String getkey = apolloConfig.getkey();
+        System.out.println(getkey);
+        String s = HttpUtil.get("https://bugzilla.unisoc.com/bugzilla/rest/bug?id=1,2,3&api_key=cwkyFK2tk0HtSxowELlCskxl7sDGVDWpQ4H40ajj");
+        System.out.println(s);
+    }
+
+    @Test
+    public void testHutools() {
+
+        //将数组转换成json字符串，使用parseArray
+        String[] str = {"hello", "world!"};
+        JSONArray objects = JSONUtil.parseArray(str);
+        System.out.println(objects);
+
+        //parseObj不能转换list
+        JSONObject jsonObject1 = JSONUtil.parseObj(Arrays.asList("hello", "world!"));
+        System.out.println(jsonObject1);
+
+        //将List转换成json字符串，使用parse
+        JSON parse = JSONUtil.parse(Arrays.asList("hello", "world"));
+        System.out.println(parse.toString());
+
+        //将List转换成json字符串，也可以使用parseArray
+        JSONArray objects1 = JSONUtil.parseArray(Arrays.asList("hello", "world"));
+        System.out.println(objects1);
+
+        //map和bean转换成json字符串，使用parseObj
+        HashMap<Object, Object> map = new HashMap<>();
+        map.put("k1", "v1");
+        map.put("k2", "v2");
+        JSONObject jsonObject = JSONUtil.parseObj(map);
+        System.out.println(jsonObject);
+
+    }
 
     @Test
     public void testOptional() {

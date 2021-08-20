@@ -27,15 +27,13 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class ResponseResultHandler implements ResponseBodyAdvice<Object> {
 
-    /**
-     * 标记
-     */
     private static final String RESPONSE_UNION_CODE = "RESPONSE_UNION_CODE";
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ResponseResultHandler.class);
 
     /**
-     * 支持的controller方法：请求包含了注解标记，没有就直接返回，不需要重写返回体
+     * 支持的controller方法：
+     * 请求包含了注解标记，没有就直接返回，不需要重写返回体
      */
     @Override
     public boolean supports(MethodParameter methodParameter, Class<? extends HttpMessageConverter<?>> aClass) {

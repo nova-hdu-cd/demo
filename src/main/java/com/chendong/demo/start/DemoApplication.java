@@ -9,6 +9,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 /**
  * demo应用的启动类和入口
+ * @author dong.chen
  */
 @SpringBootApplication(scanBasePackages = "com.chendong.demo")
 @EnableAsync

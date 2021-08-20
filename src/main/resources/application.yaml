@@ -1,28 +1,16 @@
-#person配置类
-person:
-  name: chendong
-  age: 27
-  lists: [ cat,dog,person ]
-  lists1:
-    - cat
-    - dog
-    - person
-  maps: { k1: v1,k2: v2 }
-  dog:
-    name: xiaohuang
+#apollo配置
+app:
+  id: demo-9527
+apollo:
+  meta: http://10.29.60.125:8080
+  bootstrap:
+    enable: true
+    namespaces: application
+env: DEV
 
-
-#debug模式
-debug: false
-
-#默认服务端口号
-server:
-  port: 8080
-
-#日志级别
-logging:
-  level:
-    root: info
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 #mybatis配置
 mybatis:
@@ -32,40 +20,15 @@ mybatis:
   configuration:
     map-underscore-to-camel-case: true
 
-# mybatis-plus sql 执行日志
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
 spring:
-  #环境配置
-  profiles:
-    active: dev
-  banner:
-    location: banner.txt
-  #数据库配置
-  datasource:
-    url: jdbc:mysql://localhost:3306/unisoc_elegant?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&useSSL=true
-    username: user
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
-
   #thymeleaf配置
   thymeleaf:
     prefix: classpath:/templates/
-
-  #热启动配置
-  devtools:
-    restart:
-      poll-interval: 2s
-      quiet-period: 1s
-
   #spring security 用户名和密码
   security:
     user:
       name: root
       password: root
-
 
 ---
 #开发环境配置

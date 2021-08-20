@@ -30,8 +30,10 @@ public class ResponseResultInterceptor implements HandlerInterceptor {
             final HandlerMethod handlerMethod = (HandlerMethod) handler;
             final Class<?> type = handlerMethod.getBeanType();
             final Method method = handlerMethod.getMethod();
+            LOGGER.info("=====增强方法执行之前=====");
             //向request中写入标识 todo
             request.setAttribute("demo-index", "sky-demo-sky-demo");
+            LOGGER.info("=====增强方法执行之后=====");
             //标识类和方法
             if (type.isAnnotationPresent(ResponseResult.class)) {
                 request.setAttribute(RESPONSE_UNION_CODE, type.getAnnotation(ResponseResult.class));
