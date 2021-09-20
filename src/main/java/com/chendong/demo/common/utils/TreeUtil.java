@@ -10,10 +10,12 @@ import java.util.Map;
 /**
  * TreeUtil工具类，将List的树形节点数据
  * 封装成树形结构的形式返回给前端
+ *
+ * @author dong.chen
  */
 public class TreeUtil {
 
-    /*
+    /**
      * 存放所有的树状节点数据
      */
     private List<PermissionVO> menuList;

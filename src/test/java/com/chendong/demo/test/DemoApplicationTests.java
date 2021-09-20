@@ -1,5 +1,6 @@
 package com.chendong.demo.test;
 
+import cn.hutool.json.JSONUtil;
 import com.chendong.demo.BaseTest;
 import com.chendong.demo.common.pojo.dto.UserDTO;
 import com.chendong.demo.common.utils.RedisUtil;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import redis.clients.jedis.Jedis;
 
 import javax.annotation.Resource;
+import java.util.Set;
 
 @Transactional
 public class DemoApplicationTests extends BaseTest {
@@ -90,6 +92,9 @@ public class DemoApplicationTests extends BaseTest {
         Jedis jedis = redisUtil.getJedis();
         String ping = jedis.ping();
         log.info("[ping] -> {}", ping);
+
+        Set<String> keys = jedis.keys("*");
+        log.info("所有的keys:[]->{}", JSONUtil.toJsonStr(keys));
     }
 
 }

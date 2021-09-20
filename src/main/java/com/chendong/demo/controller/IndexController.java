@@ -15,6 +15,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -25,7 +26,7 @@ import java.util.stream.Collectors;
  * @author dong.chen
  */
 @Controller
-@RequestMapping("/index/")
+@RequestMapping("/index")
 @Api(value = "首页接口", tags = {"首页接口"})
 public class IndexController {
 
@@ -44,7 +45,8 @@ public class IndexController {
     }
 
     @GetMapping("/index")
-    public String index() {
+    public String index(HttpServletRequest request) {
+        log.info("请求域==》[]->{}", JSONUtil.toJsonStr(request.getAttribute("demo-index")));
         return "index";
     }
 

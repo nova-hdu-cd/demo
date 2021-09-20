@@ -1,5 +1,9 @@
 package com.chendong.demo.common.constants.enums.ticket;
 
+/**
+ * @author dong.chen
+ */
+
 public enum KunlunTicketStatus {
     /**
      * 未处理

@@ -1,19 +1,22 @@
 package com.chendong.demo.common.pojo;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
-import org.springframework.validation.annotation.Validated;
-
-import javax.validation.constraints.NotNull;
-
-@Component
-@PropertySource(value = "classpath:application.properties")//配置文件导入
-@Validated//jsr303校验
+/**
+ * 注解
+ * PropertySource(value = "classpath:application.properties") ： 配置文件导入
+ * Validated ： jsr303校验
+ *
+ * @author dong.chen
+ */
+//@Component
+//@PropertySource(value = "classpath:application.properties")
+//@Validated
 public class Dog {
 
-    @Value("${dog.name}")//取值
-    @NotNull
+    /**
+     * 取值
+     */
+   // @Value("${dog.name}")
+    //@NotNull
     private String name;
 
     public String getName() {

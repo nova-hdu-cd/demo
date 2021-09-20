@@ -1,5 +1,9 @@
 package com.chendong.demo.common.algorithms;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class BinarySearch {
 
     /**
@@ -25,8 +29,24 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        int res = searchBinary(arr, 7);
-        System.out.println(res);
+        List<String> list = Arrays.asList("1:2", "2:1", "2:4", "4:2");
+        List<String> lists = new ArrayList<>(list);
+        int res = 0;
+        for (int i = 0; i < lists.size(); i++) {
+            String target = lists.get(i);
+            String[] split = target.split(":");
+            target = split[1] + ":" + split[0];
+            for (int j = i + 1; j < lists.size(); j++) {
+                if (lists.get(j).equals(target)) {
+                    res += 2;
+                }
+            }
+        }
+        int s = 1;
+        if (res != lists.size()) {
+            s = 0;
+        }
+
+        List<String> list1 = Arrays.asList("a", "c", "B", "F", "G", "f");
     }
 }
