@@ -1,7 +1,7 @@
 package com.chendong.demo.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.chendong.demo.entity.SpecialTopic;
+import com.chendong.demo.domain.entity.SpecialTopic;
 import com.chendong.demo.mapper.SpecialTopicMapper;
 import com.chendong.demo.service.ISpecialTopicService;
 import org.springframework.stereotype.Service;

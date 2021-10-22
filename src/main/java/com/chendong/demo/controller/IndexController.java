@@ -2,19 +2,24 @@ package com.chendong.demo.controller;
 
 import cn.hutool.json.JSONUtil;
 import com.chendong.demo.common.anotations.ResponseResult;
-import com.chendong.demo.common.pojo.dto.InfoDTO;
-import com.chendong.demo.common.pojo.vo.EmpVO;
-import com.chendong.demo.common.response.Result;
-import com.chendong.demo.entity.User;
+import com.chendong.demo.domain.dto.InfoDTO;
+import com.chendong.demo.domain.entity.User;
+import com.chendong.demo.domain.response.Result;
+import com.chendong.demo.domain.vo.EmpVO;
 import com.chendong.demo.service.IUserService;
-import io.swagger.annotations.*;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +32,7 @@ import java.util.stream.Collectors;
  */
 @Controller
 @RequestMapping("/index")
-@Api(value = "首页接口", tags = {"Demo API List", "index"})
+@Api(tags = "接口2模块")
 public class IndexController {
 
     private static final Logger log = LoggerFactory.getLogger(IndexController.class);
@@ -35,6 +40,28 @@ public class IndexController {
     @Autowired
     private IUserService userService;
 
+    @Resource
+    private ApplicationContext applicationContext;
+
+    @ApiOperation(value = "获取所有的用户")
+    @GetMapping("/getAll")
+    @ResponseBody
+    public Result<String> getAll() {
+
+        IndexController indexController = applicationContext.getBean(IndexController.class);
+        String allString = indexController.getAllString();
+
+        return Result.success(allString);
+
+    }
+
+    private String getAllString() {
+        return "success";
+    }
+
+
+    @ApiImplicitParam(name = "id", value = "id", required = true)
+    @ApiOperation(value = "获取用户")
     @GetMapping("/getUserById/{id}")
     @ResponseBody
     public User getUserById(@PathVariable("id") Integer id) {
@@ -53,10 +80,6 @@ public class IndexController {
     @ResponseBody
     @GetMapping("/addEmpV4/{id}/{username}")
     @ApiOperation(value = "添加员工V4", notes = "开发中")
-    @ApiImplicitParams({
-            @ApiImplicitParam(name = "id", value = "用户id", required = true),
-            @ApiImplicitParam(name = "username", value = "用户名称", required = true)
-    })
     public Result<EmpVO> addEmpV4(@PathVariable("id") Long id,
                                   @PathVariable("username") String username) {
         return new Result<>();
@@ -64,7 +87,6 @@ public class IndexController {
 
     @ResponseBody
     @GetMapping("/addEmpV3/{id}/{username}")
-    @ApiOperation(value = "添加员工V3", notes = "开发中")
     public Result<String> addEmpV3(@ApiParam(name = "id", value = "用户id", example = "1111", required = true)
                                    @PathVariable("id") Long id,
                                    @ApiParam(name = "username", value = "姓名", example = "xiaohua", required = true)
@@ -75,7 +97,6 @@ public class IndexController {
 
     @ResponseBody
     @PostMapping("/addEmp")
-    @ApiOperation(value = "添加员工", notes = "开发中", consumes = "application/json")
     public Result<EmpVO> addEmp(@RequestBody @ApiParam(name = "EmpVO", value = "员工vo", example = "empvo", required = true) EmpVO empVO) {
 
         //模拟业务过程
@@ -88,7 +109,6 @@ public class IndexController {
     @ResponseResult
     @ResponseBody
     @PostMapping("/getEmp")
-    @ApiOperation(value = "获取员工", notes = "开发中", consumes = "application/json")
     public EmpVO getEmp(@RequestBody EmpVO empVO) {
 
         EmpVO vo = new EmpVO();
@@ -103,7 +123,6 @@ public class IndexController {
     @ResponseResult
     @ResponseBody
     @PostMapping("/getEmpV2")
-    @ApiOperation(value = "获取员工V2", notes = "开发中", consumes = "application/json")
     public Map<String, Integer> getEmpV2(@RequestBody EmpVO empVO) {
 
         EmpVO vo = new EmpVO();
@@ -128,7 +147,6 @@ public class IndexController {
 
     @ResponseBody
     @GetMapping("/showInfo/{infoId}")
-    @ApiOperation(value = "展示信息", notes = "开发中")
     public Result<InfoDTO> showInfo(
             @ApiParam(name = "infoId", value = "员工id", example = "12120", required = true)
             @PathVariable("infoId") String infoId) {

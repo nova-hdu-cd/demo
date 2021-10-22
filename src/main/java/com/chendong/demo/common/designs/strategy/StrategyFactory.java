@@ -1,5 +1,9 @@
 package com.chendong.demo.common.designs.strategy;
 
+import com.chendong.demo.common.designs.strategy.concrete.AcceptStrategy;
+import com.chendong.demo.common.designs.strategy.concrete.CloseIrStrategy;
+import com.chendong.demo.common.designs.strategy.concrete.RisingCcbStrategy;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,12 +13,13 @@ import java.util.Map;
  */
 public class StrategyFactory {
 
-    private static final Map<String, Strategy> strategyMap = new HashMap<>();
+    private static final Map<String, Strategy> STRATEGY_MAP;
 
     static {
-        strategyMap.put("accept", new AcceptStrategy());
-        strategyMap.put("risingCcb", new RisingCcbStrategy());
-        strategyMap.put("closeIr", new CloseIrStrategy());
+        STRATEGY_MAP = new HashMap<>(16);
+        STRATEGY_MAP.put("accept", new AcceptStrategy());
+        STRATEGY_MAP.put("risingCcb", new RisingCcbStrategy());
+        STRATEGY_MAP.put("closeIr", new CloseIrStrategy());
     }
 
     public static Strategy getStrategy(String type) {
@@ -23,6 +28,6 @@ public class StrategyFactory {
             throw new IllegalArgumentException("type should not be null!");
         }
 
-        return strategyMap.get(type);
+        return STRATEGY_MAP.get(type);
     }
 }

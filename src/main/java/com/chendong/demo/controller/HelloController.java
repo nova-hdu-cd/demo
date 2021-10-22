@@ -3,12 +3,12 @@ package com.chendong.demo.controller;
 import com.alibaba.fastjson.JSON;
 import com.chendong.demo.common.anotations.PermissionAnnotation;
 import com.chendong.demo.common.anotations.ResponseResult;
-import com.chendong.demo.common.pojo.Dog;
-import com.chendong.demo.common.request.BaseReq;
-import com.chendong.demo.common.response.Result;
-import com.chendong.demo.common.response.ResultError;
+import com.chendong.demo.domain.pojo.Dog;
+import com.chendong.demo.domain.request.BaseRequest;
+import com.chendong.demo.domain.response.Result;
+import com.chendong.demo.domain.response.ResultError;
 import com.chendong.demo.service.IHelloService;
-import com.chendong.demo.service.request.IndexBaseReq;
+import com.chendong.demo.service.request.IndexBaseRequest;
 import io.swagger.annotations.Api;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,8 +21,8 @@ import javax.annotation.Resource;
  * @author dong.chen
  */
 @RestController
-@RequestMapping(value = "/hello/")
-@Api(value = "测试接口", tags = {"Demo API List", "hello"})
+@RequestMapping(value = "/hello")
+@Api(tags = "接口1模块")
 public class HelloController extends BaseController {
 
     private static final Logger log = LoggerFactory.getLogger(HelloController.class);
@@ -45,6 +45,14 @@ public class HelloController extends BaseController {
         dog.setName("xiaohuang111111");
         log.info("index.dog -> {}", JSON.toJSONString(dog));
         System.out.println("  " + dog + " ");
+        return dog;
+    }
+
+    @ResponseResult
+    @GetMapping("/index1")
+    public Dog getDog(String value) {
+        Dog dog = new Dog();
+        dog.setName(value);
         return dog;
     }
 
@@ -83,7 +91,7 @@ public class HelloController extends BaseController {
     public Result<String> returnName(@PathVariable String name) {
 
         //1.请求参数包装
-        IndexBaseReq req = new IndexBaseReq();
+        IndexBaseRequest req = new IndexBaseRequest();
         req.setUname(name);
 
         //2.业务过程
@@ -99,8 +107,8 @@ public class HelloController extends BaseController {
 
     @PermissionAnnotation
     @PostMapping("/request")
-    public String hello(@RequestBody BaseReq baseReq) {
-        log.info("HelloController.hello的request请求参数->{}", JSON.toJSON(baseReq));
+    public String hello(@RequestBody BaseRequest baseRequest) {
+        log.info("HelloController.hello的request请求参数->{}", JSON.toJSON(baseRequest));
         return "{\"message\":\"SUCCESS\",\"code\":200}";
     }
 

@@ -2,24 +2,27 @@
 app:
   id: demo-9527
 apollo:
-  meta: http://10.29.60.125:8080
+  meta: http://apollodev.unisoc.com/config/
   bootstrap:
     enable: true
     namespaces: application
 env: DEV
 
+
+#mybatis-plus配置sql语句日志打印
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 #mybatis配置
 mybatis:
-  type-aliases-package: com.chendong.demo.core
+  type-aliases-package: com.chendong.demo.dao
   mapper-locations: classpath:mapper/*Mapper.xml
   #驼峰映射
   configuration:
     map-underscore-to-camel-case: true
 
+#spring 配置
 spring:
   #thymeleaf配置
   thymeleaf:

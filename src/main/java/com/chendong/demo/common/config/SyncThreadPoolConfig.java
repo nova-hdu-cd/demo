@@ -29,7 +29,7 @@ public class SyncThreadPoolConfig implements AsyncConfigurer {
     private static final Logger log = LoggerFactory.getLogger(SyncThreadPoolConfig.class);
 
     private static void handleUncaughtException(Throwable a, Method b, Object... c) {
-        log.error(Thread.currentThread().getName() + "->线程出错了 a->{},b->{},c->{}",
+        log.error(Thread.currentThread().getName() + " -> 线程出错了 a->{},b->{},c->{}",
                 a.toString(),
                 b.toString(),
                 Arrays.toString(c));
@@ -61,6 +61,24 @@ public class SyncThreadPoolConfig implements AsyncConfigurer {
         executor.setThreadNamePrefix("demoExecutor-");
         //ThreadPoolExecutor.CallerRunsPolicy：当任务添加到线程池中被拒绝时，会调用当前线程池的所在的线程去执行被拒绝的任务
         executor.setRejectedExecutionHandler(new ThreadPoolExecutor.CallerRunsPolicy());
+
+        return executor;
+    }
+
+    @Bean("timeSchedulingExecutor")
+    public Executor timeSchedulingExecutor() {
+
+        //线程池的具体配置
+        ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
+        //核心线程数
+        executor.setCorePoolSize(4);
+        //最大线程数
+        executor.setMaxPoolSize(8);
+        //阻塞队列的容量
+        executor.setQueueCapacity(20);
+        executor.setThreadNamePrefix("timeSchedulingExecutor-");
+        //ThreadPoolExecutor.AbortPolicy：当任务添加到线程池中被拒绝时，直接放弃
+        executor.setRejectedExecutionHandler(new ThreadPoolExecutor.AbortPolicy());
 
         return executor;
     }

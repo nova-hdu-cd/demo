@@ -3,7 +3,7 @@ package com.chendong.demo.service.impl;
 import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.chendong.demo.BaseTest;
-import com.chendong.demo.entity.Article;
+import com.chendong.demo.domain.entity.Article;
 import com.chendong.demo.service.IArticleService;
 import org.junit.Test;
 import org.slf4j.Logger;

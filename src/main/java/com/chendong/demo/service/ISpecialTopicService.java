@@ -1,7 +1,7 @@
 package com.chendong.demo.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.chendong.demo.entity.SpecialTopic;
+import com.chendong.demo.domain.entity.SpecialTopic;
 
 /**
  * <p>

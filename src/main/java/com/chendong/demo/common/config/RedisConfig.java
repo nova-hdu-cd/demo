@@ -22,7 +22,7 @@ public class RedisConfig {
     @Value("${spring.redis.database:0}")
     private int database;
 
-    @Value("${redis.password}")
+    @Value("${spring.redis.password}")
     private String password;
 
     @Bean
@@ -32,7 +32,7 @@ public class RedisConfig {
             return null;
         }
         RedisUtil redisUtil = new RedisUtil();
-        redisUtil.initPool(host, port, password,database);
+        redisUtil.initPool(host, port, password, database);
         return redisUtil;
     }
 

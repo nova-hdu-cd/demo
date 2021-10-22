@@ -2,7 +2,7 @@ package com.chendong.demo.service.responce;
 
 
 import com.chendong.demo.common.enums.global.ResultCode;
-import com.chendong.demo.common.response.Result;
+import com.chendong.demo.domain.response.Result;
 
 /**
  * @author dong.chen

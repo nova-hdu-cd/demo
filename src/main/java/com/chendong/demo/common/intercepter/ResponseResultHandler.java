@@ -2,8 +2,8 @@ package com.chendong.demo.common.intercepter;
 
 import com.alibaba.fastjson.JSON;
 import com.chendong.demo.common.anotations.ResponseResult;
-import com.chendong.demo.common.response.Result;
-import com.chendong.demo.common.response.ResultError;
+import com.chendong.demo.domain.response.Result;
+import com.chendong.demo.domain.response.ResultError;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.MethodParameter;

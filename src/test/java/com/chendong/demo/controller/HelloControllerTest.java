@@ -1,11 +1,12 @@
 package com.chendong.demo.controller;
 
-import com.chendong.demo.common.pojo.Dog;
-import com.chendong.demo.common.pojo.Person;
-import com.chendong.demo.common.response.Result;
-import com.chendong.demo.common.response.ResultError;
+import cn.hutool.json.JSONUtil;
+import com.chendong.demo.domain.pojo.Dog;
+import com.chendong.demo.domain.pojo.Person;
+import com.chendong.demo.domain.response.Result;
+import com.chendong.demo.domain.response.ResultError;
 import com.chendong.demo.service.IHelloService;
-import com.chendong.demo.service.request.HelloBaseReq;
+import com.chendong.demo.service.request.HelloParamRequest;
 import org.apache.poi.ss.formula.functions.T;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,6 +16,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.mockito.Spy;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
@@ -24,8 +26,9 @@ import static org.mockito.Mockito.when;
  * InjectMocks注释允许将Mock创建的不同(和相关)模拟注入到基础对象中。
  */
 class HelloControllerTest {
-    @Mock
-    Logger log;
+
+    private static final Logger log = LoggerFactory.getLogger(HelloControllerTest.class);
+
     @Mock
     IHelloService helloService;
     @Mock
@@ -40,6 +43,14 @@ class HelloControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    void testGetDog() {
+        Dog dog = helloController.getDog("小狗");
+        log.info("testGetDog.[dog]->{}", JSONUtil.toJsonStr(dog));
+        log.info("testGetDog.[dog]->{}", JSONUtil.toJsonStr(mockDog));
+        Assertions.assertNotNull(dog);
     }
 
     @Test
@@ -74,12 +85,12 @@ class HelloControllerTest {
         when(helloService.returnName(any())).thenReturn("returnNameResponse");
 
         Result<String> result = helloController.returnName("name");
-        Assertions.assertEquals(new Result<T>(Integer.valueOf(0), "message", new T()), result);
+        Assertions.assertEquals(new Result<>(0, "message", new T()), result);
     }
 
     @Test
     void testHello() {
-        String result = helloController.hello(new HelloBaseReq("uuid", "projectId", "name"));
+        String result = helloController.hello(new HelloParamRequest("uuid", "projectId", "name"));
         Assertions.assertEquals("replaceMeWithExpectedResult", result);
     }
 }

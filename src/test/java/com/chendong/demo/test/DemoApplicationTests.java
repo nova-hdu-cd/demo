@@ -2,10 +2,10 @@ package com.chendong.demo.test;
 
 import cn.hutool.json.JSONUtil;
 import com.chendong.demo.BaseTest;
-import com.chendong.demo.common.pojo.dto.UserDTO;
 import com.chendong.demo.common.utils.RedisUtil;
 import com.chendong.demo.dao.XingUserDao;
-import com.chendong.demo.entity.XingUserDO;
+import com.chendong.demo.domain.dto.UserDTO;
+import com.chendong.demo.domain.entity.XingUserDO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import org.junit.Assert;
@@ -16,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import redis.clients.jedis.Jedis;
 
 import javax.annotation.Resource;
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Transactional
@@ -60,9 +61,31 @@ public class DemoApplicationTests extends BaseTest {
 //        user1.test();
 
         UserDTO userDTO2 = new UserDTO();
-        userDTO2.setId("213");
+        userDTO2.setSex(706);
+        userDTO2.setName("TUzbCZ");
+        userDTO2.setId("hMTAKR");
+        userDTO2.setCaller("AtYIXE");
+        userDTO2.setProjectId("lsaqHW");
+        userDTO2.setNamespace("nMsqZW");
+        userDTO2.setClientEntryId("zCZBbK");
+
         System.out.println(userDTO2);
 
+    }
+
+    @Test
+    public void testBigDecimal() {
+        BigDecimal bigDecimal = new BigDecimal("0");
+        BigDecimal bigDecimal1 = new BigDecimal("1000");
+        bigDecimal = bigDecimal1;
+        System.out.println(bigDecimal);
+
+        for (int i = 0; i < 10; i++) {
+            for (int j = 0; j < 10; j++) {
+                break;
+            }
+            System.out.println(100);
+        }
     }
 
 

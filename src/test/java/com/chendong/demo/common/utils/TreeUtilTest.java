@@ -1,6 +1,6 @@
 package com.chendong.demo.common.utils;
 
-import com.chendong.demo.common.pojo.vo.PermissionVO;
+import com.chendong.demo.domain.vo.PermissionVO;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

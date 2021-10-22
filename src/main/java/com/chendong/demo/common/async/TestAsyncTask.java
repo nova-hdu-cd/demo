@@ -7,6 +7,8 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.Future;
 
 /**
@@ -36,28 +38,28 @@ public class TestAsyncTask {
 
     @Async("demoExecutor")
     public void doTaskFour() {
-        //int a = 1 / 0;
-        log.info(Thread.currentThread().getName() + "----->" + "didi !");
+        log.info(Thread.currentThread().getName() + "-->" + "任务四 running !");
     }
 
     @Async("demoExecutor")
-    public Future<String> doTaskOne() {
+    public Future<List<String>> doTaskOne() {
         String name = Thread.currentThread().getName();
-        log.info(name + "--->" + "开始做任务1");
-        long start = System.currentTimeMillis();
-        long end = System.currentTimeMillis();
-        log.info(name + "--->" + "完成任务1，需要的时间：" + (end - start) + "毫秒");
-        return new AsyncResult<>(name + "任务1完成");
+        log.info("[线程]：{} 开始做任务1", name);
+        long start = System.currentTimeMillis(), end = System.currentTimeMillis();
+        log.info("[线程]：{} 完成任务1，需要的时间：{}毫秒", name, end - start);
+
+        List<String> list = Arrays.asList("hello world", " this is");
+
+        return new AsyncResult<>(list);
     }
 
     @Async("demoExecutor")
     public Future<String> doTaskTwo() {
         String name = Thread.currentThread().getName();
-        log.info(name + "--->" + "开始做任务2");
+        log.info(name + "-->" + "开始做任务2");
         long start = System.currentTimeMillis();
-        //Thread.sleep(numberUtil.getRandomNumber(2000));
         long end = System.currentTimeMillis();
-        log.info(name + "--->" + "完成任务2，需要的时间：" + (end - start) + "毫秒");
+        log.info(name + "-->" + "完成任务2，需要的时间：" + (end - start) + "毫秒");
         return new AsyncResult<>(name + "任务2完成");
     }
 
@@ -66,10 +68,14 @@ public class TestAsyncTask {
         String name = Thread.currentThread().getName();
         log.info(name + "--->" + "开始做任务3");
         long start = System.currentTimeMillis();
-        //Thread.sleep(numberUtil.getRandomNumber(3000));
         long end = System.currentTimeMillis();
         log.info(name + "--->" + "完成任务3，需要的时间：" + (end - start) + "毫秒");
         return new AsyncResult<>(name + "任务3完成");
+    }
+
+    @Async("timeSchedulingExecutor")
+    public void doTaskFive() {
+        log.info("[线程：]->{}", Thread.currentThread().getName());
     }
 
 }

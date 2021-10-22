@@ -1,9 +1,9 @@
 package com.chendong.demo.controller;
 
-import com.chendong.demo.common.response.Result;
-import com.google.common.base.Strings;
+import com.chendong.demo.domain.response.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -42,15 +42,15 @@ public abstract class BaseController {
 
         String ip = request.getHeader("x-forwarded-for");
 
-        if (Strings.isNullOrEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
+        if (StringUtils.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("Proxy-Client-IP");
         }
 
-        if (Strings.isNullOrEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
+        if (StringUtils.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getHeader("WL-Proxy-Client-IP");
         }
 
-        if (Strings.isNullOrEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
+        if (StringUtils.isEmpty(ip) || "unknown".equalsIgnoreCase(ip)) {
             ip = request.getRemoteAddr();
         }
 

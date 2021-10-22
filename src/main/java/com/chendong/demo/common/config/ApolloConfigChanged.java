@@ -12,6 +12,8 @@ import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
 
 /**
+ * ApolloConfigChanged实现了ApplicationContextAware接口，注入了ApplicationContext上下文对象
+ *
  * @author dong.chen
  */
 @Component
@@ -30,19 +32,14 @@ public class ApolloConfigChanged implements ApplicationContextAware {
      */
     @ApolloConfigChangeListener("application")
     private void someChangeHandler(ConfigChangeEvent changeEvent) {
-        log.info("================Apollo 自动刷新值 开始 ===========================");
-
+        log.info("【namespace】 -> {}", changeEvent.getNamespace());
         for (String changedKey : changeEvent.changedKeys()) {
-
             ConfigChange configChange = changeEvent.getChange(changedKey);
             String oldValue = configChange.getOldValue();
             String newValue = configChange.getNewValue();
-            log.info("【changedKey:{},oldValue={}, newValue:{}】", changedKey, oldValue, newValue);
+            log.info("【changedKey】 -> {},【oldValue】 -> {}, 【newValue】 -> {}", changedKey, oldValue, newValue);
         }
-
         refreshProperties(changeEvent);
-
-        log.info("================Apollo 自动刷新值 结束 ===========================");
     }
 
     private void refreshProperties(ConfigChangeEvent changeEvent) {

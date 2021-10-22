@@ -1,6 +1,6 @@
 package com.chendong.demo.common.utils;
 
-import com.chendong.demo.common.pojo.vo.PermissionVO;
+import com.chendong.demo.domain.vo.PermissionVO;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
@@ -35,8 +35,10 @@ public class TreeUtil {
         this.menuList = allMenuList;
         allMenuList.forEach(treeNode -> {
             Map<String, Object> mapArray = new LinkedHashMap<>();
-            //根节点默认是"",根据业务改变
-            if (null == treeNode.getParentId() || "".equals(treeNode.getParentId())) {
+
+            String rootId1 = "0", rootId2 = "";
+            //根节点默认是""或null或0,根据业务改变
+            if (null == treeNode.getParentId() || rootId2.equals(treeNode.getParentId()) || rootId1.equals(treeNode.getParentId())) {
                 //构建树型结构
                 setTreeMap(mapArray, treeNode);
                 list.add(mapArray);

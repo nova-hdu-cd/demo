@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chendong.demo.mapper.DeviceMapper">
+
+    <resultMap id="BaseResultMap" type="com.chendong.demo.domain.entity.Device">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="device_id" column="device_id" jdbcType="VARCHAR"/>
+        <result property="uuid" column="uuid" jdbcType="VARCHAR"/>
+        <result property="cid" column="cid" jdbcType="VARCHAR"/>
+        <result property="third_device_id" column="third_device_id" jdbcType="VARCHAR"/>
+        <result property="gateway_id" column="gateway_id" jdbcType="VARCHAR"/>
+        <result property="device_provider_code" column="device_provider_code" jdbcType="VARCHAR"/>
+        <result property="device_name" column="device_name" jdbcType="VARCHAR"/>
+        <result property="device_ip" column="device_ip" jdbcType="VARCHAR"/>
+        <result property="mac_address" column="mac_address" jdbcType="VARCHAR"/>
+        <result property="comm_type" column="comm_type" jdbcType="VARCHAR"/>
+        <result property="product_type" column="product_type" jdbcType="VARCHAR"/>
+        <result property="product_id" column="product_id" jdbcType="VARCHAR"/>
+        <result property="install_location" column="install_location" jdbcType="VARCHAR"/>
+        <result property="project_id" column="project_id" jdbcType="VARCHAR"/>
+        <result property="device_desc" column="device_desc" jdbcType="VARCHAR"/>
+        <result property="extend_data" column="extend_data" jdbcType="VARCHAR"/>
+        <result property="active_status" column="active_status" jdbcType="BOOLEAN"/>
+        <result property="active_time" column="active_time" jdbcType="BIGINT"/>
+        <result property="online_status" column="online_status" jdbcType="BOOLEAN"/>
+        <result property="status" column="status" jdbcType="BOOLEAN"/>
+        <result property="gmt_create" column="gmt_create" jdbcType="BIGINT"/>
+        <result property="gmt_modified" column="gmt_modified" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,device_id,uuid,
+        cid,third_device_id,gateway_id,
+        device_provider_code,device_name,device_ip,
+        mac_address,comm_type,product_type,
+        product_id,install_location,project_id,
+        device_desc,extend_data,active_status,
+        active_time,online_status,status,
+        gmt_create,gmt_modified
+    </sql>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from device
+        where id = #{id,jdbcType=BIGINT}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+        delete
+        from device
+        where id = #{id,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.chendong.demo.domain.entity.Device"
+            useGeneratedKeys="true">
+        insert into device
+        ( id, device_id, uuid
+        , cid, third_device_id, gateway_id
+        , device_provider_code, device_name, device_ip
+        , mac_address, comm_type, product_type
+        , product_id, install_location, project_id
+        , device_desc, extend_data, active_status
+        , active_time, online_status, status
+        , gmt_create, gmt_modified)
+        values ( #{id,jdbcType=BIGINT}, #{device_id,jdbcType=VARCHAR}, #{uuid,jdbcType=VARCHAR}
+               , #{cid,jdbcType=VARCHAR}, #{third_device_id,jdbcType=VARCHAR}, #{gateway_id,jdbcType=VARCHAR}
+               , #{device_provider_code,jdbcType=VARCHAR}, #{device_name,jdbcType=VARCHAR}
+               , #{device_ip,jdbcType=VARCHAR}
+               , #{mac_address,jdbcType=VARCHAR}, #{comm_type,jdbcType=VARCHAR}, #{product_type,jdbcType=VARCHAR}
+               , #{product_id,jdbcType=VARCHAR}, #{install_location,jdbcType=VARCHAR}, #{project_id,jdbcType=VARCHAR}
+               , #{device_desc,jdbcType=VARCHAR}, #{extend_data,jdbcType=VARCHAR}, #{active_status,jdbcType=BOOLEAN}
+               , #{active_time,jdbcType=BIGINT}, #{online_status,jdbcType=BOOLEAN}, #{status,jdbcType=BOOLEAN}
+               , #{gmt_create,jdbcType=BIGINT}, #{gmt_modified,jdbcType=BIGINT}) )
+    </insert>
+    <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.chendong.demo.domain.entity.Device"
+            useGeneratedKeys="true">
+        insert into device
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">id,</if>
+            <if test="device_id != null">device_id,</if>
+            <if test="uuid != null">uuid,</if>
+            <if test="cid != null">cid,</if>
+            <if test="third_device_id != null">third_device_id,</if>
+            <if test="gateway_id != null">gateway_id,</if>
+            <if test="device_provider_code != null">device_provider_code,</if>
+            <if test="device_name != null">device_name,</if>
+            <if test="device_ip != null">device_ip,</if>
+            <if test="mac_address != null">mac_address,</if>
+            <if test="comm_type != null">comm_type,</if>
+            <if test="product_type != null">product_type,</if>
+            <if test="product_id != null">product_id,</if>
+            <if test="install_location != null">install_location,</if>
+            <if test="project_id != null">project_id,</if>
+            <if test="device_desc != null">device_desc,</if>
+            <if test="extend_data != null">extend_data,</if>
+            <if test="active_status != null">active_status,</if>
+            <if test="active_time != null">active_time,</if>
+            <if test="online_status != null">online_status,</if>
+            <if test="status != null">status,</if>
+            <if test="gmt_create != null">gmt_create,</if>
+            <if test="gmt_modified != null">gmt_modified,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">id = #{id,jdbcType=BIGINT},</if>
+            <if test="device_id != null">device_id = #{device_id,jdbcType=VARCHAR},</if>
+            <if test="uuid != null">uuid = #{uuid,jdbcType=VARCHAR},</if>
+            <if test="cid != null">cid = #{cid,jdbcType=VARCHAR},</if>
+            <if test="third_device_id != null">third_device_id = #{third_device_id,jdbcType=VARCHAR},</if>
+            <if test="gateway_id != null">gateway_id = #{gateway_id,jdbcType=VARCHAR},</if>
+            <if test="device_provider_code != null">device_provider_code = #{device_provider_code,jdbcType=VARCHAR},
+            </if>
+            <if test="device_name != null">device_name = #{device_name,jdbcType=VARCHAR},</if>
+            <if test="device_ip != null">device_ip = #{device_ip,jdbcType=VARCHAR},</if>
+            <if test="mac_address != null">mac_address = #{mac_address,jdbcType=VARCHAR},</if>
+            <if test="comm_type != null">comm_type = #{comm_type,jdbcType=VARCHAR},</if>
+            <if test="product_type != null">product_type = #{product_type,jdbcType=VARCHAR},</if>
+            <if test="product_id != null">product_id = #{product_id,jdbcType=VARCHAR},</if>
+            <if test="install_location != null">install_location = #{install_location,jdbcType=VARCHAR},</if>
+            <if test="project_id != null">project_id = #{project_id,jdbcType=VARCHAR},</if>
+            <if test="device_desc != null">device_desc = #{device_desc,jdbcType=VARCHAR},</if>
+            <if test="extend_data != null">extend_data = #{extend_data,jdbcType=VARCHAR},</if>
+            <if test="active_status != null">active_status = #{active_status,jdbcType=BOOLEAN},</if>
+            <if test="active_time != null">active_time = #{active_time,jdbcType=BIGINT},</if>
+            <if test="online_status != null">online_status = #{online_status,jdbcType=BOOLEAN},</if>
+            <if test="status != null">status = #{status,jdbcType=BOOLEAN},</if>
+            <if test="gmt_create != null">gmt_create = #{gmt_create,jdbcType=BIGINT},</if>
+            <if test="gmt_modified != null">gmt_modified = #{gmt_modified,jdbcType=BIGINT},</if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.chendong.demo.domain.entity.Device">
+        update device
+        <set>
+            <if test="device_id != null">
+                device_id = #{device_id,jdbcType=VARCHAR},
+            </if>
+            <if test="uuid != null">
+                uuid = #{uuid,jdbcType=VARCHAR},
+            </if>
+            <if test="cid != null">
+                cid = #{cid,jdbcType=VARCHAR},
+            </if>
+            <if test="third_device_id != null">
+                third_device_id = #{third_device_id,jdbcType=VARCHAR},
+            </if>
+            <if test="gateway_id != null">
+                gateway_id = #{gateway_id,jdbcType=VARCHAR},
+            </if>
+            <if test="device_provider_code != null">
+                device_provider_code = #{device_provider_code,jdbcType=VARCHAR},
+            </if>
+            <if test="device_name != null">
+                device_name = #{device_name,jdbcType=VARCHAR},
+            </if>
+            <if test="device_ip != null">
+                device_ip = #{device_ip,jdbcType=VARCHAR},
+            </if>
+            <if test="mac_address != null">
+                mac_address = #{mac_address,jdbcType=VARCHAR},
+            </if>
+            <if test="comm_type != null">
+                comm_type = #{comm_type,jdbcType=VARCHAR},
+            </if>
+            <if test="product_type != null">
+                product_type = #{product_type,jdbcType=VARCHAR},
+            </if>
+            <if test="product_id != null">
+                product_id = #{product_id,jdbcType=VARCHAR},
+            </if>
+            <if test="install_location != null">
+                install_location = #{install_location,jdbcType=VARCHAR},
+            </if>
+            <if test="project_id != null">
+                project_id = #{project_id,jdbcType=VARCHAR},
+            </if>
+            <if test="device_desc != null">
+                device_desc = #{device_desc,jdbcType=VARCHAR},
+            </if>
+            <if test="extend_data != null">
+                extend_data = #{extend_data,jdbcType=VARCHAR},
+            </if>
+            <if test="active_status != null">
+                active_status = #{active_status,jdbcType=BOOLEAN},
+            </if>
+            <if test="active_time != null">
+                active_time = #{active_time,jdbcType=BIGINT},
+            </if>
+            <if test="online_status != null">
+                online_status = #{online_status,jdbcType=BOOLEAN},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=BOOLEAN},
+            </if>
+            <if test="gmt_create != null">
+                gmt_create = #{gmt_create,jdbcType=BIGINT},
+            </if>
+            <if test="gmt_modified != null">
+                gmt_modified = #{gmt_modified,jdbcType=BIGINT},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.chendong.demo.domain.entity.Device">
+        update device
+        set device_id            = #{device_id,jdbcType=VARCHAR},
+            uuid                 = #{uuid,jdbcType=VARCHAR},
+            cid                  = #{cid,jdbcType=VARCHAR},
+            third_device_id      = #{third_device_id,jdbcType=VARCHAR},
+            gateway_id           = #{gateway_id,jdbcType=VARCHAR},
+            device_provider_code = #{device_provider_code,jdbcType=VARCHAR},
+            device_name          = #{device_name,jdbcType=VARCHAR},
+            device_ip            = #{device_ip,jdbcType=VARCHAR},
+            mac_address          = #{mac_address,jdbcType=VARCHAR},
+            comm_type            = #{comm_type,jdbcType=VARCHAR},
+            product_type         = #{product_type,jdbcType=VARCHAR},
+            product_id           = #{product_id,jdbcType=VARCHAR},
+            install_location     = #{install_location,jdbcType=VARCHAR},
+            project_id           = #{project_id,jdbcType=VARCHAR},
+            device_desc          = #{device_desc,jdbcType=VARCHAR},
+            extend_data          = #{extend_data,jdbcType=VARCHAR},
+            active_status        = #{active_status,jdbcType=BOOLEAN},
+            active_time          = #{active_time,jdbcType=BIGINT},
+            online_status        = #{online_status,jdbcType=BOOLEAN},
+            status               = #{status,jdbcType=BOOLEAN},
+            gmt_create           = #{gmt_create,jdbcType=BIGINT},
+            gmt_modified         = #{gmt_modified,jdbcType=BIGINT}
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+</mapper>

@@ -1,15 +1,16 @@
 package com.chendong.demo.common.async;
 
 import cn.hutool.extra.spring.SpringUtil;
-import com.chendong.demo.common.pojo.Dog;
 import com.chendong.demo.common.scheduling.TimeScheduling;
 import com.chendong.demo.controller.HelloController;
+import com.chendong.demo.domain.pojo.Dog;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.Scheduled;
 
 import javax.annotation.Resource;
+import java.util.List;
 import java.util.concurrent.Future;
 
 /**
@@ -26,13 +27,14 @@ class TestTaskTestAsync {
 
     @Test
     void test4() throws InterruptedException {
+
         task.taskForThreadLocal();
     }
 
     @Test
     void test() throws InterruptedException {
         long start = System.currentTimeMillis();
-        Future<String> t1 = task.doTaskOne();
+        Future<List<String>> t1 = task.doTaskOne();
         Future<String> t2 = task.doTaskTwo();
         Future<String> t3 = task.doTaskThree();
         while (true) {

@@ -11,6 +11,7 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.lang.Assert;
 import cn.hutool.core.lang.Console;
+import cn.hutool.core.lang.Pair;
 import cn.hutool.core.lang.UUID;
 import cn.hutool.core.lang.tree.Tree;
 import cn.hutool.core.lang.tree.TreeNode;
@@ -26,13 +27,13 @@ import cn.hutool.poi.excel.sax.handler.RowHandler;
 import com.chendong.demo.common.convert.HelloMapper;
 import com.chendong.demo.common.enums.global.ArgumentEnum;
 import com.chendong.demo.common.exception.ArgumentException;
-import com.chendong.demo.common.pojo.Dog;
-import com.chendong.demo.common.pojo.People;
-import com.chendong.demo.common.pojo.dto.TicketDTO;
-import com.chendong.demo.common.pojo.dto.UserDTO;
-import com.chendong.demo.common.pojo.vo.EmpVO;
-import com.chendong.demo.common.pojo.vo.PermissionVO;
 import com.chendong.demo.common.utils.TreeUtil;
+import com.chendong.demo.domain.dto.TicketDTO;
+import com.chendong.demo.domain.dto.UserDTO;
+import com.chendong.demo.domain.pojo.Dog;
+import com.chendong.demo.domain.pojo.People;
+import com.chendong.demo.domain.vo.EmpVO;
+import com.chendong.demo.domain.vo.PermissionVO;
 import org.apache.poi.ss.usermodel.Font;
 import org.apache.poi.ss.usermodel.IndexedColors;
 import org.junit.jupiter.api.Test;
@@ -58,12 +59,18 @@ import java.util.stream.Stream;
 @SpringBootTest
 public class TestTool {
 
-    @Resource
-    private HelloMapper helloMapper;
-
     private static final Logger LOGGER = LoggerFactory.getLogger(TestTool.class);
 
     private static final Map<String, Object> store = new HashMap<>();
+
+    @Resource
+    private HelloMapper helloMapper;
+
+    @Test
+    void testPair() {
+        Pair<String, String> pair = Pair.of("string", "value");
+        LOGGER.info("[pair]->{}", pair.getKey());
+    }
 
     @Test
     void testHelloMapper() {
@@ -74,7 +81,7 @@ public class TestTool {
 
         TicketDTO ticketDTO = helloMapper.buildTicketDTO(dto);
 
-        System.out.println(ticketDTO);
+        LOGGER.info("[ticketDTO]->{}", JSONUtil.toJsonStr(ticketDTO));
     }
 
     //md5加密和解密测试
@@ -180,11 +187,19 @@ public class TestTool {
         results.add(vo1);
         results.add(vo3);
 
-        //将list<EmpVO>转换成name:age的Map形式
-        final HashMap<Object, Object> maps
-                = results.stream().collect(HashMap::new, (map, p) -> map.put(p.getName(), p.getAge()), Map::putAll);
-        maps.forEach((k, v) -> System.out.println(k + ":" + v));
+        Map<String, Map<Integer, List<EmpVO>>> collect4 = results.stream().collect(Collectors.groupingBy(EmpVO::getName, Collectors.groupingBy(EmpVO::getAge)));
+        System.out.println("====================");
+        System.out.println(collect4);
+        System.out.println("====================");
 
+        //将list<EmpVO>转换成name:age的Map形式
+        //方法1
+        final HashMap<String, Integer> maps
+                = results.stream().collect(HashMap::new, (map, p) -> map.put(p.getName(), p.getAge()), Map::putAll);
+        System.out.println("=======================");
+        maps.forEach((k, v) -> System.out.println(k + ":" + v));
+        System.out.println("==================");
+        //方法2
         final Map<String, Integer> collect1
                 = results.stream().collect(Collectors.toMap(emp -> emp.getName(), emp -> emp.getAge(), (oldItem, newItem) -> newItem));
         collect1.forEach((k, v) -> System.out.println(k + ":" + v));

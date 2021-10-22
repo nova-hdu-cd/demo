@@ -5,6 +5,64 @@
     <title>Title</title>
 </head>
 <body>
-<h1>首页欢迎你</h1>
+
+<a>hel</a>
+
+<div id="app">
+    <child_a/>
+    <child_b/>
+</div>
+
+<template id="child_a">
+    <div>
+        <ul>
+            <li v-for="item in list">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+</template>
+
+<template id="child_b">
+    <div>
+        <ul>
+            <li v-for="item in list">
+                {{item}}
+            </li>
+        </ul>
+    </div>
+</template>
+
+<!-- 开发环境版本，包含了有帮助的命令行警告 -->
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+<script>
+    //局部组件
+    const child_a = {
+        template: '#child_a',
+        data() {
+            return {
+                list: ['a hello', 'world', '111']
+            }
+        }
+    }
+    //全局组件
+    const child_b = {
+        template: '#child_b',
+        data() {
+            return {
+                list: ['b hello', 'world', '111']
+            }
+        }
+    }
+
+    const app = new Vue({
+        el: '#app',
+        components: {
+            child_a, child_b
+        }
+    })
+</script>
+
 </body>
 </html>

@@ -2,13 +2,12 @@ package com.chendong.demo.service.impl;
 
 import cn.hutool.json.JSONUtil;
 import com.chendong.demo.dao.DemoUserDao;
-import com.chendong.demo.entity.User;
+import com.chendong.demo.domain.entity.User;
 import com.chendong.demo.service.IHelloService;
-import com.chendong.demo.service.request.HelloBaseReq;
-import com.chendong.demo.service.request.IndexBaseReq;
+import com.chendong.demo.service.request.HelloParamRequest;
+import com.chendong.demo.service.request.IndexBaseRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -28,12 +27,12 @@ public class HelloServiceImpl implements IHelloService {
     private DemoUserDao demoUserDao;
 
     @Override
-    public String returnName(IndexBaseReq req) {
+    public String returnName(IndexBaseRequest req) {
         return req.getUname() + "\n" + " hello world !";
     }
 
     @Override
-    public String hello(HelloBaseReq req) {
+    public String hello(HelloParamRequest req) {
         return null;
     }
 

@@ -28,7 +28,7 @@ public class PermissionFirstAdvice {
     private static final Set<String> UUID_SET = new HashSet<>();
 
     static {
-        UUID_SET.addAll(Arrays.asList("11111","10001"));
+        UUID_SET.addAll(Arrays.asList("11111", "10001"));
     }
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PermissionFirstAdvice.class);

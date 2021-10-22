@@ -8,11 +8,11 @@ import cn.hutool.json.JSONUtil;
 import com.chendong.demo.BaseTest;
 import com.chendong.demo.common.config.ApolloConfig;
 import com.chendong.demo.common.convert.HelloMapper;
-import com.chendong.demo.common.pojo.dto.InfoDTO;
-import com.chendong.demo.common.pojo.dto.TicketDTO;
-import com.chendong.demo.common.pojo.dto.UserDTO;
 import com.chendong.demo.dao.DemoUserDao;
-import com.chendong.demo.entity.User;
+import com.chendong.demo.domain.dto.InfoDTO;
+import com.chendong.demo.domain.dto.TicketDTO;
+import com.chendong.demo.domain.dto.UserDTO;
+import com.chendong.demo.domain.entity.User;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -166,6 +166,7 @@ public class TestDemo extends BaseTest {
         UserDTO userDTO = new UserDTO();
         userDTO.setId("10010");
         userDTO.setName("小红");
+        userDTO.setSex(1);
         TicketDTO ticketDTO = helloConvert.buildTicketDTO(userDTO);
         System.out.println(ticketDTO);
 

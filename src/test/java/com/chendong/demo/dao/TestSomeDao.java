@@ -2,11 +2,11 @@ package com.chendong.demo.dao;
 
 import com.alibaba.fastjson.JSON;
 import com.chendong.demo.BaseTest;
-import com.chendong.demo.common.pojo.Dog;
-import com.chendong.demo.common.pojo.Person;
-import com.chendong.demo.common.pojo.TestA;
-import com.chendong.demo.entity.User;
-import com.chendong.demo.entity.XingUserDO;
+import com.chendong.demo.domain.entity.User;
+import com.chendong.demo.domain.entity.XingUserDO;
+import com.chendong.demo.domain.pojo.Dog;
+import com.chendong.demo.domain.pojo.Person;
+import com.chendong.demo.domain.pojo.TestA;
 import org.junit.Assert;
 import org.junit.Test;
 import org.slf4j.Logger;

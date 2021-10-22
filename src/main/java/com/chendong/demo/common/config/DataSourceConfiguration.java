@@ -1,5 +1,9 @@
 package com.chendong.demo.common.config;
 
+/**
+ * @author dong.chen
+ */
+
 import com.ctrip.framework.apollo.Config;
 import com.ctrip.framework.apollo.model.ConfigChangeEvent;
 import com.ctrip.framework.apollo.spring.annotation.ApolloConfig;
@@ -19,9 +23,6 @@ import javax.sql.DataSource;
 import java.util.Collections;
 import java.util.Set;
 
-/**
- * @author dong.chen
- */
 @Configuration
 @EnableConfigurationProperties(DataSourceProperties.class)
 public class DataSourceConfiguration {
@@ -29,6 +30,14 @@ public class DataSourceConfiguration {
     private static final Logger logger = LoggerFactory.getLogger(DataSourceConfiguration.class);
 
     private final static String DATASOURCE_TAG = "db";
+
+    private static final String DATASOURCE_URL = "spring.datasource.url";
+
+    private static final String DATASOURCE_USERNAME = "spring.datasource.username";
+
+    private static final String DATASOURCE_PASSWORD = "spring.datasource.password";
+
+    private static final String JDBC_DRIVER_NAME = "spring.datasource.driver-class-name";
 
     @Resource
     ApplicationContext context;
@@ -46,20 +55,20 @@ public class DataSourceConfiguration {
     @ApolloConfigChangeListener
     public void onChange(ConfigChangeEvent changeEvent) {
         Set<String> changedKeys = changeEvent.changedKeys();
-        if (changedKeys.contains("spring.datasource.url")) {
+        if (changedKeys.contains(DATASOURCE_URL)) {
             DynamicDataSource source = context.getBean(DynamicDataSource.class);
             source.setTargetDataSources(Collections.singletonMap(DATASOURCE_TAG, dataSource()));
             source.afterPropertiesSet();
-            logger.info("动态切换数据源为：{}", config.getProperty("spring.datasource.url", ""));
+            logger.info("当前动态切换的数据源为 -> {}", config.getProperty(DATASOURCE_URL, ""));
         }
     }
 
     public DataSource dataSource() {
         HikariDataSource dataSource = new HikariDataSource();
-        dataSource.setJdbcUrl(config.getProperty("spring.datasource.url", ""));
-        dataSource.setUsername(config.getProperty("spring.datasource.username", ""));
-        dataSource.setPassword(config.getProperty("spring.datasource.password", ""));
-        dataSource.setDriverClassName(config.getProperty("spring.datasource.driver-class-name", ""));
+        dataSource.setJdbcUrl(config.getProperty(DATASOURCE_URL, ""));
+        dataSource.setUsername(config.getProperty(DATASOURCE_USERNAME, ""));
+        dataSource.setPassword(config.getProperty(DATASOURCE_PASSWORD, ""));
+        dataSource.setDriverClassName(config.getProperty(JDBC_DRIVER_NAME, ""));
         return dataSource;
     }
 

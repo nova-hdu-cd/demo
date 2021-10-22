@@ -4,11 +4,13 @@ import com.chendong.demo.common.async.TestAsyncTask;
 import com.chendong.demo.common.constants.DemoConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.Future;
 
 /**
@@ -47,9 +49,15 @@ public class TimeScheduling {
     /**
      * 异步任务四
      */
-    //@Scheduled(initialDelay = 2000, fixedRate = 10000)
+    @Scheduled(initialDelay = 2000, fixedRate = 10000)
     public void showCurrentThread() {
+        log.info("=======分隔符1==========");
+        testAsyncTask.doTaskOne();
+        testAsyncTask.doTaskTwo();
+        testAsyncTask.doTaskThree();
         testAsyncTask.doTaskFour();
+        testAsyncTask.doTaskFive();
+        log.info("========分隔符2==========");
     }
 
     /**
@@ -60,7 +68,7 @@ public class TimeScheduling {
         long start = System.currentTimeMillis();
 
         //三个任务异步执行
-        Future<String> t1 = testAsyncTask.doTaskOne();
+        Future<List<String>> t1 = testAsyncTask.doTaskOne();
         Future<String> t2 = testAsyncTask.doTaskTwo();
         Future<String> t3 = testAsyncTask.doTaskThree();
 

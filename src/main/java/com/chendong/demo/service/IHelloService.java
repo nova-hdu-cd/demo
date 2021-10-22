@@ -1,8 +1,8 @@
 package com.chendong.demo.service;
 
-import com.chendong.demo.entity.User;
-import com.chendong.demo.service.request.HelloBaseReq;
-import com.chendong.demo.service.request.IndexBaseReq;
+import com.chendong.demo.domain.entity.User;
+import com.chendong.demo.service.request.HelloParamRequest;
+import com.chendong.demo.service.request.IndexBaseRequest;
 
 /**
  * @author chendong
@@ -15,13 +15,13 @@ public interface IHelloService {
      * @param req
      * @return
      */
-    String returnName(IndexBaseReq req);
+    String returnName(IndexBaseRequest req);
 
     /**
      * @param req
      * @return
      */
-    String hello(HelloBaseReq req);
+    String hello(HelloParamRequest req);
 
 
     /**

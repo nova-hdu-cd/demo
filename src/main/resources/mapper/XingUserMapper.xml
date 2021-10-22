@@ -5,7 +5,7 @@
     <!-- 测试xml结果映射正确的方法就是：建立dao层的单元测试-->
 
     <!--描述如何从数据库结果集中加载对象，是最复杂也是最强大的元素。Java对象和数据库表的映射关系-->
-    <resultMap type="com.chendong.demo.entity.XingUserDO" id="XinyangUserMap">
+    <resultMap id="XinyangUserMap" type="com.chendong.demo.domain.entity.XingUserDO">
         <id property="id" column="id" javaType="long" jdbcType="BIGINT"/>
         <result property="uid" column="uid" javaType="String" jdbcType="VARCHAR"/>
         <result property="uname" column="uname" javaType="String" jdbcType="VARCHAR"/>
@@ -200,7 +200,7 @@
     </select>
 
     <!--新增所有列-->
-    <insert id="insert" parameterType="com.chendong.demo.entity.XingUserDO" keyProperty="id"
+    <insert id="insert" parameterType="com.chendong.demo.domain.entity.XingUserDO" keyProperty="id"
             useGeneratedKeys="true">
         insert into xinyang.xinyang_user
         <include refid="sets"/>

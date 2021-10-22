@@ -2,7 +2,7 @@ package com.chendong.demo.test;
 
 
 import ch.qos.logback.classic.LoggerContext;
-import com.chendong.demo.entity.UserDO;
+import com.chendong.demo.domain.entity.UserDO;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;

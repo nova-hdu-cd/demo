@@ -1,14 +1,11 @@
 package com.chendong.demo.test;
 
 import org.junit.Test;
-import org.mockito.Answers;
 import org.mockito.Mockito;
 
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.doCallRealMethod;
 import static org.mockito.Mockito.when;
 
 public class MockTarget {
@@ -47,11 +44,19 @@ public class MockTarget {
         when(mock.sayHello()).thenReturn("mock hello");
         assertEquals(mock.sayHello(), "mock hello");
 
-        doCallRealMethod().when(mock).sayHello();
-        assertEquals(mock.sayHello(), "Hello");
+//        doCallRealMethod().when(mock).sayHello();
+//        assertEquals(mock.sayHello(), "Hello");
+//
+//        when(mock.sayHello(anyString())).thenAnswer(Answers.CALLS_REAL_METHODS);
+//        assertEquals(mock.sayHello("testRun"), "Hello testrun");
+    }
 
-        when(mock.sayHello(anyString())).thenAnswer(Answers.CALLS_REAL_METHODS);
-        assertEquals(mock.sayHello("testRun"), "Hello testrun");
+    @Test
+    public void testSayHello() throws Exception {
+        MockTarget mock = Mockito.mock(MockTarget.class);
+        when(mock.sayHello("world!")).thenReturn("hello world!");
+        // assertEquals(mock.sayHello("world!"),"hello world!");
+
     }
 
 }
