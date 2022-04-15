@@ -44,7 +44,7 @@ public class PermissionFirstAdvice {
 
     @Around("permissionCheck()")
     public Object permissionCheckFirst(ProceedingJoinPoint joinPoint) throws Throwable {
-        LOGGER.info("开始权限校验逻辑！");
+        LOGGER.info("开始权限校验逻辑！！！！！");
         //获取请求参数数组，详见接口类
         Object[] args = joinPoint.getArgs();
         LOGGER.info("请求参数args -> {}", JSON.toJSON(args));
