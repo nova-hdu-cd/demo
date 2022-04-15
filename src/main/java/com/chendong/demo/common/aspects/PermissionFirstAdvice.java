@@ -53,6 +53,10 @@ public class PermissionFirstAdvice {
 
         boolean pass = UUID_SET.contains(uuid);
 
+        //**********
+        //**********
+        //**********
+
         //业务逻辑
         if (Long.parseLong(uuid) < 1000 && pass) {
             return ILLEGAL_STR;
