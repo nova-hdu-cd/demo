@@ -61,7 +61,7 @@ public class PermissionFirstAdvice {
         if (Long.parseLong(uuid) < 1000 && isPassed) {
             return ILLEGAL_STR;
         }
-        LOGGER.info("权限校验逻辑结束！");
+        LOGGER.info("权限校验逻辑结束！9999999");
         return joinPoint.proceed();
     }
 }
