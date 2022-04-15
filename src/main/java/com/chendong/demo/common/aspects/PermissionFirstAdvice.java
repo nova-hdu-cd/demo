@@ -62,6 +62,10 @@ public class PermissionFirstAdvice {
             return ILLEGAL_STR;
         }
         LOGGER.info("权限校验逻辑结束！");
+        LOGGER.info("===========");
+        LOGGER.info("===========");
+        LOGGER.info("===========");
+        LOGGER.info("===========");
         return joinPoint.proceed();
     }
 }
