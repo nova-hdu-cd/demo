@@ -51,10 +51,10 @@ public class PermissionFirstAdvice {
         String uuid = ((JSONObject) JSON.toJSON(args[0])).getString("uuid");
         LOGGER.info("uuid->{}", uuid);
 
-        boolean pass = UUID_SET.contains(uuid);
+        boolean isPass = UUID_SET.contains(uuid);
 
         //业务逻辑
-        if (Long.parseLong(uuid) < 1000 && pass) {
+        if (Long.parseLong(uuid) < 1000 && isPass) {
             return ILLEGAL_STR;
         }
         LOGGER.info("权限校验逻辑结束！");
