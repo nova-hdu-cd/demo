@@ -4,7 +4,6 @@ import com.chendong.demo.common.async.TestAsyncTask;
 import com.chendong.demo.common.constants.DemoConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -49,7 +48,7 @@ public class TimeScheduling {
     /**
      * 异步任务四
      */
-    @Scheduled(initialDelay = 2000, fixedRate = 10000)
+    //@Scheduled(initialDelay = 2000, fixedRate = 10000)
     public void showCurrentThread() {
         log.info("=======分隔符1==========");
         testAsyncTask.doTaskOne();
