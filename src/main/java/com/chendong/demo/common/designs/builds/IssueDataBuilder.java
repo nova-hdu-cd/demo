@@ -3,8 +3,7 @@ package com.chendong.demo.common.designs.builds;
 /**
  * 下发同步数据的抽象构建对象，子类继承实现具体的build逻辑
  *
- * @author: niezg
- * date： 2019/12/3
+ * @author: niezg date： 2019/12/3
  */
 public abstract class IssueDataBuilder<D extends IssueData> {
 

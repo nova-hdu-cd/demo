@@ -1,16 +1,14 @@
 package com.chendong.demo.controller;
 
-import cn.hutool.json.JSONUtil;
-import com.chendong.demo.common.anotations.ResponseResult;
-import com.chendong.demo.domain.dto.InfoDTO;
-import com.chendong.demo.domain.entity.User;
-import com.chendong.demo.domain.response.Result;
-import com.chendong.demo.domain.vo.EmpVO;
-import com.chendong.demo.service.IUserService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiParam;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,19 +17,24 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import com.chendong.demo.common.anotations.ResponseResult;
+import com.chendong.demo.domain.dto.InfoDTO;
+import com.chendong.demo.domain.entity.User;
+import com.chendong.demo.domain.response.Result;
+import com.chendong.demo.domain.vo.EmpVO;
+import com.chendong.demo.service.IUserService;
+
+import cn.hutool.json.JSONUtil;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiImplicitParam;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 
 /**
  * @author dong.chen
  */
 @Controller
-@RequestMapping("/index")
+@RequestMapping("/app/gate")
 @Api(tags = "接口2模块")
 public class IndexController {
 
@@ -59,7 +62,6 @@ public class IndexController {
         return "success";
     }
 
-
     @ApiImplicitParam(name = "id", value = "id", required = true)
     @ApiOperation(value = "获取用户")
     @GetMapping("/getUserById/{id}")
@@ -80,26 +82,26 @@ public class IndexController {
     @ResponseBody
     @GetMapping("/addEmpV4/{id}/{username}")
     @ApiOperation(value = "添加员工V4", notes = "开发中")
-    public Result<EmpVO> addEmpV4(@PathVariable("id") Long id,
-                                  @PathVariable("username") String username) {
+    public Result<EmpVO> addEmpV4(@PathVariable("id") Long id, @PathVariable("username") String username) {
         return new Result<>();
     }
 
     @ResponseBody
     @GetMapping("/addEmpV3/{id}/{username}")
-    public Result<String> addEmpV3(@ApiParam(name = "id", value = "用户id", example = "1111", required = true)
-                                   @PathVariable("id") Long id,
-                                   @ApiParam(name = "username", value = "姓名", example = "xiaohua", required = true)
-                                   @PathVariable("username") String username) {
+    public Result<String> addEmpV3(
+        @ApiParam(name = "id", value = "用户id", example = "1111", required = true) @PathVariable("id") Long id,
+        @ApiParam(name = "username", value = "姓名", example = "xiaohua",
+            required = true) @PathVariable("username") String username) {
 
         return Result.success("hello world!");
     }
 
     @ResponseBody
     @PostMapping("/addEmp")
-    public Result<EmpVO> addEmp(@RequestBody @ApiParam(name = "EmpVO", value = "员工vo", example = "empvo", required = true) EmpVO empVO) {
+    public Result<EmpVO>
+        addEmp(@RequestBody @ApiParam(name = "EmpVO", value = "员工vo", example = "empvo", required = true) EmpVO empVO) {
 
-        //模拟业务过程
+        // 模拟业务过程
         EmpVO vo = new EmpVO();
         vo.setName("chendong");
         vo.setAge(26);
@@ -115,7 +117,7 @@ public class IndexController {
         vo.setName("chendong");
         vo.setAge(26);
         vo.setUnisocId("1176213349");
-        //vo = null;
+        // vo = null;
 
         return Optional.ofNullable(vo).orElse(new EmpVO());
     }
@@ -147,11 +149,10 @@ public class IndexController {
 
     @ResponseBody
     @GetMapping("/showInfo/{infoId}")
-    public Result<InfoDTO> showInfo(
-            @ApiParam(name = "infoId", value = "员工id", example = "12120", required = true)
-            @PathVariable("infoId") String infoId) {
+    public Result<InfoDTO> showInfo(@ApiParam(name = "infoId", value = "员工id", example = "12120",
+        required = true) @PathVariable("infoId") String infoId) {
 
-        //模拟业务过程
+        // 模拟业务过程
         InfoDTO infoDTO = new InfoDTO();
         infoDTO.setName("hello world!");
 

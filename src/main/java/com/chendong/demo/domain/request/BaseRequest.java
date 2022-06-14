@@ -69,8 +69,7 @@ public abstract class BaseRequest implements Serializable {
         this.reqName = reqName;
     }
 
-    public BaseRequest() {
-    }
+    public BaseRequest() {}
 
     public BaseRequest(String uuid, String projectId, String reqName, Long reqTime) {
         this.uuid = uuid;
@@ -81,11 +80,7 @@ public abstract class BaseRequest implements Serializable {
 
     @Override
     public String toString() {
-        return "BaseRequest{" +
-                "uuid='" + uuid + '\'' +
-                ", projectId='" + projectId + '\'' +
-                ", name='" + reqName + '\'' +
-                ", reqTime=" + reqTime +
-                '}';
+        return "BaseRequest{" + "uuid='" + uuid + '\'' + ", projectId='" + projectId + '\'' + ", name='" + reqName
+            + '\'' + ", reqTime=" + reqTime + '}';
     }
 }

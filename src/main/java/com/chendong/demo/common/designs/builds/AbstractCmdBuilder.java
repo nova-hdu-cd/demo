@@ -14,17 +14,17 @@ public abstract class AbstractCmdBuilder<T extends ICmd, TB extends AbstractCmdB
 
     public TB withBsn(String bsn) {
         this.bsn = bsn;
-        return (TB) this;
+        return (TB)this;
     }
 
     public TB withEncryptMode(String encryptMode) {
         this.encryptMode = encryptMode;
-        return (TB) this;
+        return (TB)this;
     }
 
     public TB withReqType(String reqType) {
         this.reqType = reqType;
-        return (TB) this;
+        return (TB)this;
     }
 
     public final T build() {
@@ -54,9 +54,3 @@ public abstract class AbstractCmdBuilder<T extends ICmd, TB extends AbstractCmdB
     protected abstract void addFields(T cmd);
 
 }
-
-
-
-
-
-

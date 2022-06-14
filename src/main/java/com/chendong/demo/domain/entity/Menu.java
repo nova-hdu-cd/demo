@@ -36,5 +36,4 @@ public class Menu {
     @ApiModelProperty(value = "菜单英文名称")
     private String menuename;
 
-
 }

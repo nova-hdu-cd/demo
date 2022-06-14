@@ -1,7 +1,9 @@
 package com.chendong.demo.common.aspects;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -11,9 +13,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Set;
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 /**
  * 自定义注解PermissionAnnotation+切面实现权限管理
@@ -39,21 +40,20 @@ public class PermissionFirstAdvice {
      * 定义一个切面，括号内写入第1步中自定义注解的路径
      */
     @Pointcut("execution(public * com.chendong.demo.controller.HelloController.hello*(..)) && @annotation(com.chendong.demo.common.anotations.PermissionAnnotation)")
-    private void permissionCheck() {
-    }
+    private void permissionCheck() {}
 
     @Around("permissionCheck()")
     public Object permissionCheckFirst(ProceedingJoinPoint joinPoint) throws Throwable {
         LOGGER.info("开始权限校验逻辑！");
-        //获取请求参数数组，详见接口类
+        // 获取请求参数数组，详见接口类
         Object[] args = joinPoint.getArgs();
         LOGGER.info("请求参数args -> {}", JSON.toJSON(args));
-        String uuid = ((JSONObject) JSON.toJSON(args[0])).getString("uuid");
+        String uuid = ((JSONObject)JSON.toJSON(args[0])).getString("uuid");
         LOGGER.info("uuid->{}", uuid);
 
         boolean pass = UUID_SET.contains(uuid);
 
-        //业务逻辑
+        // 业务逻辑
         if (Long.parseLong(uuid) < 1000 && pass) {
             return ILLEGAL_STR;
         }

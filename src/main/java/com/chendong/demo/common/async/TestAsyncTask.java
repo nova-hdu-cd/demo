@@ -1,23 +1,22 @@
 package com.chendong.demo.common.async;
 
-import com.alibaba.fastjson.JSON;
+import java.util.Arrays;
+import java.util.List;
+import java.util.concurrent.Future;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.concurrent.Future;
+import com.alibaba.fastjson.JSON;
 
 /**
  * 异步任务
  *
  * @author chendong
- * @date 2020/6/26 10:07 上午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/6/26 10:07 上午 To change this template use Appearance | Editor | File and Code Templates.
  */
 @Component
 public class TestAsyncTask {

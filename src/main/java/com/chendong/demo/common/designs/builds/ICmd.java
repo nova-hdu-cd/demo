@@ -21,7 +21,6 @@ public interface ICmd extends ICmdFormatter {
 
     void setDpid(Integer dpId);
 
-
     /**
      * encryptMode
      */
@@ -35,7 +34,6 @@ public interface ICmd extends ICmdFormatter {
     Boolean getGateway();
 
     void setGateway(Boolean gateway);
-
 
     /**
      * reqType

@@ -25,7 +25,6 @@ public class BaseException extends RuntimeException {
      */
     protected Object[] args;
 
-
     public BaseException(IResponseEnum responseEnum) {
         super(responseEnum.getMessage());
         this.responseEnum = responseEnum;

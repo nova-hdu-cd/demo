@@ -1,19 +1,17 @@
 package com.chendong.demo.helper;
 
-import com.chendong.demo.common.enums.ticket.KunlunTicketStatus;
-import com.chendong.demo.common.enums.ticket.TicketStatusEnum;
-
 import java.util.Arrays;
 import java.util.PriorityQueue;
 import java.util.TreeSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+import com.chendong.demo.common.enums.ticket.KunlunTicketStatus;
+import com.chendong.demo.common.enums.ticket.TicketStatusEnum;
+
 /**
  * @author chendong
- * @date 2020/8/29 2:44 下午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/8/29 2:44 下午 To change this template use Appearance | Editor | File and Code Templates.
  */
 public class DemoHelper {
 
@@ -36,12 +34,12 @@ public class DemoHelper {
 
     public static void main(String[] args) {
         DemoHelper demoHelper = new DemoHelper();
-        //System.out.println(demoHelper.ticketConvert(TicketStatusEnum.CLOSED).getId());
+        // System.out.println(demoHelper.ticketConvert(TicketStatusEnum.CLOSED).getId());
 
         int[] src = {9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
         int[] dest = {10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0};
 
-        //把src数组的0-src.length复制到dest去
+        // 把src数组的0-src.length复制到dest去
         System.arraycopy(src, 0, dest, 0, src.length);
 
         System.out.println(Arrays.toString(dest));
@@ -54,20 +52,18 @@ public class DemoHelper {
         System.out.println(dui.pollFirst());
         System.out.println(dui.pollLast());
 
-        //小顶堆
+        // 小顶堆
         PriorityQueue<Object> minHeap = new PriorityQueue<>();
 
-        //大顶堆
+        // 大顶堆
         PriorityQueue<Integer> maxHeap = new PriorityQueue<>((o1, o2) -> o2 - o1);
 
         ExecutorService executorService = Executors.newCachedThreadPool();
-        executorService.execute(()->{
+        executorService.execute(() -> {
             System.out.println("hello world");
         });
         executorService.shutdown();
 
-
     }
-
 
 }

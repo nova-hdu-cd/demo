@@ -1,6 +1,7 @@
 package com.chendong.demo.common.spring.bean;
 
-import com.chendong.demo.common.spring.Utils;
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
@@ -9,10 +10,11 @@ import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
+import com.chendong.demo.common.spring.Utils;
 
 /**
- * Bean01() -> setApplicationContext(applicationContext) -> postConstruct() -> afterPropertiesSet() -> onApplicationEvent(event)
+ * Bean01() -> setApplicationContext(applicationContext) -> postConstruct() -> afterPropertiesSet() ->
+ * onApplicationEvent(event)
  */
 @Component
 public class Bean01 implements InitializingBean, ApplicationContextAware, ApplicationListener<ApplicationEvent> {

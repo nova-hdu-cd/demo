@@ -1,11 +1,11 @@
 package com.chendong.demo.common.designs.strategy;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import com.chendong.demo.common.designs.strategy.concrete.AcceptStrategy;
 import com.chendong.demo.common.designs.strategy.concrete.CloseIrStrategy;
 import com.chendong.demo.common.designs.strategy.concrete.RisingCcbStrategy;
-
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author dong.chen

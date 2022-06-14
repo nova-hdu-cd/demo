@@ -1,17 +1,17 @@
 package com.chendong.demo.controller;
 
-import com.chendong.demo.domain.response.Result;
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import javax.servlet.http.HttpServletRequest;
+import com.chendong.demo.domain.response.Result;
 
 /**
- * Controller基类
- * todo:把一些通用的操作封装到父类中
+ * Controller基类 todo:把一些通用的操作封装到父类中
  *
  * @author dong.chen
  */
@@ -37,7 +37,8 @@ public abstract class BaseController {
      */
     public String getIpAddress() {
 
-        ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        ServletRequestAttributes requestAttributes =
+            (ServletRequestAttributes)RequestContextHolder.getRequestAttributes();
         HttpServletRequest request = requestAttributes.getRequest();
 
         String ip = request.getHeader("x-forwarded-for");

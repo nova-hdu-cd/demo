@@ -4,8 +4,7 @@ import com.chendong.demo.common.designs.command.Command;
 import com.chendong.demo.common.designs.command.receiver.LightReceiver;
 
 /**
- * 相关操作命令对象
- * 每一个命令都只是调用接收者的行为
+ * 相关操作命令对象 每一个命令都只是调用接收者的行为
  *
  * @author dong.chen
  * @date 2021 08 18 8:56

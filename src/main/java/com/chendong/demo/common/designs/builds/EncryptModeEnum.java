@@ -17,7 +17,6 @@ public enum EncryptModeEnum {
      */
     BASE64("base64");
 
-
     private String encryptMode;
 
     EncryptModeEnum(String encryptMode) {

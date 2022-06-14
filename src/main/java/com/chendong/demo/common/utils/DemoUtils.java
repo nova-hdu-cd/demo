@@ -4,9 +4,7 @@ package com.chendong.demo.common.utils;
  * 构建者模式
  *
  * @author chendong
- * @date 2020/8/21 2:56 下午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/8/21 2:56 下午 To change this template use Appearance | Editor | File and Code Templates.
  */
 public class DemoUtils {
 
@@ -14,21 +12,15 @@ public class DemoUtils {
     private String name;
     private String type;
 
-    private DemoUtils() {
-    }
+    private DemoUtils() {}
 
     @Override
     public String toString() {
-        return "DemoUtils{" +
-                "version='" + version + '\'' +
-                ", name='" + name + '\'' +
-                ", type='" + type + '\'' +
-                '}';
+        return "DemoUtils{" + "version='" + version + '\'' + ", name='" + name + '\'' + ", type='" + type + '\'' + '}';
     }
 
     /**
-     * 静态内部类Builder的属性与外部类一样,并提供一个build方法,对外
-     * 提供构造外部对象
+     * 静态内部类Builder的属性与外部类一样,并提供一个build方法,对外 提供构造外部对象
      */
     public static class Builder {
 
@@ -36,8 +28,7 @@ public class DemoUtils {
         private String name;
         private String type;
 
-        public Builder() {
-        }
+        public Builder() {}
 
         public Builder withVersion(String version) {
             this.version = version;
@@ -72,4 +63,3 @@ public class DemoUtils {
     }
 
 }
-

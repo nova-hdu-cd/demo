@@ -1,9 +1,10 @@
 package com.chendong.demo.domain.vo;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
+
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * @ClassName EmpVO
@@ -57,9 +58,6 @@ public class EmpVO extends BaseVO {
 
     @Override
     public String toString() {
-        return "EmpVO{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+        return "EmpVO{" + "name='" + name + '\'' + ", age=" + age + '}';
     }
 }

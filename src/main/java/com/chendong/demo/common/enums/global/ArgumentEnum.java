@@ -13,9 +13,7 @@ import com.chendong.demo.common.exception.asserts.ArgumentExceptionAssert;
  */
 public enum ArgumentEnum implements ArgumentExceptionAssert {
 
-    PARAMETER_FAILURE(-10, "参数错误"),
-    PARAMETER_MISSING(-11, "参数缺失"),
-    ;
+    PARAMETER_FAILURE(-10, "参数错误"), PARAMETER_MISSING(-11, "参数缺失"),;
 
     private Integer code;
     private String msg;

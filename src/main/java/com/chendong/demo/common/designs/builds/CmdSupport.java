@@ -1,15 +1,14 @@
 package com.chendong.demo.common.designs.builds;
 
-import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.annotation.JSONField;
-
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.annotation.JSONField;
+
 /**
- * @author: niezg
- * date： 2019/12/3
+ * @author: niezg date： 2019/12/3
  */
 public abstract class CmdSupport implements ICmd {
     /**
@@ -65,7 +64,6 @@ public abstract class CmdSupport implements ICmd {
     public void setSn(Long sn) {
         this.sn = sn;
     }
-
 
     @Override
     public String getBsn() {

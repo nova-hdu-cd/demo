@@ -15,12 +15,10 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        //简单配置spring security的过滤器链
+        // 简单配置spring security的过滤器链
         http.authorizeRequests()
-                //放行swagger的访问
-                .antMatchers("/doc.html/*", "/swagger-ui.html/*").permitAll()
-                .and()
-                .cors().disable()
-                .csrf().disable().httpBasic();
+            // 放行swagger的访问
+            .antMatchers("/doc.html/*", "/swagger-ui.html/*").permitAll().and().cors().disable().csrf().disable()
+            .httpBasic();
     }
 }

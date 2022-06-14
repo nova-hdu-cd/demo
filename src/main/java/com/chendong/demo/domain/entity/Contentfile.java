@@ -36,5 +36,4 @@ public class Contentfile {
     @ApiModelProperty(value = "文件类型：1-banner；2-内容图片；3-封面图；4-pdf	5-期刊封面图 6-栏目封面图 7-专题封面图")
     private Integer type;
 
-
 }

@@ -6,15 +6,15 @@ package com.chendong.demo.common.designs.builds;
 
 public enum OP {
 
-    //新增
+    // 新增
     add,
-    //修改
+    // 修改
     update,
-    //删除
+    // 删除
     del,
-    //enable
+    // enable
     enable,
-    //clear清空
+    // clear清空
     clear,
     // 批量新增
     multiadd,

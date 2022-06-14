@@ -1,6 +1,7 @@
 package com.chendong.demo.common.config;
 
-import com.chendong.demo.common.intercepter.ResponseResultInterceptor;
+import java.util.List;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.format.FormatterRegistry;
 import org.springframework.http.converter.HttpMessageConverter;
@@ -10,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.util.List;
+import com.chendong.demo.common.intercepter.ResponseResultInterceptor;
 
 /**
  * 自定义mvc配置类扩展springMVC
@@ -18,7 +19,7 @@ import java.util.List;
  * @author dong.chen
  */
 @Configuration
-//@EnableWebMvc //这个注解会使得springmvc的自动配置失效,注意配置的favicon失效了
+// @EnableWebMvc //这个注解会使得springmvc的自动配置失效,注意配置的favicon失效了
 public class LocalMvcConfig implements WebMvcConfigurer {
 
     /**
@@ -47,12 +48,12 @@ public class LocalMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 
-        //注册统一返回拦截器
+        // 注册统一返回拦截器
         registry.addInterceptor(new ResponseResultInterceptor())
-                //拦截所有url
-                .addPathPatterns("/**")
-                //排除部分url
-                .excludePathPatterns("/", "/static/**");
+            // 拦截所有url
+            .addPathPatterns("/**")
+            // 排除部分url
+            .excludePathPatterns("/", "/static/**");
     }
 
     /**
@@ -61,8 +62,7 @@ public class LocalMvcConfig implements WebMvcConfigurer {
      * @param registry
      */
     @Override
-    public void addFormatters(FormatterRegistry registry) {
-    }
+    public void addFormatters(FormatterRegistry registry) {}
 
     /**
      * 注册自己的消息转换
@@ -72,7 +72,7 @@ public class LocalMvcConfig implements WebMvcConfigurer {
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
 
-        //采用Jackson处理返回String的情况
+        // 采用Jackson处理返回String的情况
         converters.add(0, new MappingJackson2HttpMessageConverter());
     }
 }

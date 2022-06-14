@@ -1,12 +1,13 @@
 package com.chendong.demo.common.convert;
 
-import com.chendong.demo.domain.dto.InfoDTO;
-import com.chendong.demo.domain.dto.TicketDTO;
-import com.chendong.demo.domain.dto.UserDTO;
+import java.util.List;
+
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-import java.util.List;
+import com.chendong.demo.domain.dto.InfoDTO;
+import com.chendong.demo.domain.dto.TicketDTO;
+import com.chendong.demo.domain.dto.UserDTO;
 
 /**
  * MapStruct简化对象之间的转换
@@ -16,8 +17,8 @@ import java.util.List;
 @Mapper(componentModel = "spring")
 public interface HelloMapper {
 
-    //使用spring集成就不需要
-    //HelloMapper INSTANCE = Mappers.getMapper(HelloMapper.class);
+    // 使用spring集成就不需要
+    // HelloMapper INSTANCE = Mappers.getMapper(HelloMapper.class);
 
     /**
      * 构建TicketDTO

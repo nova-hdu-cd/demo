@@ -27,5 +27,4 @@ public class Menutag {
     @ApiModelProperty(value = "是否有效")
     private Boolean isactive;
 
-
 }

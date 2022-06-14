@@ -4,9 +4,7 @@ package com.chendong.demo.domain.entity;
  * 用户信息DO
  *
  * @author chendong
- * @date 2020/7/22 8:29 下午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/7/22 8:29 下午 To change this template use Appearance | Editor | File and Code Templates.
  */
 public class UserDO extends BaseDO {
 
@@ -64,11 +62,7 @@ public class UserDO extends BaseDO {
 
     @Override
     public String toString() {
-        return "UserDO{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", sex='" + sex + '\'' +
-                ", no='" + no + '\'' +
-                '}';
+        return "UserDO{" + "name='" + name + '\'' + ", id='" + id + '\'' + ", sex='" + sex + '\'' + ", no='" + no + '\''
+            + '}';
     }
 }

@@ -15,8 +15,7 @@ public class RemoteInvoker {
      */
     Command slot;
 
-    public RemoteInvoker() {
-    }
+    public RemoteInvoker() {}
 
     public void bindCommand(Command command) {
         this.slot = command;

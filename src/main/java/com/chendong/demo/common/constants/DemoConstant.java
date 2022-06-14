@@ -4,9 +4,7 @@ package com.chendong.demo.common.constants;
  * 公共常量类
  *
  * @author chendong
- * @date 2020/6/26 3:44 下午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/6/26 3:44 下午 To change this template use Appearance | Editor | File and Code Templates.
  */
 public class DemoConstant {
 

@@ -1,8 +1,5 @@
 package com.chendong.demo.common.config;
 
-import com.ctrip.framework.apollo.model.ConfigChange;
-import com.ctrip.framework.apollo.model.ConfigChangeEvent;
-import com.ctrip.framework.apollo.spring.annotation.ApolloConfigChangeListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -10,6 +7,10 @@ import org.springframework.cloud.context.environment.EnvironmentChangeEvent;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
+
+import com.ctrip.framework.apollo.model.ConfigChange;
+import com.ctrip.framework.apollo.model.ConfigChangeEvent;
+import com.ctrip.framework.apollo.spring.annotation.ApolloConfigChangeListener;
 
 /**
  * ApolloConfigChanged实现了ApplicationContextAware接口，注入了ApplicationContext上下文对象
@@ -25,8 +26,7 @@ public class ApolloConfigChanged implements ApplicationContextAware {
 
     /**
      * 刷新的namespace的名字：devGroup.coupon.application
-     * apollo自定义的几个namespace：{@link com.ctrip.framework.apollo.core.ConfigConsts}
-     * 已重写不需要配置value,默认所有的namespaces
+     * apollo自定义的几个namespace：{@link com.ctrip.framework.apollo.core.ConfigConsts} 已重写不需要配置value,默认所有的namespaces
      *
      * @param changeEvent
      */

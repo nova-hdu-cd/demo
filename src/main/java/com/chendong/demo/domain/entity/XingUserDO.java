@@ -103,14 +103,7 @@ public class XingUserDO extends BaseDO implements Serializable {
 
     @Override
     public String toString() {
-        return "XingUserDO{" +
-                "id=" + id +
-                ", uid='" + uid + '\'' +
-                ", uname='" + uname + '\'' +
-                ", sex=" + sex +
-                ", mobile='" + mobile + '\'' +
-                ", nation='" + nation + '\'' +
-                ", city='" + city + '\'' +
-                '}';
+        return "XingUserDO{" + "id=" + id + ", uid='" + uid + '\'' + ", uname='" + uname + '\'' + ", sex=" + sex
+            + ", mobile='" + mobile + '\'' + ", nation='" + nation + '\'' + ", city='" + city + '\'' + '}';
     }
 }

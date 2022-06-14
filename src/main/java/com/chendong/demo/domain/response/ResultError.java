@@ -35,10 +35,6 @@ public class ResultError<T> extends BaseResponse {
 
     @Override
     public String toString() {
-        return "ResultError{" +
-                "code=" + code +
-                ", message='" + message + '\'' +
-                ", errorData=" + errorData +
-                '}';
+        return "ResultError{" + "code=" + code + ", message='" + message + '\'' + ", errorData=" + errorData + '}';
     }
 }

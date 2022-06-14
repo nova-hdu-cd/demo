@@ -1,11 +1,11 @@
 package com.chendong.demo.common.exception.asserts;
 
+import java.text.MessageFormat;
+import java.util.Objects;
+
 import com.chendong.demo.common.enums.global.IResponseEnum;
 import com.chendong.demo.common.exception.ArgumentException;
 import com.chendong.demo.common.exception.BaseException;
-
-import java.text.MessageFormat;
-import java.util.Objects;
 
 /**
  * 参数异常类Assert

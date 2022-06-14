@@ -6,9 +6,7 @@ import java.io.Serializable;
  * BaseDO
  *
  * @author chendong
- * @date 2020/7/22 8:29 下午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/7/22 8:29 下午 To change this template use Appearance | Editor | File and Code Templates.
  */
 
 public abstract class BaseDO implements Serializable {
@@ -86,12 +84,7 @@ public abstract class BaseDO implements Serializable {
 
     @Override
     public String toString() {
-        return "BaseDO   {" +
-                "mainId='" + mainId + '\'' +
-                ", createTime=" + createTime +
-                ", changeTime=" + changeTime +
-                ", creator='" + creator + '\'' +
-                ", changer='" + changer + '\'' +
-                '}';
+        return "BaseDO   {" + "mainId='" + mainId + '\'' + ", createTime=" + createTime + ", changeTime=" + changeTime
+            + ", creator='" + creator + '\'' + ", changer='" + changer + '\'' + '}';
     }
 }

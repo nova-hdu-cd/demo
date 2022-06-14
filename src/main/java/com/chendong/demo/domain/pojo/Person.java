@@ -3,8 +3,8 @@ package com.chendong.demo.domain.pojo;
 import java.util.List;
 import java.util.Map;
 
-//@Component
-//@ConfigurationProperties(prefix = "person")
+// @Component
+// @ConfigurationProperties(prefix = "person")
 public class Person {
 
     private String name;
@@ -14,8 +14,7 @@ public class Person {
     private Map<String, Object> maps;
     private Dog dog;
 
-    public Person() {
-    }
+    public Person() {}
 
     public String getName() {
         return name;
@@ -67,13 +66,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", lists=" + lists +
-                ", lists1=" + lists1 +
-                ", maps=" + maps +
-                ", dog=" + dog +
-                '}';
+        return "Person{" + "name='" + name + '\'' + ", age=" + age + ", lists=" + lists + ", lists1=" + lists1
+            + ", maps=" + maps + ", dog=" + dog + '}';
     }
 }

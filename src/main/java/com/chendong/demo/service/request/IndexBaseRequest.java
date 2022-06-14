@@ -4,9 +4,7 @@ import com.chendong.demo.domain.request.BaseRequest;
 
 /**
  * @author chendong
- * @date 2020/6/19 5:01 下午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/6/19 5:01 下午 To change this template use Appearance | Editor | File and Code Templates.
  */
 public class IndexBaseRequest extends BaseRequest {
 
@@ -40,8 +38,7 @@ public class IndexBaseRequest extends BaseRequest {
         this.phone = phone;
     }
 
-    public IndexBaseRequest() {
-    }
+    public IndexBaseRequest() {}
 
     public IndexBaseRequest(String uname, String sex, String phone) {
         this.uname = uname;
@@ -51,10 +48,6 @@ public class IndexBaseRequest extends BaseRequest {
 
     @Override
     public String toString() {
-        return "IndexRequest{" +
-                "uName='" + uname + '\'' +
-                ", sex='" + sex + '\'' +
-                ", phone='" + phone + '\'' +
-                '}';
+        return "IndexRequest{" + "uName='" + uname + '\'' + ", sex='" + sex + '\'' + ", phone='" + phone + '\'' + '}';
     }
 }

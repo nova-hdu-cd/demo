@@ -20,8 +20,7 @@ public class Phone {
         this.dog = dog;
     }
 
-    public Phone() {
-    }
+    public Phone() {}
 
     public Phone(Dog dog) {
         this.dog = dog;
@@ -29,8 +28,6 @@ public class Phone {
 
     @Override
     public String toString() {
-        return "Phone{" +
-                "dog=" + dog +
-                '}';
+        return "Phone{" + "dog=" + dog + '}';
     }
 }

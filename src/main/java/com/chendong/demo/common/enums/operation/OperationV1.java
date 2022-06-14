@@ -2,9 +2,7 @@ package com.chendong.demo.common.enums.operation;
 
 /**
  * @author chendong
- * @date 2020/6/5 2:17 下午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/6/5 2:17 下午 To change this template use Appearance | Editor | File and Code Templates.
  */
 public enum OperationV1 {
     /**
@@ -15,17 +13,20 @@ public enum OperationV1 {
         double apply(double x, double y) {
             return x + y;
         }
-    }, MINUS("-") {
+    },
+    MINUS("-") {
         @Override
         double apply(double x, double y) {
             return x - y;
         }
-    }, TIMES("*") {
+    },
+    TIMES("*") {
         @Override
         double apply(double x, double y) {
             return x * y;
         }
-    }, DIVIDE("/") {
+    },
+    DIVIDE("/") {
         @Override
         double apply(double x, double y) {
             return x / y;
@@ -40,9 +41,7 @@ public enum OperationV1 {
 
     @Override
     public String toString() {
-        return "OpeationV1{" +
-                "symbol='" + symbol + '\'' +
-                '}';
+        return "OpeationV1{" + "symbol='" + symbol + '\'' + '}';
     }
 
     abstract double apply(double x, double y);

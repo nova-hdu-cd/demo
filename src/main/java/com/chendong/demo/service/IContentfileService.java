@@ -5,7 +5,7 @@ import com.chendong.demo.domain.entity.Contentfile;
 
 /**
  * <p>
- *  服务类
+ * 服务类
  * </p>
  *
  * @author chendong

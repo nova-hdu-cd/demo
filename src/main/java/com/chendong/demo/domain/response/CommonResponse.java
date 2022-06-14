@@ -35,4 +35,3 @@ public class CommonResponse<T> extends BaseResponse {
         this.data = data;
     }
 }
-

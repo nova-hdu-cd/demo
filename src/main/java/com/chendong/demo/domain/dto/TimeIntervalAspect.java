@@ -1,10 +1,10 @@
 package com.chendong.demo.domain.dto;
 
+import java.lang.reflect.Method;
+
 import cn.hutool.aop.aspects.SimpleAspect;
 import cn.hutool.core.date.TimeInterval;
 import cn.hutool.core.lang.Console;
-
-import java.lang.reflect.Method;
 
 /**
  * 计时切面
@@ -26,8 +26,8 @@ public class TimeIntervalAspect extends SimpleAspect {
 
     @Override
     public boolean after(Object target, Method method, Object[] args, Object returnVal) {
-        Console.log("Method [{}.{}] execute spend [{}]ms",
-                target.getClass().getName(), method.getName(), interval.intervalMs());
+        Console.log("Method [{}.{}] execute spend [{}]ms", target.getClass().getName(), method.getName(),
+            interval.intervalMs());
         return true;
     }
 }

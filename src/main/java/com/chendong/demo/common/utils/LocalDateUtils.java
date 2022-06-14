@@ -186,7 +186,7 @@ public class LocalDateUtils {
      * 获取日期时间字符串
      *
      * @param temporal 需要转化的日期时间
-     * @param pattern  时间格式
+     * @param pattern 时间格式
      * @return String 日期时间字符串，例如 2015-08-11 09:51:53
      */
     public static String format(TemporalAccessor temporal, String pattern) {
@@ -198,7 +198,7 @@ public class LocalDateUtils {
      * 日期时间字符串转换为日期时间(java.time.LocalDateTime)
      *
      * @param localDateTimeStr 日期时间字符串
-     * @param pattern          日期时间格式 例如DATETIME_PATTERN
+     * @param pattern 日期时间格式 例如DATETIME_PATTERN
      * @return LocalDateTime 日期时间
      */
     public static LocalDateTime parseLocalDateTime(String localDateTimeStr, String pattern) {
@@ -210,7 +210,7 @@ public class LocalDateUtils {
      * 日期字符串转换为日期(java.time.LocalDate)
      *
      * @param localDateStr 日期字符串
-     * @param pattern      日期格式 例如DATE_PATTERN
+     * @param pattern 日期格式 例如DATE_PATTERN
      * @return LocalDate 日期
      */
     public static LocalDate parseLocalDate(String localDateStr, String pattern) {
@@ -222,8 +222,8 @@ public class LocalDateUtils {
      * 获取指定日期时间加上指定数量日期时间单位之后的日期时间.
      *
      * @param localDateTime 日期时间
-     * @param num           数量
-     * @param chronoUnit    日期时间单位
+     * @param num 数量
+     * @param chronoUnit 日期时间单位
      * @return LocalDateTime 新的日期时间
      */
     public static LocalDateTime plus(LocalDateTime localDateTime, int num, ChronoUnit chronoUnit) {
@@ -234,8 +234,8 @@ public class LocalDateUtils {
      * 获取指定日期时间减去指定数量日期时间单位之后的日期时间.
      *
      * @param localDateTime 日期时间
-     * @param num           数量
-     * @param chronoUnit    日期时间单位
+     * @param num 数量
+     * @param chronoUnit 日期时间单位
      * @return LocalDateTime 新的日期时间
      */
     public static LocalDateTime minus(LocalDateTime localDateTime, int num, ChronoUnit chronoUnit) {
@@ -245,8 +245,8 @@ public class LocalDateUtils {
     /**
      * 根据ChronoUnit计算两个日期时间之间相隔日期时间
      *
-     * @param start      开始日期时间
-     * @param end        结束日期时间
+     * @param start 开始日期时间
+     * @param end 结束日期时间
      * @param chronoUnit 日期时间单位
      * @return long 相隔日期时间
      */
@@ -257,8 +257,8 @@ public class LocalDateUtils {
     /**
      * 根据ChronoUnit计算两个日期之间相隔年数或月数或天数
      *
-     * @param start      开始日期
-     * @param end        结束日期
+     * @param start 开始日期
+     * @param end 结束日期
      * @param chronoUnit 日期时间单位,(ChronoUnit.YEARS,ChronoUnit.MONTHS,ChronoUnit.WEEKS,ChronoUnit.DAYS)
      * @return long 相隔年数或月数或天数
      */
@@ -308,7 +308,7 @@ public class LocalDateUtils {
      * 获取指定日期当年第一天的日期字符串,带日期格式化参数
      *
      * @param localDateTime 指定日期时间
-     * @param pattern       日期时间格式
+     * @param pattern 日期时间格式
      * @return String 格式：yyyy-MM-dd 00:00:00
      */
     public static String getFirstDayOfYearStr(LocalDateTime localDateTime, String pattern) {
@@ -319,11 +319,12 @@ public class LocalDateUtils {
      * 获取指定日期当年最后一天的日期字符串,带日期格式化参数
      *
      * @param localDateTime 指定日期时间
-     * @param pattern       日期时间格式
+     * @param pattern 日期时间格式
      * @return String 格式：yyyy-MM-dd 23:59:59
      */
     public static String getLastDayOfYearStr(LocalDateTime localDateTime, String pattern) {
-        return format(localDateTime.with(TemporalAdjusters.lastDayOfYear()).withHour(23).withMinute(59).withSecond(59), pattern);
+        return format(localDateTime.with(TemporalAdjusters.lastDayOfYear()).withHour(23).withMinute(59).withSecond(59),
+            pattern);
     }
 
     /**
@@ -378,11 +379,12 @@ public class LocalDateUtils {
      * 获取指定日期当月最后一天的日期字符串,带日期格式化参数
      *
      * @param localDateTime 指定日期时间
-     * @param pattern       日期时间格式
+     * @param pattern 日期时间格式
      * @return String 格式：yyyy-MM-dd 23:59:59
      */
     public static String getLastDayOfMonthStr(LocalDateTime localDateTime, String pattern) {
-        return format(localDateTime.with(TemporalAdjusters.lastDayOfMonth()).withHour(23).withMinute(59).withSecond(59), pattern);
+        return format(localDateTime.with(TemporalAdjusters.lastDayOfMonth()).withHour(23).withMinute(59).withSecond(59),
+            pattern);
     }
 
     /**
@@ -427,7 +429,7 @@ public class LocalDateUtils {
      * 获取指定日期当周第一天的日期字符串,这里第一天为周一,带日期格式化参数
      *
      * @param localDateTime 指定日期时间
-     * @param pattern       日期时间格式
+     * @param pattern 日期时间格式
      * @return String 格式：yyyy-MM-dd 00:00:00
      */
     public static String getFirstDayOfWeekStr(LocalDateTime localDateTime, String pattern) {
@@ -438,7 +440,7 @@ public class LocalDateUtils {
      * 获取指定日期当周最后一天的日期字符串,这里最后一天为周日,带日期格式化参数
      *
      * @param localDateTime 指定日期时间
-     * @param pattern       日期时间格式
+     * @param pattern 日期时间格式
      * @return String 格式：yyyy-MM-dd 23:59:59
      */
     public static String getLastDayOfWeekStr(LocalDateTime localDateTime, String pattern) {
@@ -487,7 +489,7 @@ public class LocalDateUtils {
      * 获取指定日期开始时间的日期字符串,带日期格式化参数
      *
      * @param localDateTime 指定日期时间
-     * @param pattern       日期时间格式
+     * @param pattern 日期时间格式
      * @return String 格式：yyyy-MM-dd HH:mm:ss
      */
     public static String getStartTimeOfDayStr(LocalDateTime localDateTime, String pattern) {
@@ -498,7 +500,7 @@ public class LocalDateUtils {
      * 获取指定日期结束时间的日期字符串,带日期格式化参数
      *
      * @param localDateTime 指定日期时间
-     * @param pattern       日期时间格式
+     * @param pattern 日期时间格式
      * @return String 格式：yyyy-MM-dd 23:59:59
      */
     public static String getEndTimeOfDayStr(LocalDateTime localDateTime, String pattern) {
@@ -509,19 +511,19 @@ public class LocalDateUtils {
      * 切割日期。按照周期切割成小段日期段。例如： <br>
      *
      * @param startDate 开始日期（yyyy-MM-dd）
-     * @param endDate   结束日期（yyyy-MM-dd）
-     * @param period    周期（天，周，月，年）
+     * @param endDate 结束日期（yyyy-MM-dd）
+     * @param period 周期（天，周，月，年）
      * @return 切割之后的日期集合
-     * <li>startDate="2019-02-28",endDate="2019-03-05",period="day"</li>
-     * <li>结果为：[2019-02-28, 2019-03-01, 2019-03-02, 2019-03-03, 2019-03-04, 2019-03-05]</li><br>
-     * <li>startDate="2019-02-28",endDate="2019-03-25",period="week"</li>
-     * <li>结果为：[2019-02-28,2019-03-06, 2019-03-07,2019-03-13, 2019-03-14,2019-03-20,
-     * 2019-03-21,2019-03-25]</li><br>
-     * <li>startDate="2019-02-28",endDate="2019-05-25",period="month"</li>
-     * <li>结果为：[2019-02-28,2019-02-28, 2019-03-01,2019-03-31, 2019-04-01,2019-04-30,
-     * 2019-05-01,2019-05-25]</li><br>
-     * <li>startDate="2019-02-28",endDate="2020-05-25",period="year"</li>
-     * <li>结果为：[2019-02-28,2019-12-31, 2020-01-01,2020-05-25]</li><br>
+     *         <li>startDate="2019-02-28",endDate="2019-03-05",period="day"</li>
+     *         <li>结果为：[2019-02-28, 2019-03-01, 2019-03-02, 2019-03-03, 2019-03-04, 2019-03-05]</li><br>
+     *         <li>startDate="2019-02-28",endDate="2019-03-25",period="week"</li>
+     *         <li>结果为：[2019-02-28,2019-03-06, 2019-03-07,2019-03-13, 2019-03-14,2019-03-20,
+     *         2019-03-21,2019-03-25]</li><br>
+     *         <li>startDate="2019-02-28",endDate="2019-05-25",period="month"</li>
+     *         <li>结果为：[2019-02-28,2019-02-28, 2019-03-01,2019-03-31, 2019-04-01,2019-04-30,
+     *         2019-05-01,2019-05-25]</li><br>
+     *         <li>startDate="2019-02-28",endDate="2020-05-25",period="year"</li>
+     *         <li>结果为：[2019-02-28,2019-12-31, 2020-01-01,2020-05-25]</li><br>
      */
     public static List<String> listDateStrs(String startDate, String endDate, String period) {
         List<String> result = new ArrayList<>();
@@ -593,44 +595,54 @@ public class LocalDateUtils {
         System.out.println(minus(LocalDateTime.now(), 4, ChronoUnit.DAYS));
 
         System.out.println("========");
-        System.out.println(getChronoUnitBetween(LocalDateTime.now(), parseLocalDateTime("2020-12-12 12:03:12", DATETIME_PATTERN), ChronoUnit.MINUTES));
-        System.out.println(getChronoUnitBetween(LocalDate.now(), parseLocalDate("2021-12-12", DATE_PATTERN), ChronoUnit.WEEKS));
+        System.out.println(getChronoUnitBetween(LocalDateTime.now(),
+            parseLocalDateTime("2020-12-12 12:03:12", DATETIME_PATTERN), ChronoUnit.MINUTES));
+        System.out.println(
+            getChronoUnitBetween(LocalDate.now(), parseLocalDate("2021-12-12", DATE_PATTERN), ChronoUnit.WEEKS));
 
         System.out.println("========");
         System.out.println(getFirstDayOfYearStr());
         System.out.println(getFirstDayOfYearStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN)));
-        System.out.println(getFirstDayOfYearStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN), UNSIGNED_DATETIME_PATTERN));
+        System.out.println(getFirstDayOfYearStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN),
+            UNSIGNED_DATETIME_PATTERN));
 
         System.out.println(getLastDayOfYearStr());
         System.out.println(getLastDayOfYearStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN)));
-        System.out.println(getLastDayOfYearStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN), UNSIGNED_DATETIME_PATTERN));
+        System.out.println(getLastDayOfYearStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN),
+            UNSIGNED_DATETIME_PATTERN));
 
         System.out.println("========");
         System.out.println(getFirstDayOfMonthStr());
         System.out.println(getFirstDayOfMonthStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN)));
-        System.out.println(getFirstDayOfMonthStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN), UNSIGNED_DATETIME_PATTERN));
+        System.out.println(getFirstDayOfMonthStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN),
+            UNSIGNED_DATETIME_PATTERN));
 
         System.out.println(getLastDayOfMonthStr());
         System.out.println(getLastDayOfMonthStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN)));
-        System.out.println(getLastDayOfMonthStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN), UNSIGNED_DATETIME_PATTERN));
+        System.out.println(getLastDayOfMonthStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN),
+            UNSIGNED_DATETIME_PATTERN));
 
         System.out.println("========");
         System.out.println(getFirstDayOfWeekStr());
         System.out.println(getFirstDayOfWeekStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN)));
-        System.out.println(getFirstDayOfWeekStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN), UNSIGNED_DATETIME_PATTERN));
+        System.out.println(getFirstDayOfWeekStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN),
+            UNSIGNED_DATETIME_PATTERN));
 
         System.out.println(getLastDayOfWeekStr());
         System.out.println(getLastDayOfWeekStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN)));
-        System.out.println(getLastDayOfWeekStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN), UNSIGNED_DATETIME_PATTERN));
+        System.out.println(getLastDayOfWeekStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN),
+            UNSIGNED_DATETIME_PATTERN));
 
         System.out.println("========");
         System.out.println(getStartTimeOfDayStr());
         System.out.println(getStartTimeOfDayStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN)));
-        System.out.println(getStartTimeOfDayStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN), UNSIGNED_DATETIME_PATTERN));
+        System.out.println(getStartTimeOfDayStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN),
+            UNSIGNED_DATETIME_PATTERN));
 
         System.out.println(getEndTimeOfDayStr());
         System.out.println(getEndTimeOfDayStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN)));
-        System.out.println(getEndTimeOfDayStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN), UNSIGNED_DATETIME_PATTERN));
+        System.out.println(
+            getEndTimeOfDayStr(parseLocalDateTime("2021-12-12 12:03:12", DATETIME_PATTERN), UNSIGNED_DATETIME_PATTERN));
 
         System.out.println("========");
         List<String> dateStrs = listDateStrs("2019-01-30", "2020-12-13", YEAR);

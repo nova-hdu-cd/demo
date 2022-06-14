@@ -49,8 +49,7 @@ public class People implements Serializable {
         this.carNum = carNum;
     }
 
-    public People() {
-    }
+    public People() {}
 
     public People(String name, Long age, String location, String carNum) {
         this.name = name;
@@ -61,11 +60,7 @@ public class People implements Serializable {
 
     @Override
     public String toString() {
-        return "People{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", location='" + location + '\'' +
-                ", carNum='" + carNum + '\'' +
-                '}';
+        return "People{" + "name='" + name + '\'' + ", age=" + age + ", location='" + location + '\'' + ", carNum='"
+            + carNum + '\'' + '}';
     }
 }

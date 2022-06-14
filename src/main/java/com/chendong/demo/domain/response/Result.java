@@ -9,8 +9,7 @@ import com.chendong.demo.common.enums.global.ResultCode;
  */
 public class Result<T> extends CommonResponse<T> {
 
-    public Result() {
-    }
+    public Result() {}
 
     public Result(Integer code, String message, T data) {
         super(code, message, data);

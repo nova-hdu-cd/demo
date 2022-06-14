@@ -1,11 +1,12 @@
 package com.chendong.demo.common.utils;
 
-import javax.crypto.Cipher;
-import javax.crypto.spec.SecretKeySpec;
 import java.security.Key;
 
+import javax.crypto.Cipher;
+import javax.crypto.spec.SecretKeySpec;
+
 /**
- * @author tim.liu  2020/3/2 11:08
+ * @author tim.liu 2020/3/2 11:08
  */
 public class AESUtils {
 
@@ -56,8 +57,7 @@ public class AESUtils {
         }
         byte[] b = new byte[l / 2];
         for (int i = 0; i != l / 2; i++) {
-            b[i] = (byte) Integer.parseInt(strhex.substring(i * 2, i * 2 + 2),
-                    16);
+            b[i] = (byte)Integer.parseInt(strhex.substring(i * 2, i * 2 + 2), 16);
         }
         return b;
     }

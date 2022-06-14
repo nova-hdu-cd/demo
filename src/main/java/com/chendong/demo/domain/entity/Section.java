@@ -1,10 +1,10 @@
 package com.chendong.demo.domain.entity;
 
+import java.time.LocalDateTime;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-
-import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -48,6 +48,5 @@ public class Section {
     private LocalDateTime updated;
 
     private String updatedby;
-
 
 }

@@ -6,9 +6,7 @@ import com.chendong.demo.service.request.IndexBaseRequest;
 
 /**
  * @author chendong
- * @date 2020/6/19 4:27 下午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/6/19 4:27 下午 To change this template use Appearance | Editor | File and Code Templates.
  */
 public interface IHelloService {
     /**
@@ -22,7 +20,6 @@ public interface IHelloService {
      * @return
      */
     String hello(HelloParamRequest req);
-
 
     /**
      * @param id

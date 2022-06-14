@@ -53,8 +53,7 @@ public class BaseDTO {
         this.clientEntryId = clientEntryId;
     }
 
-    public BaseDTO() {
-    }
+    public BaseDTO() {}
 
     public BaseDTO(String caller, String projectId, String namespace, String clientEntryId) {
         this.caller = caller;
@@ -65,11 +64,7 @@ public class BaseDTO {
 
     @Override
     public String toString() {
-        return "BaseDTO{" +
-                "caller='" + caller + '\'' +
-                ", projectId='" + projectId + '\'' +
-                ", namespace='" + namespace + '\'' +
-                ", clientEntryId='" + clientEntryId + '\'' +
-                '}';
+        return "BaseDTO{" + "caller='" + caller + '\'' + ", projectId='" + projectId + '\'' + ", namespace='"
+            + namespace + '\'' + ", clientEntryId='" + clientEntryId + '\'' + '}';
     }
 }

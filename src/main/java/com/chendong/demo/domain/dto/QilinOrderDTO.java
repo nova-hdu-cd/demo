@@ -55,8 +55,7 @@ public class QilinOrderDTO {
         this.dateTime = dateTime;
     }
 
-    public QilinOrderDTO() {
-    }
+    public QilinOrderDTO() {}
 
     public QilinOrderDTO(String orderId, BigDecimal totalPrice, Long num, Long height, Date dateTime) {
         this.orderId = orderId;
@@ -68,12 +67,7 @@ public class QilinOrderDTO {
 
     @Override
     public String toString() {
-        return "QilinOrderDTO{" +
-                "orderId='" + orderId + '\'' +
-                ", totalPrice=" + totalPrice +
-                ", num=" + num +
-                ", height=" + height +
-                ", dateTime=" + dateTime +
-                '}';
+        return "QilinOrderDTO{" + "orderId='" + orderId + '\'' + ", totalPrice=" + totalPrice + ", num=" + num
+            + ", height=" + height + ", dateTime=" + dateTime + '}';
     }
 }

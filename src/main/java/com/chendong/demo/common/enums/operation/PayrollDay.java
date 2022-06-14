@@ -2,21 +2,19 @@ package com.chendong.demo.common.enums.operation;
 
 /**
  * @author chendong
- * @date 2020/6/5 2:44 下午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/6/5 2:44 下午 To change this template use Appearance | Editor | File and Code Templates.
  */
 public enum PayrollDay {
 
-    //一周
+    // 一周
     MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY;
 
     private static final int HOURS_PRE_SHIFT = 8;
 
     double pay(double hoursWorked, double payRate) {
-        //基本工资
+        // 基本工资
         double basePay = hoursWorked * payRate;
-        //加班工资
+        // 加班工资
         double overPay;
         switch (this) {
             case SATURDAY:

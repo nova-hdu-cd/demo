@@ -4,9 +4,7 @@ import com.chendong.demo.domain.request.BaseRequest;
 
 /**
  * @author chendong
- * @date 2020/6/19 5:04 下午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/6/19 5:04 下午 To change this template use Appearance | Editor | File and Code Templates.
  */
 public class HelloParamRequest extends BaseRequest {
 
@@ -34,8 +32,6 @@ public class HelloParamRequest extends BaseRequest {
 
     @Override
     public String toString() {
-        return "HelloReq{" +
-                "name='" + name + '\'' +
-                '}';
+        return "HelloReq{" + "name='" + name + '\'' + '}';
     }
 }

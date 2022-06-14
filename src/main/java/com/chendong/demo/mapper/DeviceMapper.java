@@ -1,6 +1,5 @@
 package com.chendong.demo.mapper;
 
-
 import com.chendong.demo.domain.entity.Device;
 
 /**
@@ -21,7 +20,3 @@ public interface DeviceMapper {
     int updateByPrimaryKey(Device record);
 
 }
-
-
-
-

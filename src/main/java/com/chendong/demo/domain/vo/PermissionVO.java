@@ -1,8 +1,8 @@
 package com.chendong.demo.domain.vo;
 
-import com.alibaba.fastjson.annotation.JSONField;
-
 import java.util.List;
+
+import com.alibaba.fastjson.annotation.JSONField;
 
 /**
  * 权限VO
@@ -111,14 +111,7 @@ public class PermissionVO {
 
     @Override
     public String toString() {
-        return "PermissionVO{" +
-                "id=" + id +
-                ", parentId=" + parentId +
-                ", name='" + name + '\'' +
-                ", url='" + url + '\'' +
-                ", icon='" + icon + '\'' +
-                ", isMenu=" + isMenu +
-                ", sort=" + sort +
-                '}';
+        return "PermissionVO{" + "id=" + id + ", parentId=" + parentId + ", name='" + name + '\'' + ", url='" + url
+            + '\'' + ", icon='" + icon + '\'' + ", isMenu=" + isMenu + ", sort=" + sort + '}';
     }
 }

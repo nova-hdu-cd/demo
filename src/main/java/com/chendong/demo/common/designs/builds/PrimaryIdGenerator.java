@@ -9,9 +9,7 @@ public final class PrimaryIdGenerator {
 
     private static final SnowflakeGenerator SNOWFLAKE_GENERATOR = new SnowflakeGenerator();
 
-    private PrimaryIdGenerator() {
-    }
-
+    private PrimaryIdGenerator() {}
 
     /**
      * 生成long型id

@@ -1,22 +1,22 @@
 package com.chendong.demo.service.impl;
 
-import cn.hutool.json.JSONUtil;
+import javax.annotation.Resource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
 import com.chendong.demo.dao.DemoUserDao;
 import com.chendong.demo.domain.entity.User;
 import com.chendong.demo.service.IHelloService;
 import com.chendong.demo.service.request.HelloParamRequest;
 import com.chendong.demo.service.request.IndexBaseRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import cn.hutool.json.JSONUtil;
 
 /**
  * @author chendong
- * @date 2020/6/19 4:25 下午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/6/19 4:25 下午 To change this template use Appearance | Editor | File and Code Templates.
  */
 @Service
 public class HelloServiceImpl implements IHelloService {
@@ -43,6 +43,5 @@ public class HelloServiceImpl implements IHelloService {
         return user;
 
     }
-
 
 }

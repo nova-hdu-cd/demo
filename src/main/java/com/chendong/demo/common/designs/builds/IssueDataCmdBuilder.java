@@ -1,13 +1,14 @@
 package com.chendong.demo.common.designs.builds;
 
-import com.chendong.demo.common.designs.builds.op.*;
 import org.springframework.util.Assert;
 
+import com.chendong.demo.common.designs.builds.op.*;
+
 /**
- * @author: niezg
- * date： 2019/12/3
+ * @author: niezg date： 2019/12/3
  */
-public final class IssueDataCmdBuilder<D extends IssueData, DB extends IssueDataBuilder<D>> extends AbstractCmdBuilder<IssueDataCmd<D>, IssueDataCmdBuilder<D, DB>> {
+public final class IssueDataCmdBuilder<D extends IssueData, DB extends IssueDataBuilder<D>>
+    extends AbstractCmdBuilder<IssueDataCmd<D>, IssueDataCmdBuilder<D, DB>> {
 
     /**
      * add:新增;update:修改;del:删除
@@ -29,10 +30,10 @@ public final class IssueDataCmdBuilder<D extends IssueData, DB extends IssueData
      */
     private DB dataBuilder;
 
-    private IssueDataCmdBuilder() {
-    }
+    private IssueDataCmdBuilder() {}
 
-    public static <T extends IssueData, B extends IssueDataBuilder<T>> IssueDataCmdBuilder asIssueDataCmdBuilder(B dataBuilder) {
+    public static <T extends IssueData, B extends IssueDataBuilder<T>> IssueDataCmdBuilder
+        asIssueDataCmdBuilder(B dataBuilder) {
         Assert.notNull(dataBuilder, "数据同步指令的data构建对象不能为空！");
         IssueDataCmdBuilder<T, B> issueDataCmdBuilder = new IssueDataCmdBuilder();
         if (dataBuilder instanceof AddOP) {

@@ -4,9 +4,7 @@ package com.chendong.demo.domain.dto;
  * 用户DTO
  *
  * @author chendong
- * @date 2020/6/5 9:47 上午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/6/5 9:47 上午 To change this template use Appearance | Editor | File and Code Templates.
  */
 
 public class UserDTO extends BaseDTO {
@@ -43,11 +41,7 @@ public class UserDTO extends BaseDTO {
 
     @Override
     public String toString() {
-        return "UserDTO{" +
-                "name='" + name + '\'' +
-                ", id='" + id + '\'' +
-                ", sex=" + sex +
-                '}';
+        return "UserDTO{" + "name='" + name + '\'' + ", id='" + id + '\'' + ", sex=" + sex + '}';
     }
 
 }

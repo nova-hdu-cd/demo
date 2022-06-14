@@ -24,5 +24,4 @@ public class Contenttag {
     @ApiModelProperty(value = "外键，标签id")
     private Integer tagid;
 
-
 }

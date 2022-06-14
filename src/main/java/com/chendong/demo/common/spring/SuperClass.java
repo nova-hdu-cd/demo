@@ -13,4 +13,3 @@ public class SuperClass {
     public static int value = 123;
 
 }
-

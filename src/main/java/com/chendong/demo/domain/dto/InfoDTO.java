@@ -34,8 +34,7 @@ public class InfoDTO {
         this.name = name;
     }
 
-    public InfoDTO() {
-    }
+    public InfoDTO() {}
 
     public InfoDTO(String name, Long id) {
         this.name = name;
@@ -44,8 +43,6 @@ public class InfoDTO {
 
     @Override
     public String toString() {
-        return "InfoVO{" +
-                "name='" + name + '\'' +
-                '}';
+        return "InfoVO{" + "name='" + name + '\'' + '}';
     }
 }

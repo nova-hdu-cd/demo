@@ -4,12 +4,10 @@ import static java.lang.System.out;
 
 /**
  * @author chendong
- * @date 2020/6/5 9:47 上午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/6/5 9:47 上午 To change this template use Appearance | Editor | File and Code Templates.
  */
 public enum Operation {
-    //加减乘除
+    // 加减乘除
     PLUS, MINUS, TIMES, DIVIDE;
 
     double apply(double x, double y) {

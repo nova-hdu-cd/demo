@@ -72,5 +72,4 @@ public class ProxyBuilder<T> {
         void accept(T t, P1 p1, P2 p2, P3 p3);
     }
 
-
 }

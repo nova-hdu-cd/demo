@@ -1,24 +1,24 @@
 package com.chendong.demo.common.scheduling;
 
-import com.chendong.demo.common.async.TestAsyncTask;
-import com.chendong.demo.common.constants.DemoConstant;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
-
-import javax.annotation.Resource;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Future;
 
+import javax.annotation.Resource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
+
+import com.chendong.demo.common.async.TestAsyncTask;
+import com.chendong.demo.common.constants.DemoConstant;
+
 /**
  * 引入corn Spring 定时任务调度
  *
  * @author chendong
- * @date 2020/6/26 10:39 上午
- * To change this template use Appearance | Editor | File and Code
- * Templates.
+ * @date 2020/6/26 10:39 上午 To change this template use Appearance | Editor | File and Code Templates.
  */
 @Component
 public class TimeScheduling {
@@ -31,7 +31,7 @@ public class TimeScheduling {
     /**
      * 定时播报当前服务器的时间
      */
-    //@Scheduled(cron = "${time.cron}")
+    // @Scheduled(cron = "${time.cron}")
     public void reportCurTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat(DemoConstant.NOW_TIME_STR);
         String nowTime = dateFormat.format(new Date());
@@ -48,7 +48,7 @@ public class TimeScheduling {
     /**
      * 异步任务四
      */
-    //@Scheduled(initialDelay = 2000, fixedRate = 10000)
+    // @Scheduled(initialDelay = 2000, fixedRate = 10000)
     public void showCurrentThread() {
         log.info("=======分隔符1==========");
         testAsyncTask.doTaskOne();
@@ -62,16 +62,16 @@ public class TimeScheduling {
     /**
      * 等待三个异步任务执行完
      */
-    //@Scheduled(initialDelay = 3000, fixedDelay = 10000)
+    // @Scheduled(initialDelay = 3000, fixedDelay = 10000)
     public void waitingForOtherTask() {
         long start = System.currentTimeMillis();
 
-        //三个任务异步执行
+        // 三个任务异步执行
         Future<List<String>> t1 = testAsyncTask.doTaskOne();
         Future<String> t2 = testAsyncTask.doTaskTwo();
         Future<String> t3 = testAsyncTask.doTaskThree();
 
-        //等待执行完成后，再继续执行
+        // 等待执行完成后，再继续执行
         while (true) {
             if (t1.isDone() && t2.isDone() && t3.isDone()) {
                 break;

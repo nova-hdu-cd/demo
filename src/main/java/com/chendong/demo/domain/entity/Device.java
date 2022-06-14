@@ -1,8 +1,8 @@
 package com.chendong.demo.domain.entity;
 
-import lombok.Data;
-
 import java.io.Serializable;
+
+import lombok.Data;
 
 /**
  * 设备表

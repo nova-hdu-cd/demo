@@ -59,8 +59,7 @@ public class BaseVO {
         this.unisocId = unisocId;
     }
 
-    public BaseVO() {
-    }
+    public BaseVO() {}
 
     public BaseVO(String projectId, String namespace, String clientEntryId, String unisocId) {
         this.projectId = projectId;
@@ -71,11 +70,7 @@ public class BaseVO {
 
     @Override
     public String toString() {
-        return "BaseVO{" +
-                "projectId='" + projectId + '\'' +
-                ", namespace='" + namespace + '\'' +
-                ", clientEntryId='" + clientEntryId + '\'' +
-                ", unisocId='" + unisocId + '\'' +
-                '}';
+        return "BaseVO{" + "projectId='" + projectId + '\'' + ", namespace='" + namespace + '\'' + ", clientEntryId='"
+            + clientEntryId + '\'' + ", unisocId='" + unisocId + '\'' + '}';
     }
 }

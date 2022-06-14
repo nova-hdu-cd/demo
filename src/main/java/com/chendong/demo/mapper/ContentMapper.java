@@ -5,7 +5,7 @@ import com.chendong.demo.domain.entity.Content;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author chendong

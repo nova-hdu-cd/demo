@@ -1,7 +1,5 @@
 package com.chendong.demo.common.aspects;
 
-import cn.hutool.core.thread.ThreadUtil;
-import cn.hutool.extra.spring.SpringUtil;
 import org.aspectj.lang.annotation.After;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -10,6 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
+
+import cn.hutool.core.thread.ThreadUtil;
+import cn.hutool.extra.spring.SpringUtil;
 
 /**
  * 日志切面增强类
@@ -23,8 +24,7 @@ public class LogAdvice {
     private static final Logger LOGGER = LoggerFactory.getLogger(LogAdvice.class);
 
     @Pointcut("@annotation(org.springframework.web.bind.annotation.RequestMapping)")
-    private void logAdvicePointCut() {
-    }
+    private void logAdvicePointCut() {}
 
     @Before("logAdvicePointCut()")
     public void logAdvice() {

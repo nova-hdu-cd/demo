@@ -3,15 +3,13 @@ package com.chendong.demo.domain.pojo;
 import java.io.Serializable;
 
 /**
- * 注解
- * PropertySource(value = "classpath:application.properties") ： 配置文件导入
- * Validated ： jsr303校验
+ * 注解 PropertySource(value = "classpath:application.properties") ： 配置文件导入 Validated ： jsr303校验
  *
  * @author dong.chen
  */
-//@Component
-//@PropertySource(value = "classpath:application.properties")
-//@Validated
+// @Component
+// @PropertySource(value = "classpath:application.properties")
+// @Validated
 public class Dog implements Serializable {
 
     private static final long serialVersionUID = 2998022943617058329L;
@@ -19,7 +17,7 @@ public class Dog implements Serializable {
      * 取值
      */
     // @Value("${dog.name}")
-    //@NotNull
+    // @NotNull
     private String name;
 
     public String getName() {
@@ -30,8 +28,7 @@ public class Dog implements Serializable {
         this.name = name;
     }
 
-    public Dog() {
-    }
+    public Dog() {}
 
     public Dog(String name) {
         this.name = name;
@@ -39,8 +36,6 @@ public class Dog implements Serializable {
 
     @Override
     public String toString() {
-        return "Dog{" +
-                "name='" + name + '\'' +
-                '}';
+        return "Dog{" + "name='" + name + '\'' + '}';
     }
 }

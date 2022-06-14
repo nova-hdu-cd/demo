@@ -1,6 +1,5 @@
 package com.chendong.demo.common.enums.global;
 
-
 public enum ResultCode {
 
     /**
@@ -11,8 +10,7 @@ public enum ResultCode {
     /***
      * 失败状态码
      */
-    FAIL(-1, "请求失败"),
-    ;
+    FAIL(-1, "请求失败"),;
 
     private int code;
     private String message;

@@ -23,7 +23,7 @@ public class LightReceiver {
         System.out.println("[www.unisoc.com] light is off!");
     }
 
-    public void lightUndo(){
+    public void lightUndo() {
         System.out.println("[www.unisoc.com] light is undoing!");
     }
 

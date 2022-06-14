@@ -1,14 +1,16 @@
 package com.chendong.demo.service.impl;
 
-import cn.hutool.json.JSONUtil;
-import com.chendong.demo.dao.UserDao;
-import com.chendong.demo.domain.entity.User;
-import com.chendong.demo.service.IUserService;
+import javax.annotation.Resource;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
+import com.chendong.demo.dao.UserDao;
+import com.chendong.demo.domain.entity.User;
+import com.chendong.demo.service.IUserService;
+
+import cn.hutool.json.JSONUtil;
 
 @Service
 public class UserServiceImpl implements IUserService {

@@ -1,7 +1,8 @@
 package com.chendong.demo.dao;
 
-import com.chendong.demo.domain.entity.User;
 import org.springframework.stereotype.Repository;
+
+import com.chendong.demo.domain.entity.User;
 
 /**
  * @author dong.chen

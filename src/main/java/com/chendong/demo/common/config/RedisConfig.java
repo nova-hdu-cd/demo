@@ -1,10 +1,11 @@
 package com.chendong.demo.common.config;
 
-import com.chendong.demo.common.utils.RedisUtil;
-import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import com.chendong.demo.common.utils.RedisUtil;
+import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 
 /**
  * @author dong.chen

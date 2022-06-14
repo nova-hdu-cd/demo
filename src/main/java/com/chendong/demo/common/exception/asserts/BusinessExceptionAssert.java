@@ -1,11 +1,11 @@
 package com.chendong.demo.common.exception.asserts;
 
+import java.text.MessageFormat;
+import java.util.Objects;
+
 import com.chendong.demo.common.enums.global.IResponseEnum;
 import com.chendong.demo.common.exception.BaseException;
 import com.chendong.demo.common.exception.BusinessException;
-
-import java.text.MessageFormat;
-import java.util.Objects;
 
 /**
  * 实现IAssert提供的可扩展方法newException(args)和newException(t,args)
@@ -23,7 +23,7 @@ public interface BusinessExceptionAssert extends IResponseEnum, Assert {
         if (Objects.nonNull(args)) {
             msg = MessageFormat.format(this.getMessage(), args);
         }
-        //抛出自定义的业务异常
+        // 抛出自定义的业务异常
         return new BusinessException(this, args, msg);
     }
 

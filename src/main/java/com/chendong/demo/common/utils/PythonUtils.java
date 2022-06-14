@@ -10,11 +10,9 @@ import java.util.stream.Collectors;
  */
 public class PythonUtils {
 
-
     public static void main(String[] args) throws IOException {
         long start = System.currentTimeMillis() / 1000;
-        ProcessBuilder processBuilder =
-                new ProcessBuilder("python", resolvePythonScriptPath("merging_clos.py"));
+        ProcessBuilder processBuilder = new ProcessBuilder("python", resolvePythonScriptPath("merging_clos.py"));
         processBuilder.redirectErrorStream(true);
 
         Process process = processBuilder.start();

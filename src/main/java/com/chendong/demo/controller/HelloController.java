@@ -1,5 +1,12 @@
 package com.chendong.demo.controller;
 
+import javax.annotation.Resource;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.*;
+
 import com.alibaba.fastjson.JSON;
 import com.chendong.demo.common.anotations.PermissionAnnotation;
 import com.chendong.demo.common.anotations.ResponseResult;
@@ -9,13 +16,8 @@ import com.chendong.demo.domain.response.Result;
 import com.chendong.demo.domain.response.ResultError;
 import com.chendong.demo.service.IHelloService;
 import com.chendong.demo.service.request.IndexBaseRequest;
-import io.swagger.annotations.Api;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
+import io.swagger.annotations.Api;
 
 /**
  * @author dong.chen
@@ -73,7 +75,6 @@ public class HelloController extends BaseController {
         return 40010;
     }
 
-
     /**
      * 失败返回示例
      *
@@ -90,16 +91,16 @@ public class HelloController extends BaseController {
     @RequestMapping(value = "/user/{name}", method = RequestMethod.GET)
     public Result<String> returnName(@PathVariable String name) {
 
-        //1.请求参数包装
+        // 1.请求参数包装
         IndexBaseRequest req = new IndexBaseRequest();
         req.setUname(name);
 
-        //2.业务过程
+        // 2.业务过程
         String returnName = helloService.returnName(req);
 
         Assert.isNull(returnName, "returnName为空!!!");
 
-        //3..返回参数封装
+        // 3..返回参数封装
         Result<String> response = new Result<>();
         response.setData(returnName);
         return response;

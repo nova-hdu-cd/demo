@@ -1,6 +1,5 @@
 package com.chendong.demo.domain.pojo;
 
-
 public class Project {
     /**
      * 工程id
@@ -56,11 +55,7 @@ public class Project {
 
     @Override
     public String toString() {
-        return "Project{" +
-                "projectId='" + projectId + '\'' +
-                ", nameSpace='" + nameSpace + '\'' +
-                ", clientEntryId='" + clientEntryId + '\'' +
-                ", unisocId='" + unisocId + '\'' +
-                '}';
+        return "Project{" + "projectId='" + projectId + '\'' + ", nameSpace='" + nameSpace + '\'' + ", clientEntryId='"
+            + clientEntryId + '\'' + ", unisocId='" + unisocId + '\'' + '}';
     }
 }

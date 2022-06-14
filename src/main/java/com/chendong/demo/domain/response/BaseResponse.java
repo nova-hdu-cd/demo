@@ -1,10 +1,11 @@
 package com.chendong.demo.domain.response;
 
+import java.io.Serializable;
+
 import com.chendong.demo.common.enums.global.IResponseEnum;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-
-import java.io.Serializable;
 
 /**
  * 返回抽象类
@@ -42,8 +43,7 @@ public abstract class BaseResponse implements Serializable {
         this.message = message;
     }
 
-    public BaseResponse() {
-    }
+    public BaseResponse() {}
 
     public BaseResponse(IResponseEnum responseEnum) {
         this(responseEnum.getCode(), responseEnum.getMessage());
@@ -56,9 +56,6 @@ public abstract class BaseResponse implements Serializable {
 
     @Override
     public String toString() {
-        return "BaseResponse{" +
-                "code=" + code +
-                ", message='" + message + '\'' +
-                '}';
+        return "BaseResponse{" + "code=" + code + ", message='" + message + '\'' + '}';
     }
 }
