@@ -34,7 +34,7 @@ public class LogAdvice {
 
         Thread mainThread = ThreadUtil.getMainThread();
 
-        LOGGER.info("start: 应用名称：{}，应用id： {}", applicationName, applicationContextId);
+        LOGGER.info("start: 应用名称：{}，应用id： {}，线程名:{}", applicationName, applicationContextId, mainThread.getName());
     }
 
     @After("logAdvicePointCut()")
