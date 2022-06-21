@@ -1,31 +1,28 @@
 package com.chendong.demo.test;
 
-import cn.hutool.json.JSONUtil;
-import com.chendong.demo.BaseTest;
-import com.chendong.demo.common.utils.RedisUtil;
-import com.chendong.demo.dao.XingUserDao;
-import com.chendong.demo.domain.dto.UserDTO;
-import com.chendong.demo.domain.entity.XingUserDO;
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import org.junit.Assert;
+import java.math.BigDecimal;
+import java.util.Set;
+
+import javax.annotation.Resource;
+
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.transaction.annotation.Transactional;
-import redis.clients.jedis.Jedis;
 
-import javax.annotation.Resource;
-import java.math.BigDecimal;
-import java.util.Set;
+import com.chendong.demo.BaseTest;
+import com.chendong.demo.common.utils.RedisUtil;
+import com.chendong.demo.domain.dto.UserDTO;
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+
+import cn.hutool.json.JSONUtil;
+import redis.clients.jedis.Jedis;
 
 @Transactional
 public class DemoApplicationTests extends BaseTest {
 
     private static final Logger log = LoggerFactory.getLogger(DemoApplicationTests.class);
-
-    @Resource
-    private XingUserDao xingUserDao;
 
     @Resource
     private RedisUtil redisUtil;
@@ -38,10 +35,10 @@ public class DemoApplicationTests extends BaseTest {
         jsonObject.addProperty("sex", "male");
         System.out.println(jsonObject);
 
-        //json数组转字符串数组
+        // json数组转字符串数组
         Gson gson = new Gson();
         String jsonArray =
-                "[\"https://github.com/leavesC\",\"https://www.jianshu.com/u/9df45b87cfdf\",\"Java\",\"Kotlin\",\"Git\",\"GitHub\"]";
+            "[\"https://github.com/leavesC\",\"https://www.jianshu.com/u/9df45b87cfdf\",\"Java\",\"Kotlin\",\"Git\",\"GitHub\"]";
         String[] strings = gson.fromJson(jsonArray, String[].class);
         for (String s : strings) {
             System.out.println(s);
@@ -50,15 +47,15 @@ public class DemoApplicationTests extends BaseTest {
 
     @Test
     public void testJackJson() {
-//        User user = new User();
-//        user.setName("陈东");
-//        user.setId("1122");
-//        System.out.println(user);
-//
-//        User user1 = new User("张3", "1122");
-//        System.out.println(user1);
-//
-//        user1.test();
+        // User user = new User();
+        // user.setName("陈东");
+        // user.setId("1122");
+        // System.out.println(user);
+        //
+        // User user1 = new User("张3", "1122");
+        // System.out.println(user1);
+        //
+        // user1.test();
 
         UserDTO userDTO2 = new UserDTO();
         userDTO2.setSex(706);
@@ -86,28 +83,6 @@ public class DemoApplicationTests extends BaseTest {
             }
             System.out.println(100);
         }
-    }
-
-
-    @Test
-    public void testXinyangUserDemo() {
-        XingUserDO xingUserDO = new XingUserDO();
-        xingUserDO.setUid("181040070");
-        xingUserDO.setUname("lihong");
-        xingUserDO.setSex(0);
-        xingUserDO.setMobile("15151515151");
-        xingUserDO.setNation("henna");
-        xingUserDO.setCity("shanghai");
-
-        int num = xingUserDao.insert(xingUserDO);
-        System.out.println(num);
-        Assert.assertEquals(1, num);
-    }
-
-    @Test
-    public void selectAll() {
-        XingUserDO xingUserDO = xingUserDao.queryById(1);
-        log.info("XingUserDO -> {}", xingUserDO);
     }
 
     @Test

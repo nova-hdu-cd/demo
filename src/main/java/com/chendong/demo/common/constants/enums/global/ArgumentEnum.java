@@ -1,4 +1,4 @@
-package com.chendong.demo.common.enums.global;
+package com.chendong.demo.common.constants.enums.global;
 
 import com.chendong.demo.common.exception.asserts.ArgumentExceptionAssert;
 

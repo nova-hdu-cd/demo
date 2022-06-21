@@ -1,4 +1,4 @@
-package com.chendong.demo.common.enums.global;
+package com.chendong.demo.common.constants.enums.global;
 
 /**
  * 异常返回码枚举接口

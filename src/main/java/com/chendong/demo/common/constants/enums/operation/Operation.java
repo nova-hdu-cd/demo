@@ -1,4 +1,4 @@
-package com.chendong.demo.common.enums.operation;
+package com.chendong.demo.common.constants.enums.operation;
 
 import static java.lang.System.out;
 

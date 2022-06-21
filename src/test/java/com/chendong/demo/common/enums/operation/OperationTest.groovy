@@ -1,6 +1,6 @@
 package com.chendong.demo.common.enums.operation
 
-
+import com.chendong.demo.common.constants.enums.operation.Operation
 import spock.lang.Specification
 
 class OperationTest extends Specification {

@@ -1,17 +1,20 @@
 package com.chendong.demo.common.async;
 
-import cn.hutool.extra.spring.SpringUtil;
-import com.chendong.demo.common.scheduling.TimeScheduling;
-import com.chendong.demo.controller.HelloController;
-import com.chendong.demo.domain.pojo.Dog;
+import java.util.List;
+import java.util.concurrent.Future;
+
+import javax.annotation.Resource;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.scheduling.annotation.Scheduled;
 
-import javax.annotation.Resource;
-import java.util.List;
-import java.util.concurrent.Future;
+import com.chendong.demo.common.scheduling.TimeScheduling;
+import com.chendong.demo.controller.HelloController;
+import com.chendong.demo.domain.pojo.Dog;
+
+import cn.hutool.extra.spring.SpringUtil;
 
 /**
  * junit 5
@@ -55,8 +58,8 @@ class TestTaskTestAsync {
 
     @Test
     void test2() {
-//        TicketDTO ticketDTO = TicketDTO.builder().id("sx294").name("chendong").sex(1).build();
-//        System.out.println(ticketDTO);
+        // TicketDTO ticketDTO = TicketDTO.builder().id("sx294").name("chendong").sex(1).build();
+        // System.out.println(ticketDTO);
     }
 
     @Test
@@ -67,7 +70,7 @@ class TestTaskTestAsync {
 
     @Test
     void testApplicationContext() {
-        //SpringUtil工具类使用
+        // SpringUtil工具类使用
         SpringUtil.registerBean("bean1", "hello world1!");
         SpringUtil.registerBean("bean2", "hello world2!");
         ApplicationContext applicationContext = SpringUtil.getApplicationContext();
@@ -75,8 +78,8 @@ class TestTaskTestAsync {
         System.out.println(applicationContext.getBean("bean2"));
         System.out.println(applicationContext.getApplicationName());
 
-        //获取IOC容器中的Controller
-        HelloController helloController = (HelloController) applicationContext.getBean("helloController");
+        // 获取IOC容器中的Controller
+        HelloController helloController = (HelloController)applicationContext.getBean("helloController");
         Dog dog = helloController.index("op");
         System.out.println(dog);
     }

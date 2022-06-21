@@ -1,3 +1,4 @@
+
 package com.chendong.demo.dao;
 
 import org.springframework.stereotype.Repository;
@@ -16,8 +17,4 @@ public interface UserDao {
     int insertSelective(User record);
 
     User selectByPrimaryKey(Integer id);
-
-    int updateByPrimaryKeySelective(User record);
-
-    int updateByPrimaryKey(User record);
 }

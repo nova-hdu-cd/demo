@@ -1,4 +1,4 @@
-package com.chendong.demo.common.enums.ticket;
+package com.chendong.demo.common.constants.enums.ticket;
 
 /**
  *

@@ -1,11 +1,12 @@
 package com.chendong.demo.common.exception;
 
-import com.chendong.demo.common.enums.global.ArgumentEnum;
-import com.chendong.demo.common.enums.global.ResponseEnum;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+import com.chendong.demo.common.constants.enums.global.ArgumentEnum;
+import com.chendong.demo.common.constants.enums.global.ResponseEnum;
 
 /**
  * BusinessExceptionEnum的测试类
@@ -35,7 +36,6 @@ public class TestException {
 
         ArgumentEnum.PARAMETER_FAILURE.assertEquals(str1, str2);
     }
-
 
     public static class Good {
         private String name;

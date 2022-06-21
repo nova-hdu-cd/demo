@@ -1,6 +1,6 @@
 package com.chendong.demo.service.responce;
 
-import com.chendong.demo.common.enums.global.ResultCode;
+import com.chendong.demo.common.constants.enums.global.ResultCode;
 import com.chendong.demo.domain.response.Result;
 
 /**

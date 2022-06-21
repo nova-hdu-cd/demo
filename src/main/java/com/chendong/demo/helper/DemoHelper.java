@@ -6,8 +6,8 @@ import java.util.TreeSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import com.chendong.demo.common.enums.ticket.KunlunTicketStatus;
-import com.chendong.demo.common.enums.ticket.TicketStatusEnum;
+import com.chendong.demo.common.constants.enums.ticket.KunlunTicketStatus;
+import com.chendong.demo.common.constants.enums.ticket.TicketStatusEnum;
 
 /**
  * @author chendong

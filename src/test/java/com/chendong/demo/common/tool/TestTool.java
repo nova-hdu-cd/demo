@@ -1,5 +1,29 @@
 package com.chendong.demo.common.tool;
 
+import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import javax.annotation.Resource;
+
+import org.apache.poi.ss.usermodel.Font;
+import org.apache.poi.ss.usermodel.IndexedColors;
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.boot.test.context.SpringBootTest;
+
+import com.chendong.demo.common.constants.enums.global.ArgumentEnum;
+import com.chendong.demo.common.convert.HelloMapper;
+import com.chendong.demo.common.exception.ArgumentException;
+import com.chendong.demo.common.utils.TreeUtil;
+import com.chendong.demo.domain.dto.TicketDTO;
+import com.chendong.demo.domain.dto.UserDTO;
+import com.chendong.demo.domain.pojo.Dog;
+import com.chendong.demo.domain.pojo.People;
+import com.chendong.demo.domain.vo.EmpVO;
+import com.chendong.demo.domain.vo.PermissionVO;
+
 import cn.hutool.cache.CacheUtil;
 import cn.hutool.cache.impl.FIFOCache;
 import cn.hutool.cache.impl.LFUCache;
@@ -24,27 +48,6 @@ import cn.hutool.json.JSONUtil;
 import cn.hutool.poi.excel.*;
 import cn.hutool.poi.excel.sax.Excel07SaxReader;
 import cn.hutool.poi.excel.sax.handler.RowHandler;
-import com.chendong.demo.common.convert.HelloMapper;
-import com.chendong.demo.common.enums.global.ArgumentEnum;
-import com.chendong.demo.common.exception.ArgumentException;
-import com.chendong.demo.common.utils.TreeUtil;
-import com.chendong.demo.domain.dto.TicketDTO;
-import com.chendong.demo.domain.dto.UserDTO;
-import com.chendong.demo.domain.pojo.Dog;
-import com.chendong.demo.domain.pojo.People;
-import com.chendong.demo.domain.vo.EmpVO;
-import com.chendong.demo.domain.vo.PermissionVO;
-import org.apache.poi.ss.usermodel.Font;
-import org.apache.poi.ss.usermodel.IndexedColors;
-import org.junit.jupiter.api.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.test.context.SpringBootTest;
-
-import javax.annotation.Resource;
-import java.util.*;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * Junit5测试
@@ -84,18 +87,18 @@ public class TestTool {
         LOGGER.info("[ticketDTO]->{}", JSONUtil.toJsonStr(ticketDTO));
     }
 
-    //md5加密和解密测试
+    // md5加密和解密测试
     @Test
     void testHutool() {
         String sercet = "yuiyuyuoiuououououoddd";
-        //md5工具加密
+        // md5工具加密
         String md5_sercet = SecureUtil.md5(sercet);
 
         LOGGER.info("md5_sercet -> {}", md5_sercet);
-        //模拟放入数据库中
+        // 模拟放入数据库中
         store.put("chendong", md5_sercet);
 
-        //模拟验证用户登录
+        // 模拟验证用户登录
         String result = checkUserInfo("chendong", md5_sercet);
 
         LOGGER.info("登录的状态 ->{}", result);
@@ -108,7 +111,7 @@ public class TestTool {
 
     @Test
     void testHutoolUUID() {
-        //uuid使用工具类
+        // uuid使用工具类
         String uuid = IdUtil.simpleUUID();
         LOGGER.info("uuid -> {}", uuid);
     }
@@ -128,7 +131,7 @@ public class TestTool {
         String jsonStr = JSONUtil.toJsonStr(new Dog("xiao_huang"));
         LOGGER.info("jsonStr -> {}", jsonStr);
 
-        //把一个json字符串转换成一个java对象，jsonStr->jsonObject->dog
+        // 把一个json字符串转换成一个java对象，jsonStr->jsonObject->dog
         JSONObject jsonObject = JSONUtil.parseObj(jsonStr);
         LOGGER.info("jsonObject -> {}", jsonObject);
         Dog dog = JSONUtil.toBean(jsonObject, Dog.class);
@@ -138,11 +141,11 @@ public class TestTool {
         String json = new JSONObject().set("id", "chendong").toString();
         LOGGER.info("json -> {}", json);
 
-        //将任意一个Java对象转化成json
+        // 将任意一个Java对象转化成json
         Object wrap = JSONUtil.wrap(dog, new JSONConfig());
         LOGGER.info("wrap -> {}", wrap);
 
-        //对map进行排序
+        // 对map进行排序
         Map<String, String> map = new HashMap<>();
         map.put("a", "chendong");
         map.put("b", "zhangming");
@@ -155,15 +158,16 @@ public class TestTool {
     void testStreamApi() {
         Stream<String> stringStream = Stream.of("1", "2", "2", null, "3", "4").filter(item -> item != null);
 
-        //supplier：一个能创造目标类型实例的方法。
-        //accumulator：一个将当元素添加到目标中的方法。
-        //combiner：一个将中间状态的多个结果整合到一起的方法（并发的时候会用到）
-        //ArrayList<Object> collect1 = stringStream.collect(() -> new ArrayList<>(), (list, item) -> list.add(item), (one, two) -> one.addAll(two));
-        //ArrayList<Object> collect = stringStream.collect(ArrayList::new, List::add, List::addAll);
+        // supplier：一个能创造目标类型实例的方法。
+        // accumulator：一个将当元素添加到目标中的方法。
+        // combiner：一个将中间状态的多个结果整合到一起的方法（并发的时候会用到）
+        // ArrayList<Object> collect1 = stringStream.collect(() -> new ArrayList<>(), (list, item) -> list.add(item),
+        // (one, two) -> one.addAll(two));
+        // ArrayList<Object> collect = stringStream.collect(ArrayList::new, List::add, List::addAll);
         List<String> collect = stringStream.collect(Collectors.toList());
 
-        //collect.forEach(System.out::print);
-        //System.out.print(collect);
+        // collect.forEach(System.out::print);
+        // System.out.print(collect);
 
         EmpVO vo = new EmpVO();
         vo.setName("chendong");
@@ -187,36 +191,39 @@ public class TestTool {
         results.add(vo1);
         results.add(vo3);
 
-        Map<String, Map<Integer, List<EmpVO>>> collect4 = results.stream().collect(Collectors.groupingBy(EmpVO::getName, Collectors.groupingBy(EmpVO::getAge)));
+        Map<String, Map<Integer, List<EmpVO>>> collect4 =
+            results.stream().collect(Collectors.groupingBy(EmpVO::getName, Collectors.groupingBy(EmpVO::getAge)));
         System.out.println("====================");
         System.out.println(collect4);
         System.out.println("====================");
 
-        //将list<EmpVO>转换成name:age的Map形式
-        //方法1
-        final HashMap<String, Integer> maps
-                = results.stream().collect(HashMap::new, (map, p) -> map.put(p.getName(), p.getAge()), Map::putAll);
+        // 将list<EmpVO>转换成name:age的Map形式
+        // 方法1
+        final HashMap<String, Integer> maps =
+            results.stream().collect(HashMap::new, (map, p) -> map.put(p.getName(), p.getAge()), Map::putAll);
         System.out.println("=======================");
         maps.forEach((k, v) -> System.out.println(k + ":" + v));
         System.out.println("==================");
-        //方法2
-        final Map<String, Integer> collect1
-                = results.stream().collect(Collectors.toMap(emp -> emp.getName(), emp -> emp.getAge(), (oldItem, newItem) -> newItem));
+        // 方法2
+        final Map<String, Integer> collect1 = results.stream()
+            .collect(Collectors.toMap(emp -> emp.getName(), emp -> emp.getAge(), (oldItem, newItem) -> newItem));
         collect1.forEach((k, v) -> System.out.println(k + ":" + v));
 
-        //将List<EmpVO> -> Map<Age,List<EmpVO>>
-        Map<Integer, List<EmpVO>> groupMap
-                = results.stream().collect(Collectors.groupingBy(s -> s.getAge(), Collectors.toList()));
+        // 将List<EmpVO> -> Map<Age,List<EmpVO>>
+        Map<Integer, List<EmpVO>> groupMap =
+            results.stream().collect(Collectors.groupingBy(s -> s.getAge(), Collectors.toList()));
         System.out.println(groupMap);
 
-        //将List<EmpVO> -> Map<Age,List<Name>>
-        Map<Integer, List<String>> nameToAgeGroup
-                = results.stream().collect(Collectors.groupingBy(s -> s.getAge(), Collectors.mapping(p -> p.getName(), Collectors.toList())));
+        // 将List<EmpVO> -> Map<Age,List<Name>>
+        Map<Integer, List<String>> nameToAgeGroup = results.stream()
+            .collect(Collectors.groupingBy(s -> s.getAge(), Collectors.mapping(p -> p.getName(), Collectors.toList())));
         System.out.println(nameToAgeGroup);
 
-        //统计
-        Map<String, Integer> collect3 = results.stream().collect(Collectors.groupingBy(s -> s.getName(), Collectors.reducing(0, s -> s.getAge(), Integer::sum)));
-        Map<String, Integer> collect2 = results.stream().collect(Collectors.groupingBy(s -> s.getName(), Collectors.summingInt(s -> s.getAge())));
+        // 统计
+        Map<String, Integer> collect3 = results.stream()
+            .collect(Collectors.groupingBy(s -> s.getName(), Collectors.reducing(0, s -> s.getAge(), Integer::sum)));
+        Map<String, Integer> collect2 =
+            results.stream().collect(Collectors.groupingBy(s -> s.getName(), Collectors.summingInt(s -> s.getAge())));
         System.out.println(collect2);
         System.out.println(collect3);
     }
@@ -231,7 +238,7 @@ public class TestTool {
         parent.setId(100);
         parent.setMenu("yes");
         parent.setUrl("/menu");
-        parent.setParentId("");//注意父节点的父节点id为“”
+        parent.setParentId("");// 注意父节点的父节点id为“”
 
         PermissionVO children1 = new PermissionVO();
         children1.setId(101);
@@ -260,12 +267,12 @@ public class TestTool {
 
     @Test
     void testTreeUtil() {
-        //所有的节点数据，包括父节点和子节点，注意父节点和子节点的关系
+        // 所有的节点数据，包括父节点和子节点，注意父节点和子节点的关系
         List<PermissionVO> treeNodes = getAllTreeNodes();
         LOGGER.info("treeNodes -> {}", JSONUtil.toJsonStr(treeNodes));
 
         TreeUtil treeUtil = new TreeUtil();
-        //构造树形结构的数据
+        // 构造树形结构的数据
         List<Object> treeData = treeUtil.treeMenu(treeNodes);
         LOGGER.info("treeData -> {}", JSONUtil.toJsonStr(treeData));
 
@@ -277,12 +284,12 @@ public class TestTool {
 
         System.out.println(allTreeNodes);
 
-        //todo 树形结构数据处理
+        // todo 树形结构数据处理
         List<TreeNode<Integer>> list = allTreeNodes.stream().map(permissionVO -> {
             TreeNode<Integer> treeNode = new TreeNode<>();
             treeNode.setId(permissionVO.getId());
             treeNode.setName(permissionVO.getName());
-            //父节点特殊处理
+            // 父节点特殊处理
             if (permissionVO.getParentId().equals("")) {
                 treeNode.setParentId(0);
             } else {
@@ -302,7 +309,7 @@ public class TestTool {
     @Test
     void testCacheUtil() {
 
-        //FIFO队列缓存
+        // FIFO队列缓存
         FIFOCache<String, String> cache = CacheUtil.newFIFOCache(3);
         cache.put("chendong", "12125");
         cache.put("xiaoming", "12124");
@@ -312,7 +319,7 @@ public class TestTool {
         System.out.println(s1);
         System.out.println("============================");
 
-        //最少使用率缓存.
+        // 最少使用率缓存.
         LFUCache<String, String> lfuCache = CacheUtil.newLFUCache(3);
         lfuCache.put("chendong", "12125");
         lfuCache.put("xiaoming", "12124");
@@ -334,14 +341,14 @@ public class TestTool {
 
     @Test
     void testAssert() {
-        //Assert.isFalse(true,()->new BusinessException(ArgumentEnum.PARAMETER_FAILURE));
+        // Assert.isFalse(true,()->new BusinessException(ArgumentEnum.PARAMETER_FAILURE));
         Assert.isNull(null);
         Assert.isNull("hello", () -> new ArgumentException(ArgumentEnum.PARAMETER_FAILURE));
     }
 
     @Test
     void testCaptchaUtil() {
-        //圆圈干扰的验证码
+        // 圆圈干扰的验证码
         CircleCaptcha circleCaptcha = CaptchaUtil.createCircleCaptcha(200, 100, 4, 8);
         System.out.println(circleCaptcha.getCode());
         circleCaptcha.write("d:/yanzhenma.png");
@@ -349,48 +356,45 @@ public class TestTool {
 
     @Test
     void testExcelUtil() {
-        //1.从文件中读取excel为ExcelReader
-        //注意传入的参数为File对象，而File对象的入参为“d:/a.xlsx”
+        // 1.从文件中读取excel为ExcelReader
+        // 注意传入的参数为File对象，而File对象的入参为“d:/a.xlsx”
         ExcelReader reader1 = ExcelUtil.getReader(FileUtil.file("d:/a.xlsx"));
         int count = reader1.getColumnCount();
         System.out.println(count);
 
-        //2.读取指定的sheet
+        // 2.读取指定的sheet
         ExcelReader reader = ExcelUtil.getReader(FileUtil.file("d:/a.xlsx"));
         List<List<Object>> read = reader.read();
         System.out.println(read);
 
-        //3.读取Excel中的所有行和列为map列表
+        // 3.读取Excel中的所有行和列为map列表
         List<Map<String, Object>> maps = reader.readAll();
         List<People> res = new ArrayList<>();
-        //excel中的整型数字注意为Long，浮点数据为Double
+        // excel中的整型数字注意为Long，浮点数据为Double
         maps.forEach(map -> {
             People p = new People();
-            p.setName((String) map.get("name"));
-            p.setAge((Long) (map.get("age")));
-            p.setLocation((String) map.get("location"));
-            p.setCarNum((String) map.get("carNum"));
+            p.setName((String)map.get("name"));
+            p.setAge((Long)(map.get("age")));
+            p.setLocation((String)map.get("location"));
+            p.setCarNum((String)map.get("carNum"));
             res.add(p);
         });
         System.out.println(maps);
         System.out.println(res);
 
-        //4.读取Excel中的所有行和字段为Bean列表,Bean中的字段必须和excel的标题字段相同
+        // 4.读取Excel中的所有行和字段为Bean列表,Bean中的字段必须和excel的标题字段相同
         List<People> people = reader.readAll(People.class);
         System.out.println(people);
 
-
     }
 
-
     private RowHandler createRowHandler() {
-        return (sheetIndex, rowIndex, rowList) ->
-                Console.log("[{}] [{}] {}", sheetIndex, rowIndex, rowList);
+        return (sheetIndex, rowIndex, rowList) -> Console.log("[{}] [{}] {}", sheetIndex, rowIndex, rowList);
     }
 
     @Test
     void testHugExcelUtil() {
-        //读取07版本的excel
+        // 读取07版本的excel
         Excel07SaxReader reader = ExcelUtil.read07BySax(FileUtil.file("d:/a.xlsx"), -1, createRowHandler());
     }
 
@@ -403,15 +407,15 @@ public class TestTool {
         List<String> row5 = CollUtil.newArrayList("aa4", "bb4", "cc4", "dd4");
 
         List<List<String>> rows = CollUtil.newArrayList(row1, row2, row3, row4, row5);
-        //1.获取excel写对象
+        // 1.获取excel写对象
         ExcelWriter writer = ExcelUtil.getWriter("d:/writeTest" + UUID.fastUUID().toString() + ".xlsx");
-        //2.跳过第一行
+        // 2.跳过第一行
         writer.passCurrentRow();
-        //3.合并单元格后的标题行，使用默认的标题样式
+        // 3.合并单元格后的标题行，使用默认的标题样式
         writer.merge(row1.size() - 1, "测试标题");
-        //4.一次性写出内容，强制输出标题
+        // 4.一次性写出内容，强制输出标题
         writer.write(rows, true);
-        //5.关闭writer，释放内存
+        // 5.关闭writer，释放内存
         writer.close();
 
     }
@@ -455,7 +459,7 @@ public class TestTool {
         List<People> peoples = CollUtil.newArrayList(p1, p2);
         ExcelWriter writer = ExcelUtil.getWriter(FileUtil.file("d:/people_total_alias.xlsx"));
         writer.merge(peoples.size() - 1, "人员汇总");
-        //自定义excel的标题
+        // 自定义excel的标题
         writer.addHeaderAlias("name", "姓名");
         writer.addHeaderAlias("age", "年龄");
         writer.addHeaderAlias("location", "地址");
@@ -474,7 +478,7 @@ public class TestTool {
 
         List<List<?>> rows = CollUtil.newArrayList(row1, row2, row3, row4, row5);
 
-        //大量的数据写入到excel，用BigExcelWriter
+        // 大量的数据写入到excel，用BigExcelWriter
         BigExcelWriter writer = ExcelUtil.getBigWriter("d:/xxx" + UUID.fastUUID().toString() + ".xlsx");
         writer.merge(rows.size() - 1, "汇总数据");
         writer.merge(rows.size() - 2, "XXXX公司");
@@ -498,12 +502,11 @@ public class TestTool {
         List<List<?>> rows = CollUtil.newArrayList(row1, row2, row3, row4, row5);
         writer.merge(rows.size() - 1, "汇总标题");
 
-
-        //自定义单元格的背景色
+        // 自定义单元格的背景色
         StyleSet styleSet = writer.getStyleSet();
         styleSet.setBackgroundColor(IndexedColors.RED, false);
 
-        //自定义字体
+        // 自定义字体
         Font font = writer.createFont();
         font.setBold(true);
         font.setColor(Font.COLOR_NORMAL);
@@ -521,17 +524,12 @@ public class TestTool {
         String str1 = "";
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < 100; i++) {
-            str1 = "<tr>"
-                    + "<td>" + String.valueOf(i) + "</td>"
-                    + "<td>" + String.valueOf(i) + "</td>"
-                    + "</tr>";
+            str1 = "<tr>" + "<td>" + String.valueOf(i) + "</td>" + "<td>" + String.valueOf(i) + "</td>" + "</tr>";
             sb.append(str1);
         }
         LOGGER.info("sb -> {}", sb);
         assert sb != null;
 
-
     }
-
 
 }

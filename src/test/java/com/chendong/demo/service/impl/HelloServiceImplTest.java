@@ -1,14 +1,9 @@
 package com.chendong.demo.service.impl;
 
-import cn.hutool.json.JSONUtil;
-import com.chendong.demo.BaseTest;
-import com.chendong.demo.common.async.TestAsyncTask;
-import com.chendong.demo.dao.XingUserDao;
-import com.chendong.demo.domain.entity.User;
-import com.chendong.demo.domain.entity.XingUserDO;
-import com.chendong.demo.service.IHelloService;
-import com.chendong.demo.service.request.HelloParamRequest;
-import com.chendong.demo.service.request.IndexBaseRequest;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -20,16 +15,23 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
+import com.chendong.demo.BaseTest;
+import com.chendong.demo.common.async.TestAsyncTask;
+import com.chendong.demo.dao.XingUserMapper;
+import com.chendong.demo.domain.entity.User;
+import com.chendong.demo.domain.entity.XingUserDO;
+import com.chendong.demo.service.IHelloService;
+import com.chendong.demo.service.request.HelloParamRequest;
+import com.chendong.demo.service.request.IndexBaseRequest;
+
+import cn.hutool.json.JSONUtil;
 
 class HelloServiceImplTest extends BaseTest {
 
     private static final Logger log = LoggerFactory.getLogger(HelloServiceImplTest.class);
 
     @Mock
-    XingUserDao xingUserDao;
+    XingUserMapper xingUserMapper;
 
     @InjectMocks
     HelloServiceImpl helloServiceImpl;
@@ -45,7 +47,8 @@ class HelloServiceImplTest extends BaseTest {
         Future<List<String>> future = asyncTask.doTaskOne();
         asyncTask.doTaskFive();
         while (true) {
-            if (future.isDone()) break;
+            if (future.isDone())
+                break;
         }
         log.info("[]->{}", future.get());
     }
@@ -55,7 +58,7 @@ class HelloServiceImplTest extends BaseTest {
         method1();
         method2();
         method3();
-        //上述写法异步任务不生效
+        // 上述写法异步任务不生效
     }
 
     private void method3() {
@@ -86,7 +89,7 @@ class HelloServiceImplTest extends BaseTest {
 
     @Test
     void testXingUserDao() {
-        List<XingUserDO> xingUserDOS = xingUserDao.queryAll(null);
+        List<XingUserDO> xingUserDOS = xingUserMapper.queryAll(null);
         log.info("[xingUserDOS]->{}", JSONUtil.toJsonStr(xingUserDOS));
         Assertions.assertNotNull(xingUserDOS);
     }
@@ -104,4 +107,5 @@ class HelloServiceImplTest extends BaseTest {
     }
 }
 
-//Generated with love by TestMe :) Please report issues and submit feature requests at: http://weirddev.com/forum#!/testme
+// Generated with love by TestMe :) Please report issues and submit feature requests at:
+// http://weirddev.com/forum#!/testme

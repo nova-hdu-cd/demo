@@ -1,6 +1,6 @@
 package com.chendong.demo.domain.response;
 
-import com.chendong.demo.common.enums.global.ResultCode;
+import com.chendong.demo.common.constants.enums.global.ResultCode;
 
 /**
  * 统一错误返回包装

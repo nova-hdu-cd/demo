@@ -1,3 +1,16 @@
+#自定义配置
+person:
+  name: chendong
+  age: 27
+  lists: [ cat,dog,person ]
+  lists1:
+    - cat
+    - dog
+    - person
+  maps: { k1: v1,k2: v2 }
+  dog:
+    name: xiaohuang
+
 #apollo配置
 app:
   id: demo-9527

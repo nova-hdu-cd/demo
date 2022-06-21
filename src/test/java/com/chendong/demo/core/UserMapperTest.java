@@ -1,15 +1,17 @@
 package com.chendong.demo.core;
 
-import cn.hutool.json.JSONUtil;
-import com.chendong.demo.BaseTest;
-import com.chendong.demo.dao.UserDao;
-import com.chendong.demo.domain.entity.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.chendong.demo.BaseTest;
+import com.chendong.demo.dao.UserDao;
+import com.chendong.demo.domain.entity.User;
+
+import cn.hutool.json.JSONUtil;
 
 @Transactional
 class UserDaoTest extends BaseTest {
@@ -19,18 +21,14 @@ class UserDaoTest extends BaseTest {
     @Autowired
     private UserDao userDao;
 
+    @Test
+    void deleteByPrimaryKey() {}
 
     @Test
-    void deleteByPrimaryKey() {
-    }
+    void insert() {}
 
     @Test
-    void insert() {
-    }
-
-    @Test
-    void insertSelective() {
-    }
+    void insertSelective() {}
 
     @Test
     void selectByPrimaryKey() {
@@ -42,10 +40,8 @@ class UserDaoTest extends BaseTest {
     }
 
     @Test
-    void updateByPrimaryKeySelective() {
-    }
+    void updateByPrimaryKeySelective() {}
 
     @Test
-    void updateByPrimaryKey() {
-    }
+    void updateByPrimaryKey() {}
 }

@@ -1,6 +1,6 @@
 package com.chendong.demo.common.exception;
 
-import com.chendong.demo.common.enums.global.IResponseEnum;
+import com.chendong.demo.common.constants.enums.global.IResponseEnum;
 
 /**
  * 业务异常
