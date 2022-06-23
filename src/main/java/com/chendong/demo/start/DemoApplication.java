@@ -14,7 +14,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SpringBootApplication(scanBasePackages = "com.chendong.demo")
 @EnableAsync
 @EnableScheduling
-@MapperScan({"com.chendong.demo.dao", "com.chendong.demo.mapper"})
+@MapperScan("com.chendong.demo.mapper")
 public class DemoApplication {
 
     public static void main(String[] args) {
