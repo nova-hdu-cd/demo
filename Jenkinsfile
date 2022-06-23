@@ -17,8 +17,14 @@ pipeline {
             }
             post {
               always {
+                sh 'ln -s tests/test-results-unit.xml $WORKSPACE'
                 junit 'target/surefire-reports/*.xml'
               }
+            }
+         }
+         stage('Deliver') {
+            steps {
+                sh './jenkins/scripts/deliver.sh'
             }
          }
     }
