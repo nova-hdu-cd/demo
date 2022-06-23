@@ -44,6 +44,12 @@
     <dependencies>
 
         <dependency>
+            <groupId>com.ejlchina</groupId>
+            <artifactId>bean-searcher-boot-starter</artifactId>
+            <version>3.7.0</version>
+        </dependency>
+
+        <dependency>
             <artifactId>guava</artifactId>
             <groupId>com.google.guava</groupId>
             <type>jar</type>

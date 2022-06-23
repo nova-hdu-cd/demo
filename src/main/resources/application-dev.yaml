@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+#apollo配置
+app:
+  id: demo-9527
+apollo:
+  meta: http://apollodev.unisoc.com/config/
+  bootstrap:
+    enable: true
+    namespaces: application
+env: DEV
+
+#mybatis-plus配置sql语句日志打印
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#spring 配置
+spring:
+  #thymeleaf配置
+  thymeleaf:
+    prefix: classpath:/templates/
+  #spring security 用户名和密码
+  security:
+    user:
+      name: root
+      password: root

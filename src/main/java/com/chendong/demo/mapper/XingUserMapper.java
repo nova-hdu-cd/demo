@@ -14,7 +14,7 @@ import com.chendong.demo.domain.entity.XingUserDO;
  * @since 2020-08-20 17:16:50
  */
 @Repository
-public interface XingUserDao {
+public interface XingUserMapper {
 
     /**
      * 通过ID查询单条数据

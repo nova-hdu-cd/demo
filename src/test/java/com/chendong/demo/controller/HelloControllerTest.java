@@ -1,12 +1,17 @@
 package com.chendong.demo.controller;
 
-import cn.hutool.json.JSONUtil;
-import com.chendong.demo.domain.pojo.Dog;
-import com.chendong.demo.domain.pojo.Person;
-import com.chendong.demo.domain.response.Result;
-import com.chendong.demo.domain.response.ResultError;
-import com.chendong.demo.service.IHelloService;
-import com.chendong.demo.service.request.HelloParamRequest;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+
+import javax.annotation.Resource;
+
 import org.apache.poi.ss.formula.functions.T;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +19,6 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import org.mockito.Spy;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,20 +28,13 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 
-import javax.annotation.Resource;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
-
-import static org.mockito.Mockito.any;
-import static org.mockito.Mockito.when;
+import com.chendong.demo.domain.response.Result;
+import com.chendong.demo.domain.response.ResultError;
+import com.chendong.demo.service.IHelloService;
+import com.chendong.demo.service.request.HelloParamRequest;
 
 /**
- * Mock注释模拟相关对象。
- * InjectMocks注释允许将Mock创建的不同(和相关)模拟注入到基础对象中。
+ * Mock注释模拟相关对象。 InjectMocks注释允许将Mock创建的不同(和相关)模拟注入到基础对象中。
  */
 @SpringBootTest
 class HelloControllerTest {
@@ -46,47 +43,13 @@ class HelloControllerTest {
 
     @Mock
     IHelloService helloService;
-    @Mock
-    Dog mockDog;
-    @Spy
-    Dog dog;
-    @InjectMocks
-    Person person;
+
     @InjectMocks
     HelloController helloController;
 
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
-    }
-
-    @Test
-    void testGetDog() {
-        Dog dog = helloController.getDog("小狗");
-        log.info("testGetDog.[dog]->{}", JSONUtil.toJsonStr(dog));
-        log.info("testGetDog.[dog]->{}", JSONUtil.toJsonStr(mockDog));
-        Assertions.assertNotNull(dog);
-    }
-
-    @Test
-    void testMockSpy() {
-        System.out.println(mockDog);
-        System.out.println(dog);
-    }
-
-    @Test
-    void testInjectMocks() {
-        Dog dog = person.getDog();
-        System.out.println(dog);
-        System.out.println(mockDog);
-        Assertions.assertNotNull(dog);
-    }
-
-    @Test
-    void testIndex() {
-        Dog result1 = helloController.index("value");
-        Dog result2 = helloController.index("value");
-        Assertions.assertNotNull(result1);
     }
 
     @Test
@@ -127,7 +90,6 @@ class HelloControllerTest {
             res.add(future);
         }
 
-
         CompletableFuture.allOf(res.toArray(new CompletableFuture[res.size()])).join();
 
         System.out.println("end: " + (System.currentTimeMillis() - l) / 1000);
@@ -143,11 +105,13 @@ class HelloControllerTest {
         param.put("size", 100000);
         HttpEntity httpEntity = new HttpEntity(headers);
 
-        ResponseEntity<String> response = restTemplate.exchange("http://qa-api.unisoc.com/api/v1/statistic/perfect?month=12&page=1&size=10000", HttpMethod.GET, httpEntity,
-                String.class);
+        ResponseEntity<String> response =
+            restTemplate.exchange("http://qa-api.unisoc.com/api/v1/statistic/perfect?month=12&page=1&size=10000",
+                HttpMethod.GET, httpEntity, String.class);
         System.out.println(response.getStatusCode() + ": " + response.getStatusCodeValue());
         System.out.println(response.getBody());
     }
 }
 
-//Generated with love by TestMe :) Please report issues and submit feature requests at: http://weirddev.com/forum#!/testme
+// Generated with love by TestMe :) Please report issues and submit feature requests at:
+// http://weirddev.com/forum#!/testme

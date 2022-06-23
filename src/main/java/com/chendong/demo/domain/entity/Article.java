@@ -2,6 +2,9 @@ package com.chendong.demo.domain.entity;
 
 import java.time.LocalDateTime;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -21,6 +24,7 @@ public class Article {
     private static final long serialVersionUID = 1L;
 
     @ApiModelProperty(value = "期刊id")
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer journalId;
 
     @ApiModelProperty(value = "栏目id")

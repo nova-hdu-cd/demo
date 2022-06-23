@@ -1,61 +1,7 @@
-#自定义配置
-person:
-  name: chendong
-  age: 27
-  lists: [ cat,dog,person ]
-  lists1:
-    - cat
-    - dog
-    - person
-  maps: { k1: v1,k2: v2 }
-  dog:
-    name: xiaohuang
-
-#apollo配置
-app:
-  id: demo-9527
-apollo:
-  meta: http://apollodev.unisoc.com/config/
-  bootstrap:
-    enable: true
-    namespaces: application
-env: DEV
-
-
-#mybatis-plus配置sql语句日志打印
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
-#mybatis配置
-mybatis:
-  type-aliases-package: com.chendong.demo.dao
-  mapper-locations: classpath:mapper/*Mapper.xml
-  #驼峰映射
-  configuration:
-    map-underscore-to-camel-case: true
-
-#spring 配置
 spring:
-  #thymeleaf配置
-  thymeleaf:
-    prefix: classpath:/templates/
-  #spring security 用户名和密码
-  security:
-    user:
-      name: root
-      password: root
-
----
-#开发环境配置
-server:
-  port: 9081
-spring:
-  profiles: dev
-
----
-#测试环境配置
-server:
-  port: 8082
-spring:
-  profiles: test
+  profiles:
+    active: dev
+#日志级别
+logging:
+  level:
+    root: info

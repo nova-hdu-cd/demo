@@ -19,8 +19,6 @@ import com.chendong.demo.common.exception.ArgumentException;
 import com.chendong.demo.common.utils.TreeUtil;
 import com.chendong.demo.domain.dto.TicketDTO;
 import com.chendong.demo.domain.dto.UserDTO;
-import com.chendong.demo.domain.pojo.Dog;
-import com.chendong.demo.domain.pojo.People;
 import com.chendong.demo.domain.vo.EmpVO;
 import com.chendong.demo.domain.vo.PermissionVO;
 
@@ -39,13 +37,13 @@ import cn.hutool.core.lang.Pair;
 import cn.hutool.core.lang.UUID;
 import cn.hutool.core.lang.tree.Tree;
 import cn.hutool.core.lang.tree.TreeNode;
-import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.util.IdUtil;
 import cn.hutool.crypto.SecureUtil;
-import cn.hutool.json.JSONConfig;
-import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
-import cn.hutool.poi.excel.*;
+import cn.hutool.poi.excel.BigExcelWriter;
+import cn.hutool.poi.excel.ExcelUtil;
+import cn.hutool.poi.excel.ExcelWriter;
+import cn.hutool.poi.excel.StyleSet;
 import cn.hutool.poi.excel.sax.Excel07SaxReader;
 import cn.hutool.poi.excel.sax.handler.RowHandler;
 
@@ -114,44 +112,6 @@ public class TestTool {
         // uuid使用工具类
         String uuid = IdUtil.simpleUUID();
         LOGGER.info("uuid -> {}", uuid);
-    }
-
-    @Test
-    void testJSONUtils() {
-        List<String> emp1 = Arrays.asList("chendong", "xiaoming");
-        List<String> emp2 = Arrays.asList("zhangmeng", "xiaohong");
-        List<List<String>> emps = new ArrayList<>();
-        emps.add(emp1);
-        emps.add(emp2);
-        LOGGER.info("emps -> {}", emps);
-
-        String jsonStr1 = JSONUtil.toJsonStr(emps);
-        LOGGER.info("jsonStr1 ->{}", jsonStr1);
-
-        String jsonStr = JSONUtil.toJsonStr(new Dog("xiao_huang"));
-        LOGGER.info("jsonStr -> {}", jsonStr);
-
-        // 把一个json字符串转换成一个java对象，jsonStr->jsonObject->dog
-        JSONObject jsonObject = JSONUtil.parseObj(jsonStr);
-        LOGGER.info("jsonObject -> {}", jsonObject);
-        Dog dog = JSONUtil.toBean(jsonObject, Dog.class);
-        LOGGER.info("dog -> {}", dog);
-        Dog dog1 = JSONUtil.toBean(jsonStr, Dog.class);
-        LOGGER.info("dog1 -> {}", dog1);
-        String json = new JSONObject().set("id", "chendong").toString();
-        LOGGER.info("json -> {}", json);
-
-        // 将任意一个Java对象转化成json
-        Object wrap = JSONUtil.wrap(dog, new JSONConfig());
-        LOGGER.info("wrap -> {}", wrap);
-
-        // 对map进行排序
-        Map<String, String> map = new HashMap<>();
-        map.put("a", "chendong");
-        map.put("b", "zhangming");
-        TreeMap<String, String> sortedMap = MapUtil.sort(map);
-        LOGGER.info(" sortedMap -> {}", sortedMap);
-
     }
 
     @Test
@@ -354,40 +314,6 @@ public class TestTool {
         circleCaptcha.write("d:/yanzhenma.png");
     }
 
-    @Test
-    void testExcelUtil() {
-        // 1.从文件中读取excel为ExcelReader
-        // 注意传入的参数为File对象，而File对象的入参为“d:/a.xlsx”
-        ExcelReader reader1 = ExcelUtil.getReader(FileUtil.file("d:/a.xlsx"));
-        int count = reader1.getColumnCount();
-        System.out.println(count);
-
-        // 2.读取指定的sheet
-        ExcelReader reader = ExcelUtil.getReader(FileUtil.file("d:/a.xlsx"));
-        List<List<Object>> read = reader.read();
-        System.out.println(read);
-
-        // 3.读取Excel中的所有行和列为map列表
-        List<Map<String, Object>> maps = reader.readAll();
-        List<People> res = new ArrayList<>();
-        // excel中的整型数字注意为Long，浮点数据为Double
-        maps.forEach(map -> {
-            People p = new People();
-            p.setName((String)map.get("name"));
-            p.setAge((Long)(map.get("age")));
-            p.setLocation((String)map.get("location"));
-            p.setCarNum((String)map.get("carNum"));
-            res.add(p);
-        });
-        System.out.println(maps);
-        System.out.println(res);
-
-        // 4.读取Excel中的所有行和字段为Bean列表,Bean中的字段必须和excel的标题字段相同
-        List<People> people = reader.readAll(People.class);
-        System.out.println(people);
-
-    }
-
     private RowHandler createRowHandler() {
         return (sheetIndex, rowIndex, rowList) -> Console.log("[{}] [{}] {}", sheetIndex, rowIndex, rowList);
     }
@@ -439,32 +365,6 @@ public class TestTool {
         ExcelWriter writer = ExcelUtil.getWriter("d:/writeMapTest.xlsx");
         writer.merge(rows.size() - 1, "一班成绩单");
         writer.write(rows, true);
-        writer.close();
-    }
-
-    @Test
-    void testExcelToBean() {
-        People p1 = new People();
-        p1.setName("张三");
-        p1.setAge(25L);
-        p1.setLocation("上海");
-        p1.setCarNum("沪A23322");
-
-        People p2 = new People();
-        p2.setName("小明");
-        p2.setAge(29L);
-        p2.setLocation("上海");
-        p2.setCarNum("沪A28822");
-
-        List<People> peoples = CollUtil.newArrayList(p1, p2);
-        ExcelWriter writer = ExcelUtil.getWriter(FileUtil.file("d:/people_total_alias.xlsx"));
-        writer.merge(peoples.size() - 1, "人员汇总");
-        // 自定义excel的标题
-        writer.addHeaderAlias("name", "姓名");
-        writer.addHeaderAlias("age", "年龄");
-        writer.addHeaderAlias("location", "地址");
-        writer.addHeaderAlias("carNum", "车牌号");
-        writer.write(peoples, true);
         writer.close();
     }
 

@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import com.alibaba.fastjson.JSON;
 import com.chendong.demo.common.anotations.PermissionAnnotation;
 import com.chendong.demo.common.anotations.ResponseResult;
-import com.chendong.demo.domain.pojo.Dog;
 import com.chendong.demo.domain.request.BaseRequest;
 import com.chendong.demo.domain.response.Result;
 import com.chendong.demo.domain.response.ResultError;
@@ -31,32 +30,6 @@ public class HelloController extends BaseController {
 
     @Resource
     private IHelloService helloService;
-
-    /**
-     * 成功返回示例
-     *
-     * @return
-     */
-    @ResponseResult
-    @GetMapping("/index")
-    public Dog index(@RequestAttribute("demo-index") String value) {
-
-        log.info("request.value: -> {}", JSON.toJSONString(value));
-
-        Dog dog = new Dog();
-        dog.setName("xiaohuang111111");
-        log.info("index.dog -> {}", JSON.toJSONString(dog));
-        System.out.println("  " + dog + " ");
-        return dog;
-    }
-
-    @ResponseResult
-    @GetMapping("/index1")
-    public Dog getDog(String value) {
-        Dog dog = new Dog();
-        dog.setName(value);
-        return dog;
-    }
 
     /**
      * 返回String,通过引入jackson的消息转换器解决
