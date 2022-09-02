@@ -1,34 +1,43 @@
 package com.chendong.demo.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
-
-import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.stereotype.Controller;
-import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.*;
-
+import cn.hutool.json.JSONUtil;
 import com.chendong.demo.common.anotations.ResponseResult;
 import com.chendong.demo.domain.dto.InfoDTO;
 import com.chendong.demo.domain.entity.User;
 import com.chendong.demo.domain.response.Result;
 import com.chendong.demo.domain.vo.EmpVO;
+import com.chendong.demo.pdf.ScatterPlotChartTest;
+import com.chendong.demo.pdf.TemplateBO;
+import com.chendong.demo.pdf.component.PDFHeaderFooter;
+import com.chendong.demo.pdf.component.PDFKit;
+import com.chendong.demo.pdf.component.chart.ScatterPlotChart;
+import com.chendong.demo.pdf.component.chart.impl.DefaultLineChart;
+import com.chendong.demo.pdf.component.chart.model.XYLine;
 import com.chendong.demo.service.IUserService;
-
-import cn.hutool.json.JSONUtil;
+import com.google.common.collect.Lists;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.apache.commons.lang.exception.ExceptionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.http.MediaType;
+import org.springframework.stereotype.Controller;
+import org.springframework.util.Assert;
+import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 /**
  * @author dong.chen
@@ -45,6 +54,83 @@ public class IndexController {
 
     @Resource
     private ApplicationContext applicationContext;
+
+    public OutputStream createPDF(Object data, String filePath, HttpServletResponse response) {
+        //pdf保存路径
+        try {
+            //设置自定义PDF页眉页脚工具类
+            PDFHeaderFooter headerFooter = new PDFHeaderFooter();
+            PDFKit kit = new PDFKit();
+            kit.setHeaderFooterBuilder(headerFooter);
+            return kit.exportToResponse(filePath, data, response);
+
+        } catch (Exception e) {
+            log.error("PDF生成失败{}", ExceptionUtils.getFullStackTrace(e));
+            return null;
+        }
+
+    }
+
+    @ApiOperation(value = "下载pdf", produces = MediaType.APPLICATION_PDF_VALUE)
+    @GetMapping("/download")
+    @ResponseBody
+    public void download(HttpServletResponse response) {
+        response.setCharacterEncoding("UTF-8");
+        /* 设置文件ContentType类型，这样设置，会自动判断下载文件类型 */
+        response.setContentType("application/pdf");
+        /* 设置文件头：最后一个参数是设置下载文件名 */
+        response.setHeader("Content-Disposition", "attachment;filename=aaa.pdf");
+        createPDF(getPdfData(), "hello.ftl", response);
+
+
+    }
+
+    private Object getPdfData() {
+        TemplateBO templateBO = new TemplateBO();
+        templateBO.setTemplateName("Hello iText! Hello freemarker! Hello jFreeChart!");
+        templateBO.setFreeMarkerUrl("http://www.zheng-hang.com/chm/freemarker2_3_24/ref_directive_if.html");
+        templateBO.setITEXTUrl("http://developers.itextpdf.com/examples-itext5");
+        templateBO.setJFreeChartUrl("http://www.yiibai.com/jfreechart/jfreechart_referenced_apis.html");
+        templateBO.setImageUrl("http://mss.vip.sankuai.com/v1/mss_74e5b6ab17f44f799a524fa86b6faebf/360report/logo_1.png");
+        List<String> scores = new ArrayList<String>();
+        scores.add("90");
+        scores.add("95");
+        scores.add("98");
+        templateBO.setScores(scores);
+        //折线图
+        List<XYLine> lineList = getTemperatureLineList();
+        DefaultLineChart lineChart = new DefaultLineChart();
+        lineChart.setHeight(500);
+        lineChart.setWidth(300);
+        String picUrl = lineChart.draw(lineList, 0);
+        templateBO.setPicUrl(picUrl);
+
+        //散点图
+        String scatterUrl = ScatterPlotChart.draw(ScatterPlotChartTest.getData(), 1, "他评得分(%)", "自评得分(%)");
+        templateBO.setScatterUrl(scatterUrl);
+        return templateBO;
+    }
+
+    public static List<XYLine> getTemperatureLineList() {
+        List<XYLine> list = Lists.newArrayList();
+        for (int i = 1; i <= 7; i++) {
+            XYLine line = new XYLine();
+            float random = Math.round(Math.random() * 10);
+            line.setXValue("星期" + i);
+            line.setYValue(20 + random);
+            line.setGroupName("下周");
+            list.add(line);
+        }
+        for (int i = 1; i <= 7; i++) {
+            XYLine line = new XYLine();
+            float random = Math.round(Math.random() * 10);
+            line.setXValue("星期" + i);
+            line.setYValue(20 + random);
+            line.setGroupName("这周");
+            list.add(line);
+        }
+        return list;
+    }
 
     @ApiOperation(value = "获取所有的用户")
     @GetMapping("/getAll")
@@ -89,9 +175,9 @@ public class IndexController {
     @ResponseBody
     @GetMapping("/addEmpV3/{id}/{username}")
     public Result<String> addEmpV3(
-        @ApiParam(name = "id", value = "用户id", example = "1111", required = true) @PathVariable("id") Long id,
-        @ApiParam(name = "username", value = "姓名", example = "xiaohua",
-            required = true) @PathVariable("username") String username) {
+            @ApiParam(name = "id", value = "用户id", example = "1111", required = true) @PathVariable("id") Long id,
+            @ApiParam(name = "username", value = "姓名", example = "xiaohua",
+                    required = true) @PathVariable("username") String username) {
 
         return Result.success("hello world!");
     }
@@ -99,7 +185,7 @@ public class IndexController {
     @ResponseBody
     @PostMapping("/addEmp")
     public Result<EmpVO>
-        addEmp(@RequestBody @ApiParam(name = "EmpVO", value = "员工vo", example = "empvo", required = true) EmpVO empVO) {
+    addEmp(@RequestBody @ApiParam(name = "EmpVO", value = "员工vo", example = "empvo", required = true) EmpVO empVO) {
 
         // 模拟业务过程
         EmpVO vo = new EmpVO();
@@ -150,7 +236,7 @@ public class IndexController {
     @ResponseBody
     @GetMapping("/showInfo/{infoId}")
     public Result<InfoDTO> showInfo(@ApiParam(name = "infoId", value = "员工id", example = "12120",
-        required = true) @PathVariable("infoId") String infoId) {
+            required = true) @PathVariable("infoId") String infoId) {
 
         // 模拟业务过程
         InfoDTO infoDTO = new InfoDTO();

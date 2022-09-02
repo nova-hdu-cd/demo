@@ -3,10 +3,7 @@ package com.chendong.demo.controller;
 import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.when;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
@@ -33,6 +30,9 @@ import com.chendong.demo.domain.response.ResultError;
 import com.chendong.demo.service.IHelloService;
 import com.chendong.demo.service.request.HelloParamRequest;
 
+import cn.hutool.core.lang.Snowflake;
+import cn.hutool.core.util.IdUtil;
+
 /**
  * Mock注释模拟相关对象。 InjectMocks注释允许将Mock创建的不同(和相关)模拟注入到基础对象中。
  */
@@ -50,6 +50,27 @@ class HelloControllerTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.initMocks(this);
+    }
+
+    @Test
+    void testSnakerFlow() {
+
+        Set<Long> set = new HashSet<>();
+
+        List<CompletableFuture> res = new ArrayList<>();
+        for (int i = 0; i < 1000; i++) {
+            CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+                Snowflake snowflake = IdUtil.getSnowflake(1, 1);
+                long l = snowflake.nextId();
+                System.out.println(l);
+                set.add(l);
+            });
+
+            res.add(future);
+        }
+        CompletableFuture.allOf(res.toArray(new CompletableFuture[0])).join();
+
+        System.out.println("==============" + set.size());
     }
 
     @Test

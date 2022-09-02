@@ -18,7 +18,7 @@ public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
         // 简单配置spring security的过滤器链
         http.authorizeRequests()
             // 放行swagger的访问
-            .antMatchers("/doc.html/*", "/swagger-ui.html/*").permitAll().and().cors().disable().csrf().disable()
+            .antMatchers("/doc.html/*", "/swagger-ui.html/*","/magic/web/*").permitAll().and().cors().disable().csrf().disable()
             .httpBasic();
     }
 }

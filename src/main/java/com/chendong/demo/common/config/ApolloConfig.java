@@ -13,7 +13,7 @@ import com.ctrip.framework.apollo.spring.annotation.EnableApolloConfig;
 @Configuration
 public class ApolloConfig {
 
-    @Value("${demo-test-key}")
+    @Value("${project-name}")
     private String key;
 
     public String getkey() {
