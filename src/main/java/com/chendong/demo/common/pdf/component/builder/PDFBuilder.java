@@ -1,6 +1,6 @@
-package com.chendong.demo.pdf.component.builder;
+package com.chendong.demo.common.pdf.component.builder;
 
-import com.chendong.demo.pdf.exception.PDFException;
+import com.chendong.demo.common.pdf.exception.PDFException;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;

@@ -1,6 +1,6 @@
-package com.chendong.demo.pdf.component;
+package com.chendong.demo.common.pdf.component;
 
-import com.chendong.demo.pdf.component.builder.HeaderFooterBuilder;
+import com.chendong.demo.common.pdf.component.builder.HeaderFooterBuilder;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;

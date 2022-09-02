@@ -1,4 +1,4 @@
-package com.chendong.demo.pdf.util;
+package com.chendong.demo.common.pdf.util;
 
 import com.google.common.collect.Maps;
 import lombok.extern.slf4j.Slf4j;

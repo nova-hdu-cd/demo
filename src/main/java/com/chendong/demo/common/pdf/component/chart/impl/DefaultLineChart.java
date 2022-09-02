@@ -1,6 +1,6 @@
-package com.chendong.demo.pdf.component.chart.impl;
+package com.chendong.demo.common.pdf.component.chart.impl;
 
-import com.chendong.demo.pdf.component.chart.LineChart;
+import com.chendong.demo.common.pdf.component.chart.LineChart;
 import lombok.extern.slf4j.Slf4j;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.labels.ItemLabelAnchor;

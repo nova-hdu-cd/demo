@@ -1,7 +1,7 @@
-package com.chendong.demo.pdf;
+package com.chendong.demo.common.pdf;
 
-import com.chendong.demo.pdf.component.chart.ScatterPlotChart;
-import com.chendong.demo.pdf.component.chart.model.XYScatter;
+import com.chendong.demo.common.pdf.component.chart.ScatterPlotChart;
+import com.chendong.demo.common.pdf.component.chart.model.XYScatter;
 import com.google.common.collect.Lists;
 
 import java.util.List;

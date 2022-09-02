@@ -1,4 +1,4 @@
-package com.chendong.demo.pdf;
+package com.chendong.demo.common.pdf;
 
 import lombok.Data;
 

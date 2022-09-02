@@ -1,4 +1,4 @@
-package com.chendong.demo.pdf.component.chart;
+package com.chendong.demo.common.pdf.component.chart;
 
 import org.jfree.chart.annotations.XYTextAnnotation;
 import org.jfree.chart.axis.ValueAxis;

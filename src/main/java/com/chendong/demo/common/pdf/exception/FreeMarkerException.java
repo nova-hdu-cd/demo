@@ -1,4 +1,4 @@
-package com.chendong.demo.pdf.exception;
+package com.chendong.demo.common.pdf.exception;
 
 /**
  * Created by fgm on 2017/4/22.

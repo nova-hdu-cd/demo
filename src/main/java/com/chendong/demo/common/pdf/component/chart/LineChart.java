@@ -1,7 +1,7 @@
-package com.chendong.demo.pdf.component.chart;
+package com.chendong.demo.common.pdf.component.chart;
 
-import com.chendong.demo.pdf.component.chart.model.XYLine;
-import com.chendong.demo.pdf.util.FontUtil;
+import com.chendong.demo.common.pdf.component.chart.model.XYLine;
+import com.chendong.demo.common.pdf.util.FontUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartUtilities;

@@ -1,8 +1,7 @@
-package com.chendong.demo.pdf.util;
+package com.chendong.demo.common.pdf.util;
 
-import com.chendong.demo.pdf.component.PDFKit;
-import com.chendong.demo.pdf.exception.FreeMarkerException;
-import com.chendong.demo.pdf.exception.PDFException;
+import com.chendong.demo.common.pdf.exception.FreeMarkerException;
+import com.chendong.demo.common.pdf.exception.PDFException;
 import com.google.common.collect.Maps;
 import freemarker.cache.FileTemplateLoader;
 import freemarker.template.Configuration;

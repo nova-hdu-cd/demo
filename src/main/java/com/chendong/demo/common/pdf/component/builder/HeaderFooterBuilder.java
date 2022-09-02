@@ -1,4 +1,4 @@
-package com.chendong.demo.pdf.component.builder;
+package com.chendong.demo.common.pdf.component.builder;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.Font;

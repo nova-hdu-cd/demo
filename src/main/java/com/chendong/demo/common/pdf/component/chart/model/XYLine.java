@@ -1,4 +1,4 @@
-package com.chendong.demo.pdf.component.chart.model;
+package com.chendong.demo.common.pdf.component.chart.model;
 
 import lombok.Data;
 

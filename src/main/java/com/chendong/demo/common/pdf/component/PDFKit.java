@@ -1,9 +1,9 @@
-package com.chendong.demo.pdf.component;
+package com.chendong.demo.common.pdf.component;
 
-import com.chendong.demo.pdf.component.builder.HeaderFooterBuilder;
-import com.chendong.demo.pdf.component.builder.PDFBuilder;
-import com.chendong.demo.pdf.exception.PDFException;
-import com.chendong.demo.pdf.util.FreeMarkerUtil;
+import com.chendong.demo.common.pdf.component.builder.HeaderFooterBuilder;
+import com.chendong.demo.common.pdf.component.builder.PDFBuilder;
+import com.chendong.demo.common.pdf.exception.PDFException;
+import com.chendong.demo.common.pdf.util.FreeMarkerUtil;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.pdf.PdfWriter;
